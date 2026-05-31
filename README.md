@@ -18,7 +18,6 @@ Geometric sans-serif variable font for every size of Cal.com — display headlin
 - [Design Philosophy and Unique Characteristics](#design-philosophy-and-unique-characteristics)
 - [Variable Axes](#variable-axes)
 - [Named Instances](#named-instances)
-- [OpenType Features](#opentype-features)
 - [Installation Instructions](#installation-instructions)
   - [Desktop](#desktop)
 - [NPM Package](#npm-package)
@@ -115,33 +114,6 @@ The following named instances are included as presets across two optical sizes a
 | Text A11y Medium    | 10   | 0    | 500  |
 | Text A11y SemiBold  | 10   | 0    | 600  |
 | Text A11y Bold      | 10   | 0    | 700  |
-
-## OpenType Features
-
-**Stylistic Set 01 (ss01) — Futura Alternates.** The default design is ahistorical in certain respects; ss01 activates Futura-specific alternates including diacritic variants — 48 alternates in total.
-
-![A sample of ss01](/documentation/images/blog-specimen_ss01.jpg)
-
-**Stylistic Set 02 (ss02) — Futura Ligatures.** Identical to ss01, but also combines eligible letters as historical Futura ligatures. Included as a stylistic set rather than discretionary ligatures because the default letterforms do not match these historical joins.
-
-![A sample of ss02](/documentation/images/blog-specimen_ss02.jpg)
-
-**Stylistic Set 03 (ss03) — Diagonal Crash Kerning.** The most unusual feature. "Tight but not touching" produces consistent texture, but consecutive diagonals (AV, VA, WA, etc.) receive conservative kerning by default to prevent overlap. ss03 overrides those pairs with new values that let diagonal corners make contact — for designers who prefer rhythmic consistency over separation.
-
-![Open Source Fonts' Default Spacing](/documentation/images/ss03_kerning.gif)
-
-**Character Variants.** Six character variants for fine-grained control, continuing from Cal Sans 1.0:
-
-| Feature | Glyph | Description               |
-| :------ | :---- | :------------------------ |
-| cv01    | Cc    | Alternate C/c             |
-| cv02    | j     | Alternate j               |
-| cv03    | t     | Alternate t               |
-| cv04    | u     | Alternate u               |
-| cv05    | 0     | Alternate zero            |
-| cv06    | 1     | Alternate one             |
-
-Thanks to Tal Leming's [OpenType Cook Book](https://opentypecookbook.com/rules/) for technical guidance, and to [Rasmus Andersson](https://twitter.com/rsms) for demonstrating Character Variants in [Inter](https://github.com/rsms/inter).
 
 ## Installation Instructions
 
