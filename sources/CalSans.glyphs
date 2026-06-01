@@ -839,8 +839,10 @@ xỨỰỪỬHỮŰ
 /uhorn.ss10/uhornacute.ss10/uhorndotbelow.ss10/uhorngrave.ss10/uhornhookabove.ss10/uhorntilde.ss10 
 ƯƠƠỚỢỜỞỠ",
 "rxkÝo",
-"DTdh/_part.stroke 
-/_part.strokeshort ĐŦ/tpart.comb tŧđħ
+"Ŧ
+/a.alt at/a.rcltA11y 
+DTdh/_part.stroke 
+/_part.strokeshort ĐŦ/tpart.comb tŧđħt
 nªnºn/ordfeminine.rcltBase n/ordfeminine.ss01 
 ďi/fpartrcltBase.comb/f.rcltBase aư/uhorn.rcltGeo"
 );
@@ -1096,290 +1098,441 @@ name = vendorID;
 value = WORD;
 }
 );
-date = "2026-05-30 20:12:36 +0000";
+date = "2026-06-01 01:29:37 +0000";
 familyName = "Cal Sans";
 featurePrefixes = (
 {
-code = "conditionset GEOM_UI_G {
-    GEOM 0 40;
-} GEOM_UI_G;
-variation rclt GEOM_UI_G {
-    sub G by G.rcltUI;
-    sub Gcommaaccent by Gcommaaccent.rcltUI;
-    sub Gdotaccent by Gdotaccent.rcltUI;
-    sub Gbreve by Gbreve.rcltUI;
-    sub Gcircumflex by Gcircumflex.rcltUI;
-    sub Gmacron by Gmacron.rcltUI;
-    sub guarani by guarani.rcltUI;
-    sub guarani.tf by guarani.tf.rcltUI;
-} rclt;
+code = "# ==========================================
+# 1. Condition Sets
+# ==========================================
 
-conditionset GEOM_A11y_Il {
-    GEOM 0 10;
-} GEOM_A11y_Il;
-variation rclt GEOM_A11y_Il {
-    sub I by I.rcltA11y;
-    sub IJ by IJ.rcltA11y;
-    sub IJacute by IJacute.rcltA11y;
-    sub Iacute by Iacute.rcltA11y;
-    sub Icircumflex by Icircumflex.rcltA11y;
-    sub Idieresis by Idieresis.rcltA11y;
-    sub Idotaccent by Idotaccent.rcltA11y;
-    sub Idotbelow by Idotbelow.rcltA11y;
-    sub Igrave by Igrave.rcltA11y;
-    sub Ihookabove by Ihookabove.rcltA11y;
-    sub Iinvertedbreve by Iinvertedbreve.rcltA11y;
-    sub Imacron by Imacron.rcltA11y;
-    sub Iogonek by Iogonek.rcltA11y;
-    sub Itilde by Itilde.rcltA11y;
-    sub l by l.rcltA11y;
-    sub lacute by lacute.rcltA11y;
-    sub lcaron by lcaron.rcltA11y;
-    sub lcommaaccent by lcommaaccent.rcltA11y;
-    sub ldot by ldot.rcltA11y;
-    sub ldotbelow by ldotbelow.rcltA11y;
-    sub ldotbelowmacron by ldotbelowmacron.rcltA11y;
-    sub lmacronbelow by lmacronbelow.rcltA11y;
-    sub lslash by lslash.rcltA11y;
-    sub lcommaaccent.loclMAH by lcommaaccent.loclMAH.rcltA11y;
-} rclt;
+conditionset cond_opsz_8_A11y {
+    opsz 0 8;
+    GEOM 0 34;
+} cond_opsz_8_A11y;
 
-conditionset GEOM_A11y_a {
-    GEOM 0 12;
-} GEOM_A11y_a;
-variation rclt GEOM_A11y_a {
-    sub a by a.rcltA11y;
-    sub aacute by aacute.rcltA11y;
-    sub abreve by abreve.rcltA11y;
-    sub abreveacute by abreveacute.rcltA11y;
-    sub abrevedotbelow by abrevedotbelow.rcltA11y;
-    sub abrevegrave by abrevegrave.rcltA11y;
-    sub abrevehookabove by abrevehookabove.rcltA11y;
-    sub abrevetilde by abrevetilde.rcltA11y;
-    sub acircumflex by acircumflex.rcltA11y;
-    sub acircumflexacute by acircumflexacute.rcltA11y;
-    sub acircumflexdotbelow by acircumflexdotbelow.rcltA11y;
-    sub acircumflexgrave by acircumflexgrave.rcltA11y;
-    sub acircumflexhookabove by acircumflexhookabove.rcltA11y;
-    sub acircumflextilde by acircumflextilde.rcltA11y;
-    sub adieresis by adieresis.rcltA11y;
-    sub adotbelow by adotbelow.rcltA11y;
-    sub agrave by agrave.rcltA11y;
-    sub ahookabove by ahookabove.rcltA11y;
-    sub ainvertedbreve by ainvertedbreve.rcltA11y;
-    sub amacron by amacron.rcltA11y;
-    sub aogonek by aogonek.rcltA11y;
-    sub aring by aring.rcltA11y;
-    sub atilde by atilde.rcltA11y;
-} rclt;
+conditionset cond_GEOM_a_tail_cameo {
+    GEOM 34 41;
+} cond_GEOM_a_tail_cameo;
 
-conditionset GEOM_UI_g_low {
-    GEOM 0 15;
-} GEOM_UI_g_low;
-variation rclt GEOM_UI_g_low {
-    sub g by g.rcltUI;
-    sub gbreve by gbreve.rcltUI;
-    sub gmacron by gmacron.rcltUI;
-    sub gdotaccent by gdotaccent.rcltUI;
-    sub gcircumflex by gcircumflex.rcltUI;
-    sub gcommaaccent by gcommaaccent.rcltUI;
-} rclt;
+conditionset cond_GEOM_UI_G {
+    GEOM 0 41;
+} cond_GEOM_UI_G;
 
-conditionset GEOM_UI_g_cameo {
-    GEOM 35 40;
-} GEOM_UI_g_cameo;
-variation rclt GEOM_UI_g_cameo {
-    sub g by g.rcltUI;
-    sub gbreve by gbreve.rcltUI;
-    sub gmacron by gmacron.rcltUI;
-    sub gdotaccent by gdotaccent.rcltUI;
-    sub gcircumflex by gcircumflex.rcltUI;
-    sub gcommaaccent by gcommaaccent.rcltUI;
-} rclt;
+conditionset cond_GEOM_A11y_Il {
+    GEOM 0 11;
+} cond_GEOM_A11y_Il;
 
-conditionset GEOM_TEXT_a {
-    GEOM 35 100;
-} GEOM_TEXT_a;
-variation rclt GEOM_TEXT_a {
-    sub a by a.rcltBase;
-    sub aacute by aacute.rcltBase;
-    sub abreve by abreve.rcltBase;
-    sub abreveacute by abreveacute.rcltBase;
-    sub abrevedotbelow by abrevedotbelow.rcltBase;
-    sub abrevegrave by abrevegrave.rcltBase;
-    sub abrevehookabove by abrevehookabove.rcltBase;
-    sub abrevetilde by abrevetilde.rcltBase;
-    sub acircumflex by acircumflex.rcltBase;
-    sub acircumflexacute by acircumflexacute.rcltBase;
-    sub acircumflexdotbelow by acircumflexdotbelow.rcltBase;
-    sub acircumflexgrave by acircumflexgrave.rcltBase;
-    sub acircumflexhookabove by acircumflexhookabove.rcltBase;
-    sub acircumflextilde by acircumflextilde.rcltBase;
-    sub adieresis by adieresis.rcltBase;
-    sub adotbelow by adotbelow.rcltBase;
-    sub agrave by agrave.rcltBase;
-    sub ahookabove by ahookabove.rcltBase;
-    sub ainvertedbreve by ainvertedbreve.rcltBase;
-    sub amacron by amacron.rcltBase;
-    sub aogonek by aogonek.rcltBase;
-    sub aring by aring.rcltBase;
-    sub atilde by atilde.rcltBase;
-    sub ae by ae.rcltBase;
-    sub aemacron by aemacron.rcltBase;
-    sub ordfeminine by ordfeminine.rcltBase;
-} rclt;
+conditionset cond_GEOM_A11y_a {
+    GEOM 0 13;
+} cond_GEOM_A11y_a;
 
-conditionset GEOM_TEXT_fjt {
-    GEOM 40 75;
-} GEOM_TEXT_fjt;
-variation rclt GEOM_TEXT_fjt {
-    sub f by f.rcltBase;
+conditionset cond_GEOM_UI_g_low {
+    GEOM 0 16;
+} cond_GEOM_UI_g_low;
 
-    sub t by t.rcltBase;
-    sub tbar by tbar.rcltBase;
-    sub tcaron by tcaron.rcltBase;
-    sub tcedilla by tcedilla.rcltBase;
-    sub tcommaaccent by tcommaaccent.rcltBase;
-    sub tdotbelow by tdotbelow.rcltBase;
-    sub tmacronbelow by tmacronbelow.rcltBase;
+conditionset cond_GEOM_UI_g_cameo {
+    GEOM 34 41;
+} cond_GEOM_UI_g_cameo;
 
-    sub fi by fi.rcltBase;
-    sub fl by fl.rcltBase;
-    sub f_f_i by f_f_i.rcltBase;
-    sub f_f_l by f_f_l.rcltBase;
-    sub f_t by f_t.rcltBase;
+conditionset cond_GEOM_TEXT_a {
+    GEOM 34 32767;
+} cond_GEOM_TEXT_a;
 
-    sub ijacute by ijacute.rcltBase;
-    sub j by j.rcltBase;
-    sub jdotless by jdotless.rcltBase;
-    sub jacute by jacute.rcltBase;
-    sub jcircumflex by jcircumflex.rcltBase;
-} rclt;
+conditionset cond_GEOM_TEXT_fjt {
+    GEOM 39 76;
+} cond_GEOM_TEXT_fjt;
 
-conditionset GEOM_TEXT_f_high {
-    GEOM 76 100;
-} GEOM_TEXT_f_high;
-variation rclt GEOM_TEXT_f_high {
-    sub f by f.rcltBase;
-    sub fi by fi.rcltBase;
-    sub fl by fl.rcltBase;
-    sub f_f_i by f_f_i.rcltBase;
-    sub f_f_l by f_f_l.rcltBase;
-} rclt;
+#conditionset cond_GEOM_TEXT_f_high {
+#    GEOM 75 32767;
+#} cond_GEOM_TEXT_f_high;
 
-conditionset GEOM_TEXT_y {
-    GEOM 40 60;
-} GEOM_TEXT_y;
-variation rclt GEOM_TEXT_y {
-    sub y by y.rcltBase;
-    sub yacute by yacute.rcltBase;
-    sub ycircumflex by ycircumflex.rcltBase;
-    sub ydieresis by ydieresis.rcltBase;
-    sub ydotaccent by ydotaccent.rcltBase;
-    sub ydotbelow by ydotbelow.rcltBase;
-    sub ygrave by ygrave.rcltBase;
-    sub yhookabove by yhookabove.rcltBase;
-    sub ytilde by ytilde.rcltBase;
-} rclt;
+conditionset cond_GEOM_TEXT_y {
+    GEOM 39 61;
+} cond_GEOM_TEXT_y;
 
-conditionset GEOM_GEO_uy {
-    GEOM 60 100;
-} GEOM_GEO_uy;
-variation rclt GEOM_GEO_uy {
-    sub u by u.rcltGeo;
-    sub uacute by uacute.rcltGeo;
-    sub ubreve by ubreve.rcltGeo;
-    sub ucircumflex by ucircumflex.rcltGeo;
-    sub udieresis by udieresis.rcltGeo;
-    sub udotbelow by udotbelow.rcltGeo;
-    sub ugrave by ugrave.rcltGeo;
-    sub uhookabove by uhookabove.rcltGeo;
-    sub uhorn by uhorn.rcltGeo;
-    sub uhornacute by uhornacute.rcltGeo;
-    sub uhorndotbelow by uhorndotbelow.rcltGeo;
-    sub uhorngrave by uhorngrave.rcltGeo;
-    sub uhornhookabove by uhornhookabove.rcltGeo;
-    sub uhorntilde by uhorntilde.rcltGeo;
-    sub uhungarumlaut by uhungarumlaut.rcltGeo;
-    sub uinvertedbreve by uinvertedbreve.rcltGeo;
-    sub umacron by umacron.rcltGeo;
-    sub udieresisacute by udieresisacute.rcltGeo;
-    sub udieresisgrave by udieresisgrave.rcltGeo;
-    sub udieresiscaron by udieresiscaron.rcltGeo;
-    sub udieresismacron by udieresismacron.rcltGeo;
-    sub uogonek by uogonek.rcltGeo;
-    sub uring by uring.rcltGeo;
-    sub utilde by utilde.rcltGeo;
+conditionset cond_GEOM_GEO_uy {
+    GEOM 59 32767;
+} cond_GEOM_GEO_uy;
 
-    sub y by y.rcltGeo;
-    sub yacute by yacute.rcltGeo;
-    sub ycircumflex by ycircumflex.rcltGeo;
-    sub ydieresis by ydieresis.rcltGeo;
-    sub ydotaccent by ydotaccent.rcltGeo;
-    sub ydotbelow by ydotbelow.rcltGeo;
-    sub ygrave by ygrave.rcltGeo;
-    sub yhookabove by yhookabove.rcltGeo;
-    sub ytilde by ytilde.rcltGeo;
-} rclt;
+conditionset cond_GEOM_GEO_jt {
+    GEOM 74 32767;
+} cond_GEOM_GEO_jt;
 
-conditionset GEOM_GEO_jt {
-    GEOM 75 100;
-} GEOM_GEO_jt;
-variation rclt GEOM_GEO_jt {
-    sub t by t.rcltGeo;
-    sub tbar by tbar.rcltGeo;
-    sub tcaron by tcaron.rcltGeo;
-    sub tcedilla by tcedilla.rcltGeo;
-    sub tcommaaccent by tcommaaccent.rcltGeo;
-    sub tdotbelow by tdotbelow.rcltGeo;
-    sub tmacronbelow by tmacronbelow.rcltGeo;
-    sub f_t by f_t.rcltGeo;
+conditionset cond_GEOM_GEO_rest {
+    GEOM 79 32767;
+} cond_GEOM_GEO_rest;
 
-    sub ij by ij.rcltGeo;
-    sub ijacute by ijacute.rcltGeo;
 
-    sub j by j.rcltGeo;
-    sub jdotless by jdotless.rcltGeo;
-    sub jacute by jacute.rcltGeo;
-    sub jcircumflex by jcircumflex.rcltGeo;
-} rclt;
+# ==========================================
+# 2. Variation Feature Blocks
+# ==========================================
 
-conditionset GEOM_GEO_rest {
-    GEOM 80 100;
-} GEOM_GEO_rest;
-variation rclt GEOM_GEO_rest {
-    sub C by C.rcltGeo;
-    sub Cacute by Cacute.rcltGeo;
-    sub Ccaron by Ccaron.rcltGeo;
-    sub Ccedilla by Ccedilla.rcltGeo;
-    sub Ccircumflex by Ccircumflex.rcltGeo;
-    sub Cdotaccent by Cdotaccent.rcltGeo;
+feature rclt {
 
-    sub c by c.rcltGeo;
-    sub cacute by cacute.rcltGeo;
-    sub ccaron by ccaron.rcltGeo;
-    sub ccedilla by ccedilla.rcltGeo;
-    sub ccircumflex by ccircumflex.rcltGeo;
-    sub cdotaccent by cdotaccent.rcltGeo;
+    variation cond_opsz_8_A11y {
+        lookup opsz_8_A11y {
+            sub a by a.rcltA11y;
+            sub aacute by aacute.rcltA11y;
+            sub abreve by abreve.rcltA11y;
+            sub abreveacute by abreveacute.rcltA11y;
+            sub abrevedotbelow by abrevedotbelow.rcltA11y;
+            sub abrevegrave by abrevegrave.rcltA11y;
+            sub abrevehookabove by abrevehookabove.rcltA11y;
+            sub abrevetilde by abrevetilde.rcltA11y;
+            sub acircumflex by acircumflex.rcltA11y;
+            sub acircumflexacute by acircumflexacute.rcltA11y;
+            sub acircumflexdotbelow by acircumflexdotbelow.rcltA11y;
+            sub acircumflexgrave by acircumflexgrave.rcltA11y;
+            sub acircumflexhookabove by acircumflexhookabove.rcltA11y;
+            sub acircumflextilde by acircumflextilde.rcltA11y;
+            sub adieresis by adieresis.rcltA11y;
+            sub adotbelow by adotbelow.rcltA11y;
+            sub agrave by agrave.rcltA11y;
+            sub ahookabove by ahookabove.rcltA11y;
+            sub ainvertedbreve by ainvertedbreve.rcltA11y;
+            sub amacron by amacron.rcltA11y;
+            sub aogonek by aogonek.rcltA11y;
+            sub aring by aring.rcltA11y;
+            sub atilde by atilde.rcltA11y;
+            sub a.alt by a.rcltA11y;
+            sub aacute.alt by aacute.rcltA11y;
+            sub abreve.alt by abreve.rcltA11y;
+            sub abreveacute.alt by abreveacute.rcltA11y;
+            sub abrevedotbelow.alt by abrevedotbelow.rcltA11y;
+            sub abrevegrave.alt by abrevegrave.rcltA11y;
+            sub abrevehookabove.alt by abrevehookabove.rcltA11y;
+            sub abrevetilde.alt by abrevetilde.rcltA11y;
+            sub acircumflex.alt by acircumflex.rcltA11y;
+            sub acircumflexacute.alt by acircumflexacute.rcltA11y;
+            sub acircumflexdotbelow.alt by acircumflexdotbelow.rcltA11y;
+            sub acircumflexgrave.alt by acircumflexgrave.rcltA11y;
+            sub acircumflexhookabove.alt by acircumflexhookabove.rcltA11y;
+            sub acircumflextilde.alt by acircumflextilde.rcltA11y;
+            sub adieresis.alt by adieresis.rcltA11y;
+            sub adotbelow.alt by adotbelow.rcltA11y;
+            sub agrave.alt by agrave.rcltA11y;
+            sub ahookabove.alt by ahookabove.rcltA11y;
+            sub ainvertedbreve.alt by ainvertedbreve.rcltA11y;
+            sub amacron.alt by amacron.rcltA11y;
+            sub aogonek.alt by aogonek.rcltA11y;
+            sub aring.alt by aring.rcltA11y;
+            sub atilde.alt by atilde.rcltA11y;
+        } opsz_8_A11y;
+    } rclt;
 
-    sub Eng by Eng.rcltGeo;
-    sub eng by eng.rcltGeo;
 
-    sub pi by pi.rcltGeo;
+    # a tail — cameo reappearance: 35–40
+    variation cond_GEOM_a_tail_cameo {
+        lookup GEOM_a_tail_cameo {
+            sub g by g.rcltA11y;
+            sub gbreve by gbreve.rcltA11y;
+            sub gmacron by gmacron.rcltA11y;
+            sub gdotaccent by gdotaccent.rcltA11y;
+            sub gcircumflex by gcircumflex.rcltA11y;
+            sub gcommaaccent by gcommaaccent.rcltA11y;
+        } GEOM_a_tail_cameo;
+    } rclt;
 
-    sub one by one.rcltGeo;
-    sub zero by zero.rcltGeo;
-	sub zero by 
 
-    sub euro by euro.rcltGeo;
-    sub euro.tf by euro.tf.rcltGeo;
+    # G family — UI band: 0–40
+    variation cond_GEOM_UI_G {
+        lookup GEOM_UI_G {
+            sub G by G.rcltUI;
+            sub Gcommaaccent by Gcommaaccent.rcltUI;
+            sub Gdotaccent by Gdotaccent.rcltUI;
+            sub Gbreve by Gbreve.rcltUI;
+            sub Gcircumflex by Gcircumflex.rcltUI;
+            sub Gmacron by Gmacron.rcltUI;
+            sub guarani by guarani.rcltUI;
+            sub guarani.tf by guarani.tf.rcltUI;
+        } GEOM_UI_G;
+    } rclt;
 
-    sub micro by micro.rcltGeo;
 
-    sub M by M.rcltGeo;
-    sub Mdotbelow by Mdotbelow.rcltGeo;
-    sub Mdotaccent by Mdotaccent.rcltGeo;
-    sub Mcommaaccent.loclMAH by Mcommaaccent.loclMAH.rcltGeo;
+    # I, l, IJ — A11y at 0–10
+    variation cond_GEOM_A11y_Il {
+        lookup GEOM_A11y_Il {
+            sub I by I.rcltA11y;
+            sub IJ by IJ.rcltA11y;
+            sub IJacute by IJacute.rcltA11y;
+            sub Iacute by Iacute.rcltA11y;
+            sub Icircumflex by Icircumflex.rcltA11y;
+            sub Idieresis by Idieresis.rcltA11y;
+            sub Idotaccent by Idotaccent.rcltA11y;
+            sub Idotbelow by Idotbelow.rcltA11y;
+            sub Igrave by Igrave.rcltA11y;
+            sub Ihookabove by Ihookabove.rcltA11y;
+            sub Iinvertedbreve by Iinvertedbreve.rcltA11y;
+            sub Imacron by Imacron.rcltA11y;
+            sub Iogonek by Iogonek.rcltA11y;
+            sub Itilde by Itilde.rcltA11y;
+            sub l by l.rcltA11y;
+            sub lacute by lacute.rcltA11y;
+            sub lcaron by lcaron.rcltA11y;
+            sub lcommaaccent by lcommaaccent.rcltA11y;
+            sub ldot by ldot.rcltA11y;
+            sub ldotbelow by ldotbelow.rcltA11y;
+            sub ldotbelowmacron by ldotbelowmacron.rcltA11y;
+            sub lmacronbelow by lmacronbelow.rcltA11y;
+            sub lslash by lslash.rcltA11y;
+            sub lcommaaccent.loclMAH by lcommaaccent.loclMAH.rcltA11y;
+        } GEOM_A11y_Il;
+    } rclt;
+
+
+    # a — A11y at 0–12
+    variation cond_GEOM_A11y_a {
+        lookup GEOM_A11y_a {
+            sub a by a.rcltA11y;
+            sub aacute by aacute.rcltA11y;
+            sub abreve by abreve.rcltA11y;
+            sub abreveacute by abreveacute.rcltA11y;
+            sub abrevedotbelow by abrevedotbelow.rcltA11y;
+            sub abrevegrave by abrevegrave.rcltA11y;
+            sub abrevehookabove by abrevehookabove.rcltA11y;
+            sub abrevetilde by abrevetilde.rcltA11y;
+            sub acircumflex by acircumflex.rcltA11y;
+            sub acircumflexacute by acircumflexacute.rcltA11y;
+            sub acircumflexdotbelow by acircumflexdotbelow.rcltA11y;
+            sub acircumflexgrave by acircumflexgrave.rcltA11y;
+            sub acircumflexhookabove by acircumflexhookabove.rcltA11y;
+            sub acircumflextilde by acircumflextilde.rcltA11y;
+            sub adieresis by adieresis.rcltA11y;
+            sub adotbelow by adotbelow.rcltA11y;
+            sub agrave by agrave.rcltA11y;
+            sub ahookabove by ahookabove.rcltA11y;
+            sub ainvertedbreve by ainvertedbreve.rcltA11y;
+            sub amacron by amacron.rcltA11y;
+            sub aogonek by aogonek.rcltA11y;
+            sub aring by aring.rcltA11y;
+            sub atilde by atilde.rcltA11y;
+        } GEOM_A11y_a;
+    } rclt;
+
+
+    # g UI — first appearance: 0–15
+    variation cond_GEOM_UI_g_low {
+        lookup GEOM_UI_g_low {
+            sub g by g.rcltA11y;
+            sub gbreve by gbreve.rcltA11y;
+            sub gmacron by gmacron.rcltA11y;
+            sub gdotaccent by gdotaccent.rcltA11y;
+            sub gcircumflex by gcircumflex.rcltA11y;
+            sub gcommaaccent by gcommaaccent.rcltA11y;
+        } GEOM_UI_g_low;
+    } rclt;
+
+
+    # g UI — cameo reappearance: 35–40
+    variation cond_GEOM_UI_g_cameo {
+        lookup GEOM_UI_g_cameo {
+            sub g by g.rcltA11y;
+            sub gbreve by gbreve.rcltA11y;
+            sub gmacron by gmacron.rcltA11y;
+            sub gdotaccent by gdotaccent.rcltA11y;
+            sub gcircumflex by gcircumflex.rcltA11y;
+            sub gcommaaccent by gcommaaccent.rcltA11y;
+        } GEOM_UI_g_cameo;
+    } rclt;
+
+
+    # a Text — 35–100
+    variation cond_GEOM_TEXT_a {
+        lookup GEOM_TEXT_a {
+            sub a by a.rcltBase;
+            sub aacute by aacute.rcltBase;
+            sub abreve by abreve.rcltBase;
+            sub abreveacute by abreveacute.rcltBase;
+            sub abrevedotbelow by abrevedotbelow.rcltBase;
+            sub abrevegrave by abrevegrave.rcltBase;
+            sub abrevehookabove by abrevehookabove.rcltBase;
+            sub abrevetilde by abrevetilde.rcltBase;
+            sub acircumflex by acircumflex.rcltBase;
+            sub acircumflexacute by acircumflexacute.rcltBase;
+            sub acircumflexdotbelow by acircumflexdotbelow.rcltBase;
+            sub acircumflexgrave by acircumflexgrave.rcltBase;
+            sub acircumflexhookabove by acircumflexhookabove.rcltBase;
+            sub acircumflextilde by acircumflextilde.rcltBase;
+            sub adieresis by adieresis.rcltBase;
+            sub adotbelow by adotbelow.rcltBase;
+            sub agrave by agrave.rcltBase;
+            sub ahookabove by ahookabove.rcltBase;
+            sub ainvertedbreve by ainvertedbreve.rcltBase;
+            sub amacron by amacron.rcltBase;
+            sub aogonek by aogonek.rcltBase;
+            sub aring by aring.rcltBase;
+            sub atilde by atilde.rcltBase;
+            sub ae by ae.rcltBase;
+            sub aemacron by aemacron.rcltBase;
+            sub ordfeminine by ordfeminine.rcltBase;
+        } GEOM_TEXT_a;
+    } rclt;
+
+
+    # f, j, t Text — 40–75 (j and t will be overwritten by Geo above 75)
+    variation cond_GEOM_TEXT_fjt {
+        lookup GEOM_TEXT_fjt {
+            sub f by f.rcltBase;
+
+            sub t by t.rcltBase;
+            sub tbar by tbar.rcltBase;
+            sub tcaron by tcaron.rcltBase;
+            sub tcedilla by tcedilla.rcltBase;
+            sub tcommaaccent by tcommaaccent.rcltBase;
+            sub tdotbelow by tdotbelow.rcltBase;
+            sub tmacronbelow by tmacronbelow.rcltBase;
+
+            sub fi by fi.rcltBase;
+            sub fl by fl.rcltBase;
+            sub f_f_i by f_f_i.rcltBase;
+            sub f_f_l by f_f_l.rcltBase;
+            sub f_t by f_t.rcltBase;
+
+            sub ijacute by ijacute.rcltBase;
+            sub j by j.rcltBase;
+            sub jdotless by jdotless.rcltBase;
+            sub jacute by jacute.rcltBase;
+            sub jcircumflex by jcircumflex.rcltBase;
+        } GEOM_TEXT_fjt;
+    } rclt;
+
+
+#    # f-only continuation — 76–100 (f stays Text since it has no Geo variant)
+#    variation cond_GEOM_TEXT_f_high {
+#        lookup GEOM_TEXT_f_high {
+#            sub f by f.rcltBase;
+#            sub fi by fi.rcltBase;
+#            sub fl by fl.rcltBase;
+#            sub f_f_i by f_f_i.rcltBase;
+#            sub f_f_l by f_f_l.rcltBase;
+#        } GEOM_TEXT_f_high;
+#    } rclt;
+
+
+    # y Text — 40–60
+    variation cond_GEOM_TEXT_y {
+        lookup GEOM_TEXT_y {
+            sub y by y.rcltBase;
+            sub yacute by yacute.rcltBase;
+            sub ycircumflex by ycircumflex.rcltBase;
+            sub ydieresis by ydieresis.rcltBase;
+            sub ydotaccent by ydotaccent.rcltBase;
+            sub ydotbelow by ydotbelow.rcltBase;
+            sub ygrave by ygrave.rcltBase;
+            sub yhookabove by yhookabove.rcltBase;
+            sub ytilde by ytilde.rcltBase;
+        } GEOM_TEXT_y;
+    } rclt;
+
+
+    # y, u Geo — 60–100 (u uses 60+ in v8, y crosses over at 60)
+    variation cond_GEOM_GEO_uy {
+        lookup GEOM_GEO_uy {
+            sub u by u.rcltGeo;
+            sub uacute by uacute.rcltGeo;
+            sub ubreve by ubreve.rcltGeo;
+            sub ucircumflex by ucircumflex.rcltGeo;
+            sub udieresis by udieresis.rcltGeo;
+            sub udotbelow by udotbelow.rcltGeo;
+            sub ugrave by ugrave.rcltGeo;
+            sub uhookabove by uhookabove.rcltGeo;
+            sub uhorn by uhorn.rcltGeo;
+            sub uhornacute by uhornacute.rcltGeo;
+            sub uhorndotbelow by uhorndotbelow.rcltGeo;
+            sub uhorngrave by uhorngrave.rcltGeo;
+            sub uhornhookabove by uhornhookabove.rcltGeo;
+            sub uhorntilde by uhorntilde.rcltGeo;
+            sub uhungarumlaut by uhungarumlaut.rcltGeo;
+            sub uinvertedbreve by uinvertedbreve.rcltGeo;
+            sub umacron by umacron.rcltGeo;
+            sub udieresisacute by udieresisacute.rcltGeo;
+            sub udieresisgrave by udieresisgrave.rcltGeo;
+            sub udieresiscaron by udieresiscaron.rcltGeo;
+            sub udieresismacron by udieresismacron.rcltGeo;
+            sub uogonek by uogonek.rcltGeo;
+            sub uring by uring.rcltGeo;
+            sub utilde by utilde.rcltGeo;
+
+            sub micro by micro.rcltGeo;
+
+            sub y by y.rcltGeo;
+            sub yacute by yacute.rcltGeo;
+            sub ycircumflex by ycircumflex.rcltGeo;
+            sub ydieresis by ydieresis.rcltGeo;
+            sub ydotaccent by ydotaccent.rcltGeo;
+            sub ydotbelow by ydotbelow.rcltGeo;
+            sub ygrave by ygrave.rcltGeo;
+            sub yhookabove by yhookabove.rcltGeo;
+            sub ytilde by ytilde.rcltGeo;
+        } GEOM_GEO_uy;
+    } rclt;
+
+
+    # j, t Geo — 75–100
+    variation cond_GEOM_GEO_jt {
+        lookup GEOM_GEO_jt {
+            sub t by t.rcltGeo;
+            sub tbar by tbar.rcltGeo;
+            sub tcaron by tcaron.rcltGeo;
+            sub tcedilla by tcedilla.rcltGeo;
+            sub tcommaaccent by tcommaaccent.rcltGeo;
+            sub tdotbelow by tdotbelow.rcltGeo;
+            sub tmacronbelow by tmacronbelow.rcltGeo;
+            sub f_t by f_t.rcltGeo;
+
+            sub ij by ij.rcltGeo;
+            sub ijacute by ijacute.rcltGeo;
+
+            sub pi by pi.rcltGeo;
+
+            sub j by j.rcltGeo;
+            sub jdotless by jdotless.rcltGeo;
+            sub jacute by jacute.rcltGeo;
+            sub jcircumflex by jcircumflex.rcltGeo;
+        } GEOM_GEO_jt;
+    } rclt;
+
+
+    # C, c, M, Eng, eng, numerals, currency Geo — 80–100
+    variation cond_GEOM_GEO_rest {
+        lookup GEOM_GEO_rest {
+            sub C by C.rcltGeo;
+            sub Cacute by Cacute.rcltGeo;
+            sub Ccaron by Ccaron.rcltGeo;
+            sub Ccedilla by Ccedilla.rcltGeo;
+            sub Ccircumflex by Ccircumflex.rcltGeo;
+            sub Cdotaccent by Cdotaccent.rcltGeo;
+
+            sub c by c.rcltGeo;
+            sub cacute by cacute.rcltGeo;
+            sub ccaron by ccaron.rcltGeo;
+            sub ccedilla by ccedilla.rcltGeo;
+            sub ccircumflex by ccircumflex.rcltGeo;
+            sub cdotaccent by cdotaccent.rcltGeo;
+
+            sub Eng by Eng.rcltGeo;
+            sub eng by eng.rcltGeo;
+
+            sub one by one.rcltGeo;
+            sub one.tf by one.tf.rcltGeo;
+            sub one.lf by one.lf.rcltGeo;
+            sub zero by zero.rcltGeo;
+            sub zero.zero by zero.zero.rcltGeo;
+            sub zero.tf by zero.tf.rcltGeo;
+            sub zero.lf by zero.lf.rcltGeo;
+
+            sub euro by euro.rcltGeo;
+            sub euro.tf by euro.tf.rcltGeo;
+
+            sub M by M.rcltGeo;
+            sub Mdotbelow by Mdotbelow.rcltGeo;
+            sub Mdotaccent by Mdotaccent.rcltGeo;
+            sub Mcommaaccent by Mcommaaccent.rcltGeo;
+            sub Mcommaaccent.loclMAH by Mcommaaccent.loclMAH.rcltGeo;
+        } GEOM_GEO_rest;
+    } rclt;
+
 } rclt;
 ";
 disabled = 1;
@@ -1816,14 +1969,14 @@ code = "#production feature
   } GEOM_TEXT_fjt;
 
   # f-only continuation — 76–100 (f stays Text since it has no Geo variant)
-  condition 75 < GEOM;
-  lookup GEOM_TEXT_f_high {
-    sub f by f.rcltBase;
-    sub fi by fi.rcltBase;
-    sub fl by fl.rcltBase;
-    sub f_f_i by f_f_i.rcltBase;
-    sub f_f_l by f_f_l.rcltBase;
-  } GEOM_TEXT_f_high;
+#  condition 75 < GEOM;
+#  lookup GEOM_TEXT_f_high {
+#    sub f by f.rcltBase;
+#    sub fi by fi.rcltBase;
+#    sub fl by fl.rcltBase;
+#    sub f_f_i by f_f_i.rcltBase;
+#    sub f_f_l by f_f_l.rcltBase;
+#  } GEOM_TEXT_f_high;
 
   # y Text — 40–60
   condition 39 < GEOM < 61;
@@ -2371,6 +2524,7 @@ code = "# pos @All <0 0 0 0 (opsz:8) 0 0 14 0 (opsz:10) 0 0 0 0 (opsz:32) 0 0 0 
     pos @All 0 (opsz:8) 10 (opsz:32) 0;
 #endif
 ";
+disabled = 1;
 tag = kern;
 },
 {
@@ -71193,7 +71347,7 @@ width = 536;
 glyphname = a.rcltA11y;
 kernLeft = a;
 kernRight = a.rcltA11y;
-lastChange = "2026-05-28 22:44:18 +0000";
+lastChange = "2026-06-01 03:44:00 +0000";
 layers = (
 {
 anchors = (
@@ -71587,57 +71741,113 @@ shapes = (
 {
 closed = 1;
 nodes = (
-(307,-13,o),
-(345,33,o),
-(375,78,c),
-(375,78,l),
-(394,-22,o),
-(496,-16,o),
-(531,0,c),
-(531,75,l),
-(499,63,o),
-(457,74,o),
-(457,127,cs),
-(457,337,ls),
-(457,449,o),
-(374,533,o),
-(235,533,cs),
-(143,533,o),
-(74,498,o),
-(21,424,c),
-(85,373,l),
-(122,436,o),
-(174,459,o),
-(241,459,cs),
-(316,459,o),
-(371,406,o),
-(371,335,cs),
-(371,299,l),
-(389,317,l),
-(273,312,ls),
-(99,305,o),
-(20,255,o),
-(20,143,cs),
-(20,48,o),
-(92,-13,o),
-(203,-13,cs)
+(1007,-13,o),
+(1045,33,o),
+(1075,78,c),
+(1075,78,l),
+(1094,-22,o),
+(1196,-16,o),
+(1231,0,c),
+(1231,75,l),
+(1199,63,o),
+(1157,74,o),
+(1157,127,cs),
+(1157,337,ls),
+(1157,449,o),
+(1074,533,o),
+(935,533,cs),
+(843,533,o),
+(774,498,o),
+(721,424,c),
+(785,373,l),
+(822,436,o),
+(874,459,o),
+(941,459,cs),
+(1016,459,o),
+(1071,406,o),
+(1071,335,cs),
+(1071,299,l),
+(1089,317,l),
+(973,312,ls),
+(799,305,o),
+(720,255,o),
+(720,143,cs),
+(720,48,o),
+(792,-13,o),
+(903,-13,cs)
 );
 },
 {
 closed = 1;
 nodes = (
-(142,67,o),
-(104,97,o),
-(104,143,cs),
-(104,204,o),
-(156,233,o),
-(275,238,cs),
-(386,242,l),
-(371,260,l),
+(842,67,o),
+(804,97,o),
+(804,143,cs),
+(804,204,o),
+(856,233,o),
+(975,238,cs),
+(1086,242,l),
+(1071,260,l),
+(1071,215,ls),
+(1071,133,o),
+(1021,67,o),
+(909,67,cs)
+);
+},
+{
+closed = 1;
+nodes = (
+(312,-13,o),
+(349,38,o),
+(371,74,c),
+(371,74,l),
+(371,49,o),
+(371,25,o),
+(371,0,c),
+(457,0,l),
+(457,33,o),
+(457,67,o),
+(457,100,cs),
+(457,337,ls),
+(457,441,o),
+(371,533,o),
+(235,533,cs),
+(147,533,o),
+(77,499,o),
+(23,426,c),
+(85,372,l),
+(123,428,o),
+(176,453,o),
+(236,453,cs),
+(319,453,o),
+(371,406,o),
+(371,335,cs),
+(371,303,l),
+(389,322,l),
+(273,314,ls),
+(99,302,o),
+(20,247,o),
+(20,143,cs),
+(20,46,o),
+(91,-13,o),
+(204,-13,cs)
+);
+},
+{
+closed = 1;
+nodes = (
+(143,67,o),
+(104,95,o),
+(104,144,cs),
+(104,200,o),
+(154,232,o),
+(277,240,cs),
+(386,247,l),
+(371,264,l),
 (371,215,ls),
 (371,133,o),
-(321,67,o),
-(209,67,cs)
+(307,67,o),
+(207,67,cs)
 );
 }
 );
@@ -71711,18 +71921,18 @@ nodes = (
 (235,533,cs),
 (143,533,o),
 (74,498,o),
-(21,424,c),
+(23,426,c),
 (85,373,l),
-(122,436,o),
-(177,459,o),
-(234,459,cs),
-(321,459,o),
+(125,429,o),
+(177,453,o),
+(236,453,cs),
+(321,453,o),
 (371,405,o),
 (371,335,cs),
 (371,299,l),
-(389,317,l),
-(269,312,ls),
-(100,305,o),
+(389,322,l),
+(268,314,ls),
+(100,303,o),
 (20,254,o),
 (20,146,cs),
 (20,48,o),
@@ -71737,14 +71947,14 @@ nodes = (
 (104,95,o),
 (104,144,cs),
 (104,204,o),
-(157,233,o),
-(281,238,cs),
-(386,242,l),
+(158,232,o),
+(280,240,cs),
+(386,247,l),
 (371,260,l),
 (371,215,ls),
-(371,133,o),
-(320,67,o),
-(212,67,cs)
+(371,139,o),
+(314,67,o),
+(210,67,cs)
 );
 }
 );
@@ -202004,7 +202214,7 @@ instances = (
 customParameters = (
 {
 name = fileName;
-value = "CalSans-VariableFont 1.955 [opsz,wght,GEOM,YTAS,SHRP]";
+value = "CalSans-VariableFont 1.956 [opsz,wght,GEOM,YTAS,SHRP]";
 },
 {
 name = "Remove Glyphs";
@@ -202118,7 +202328,7 @@ value = "Cal Sans";
 },
 {
 key = uniqueID;
-value = "1955-CalSansWORD-2026-05-30";
+value = "1956-CalSansWORD-2026-05-31";
 },
 {
 key = variationsPostScriptNamePrefix;
@@ -202155,59 +202365,59 @@ value = (
 "Gmacron=Gmacron.rcltUI",
 "guarani=guarani.rcltUI",
 "guarani.tf=guarani.tf.rcltUI",
-"I=I.rcltA11Y",
-"IJ=IJ.rcltA11Y",
-"IJacute=IJacute.rcltA11Y",
-"Iacute=Iacute.rcltA11Y",
-"Icircumflex=Icircumflex.rcltA11Y",
-"Idieresis=Idieresis.rcltA11Y",
-"Idotaccent=Idotaccent.rcltA11Y",
-"Idotbelow=Idotbelow.rcltA11Y",
-"Igrave=Igrave.rcltA11Y",
-"Ihookabove=Ihookabove.rcltA11Y",
-"Iinvertedbreve=Iinvertedbreve.rcltA11Y",
-"Imacron=Imacron.rcltA11Y",
-"Iogonek=Iogonek.rcltA11Y",
-"Itilde=Itilde.rcltA11Y",
-"l=l.rcltA11Y",
-"lacute=lacute.rcltA11Y",
-"lcaron=lcaron.rcltA11Y",
-"lcommaaccent=lcommaaccent.rcltA11Y",
-"ldot=ldot.rcltA11Y",
-"ldotbelow=ldotbelow.rcltA11Y",
-"ldotbelowmacron=ldotbelowmacron.rcltA11Y",
-"lmacronbelow=lmacronbelow.rcltA11Y",
-"lslash=lslash.rcltA11Y",
-"lcommaaccent.loclMAH=lcommaaccent.loclMAH.rcltA11Y",
-"a=a.rcltA11Y",
-"aacute=aacute.rcltA11Y",
-"abreve=abreve.rcltA11Y",
-"abreveacute=abreveacute.rcltA11Y",
-"abrevedotbelow=abrevedotbelow.rcltA11Y",
-"abrevegrave=abrevegrave.rcltA11Y",
-"abrevehookabove=abrevehookabove.rcltA11Y",
-"abrevetilde=abrevetilde.rcltA11Y",
-"acircumflex=acircumflex.rcltA11Y",
-"acircumflexacute=acircumflexacute.rcltA11Y",
-"acircumflexdotbelow=acircumflexdotbelow.rcltA11Y",
-"acircumflexgrave=acircumflexgrave.rcltA11Y",
-"acircumflexhookabove=acircumflexhookabove.rcltA11Y",
-"acircumflextilde=acircumflextilde.rcltA11Y",
-"adieresis=adieresis.rcltA11Y",
-"adotbelow=adotbelow.rcltA11Y",
-"agrave=agrave.rcltA11Y",
-"ahookabove=ahookabove.rcltA11Y",
-"ainvertedbreve=ainvertedbreve.rcltA11Y",
-"amacron=amacron.rcltA11Y",
-"aogonek=aogonek.rcltA11Y",
-"aring=aring.rcltA11Y",
-"atilde=atilde.rcltA11Y",
-"g=g.rcltA11Y",
-"gbreve=gbreve.rcltA11Y",
-"gmacron=gmacron.rcltA11Y",
-"gdotaccent=gdotaccent.rcltA11Y",
-"gcircumflex=gcircumflex.rcltA11Y",
-"gcommaaccent=gcommaaccent.rcltA11Y"
+"I=I.rcltA11y",
+"IJ=IJ.rcltA11y",
+"IJacute=IJacute.rcltA11y",
+"Iacute=Iacute.rcltA11y",
+"Icircumflex=Icircumflex.rcltA11y",
+"Idieresis=Idieresis.rcltA11y",
+"Idotaccent=Idotaccent.rcltA11y",
+"Idotbelow=Idotbelow.rcltA11y",
+"Igrave=Igrave.rcltA11y",
+"Ihookabove=Ihookabove.rcltA11y",
+"Iinvertedbreve=Iinvertedbreve.rcltA11y",
+"Imacron=Imacron.rcltA11y",
+"Iogonek=Iogonek.rcltA11y",
+"Itilde=Itilde.rcltA11y",
+"l=l.rcltA11y",
+"lacute=lacute.rcltA11y",
+"lcaron=lcaron.rcltA11y",
+"lcommaaccent=lcommaaccent.rcltA11y",
+"ldot=ldot.rcltA11y",
+"ldotbelow=ldotbelow.rcltA11y",
+"ldotbelowmacron=ldotbelowmacron.rcltA11y",
+"lmacronbelow=lmacronbelow.rcltA11y",
+"lslash=lslash.rcltA11y",
+"lcommaaccent.loclMAH=lcommaaccent.loclMAH.rcltA11y",
+"a=a.rcltA11y",
+"aacute=aacute.rcltA11y",
+"abreve=abreve.rcltA11y",
+"abreveacute=abreveacute.rcltA11y",
+"abrevedotbelow=abrevedotbelow.rcltA11y",
+"abrevegrave=abrevegrave.rcltA11y",
+"abrevehookabove=abrevehookabove.rcltA11y",
+"abrevetilde=abrevetilde.rcltA11y",
+"acircumflex=acircumflex.rcltA11y",
+"acircumflexacute=acircumflexacute.rcltA11y",
+"acircumflexdotbelow=acircumflexdotbelow.rcltA11y",
+"acircumflexgrave=acircumflexgrave.rcltA11y",
+"acircumflexhookabove=acircumflexhookabove.rcltA11y",
+"acircumflextilde=acircumflextilde.rcltA11y",
+"adieresis=adieresis.rcltA11y",
+"adotbelow=adotbelow.rcltA11y",
+"agrave=agrave.rcltA11y",
+"ahookabove=ahookabove.rcltA11y",
+"ainvertedbreve=ainvertedbreve.rcltA11y",
+"amacron=amacron.rcltA11y",
+"aogonek=aogonek.rcltA11y",
+"aring=aring.rcltA11y",
+"atilde=atilde.rcltA11y",
+"g=g.rcltA11y",
+"gbreve=gbreve.rcltA11y",
+"gmacron=gmacron.rcltA11y",
+"gdotaccent=gdotaccent.rcltA11y",
+"gcircumflex=gcircumflex.rcltA11y",
+"gcommaaccent=gcommaaccent.rcltA11y"
 );
 },
 {
@@ -202368,59 +202578,59 @@ value = (
 "Gmacron=Gmacron.rcltUI",
 "guarani=guarani.rcltUI",
 "guarani.tf=guarani.tf.rcltUI",
-"I=I.rcltA11Y",
-"IJ=IJ.rcltA11Y",
-"IJacute=IJacute.rcltA11Y",
-"Iacute=Iacute.rcltA11Y",
-"Icircumflex=Icircumflex.rcltA11Y",
-"Idieresis=Idieresis.rcltA11Y",
-"Idotaccent=Idotaccent.rcltA11Y",
-"Idotbelow=Idotbelow.rcltA11Y",
-"Igrave=Igrave.rcltA11Y",
-"Ihookabove=Ihookabove.rcltA11Y",
-"Iinvertedbreve=Iinvertedbreve.rcltA11Y",
-"Imacron=Imacron.rcltA11Y",
-"Iogonek=Iogonek.rcltA11Y",
-"Itilde=Itilde.rcltA11Y",
-"l=l.rcltA11Y",
-"lacute=lacute.rcltA11Y",
-"lcaron=lcaron.rcltA11Y",
-"lcommaaccent=lcommaaccent.rcltA11Y",
-"ldot=ldot.rcltA11Y",
-"ldotbelow=ldotbelow.rcltA11Y",
-"ldotbelowmacron=ldotbelowmacron.rcltA11Y",
-"lmacronbelow=lmacronbelow.rcltA11Y",
-"lslash=lslash.rcltA11Y",
-"lcommaaccent.loclMAH=lcommaaccent.loclMAH.rcltA11Y",
-"a=a.rcltA11Y",
-"aacute=aacute.rcltA11Y",
-"abreve=abreve.rcltA11Y",
-"abreveacute=abreveacute.rcltA11Y",
-"abrevedotbelow=abrevedotbelow.rcltA11Y",
-"abrevegrave=abrevegrave.rcltA11Y",
-"abrevehookabove=abrevehookabove.rcltA11Y",
-"abrevetilde=abrevetilde.rcltA11Y",
-"acircumflex=acircumflex.rcltA11Y",
-"acircumflexacute=acircumflexacute.rcltA11Y",
-"acircumflexdotbelow=acircumflexdotbelow.rcltA11Y",
-"acircumflexgrave=acircumflexgrave.rcltA11Y",
-"acircumflexhookabove=acircumflexhookabove.rcltA11Y",
-"acircumflextilde=acircumflextilde.rcltA11Y",
-"adieresis=adieresis.rcltA11Y",
-"adotbelow=adotbelow.rcltA11Y",
-"agrave=agrave.rcltA11Y",
-"ahookabove=ahookabove.rcltA11Y",
-"ainvertedbreve=ainvertedbreve.rcltA11Y",
-"amacron=amacron.rcltA11Y",
-"aogonek=aogonek.rcltA11Y",
-"aring=aring.rcltA11Y",
-"atilde=atilde.rcltA11Y",
-"g=g.rcltA11Y",
-"gbreve=gbreve.rcltA11Y",
-"gmacron=gmacron.rcltA11Y",
-"gdotaccent=gdotaccent.rcltA11Y",
-"gcircumflex=gcircumflex.rcltA11Y",
-"gcommaaccent=gcommaaccent.rcltA11Y"
+"I=I.rcltA11y",
+"IJ=IJ.rcltA11y",
+"IJacute=IJacute.rcltA11y",
+"Iacute=Iacute.rcltA11y",
+"Icircumflex=Icircumflex.rcltA11y",
+"Idieresis=Idieresis.rcltA11y",
+"Idotaccent=Idotaccent.rcltA11y",
+"Idotbelow=Idotbelow.rcltA11y",
+"Igrave=Igrave.rcltA11y",
+"Ihookabove=Ihookabove.rcltA11y",
+"Iinvertedbreve=Iinvertedbreve.rcltA11y",
+"Imacron=Imacron.rcltA11y",
+"Iogonek=Iogonek.rcltA11y",
+"Itilde=Itilde.rcltA11y",
+"l=l.rcltA11y",
+"lacute=lacute.rcltA11y",
+"lcaron=lcaron.rcltA11y",
+"lcommaaccent=lcommaaccent.rcltA11y",
+"ldot=ldot.rcltA11y",
+"ldotbelow=ldotbelow.rcltA11y",
+"ldotbelowmacron=ldotbelowmacron.rcltA11y",
+"lmacronbelow=lmacronbelow.rcltA11y",
+"lslash=lslash.rcltA11y",
+"lcommaaccent.loclMAH=lcommaaccent.loclMAH.rcltA11y",
+"a=a.rcltA11y",
+"aacute=aacute.rcltA11y",
+"abreve=abreve.rcltA11y",
+"abreveacute=abreveacute.rcltA11y",
+"abrevedotbelow=abrevedotbelow.rcltA11y",
+"abrevegrave=abrevegrave.rcltA11y",
+"abrevehookabove=abrevehookabove.rcltA11y",
+"abrevetilde=abrevetilde.rcltA11y",
+"acircumflex=acircumflex.rcltA11y",
+"acircumflexacute=acircumflexacute.rcltA11y",
+"acircumflexdotbelow=acircumflexdotbelow.rcltA11y",
+"acircumflexgrave=acircumflexgrave.rcltA11y",
+"acircumflexhookabove=acircumflexhookabove.rcltA11y",
+"acircumflextilde=acircumflextilde.rcltA11y",
+"adieresis=adieresis.rcltA11y",
+"adotbelow=adotbelow.rcltA11y",
+"agrave=agrave.rcltA11y",
+"ahookabove=ahookabove.rcltA11y",
+"ainvertedbreve=ainvertedbreve.rcltA11y",
+"amacron=amacron.rcltA11y",
+"aogonek=aogonek.rcltA11y",
+"aring=aring.rcltA11y",
+"atilde=atilde.rcltA11y",
+"g=g.rcltA11y",
+"gbreve=gbreve.rcltA11y",
+"gmacron=gmacron.rcltA11y",
+"gdotaccent=gdotaccent.rcltA11y",
+"gcircumflex=gcircumflex.rcltA11y",
+"gcommaaccent=gcommaaccent.rcltA11y"
 );
 },
 {
@@ -202592,59 +202802,59 @@ value = (
 "Gmacron=Gmacron.rcltUI",
 "guarani=guarani.rcltUI",
 "guarani.tf=guarani.tf.rcltUI",
-"I=I.rcltA11Y",
-"IJ=IJ.rcltA11Y",
-"IJacute=IJacute.rcltA11Y",
-"Iacute=Iacute.rcltA11Y",
-"Icircumflex=Icircumflex.rcltA11Y",
-"Idieresis=Idieresis.rcltA11Y",
-"Idotaccent=Idotaccent.rcltA11Y",
-"Idotbelow=Idotbelow.rcltA11Y",
-"Igrave=Igrave.rcltA11Y",
-"Ihookabove=Ihookabove.rcltA11Y",
-"Iinvertedbreve=Iinvertedbreve.rcltA11Y",
-"Imacron=Imacron.rcltA11Y",
-"Iogonek=Iogonek.rcltA11Y",
-"Itilde=Itilde.rcltA11Y",
-"l=l.rcltA11Y",
-"lacute=lacute.rcltA11Y",
-"lcaron=lcaron.rcltA11Y",
-"lcommaaccent=lcommaaccent.rcltA11Y",
-"ldot=ldot.rcltA11Y",
-"ldotbelow=ldotbelow.rcltA11Y",
-"ldotbelowmacron=ldotbelowmacron.rcltA11Y",
-"lmacronbelow=lmacronbelow.rcltA11Y",
-"lslash=lslash.rcltA11Y",
-"lcommaaccent.loclMAH=lcommaaccent.loclMAH.rcltA11Y",
-"a=a.rcltA11Y",
-"aacute=aacute.rcltA11Y",
-"abreve=abreve.rcltA11Y",
-"abreveacute=abreveacute.rcltA11Y",
-"abrevedotbelow=abrevedotbelow.rcltA11Y",
-"abrevegrave=abrevegrave.rcltA11Y",
-"abrevehookabove=abrevehookabove.rcltA11Y",
-"abrevetilde=abrevetilde.rcltA11Y",
-"acircumflex=acircumflex.rcltA11Y",
-"acircumflexacute=acircumflexacute.rcltA11Y",
-"acircumflexdotbelow=acircumflexdotbelow.rcltA11Y",
-"acircumflexgrave=acircumflexgrave.rcltA11Y",
-"acircumflexhookabove=acircumflexhookabove.rcltA11Y",
-"acircumflextilde=acircumflextilde.rcltA11Y",
-"adieresis=adieresis.rcltA11Y",
-"adotbelow=adotbelow.rcltA11Y",
-"agrave=agrave.rcltA11Y",
-"ahookabove=ahookabove.rcltA11Y",
-"ainvertedbreve=ainvertedbreve.rcltA11Y",
-"amacron=amacron.rcltA11Y",
-"aogonek=aogonek.rcltA11Y",
-"aring=aring.rcltA11Y",
-"atilde=atilde.rcltA11Y",
-"g=g.rcltA11Y",
-"gbreve=gbreve.rcltA11Y",
-"gmacron=gmacron.rcltA11Y",
-"gdotaccent=gdotaccent.rcltA11Y",
-"gcircumflex=gcircumflex.rcltA11Y",
-"gcommaaccent=gcommaaccent.rcltA11Y"
+"I=I.rcltA11y",
+"IJ=IJ.rcltA11y",
+"IJacute=IJacute.rcltA11y",
+"Iacute=Iacute.rcltA11y",
+"Icircumflex=Icircumflex.rcltA11y",
+"Idieresis=Idieresis.rcltA11y",
+"Idotaccent=Idotaccent.rcltA11y",
+"Idotbelow=Idotbelow.rcltA11y",
+"Igrave=Igrave.rcltA11y",
+"Ihookabove=Ihookabove.rcltA11y",
+"Iinvertedbreve=Iinvertedbreve.rcltA11y",
+"Imacron=Imacron.rcltA11y",
+"Iogonek=Iogonek.rcltA11y",
+"Itilde=Itilde.rcltA11y",
+"l=l.rcltA11y",
+"lacute=lacute.rcltA11y",
+"lcaron=lcaron.rcltA11y",
+"lcommaaccent=lcommaaccent.rcltA11y",
+"ldot=ldot.rcltA11y",
+"ldotbelow=ldotbelow.rcltA11y",
+"ldotbelowmacron=ldotbelowmacron.rcltA11y",
+"lmacronbelow=lmacronbelow.rcltA11y",
+"lslash=lslash.rcltA11y",
+"lcommaaccent.loclMAH=lcommaaccent.loclMAH.rcltA11y",
+"a=a.rcltA11y",
+"aacute=aacute.rcltA11y",
+"abreve=abreve.rcltA11y",
+"abreveacute=abreveacute.rcltA11y",
+"abrevedotbelow=abrevedotbelow.rcltA11y",
+"abrevegrave=abrevegrave.rcltA11y",
+"abrevehookabove=abrevehookabove.rcltA11y",
+"abrevetilde=abrevetilde.rcltA11y",
+"acircumflex=acircumflex.rcltA11y",
+"acircumflexacute=acircumflexacute.rcltA11y",
+"acircumflexdotbelow=acircumflexdotbelow.rcltA11y",
+"acircumflexgrave=acircumflexgrave.rcltA11y",
+"acircumflexhookabove=acircumflexhookabove.rcltA11y",
+"acircumflextilde=acircumflextilde.rcltA11y",
+"adieresis=adieresis.rcltA11y",
+"adotbelow=adotbelow.rcltA11y",
+"agrave=agrave.rcltA11y",
+"ahookabove=ahookabove.rcltA11y",
+"ainvertedbreve=ainvertedbreve.rcltA11y",
+"amacron=amacron.rcltA11y",
+"aogonek=aogonek.rcltA11y",
+"aring=aring.rcltA11y",
+"atilde=atilde.rcltA11y",
+"g=g.rcltA11y",
+"gbreve=gbreve.rcltA11y",
+"gmacron=gmacron.rcltA11y",
+"gdotaccent=gdotaccent.rcltA11y",
+"gcircumflex=gcircumflex.rcltA11y",
+"gcommaaccent=gcommaaccent.rcltA11y"
 );
 },
 {
@@ -202816,59 +203026,59 @@ value = (
 "Gmacron=Gmacron.rcltUI",
 "guarani=guarani.rcltUI",
 "guarani.tf=guarani.tf.rcltUI",
-"I=I.rcltA11Y",
-"IJ=IJ.rcltA11Y",
-"IJacute=IJacute.rcltA11Y",
-"Iacute=Iacute.rcltA11Y",
-"Icircumflex=Icircumflex.rcltA11Y",
-"Idieresis=Idieresis.rcltA11Y",
-"Idotaccent=Idotaccent.rcltA11Y",
-"Idotbelow=Idotbelow.rcltA11Y",
-"Igrave=Igrave.rcltA11Y",
-"Ihookabove=Ihookabove.rcltA11Y",
-"Iinvertedbreve=Iinvertedbreve.rcltA11Y",
-"Imacron=Imacron.rcltA11Y",
-"Iogonek=Iogonek.rcltA11Y",
-"Itilde=Itilde.rcltA11Y",
-"l=l.rcltA11Y",
-"lacute=lacute.rcltA11Y",
-"lcaron=lcaron.rcltA11Y",
-"lcommaaccent=lcommaaccent.rcltA11Y",
-"ldot=ldot.rcltA11Y",
-"ldotbelow=ldotbelow.rcltA11Y",
-"ldotbelowmacron=ldotbelowmacron.rcltA11Y",
-"lmacronbelow=lmacronbelow.rcltA11Y",
-"lslash=lslash.rcltA11Y",
-"lcommaaccent.loclMAH=lcommaaccent.loclMAH.rcltA11Y",
-"a=a.rcltA11Y",
-"aacute=aacute.rcltA11Y",
-"abreve=abreve.rcltA11Y",
-"abreveacute=abreveacute.rcltA11Y",
-"abrevedotbelow=abrevedotbelow.rcltA11Y",
-"abrevegrave=abrevegrave.rcltA11Y",
-"abrevehookabove=abrevehookabove.rcltA11Y",
-"abrevetilde=abrevetilde.rcltA11Y",
-"acircumflex=acircumflex.rcltA11Y",
-"acircumflexacute=acircumflexacute.rcltA11Y",
-"acircumflexdotbelow=acircumflexdotbelow.rcltA11Y",
-"acircumflexgrave=acircumflexgrave.rcltA11Y",
-"acircumflexhookabove=acircumflexhookabove.rcltA11Y",
-"acircumflextilde=acircumflextilde.rcltA11Y",
-"adieresis=adieresis.rcltA11Y",
-"adotbelow=adotbelow.rcltA11Y",
-"agrave=agrave.rcltA11Y",
-"ahookabove=ahookabove.rcltA11Y",
-"ainvertedbreve=ainvertedbreve.rcltA11Y",
-"amacron=amacron.rcltA11Y",
-"aogonek=aogonek.rcltA11Y",
-"aring=aring.rcltA11Y",
-"atilde=atilde.rcltA11Y",
-"g=g.rcltA11Y",
-"gbreve=gbreve.rcltA11Y",
-"gmacron=gmacron.rcltA11Y",
-"gdotaccent=gdotaccent.rcltA11Y",
-"gcircumflex=gcircumflex.rcltA11Y",
-"gcommaaccent=gcommaaccent.rcltA11Y"
+"I=I.rcltA11y",
+"IJ=IJ.rcltA11y",
+"IJacute=IJacute.rcltA11y",
+"Iacute=Iacute.rcltA11y",
+"Icircumflex=Icircumflex.rcltA11y",
+"Idieresis=Idieresis.rcltA11y",
+"Idotaccent=Idotaccent.rcltA11y",
+"Idotbelow=Idotbelow.rcltA11y",
+"Igrave=Igrave.rcltA11y",
+"Ihookabove=Ihookabove.rcltA11y",
+"Iinvertedbreve=Iinvertedbreve.rcltA11y",
+"Imacron=Imacron.rcltA11y",
+"Iogonek=Iogonek.rcltA11y",
+"Itilde=Itilde.rcltA11y",
+"l=l.rcltA11y",
+"lacute=lacute.rcltA11y",
+"lcaron=lcaron.rcltA11y",
+"lcommaaccent=lcommaaccent.rcltA11y",
+"ldot=ldot.rcltA11y",
+"ldotbelow=ldotbelow.rcltA11y",
+"ldotbelowmacron=ldotbelowmacron.rcltA11y",
+"lmacronbelow=lmacronbelow.rcltA11y",
+"lslash=lslash.rcltA11y",
+"lcommaaccent.loclMAH=lcommaaccent.loclMAH.rcltA11y",
+"a=a.rcltA11y",
+"aacute=aacute.rcltA11y",
+"abreve=abreve.rcltA11y",
+"abreveacute=abreveacute.rcltA11y",
+"abrevedotbelow=abrevedotbelow.rcltA11y",
+"abrevegrave=abrevegrave.rcltA11y",
+"abrevehookabove=abrevehookabove.rcltA11y",
+"abrevetilde=abrevetilde.rcltA11y",
+"acircumflex=acircumflex.rcltA11y",
+"acircumflexacute=acircumflexacute.rcltA11y",
+"acircumflexdotbelow=acircumflexdotbelow.rcltA11y",
+"acircumflexgrave=acircumflexgrave.rcltA11y",
+"acircumflexhookabove=acircumflexhookabove.rcltA11y",
+"acircumflextilde=acircumflextilde.rcltA11y",
+"adieresis=adieresis.rcltA11y",
+"adotbelow=adotbelow.rcltA11y",
+"agrave=agrave.rcltA11y",
+"ahookabove=ahookabove.rcltA11y",
+"ainvertedbreve=ainvertedbreve.rcltA11y",
+"amacron=amacron.rcltA11y",
+"aogonek=aogonek.rcltA11y",
+"aring=aring.rcltA11y",
+"atilde=atilde.rcltA11y",
+"g=g.rcltA11y",
+"gbreve=gbreve.rcltA11y",
+"gmacron=gmacron.rcltA11y",
+"gdotaccent=gdotaccent.rcltA11y",
+"gcircumflex=gcircumflex.rcltA11y",
+"gcommaaccent=gcommaaccent.rcltA11y"
 );
 },
 {
@@ -203697,59 +203907,59 @@ value = (
 "Gmacron=Gmacron.rcltUI",
 "guarani=guarani.rcltUI",
 "guarani.tf=guarani.tf.rcltUI",
-"a=a.rcltText",
-"aacute=aacute.rcltText",
-"abreve=abreve.rcltText",
-"abreveacute=abreveacute.rcltText",
-"abrevedotbelow=abrevedotbelow.rcltText",
-"abrevegrave=abrevegrave.rcltText",
-"abrevehookabove=abrevehookabove.rcltText",
-"abrevetilde=abrevetilde.rcltText",
-"acircumflex=acircumflex.rcltText",
-"acircumflexacute=acircumflexacute.rcltText",
-"acircumflexdotbelow=acircumflexdotbelow.rcltText",
-"acircumflexgrave=acircumflexgrave.rcltText",
-"acircumflexhookabove=acircumflexhookabove.rcltText",
-"acircumflextilde=acircumflextilde.rcltText",
-"adieresis=adieresis.rcltText",
-"adotbelow=adotbelow.rcltText",
-"agrave=agrave.rcltText",
-"ahookabove=ahookabove.rcltText",
-"ainvertedbreve=ainvertedbreve.rcltText",
-"amacron=amacron.rcltText",
-"aogonek=aogonek.rcltText",
-"aring=aring.rcltText",
-"atilde=atilde.rcltText",
-"ae=ae.rcltText",
-"aemacron=aemacron.rcltText",
-"ordfeminine=ordfeminine.rcltText",
-"f=f.rcltText",
-"t=t.rcltText",
-"tbar=tbar.rcltText",
-"tcaron=tcaron.rcltText",
-"tcedilla=tcedilla.rcltText",
-"tcommaaccent=tcommaaccent.rcltText",
-"tdotbelow=tdotbelow.rcltText",
-"tmacronbelow=tmacronbelow.rcltText",
-"fi=fi.rcltText",
-"fl=fl.rcltText",
-"f_f_i=f_f_i.rcltText",
-"f_f_l=f_f_l.rcltText",
-"f_t=f_t.rcltText",
-"ijacute=ijacute.rcltText",
-"j=j.rcltText",
-"jdotless=jdotless.rcltText",
-"jacute=jacute.rcltText",
-"jcircumflex=jcircumflex.rcltText",
-"y=y.rcltText",
-"yacute=yacute.rcltText",
-"ycircumflex=ycircumflex.rcltText",
-"ydieresis=ydieresis.rcltText",
-"ydotaccent=ydotaccent.rcltText",
-"ydotbelow=ydotbelow.rcltText",
-"ygrave=ygrave.rcltText",
-"yhookabove=yhookabove.rcltText",
-"ytilde=ytilde.rcltText"
+"a=a.rcltBase",
+"aacute=aacute.rcltBase",
+"abreve=abreve.rcltBase",
+"abreveacute=abreveacute.rcltBase",
+"abrevedotbelow=abrevedotbelow.rcltBase",
+"abrevegrave=abrevegrave.rcltBase",
+"abrevehookabove=abrevehookabove.rcltBase",
+"abrevetilde=abrevetilde.rcltBase",
+"acircumflex=acircumflex.rcltBase",
+"acircumflexacute=acircumflexacute.rcltBase",
+"acircumflexdotbelow=acircumflexdotbelow.rcltBase",
+"acircumflexgrave=acircumflexgrave.rcltBase",
+"acircumflexhookabove=acircumflexhookabove.rcltBase",
+"acircumflextilde=acircumflextilde.rcltBase",
+"adieresis=adieresis.rcltBase",
+"adotbelow=adotbelow.rcltBase",
+"agrave=agrave.rcltBase",
+"ahookabove=ahookabove.rcltBase",
+"ainvertedbreve=ainvertedbreve.rcltBase",
+"amacron=amacron.rcltBase",
+"aogonek=aogonek.rcltBase",
+"aring=aring.rcltBase",
+"atilde=atilde.rcltBase",
+"ae=ae.rcltBase",
+"aemacron=aemacron.rcltBase",
+"ordfeminine=ordfeminine.rcltBase",
+"f=f.rcltBase",
+"t=t.rcltBase",
+"tbar=tbar.rcltBase",
+"tcaron=tcaron.rcltBase",
+"tcedilla=tcedilla.rcltBase",
+"tcommaaccent=tcommaaccent.rcltBase",
+"tdotbelow=tdotbelow.rcltBase",
+"tmacronbelow=tmacronbelow.rcltBase",
+"fi=fi.rcltBase",
+"fl=fl.rcltBase",
+"f_f_i=f_f_i.rcltBase",
+"f_f_l=f_f_l.rcltBase",
+"f_t=f_t.rcltBase",
+"ijacute=ijacute.rcltBase",
+"j=j.rcltBase",
+"jdotless=jdotless.rcltBase",
+"jacute=jacute.rcltBase",
+"jcircumflex=jcircumflex.rcltBase",
+"y=y.rcltBase",
+"yacute=yacute.rcltBase",
+"ycircumflex=ycircumflex.rcltBase",
+"ydieresis=ydieresis.rcltBase",
+"ydotaccent=ydotaccent.rcltBase",
+"ydotbelow=ydotbelow.rcltBase",
+"ygrave=ygrave.rcltBase",
+"yhookabove=yhookabove.rcltBase",
+"ytilde=ytilde.rcltBase"
 );
 },
 {
@@ -203910,59 +204120,59 @@ value = (
 "Gmacron=Gmacron.rcltUI",
 "guarani=guarani.rcltUI",
 "guarani.tf=guarani.tf.rcltUI",
-"a=a.rcltText",
-"aacute=aacute.rcltText",
-"abreve=abreve.rcltText",
-"abreveacute=abreveacute.rcltText",
-"abrevedotbelow=abrevedotbelow.rcltText",
-"abrevegrave=abrevegrave.rcltText",
-"abrevehookabove=abrevehookabove.rcltText",
-"abrevetilde=abrevetilde.rcltText",
-"acircumflex=acircumflex.rcltText",
-"acircumflexacute=acircumflexacute.rcltText",
-"acircumflexdotbelow=acircumflexdotbelow.rcltText",
-"acircumflexgrave=acircumflexgrave.rcltText",
-"acircumflexhookabove=acircumflexhookabove.rcltText",
-"acircumflextilde=acircumflextilde.rcltText",
-"adieresis=adieresis.rcltText",
-"adotbelow=adotbelow.rcltText",
-"agrave=agrave.rcltText",
-"ahookabove=ahookabove.rcltText",
-"ainvertedbreve=ainvertedbreve.rcltText",
-"amacron=amacron.rcltText",
-"aogonek=aogonek.rcltText",
-"aring=aring.rcltText",
-"atilde=atilde.rcltText",
-"ae=ae.rcltText",
-"aemacron=aemacron.rcltText",
-"ordfeminine=ordfeminine.rcltText",
-"f=f.rcltText",
-"t=t.rcltText",
-"tbar=tbar.rcltText",
-"tcaron=tcaron.rcltText",
-"tcedilla=tcedilla.rcltText",
-"tcommaaccent=tcommaaccent.rcltText",
-"tdotbelow=tdotbelow.rcltText",
-"tmacronbelow=tmacronbelow.rcltText",
-"fi=fi.rcltText",
-"fl=fl.rcltText",
-"f_f_i=f_f_i.rcltText",
-"f_f_l=f_f_l.rcltText",
-"f_t=f_t.rcltText",
-"ijacute=ijacute.rcltText",
-"j=j.rcltText",
-"jdotless=jdotless.rcltText",
-"jacute=jacute.rcltText",
-"jcircumflex=jcircumflex.rcltText",
-"y=y.rcltText",
-"yacute=yacute.rcltText",
-"ycircumflex=ycircumflex.rcltText",
-"ydieresis=ydieresis.rcltText",
-"ydotaccent=ydotaccent.rcltText",
-"ydotbelow=ydotbelow.rcltText",
-"ygrave=ygrave.rcltText",
-"yhookabove=yhookabove.rcltText",
-"ytilde=ytilde.rcltText"
+"a=a.rcltBase",
+"aacute=aacute.rcltBase",
+"abreve=abreve.rcltBase",
+"abreveacute=abreveacute.rcltBase",
+"abrevedotbelow=abrevedotbelow.rcltBase",
+"abrevegrave=abrevegrave.rcltBase",
+"abrevehookabove=abrevehookabove.rcltBase",
+"abrevetilde=abrevetilde.rcltBase",
+"acircumflex=acircumflex.rcltBase",
+"acircumflexacute=acircumflexacute.rcltBase",
+"acircumflexdotbelow=acircumflexdotbelow.rcltBase",
+"acircumflexgrave=acircumflexgrave.rcltBase",
+"acircumflexhookabove=acircumflexhookabove.rcltBase",
+"acircumflextilde=acircumflextilde.rcltBase",
+"adieresis=adieresis.rcltBase",
+"adotbelow=adotbelow.rcltBase",
+"agrave=agrave.rcltBase",
+"ahookabove=ahookabove.rcltBase",
+"ainvertedbreve=ainvertedbreve.rcltBase",
+"amacron=amacron.rcltBase",
+"aogonek=aogonek.rcltBase",
+"aring=aring.rcltBase",
+"atilde=atilde.rcltBase",
+"ae=ae.rcltBase",
+"aemacron=aemacron.rcltBase",
+"ordfeminine=ordfeminine.rcltBase",
+"f=f.rcltBase",
+"t=t.rcltBase",
+"tbar=tbar.rcltBase",
+"tcaron=tcaron.rcltBase",
+"tcedilla=tcedilla.rcltBase",
+"tcommaaccent=tcommaaccent.rcltBase",
+"tdotbelow=tdotbelow.rcltBase",
+"tmacronbelow=tmacronbelow.rcltBase",
+"fi=fi.rcltBase",
+"fl=fl.rcltBase",
+"f_f_i=f_f_i.rcltBase",
+"f_f_l=f_f_l.rcltBase",
+"f_t=f_t.rcltBase",
+"ijacute=ijacute.rcltBase",
+"j=j.rcltBase",
+"jdotless=jdotless.rcltBase",
+"jacute=jacute.rcltBase",
+"jcircumflex=jcircumflex.rcltBase",
+"y=y.rcltBase",
+"yacute=yacute.rcltBase",
+"ycircumflex=ycircumflex.rcltBase",
+"ydieresis=ydieresis.rcltBase",
+"ydotaccent=ydotaccent.rcltBase",
+"ydotbelow=ydotbelow.rcltBase",
+"ygrave=ygrave.rcltBase",
+"yhookabove=yhookabove.rcltBase",
+"ytilde=ytilde.rcltBase"
 );
 },
 {
@@ -204134,59 +204344,59 @@ value = (
 "Gmacron=Gmacron.rcltUI",
 "guarani=guarani.rcltUI",
 "guarani.tf=guarani.tf.rcltUI",
-"a=a.rcltText",
-"aacute=aacute.rcltText",
-"abreve=abreve.rcltText",
-"abreveacute=abreveacute.rcltText",
-"abrevedotbelow=abrevedotbelow.rcltText",
-"abrevegrave=abrevegrave.rcltText",
-"abrevehookabove=abrevehookabove.rcltText",
-"abrevetilde=abrevetilde.rcltText",
-"acircumflex=acircumflex.rcltText",
-"acircumflexacute=acircumflexacute.rcltText",
-"acircumflexdotbelow=acircumflexdotbelow.rcltText",
-"acircumflexgrave=acircumflexgrave.rcltText",
-"acircumflexhookabove=acircumflexhookabove.rcltText",
-"acircumflextilde=acircumflextilde.rcltText",
-"adieresis=adieresis.rcltText",
-"adotbelow=adotbelow.rcltText",
-"agrave=agrave.rcltText",
-"ahookabove=ahookabove.rcltText",
-"ainvertedbreve=ainvertedbreve.rcltText",
-"amacron=amacron.rcltText",
-"aogonek=aogonek.rcltText",
-"aring=aring.rcltText",
-"atilde=atilde.rcltText",
-"ae=ae.rcltText",
-"aemacron=aemacron.rcltText",
-"ordfeminine=ordfeminine.rcltText",
-"f=f.rcltText",
-"t=t.rcltText",
-"tbar=tbar.rcltText",
-"tcaron=tcaron.rcltText",
-"tcedilla=tcedilla.rcltText",
-"tcommaaccent=tcommaaccent.rcltText",
-"tdotbelow=tdotbelow.rcltText",
-"tmacronbelow=tmacronbelow.rcltText",
-"fi=fi.rcltText",
-"fl=fl.rcltText",
-"f_f_i=f_f_i.rcltText",
-"f_f_l=f_f_l.rcltText",
-"f_t=f_t.rcltText",
-"ijacute=ijacute.rcltText",
-"j=j.rcltText",
-"jdotless=jdotless.rcltText",
-"jacute=jacute.rcltText",
-"jcircumflex=jcircumflex.rcltText",
-"y=y.rcltText",
-"yacute=yacute.rcltText",
-"ycircumflex=ycircumflex.rcltText",
-"ydieresis=ydieresis.rcltText",
-"ydotaccent=ydotaccent.rcltText",
-"ydotbelow=ydotbelow.rcltText",
-"ygrave=ygrave.rcltText",
-"yhookabove=yhookabove.rcltText",
-"ytilde=ytilde.rcltText"
+"a=a.rcltBase",
+"aacute=aacute.rcltBase",
+"abreve=abreve.rcltBase",
+"abreveacute=abreveacute.rcltBase",
+"abrevedotbelow=abrevedotbelow.rcltBase",
+"abrevegrave=abrevegrave.rcltBase",
+"abrevehookabove=abrevehookabove.rcltBase",
+"abrevetilde=abrevetilde.rcltBase",
+"acircumflex=acircumflex.rcltBase",
+"acircumflexacute=acircumflexacute.rcltBase",
+"acircumflexdotbelow=acircumflexdotbelow.rcltBase",
+"acircumflexgrave=acircumflexgrave.rcltBase",
+"acircumflexhookabove=acircumflexhookabove.rcltBase",
+"acircumflextilde=acircumflextilde.rcltBase",
+"adieresis=adieresis.rcltBase",
+"adotbelow=adotbelow.rcltBase",
+"agrave=agrave.rcltBase",
+"ahookabove=ahookabove.rcltBase",
+"ainvertedbreve=ainvertedbreve.rcltBase",
+"amacron=amacron.rcltBase",
+"aogonek=aogonek.rcltBase",
+"aring=aring.rcltBase",
+"atilde=atilde.rcltBase",
+"ae=ae.rcltBase",
+"aemacron=aemacron.rcltBase",
+"ordfeminine=ordfeminine.rcltBase",
+"f=f.rcltBase",
+"t=t.rcltBase",
+"tbar=tbar.rcltBase",
+"tcaron=tcaron.rcltBase",
+"tcedilla=tcedilla.rcltBase",
+"tcommaaccent=tcommaaccent.rcltBase",
+"tdotbelow=tdotbelow.rcltBase",
+"tmacronbelow=tmacronbelow.rcltBase",
+"fi=fi.rcltBase",
+"fl=fl.rcltBase",
+"f_f_i=f_f_i.rcltBase",
+"f_f_l=f_f_l.rcltBase",
+"f_t=f_t.rcltBase",
+"ijacute=ijacute.rcltBase",
+"j=j.rcltBase",
+"jdotless=jdotless.rcltBase",
+"jacute=jacute.rcltBase",
+"jcircumflex=jcircumflex.rcltBase",
+"y=y.rcltBase",
+"yacute=yacute.rcltBase",
+"ycircumflex=ycircumflex.rcltBase",
+"ydieresis=ydieresis.rcltBase",
+"ydotaccent=ydotaccent.rcltBase",
+"ydotbelow=ydotbelow.rcltBase",
+"ygrave=ygrave.rcltBase",
+"yhookabove=yhookabove.rcltBase",
+"ytilde=ytilde.rcltBase"
 );
 },
 {
@@ -204358,59 +204568,59 @@ value = (
 "Gmacron=Gmacron.rcltUI",
 "guarani=guarani.rcltUI",
 "guarani.tf=guarani.tf.rcltUI",
-"a=a.rcltText",
-"aacute=aacute.rcltText",
-"abreve=abreve.rcltText",
-"abreveacute=abreveacute.rcltText",
-"abrevedotbelow=abrevedotbelow.rcltText",
-"abrevegrave=abrevegrave.rcltText",
-"abrevehookabove=abrevehookabove.rcltText",
-"abrevetilde=abrevetilde.rcltText",
-"acircumflex=acircumflex.rcltText",
-"acircumflexacute=acircumflexacute.rcltText",
-"acircumflexdotbelow=acircumflexdotbelow.rcltText",
-"acircumflexgrave=acircumflexgrave.rcltText",
-"acircumflexhookabove=acircumflexhookabove.rcltText",
-"acircumflextilde=acircumflextilde.rcltText",
-"adieresis=adieresis.rcltText",
-"adotbelow=adotbelow.rcltText",
-"agrave=agrave.rcltText",
-"ahookabove=ahookabove.rcltText",
-"ainvertedbreve=ainvertedbreve.rcltText",
-"amacron=amacron.rcltText",
-"aogonek=aogonek.rcltText",
-"aring=aring.rcltText",
-"atilde=atilde.rcltText",
-"ae=ae.rcltText",
-"aemacron=aemacron.rcltText",
-"ordfeminine=ordfeminine.rcltText",
-"f=f.rcltText",
-"t=t.rcltText",
-"tbar=tbar.rcltText",
-"tcaron=tcaron.rcltText",
-"tcedilla=tcedilla.rcltText",
-"tcommaaccent=tcommaaccent.rcltText",
-"tdotbelow=tdotbelow.rcltText",
-"tmacronbelow=tmacronbelow.rcltText",
-"fi=fi.rcltText",
-"fl=fl.rcltText",
-"f_f_i=f_f_i.rcltText",
-"f_f_l=f_f_l.rcltText",
-"f_t=f_t.rcltText",
-"ijacute=ijacute.rcltText",
-"j=j.rcltText",
-"jdotless=jdotless.rcltText",
-"jacute=jacute.rcltText",
-"jcircumflex=jcircumflex.rcltText",
-"y=y.rcltText",
-"yacute=yacute.rcltText",
-"ycircumflex=ycircumflex.rcltText",
-"ydieresis=ydieresis.rcltText",
-"ydotaccent=ydotaccent.rcltText",
-"ydotbelow=ydotbelow.rcltText",
-"ygrave=ygrave.rcltText",
-"yhookabove=yhookabove.rcltText",
-"ytilde=ytilde.rcltText"
+"a=a.rcltBase",
+"aacute=aacute.rcltBase",
+"abreve=abreve.rcltBase",
+"abreveacute=abreveacute.rcltBase",
+"abrevedotbelow=abrevedotbelow.rcltBase",
+"abrevegrave=abrevegrave.rcltBase",
+"abrevehookabove=abrevehookabove.rcltBase",
+"abrevetilde=abrevetilde.rcltBase",
+"acircumflex=acircumflex.rcltBase",
+"acircumflexacute=acircumflexacute.rcltBase",
+"acircumflexdotbelow=acircumflexdotbelow.rcltBase",
+"acircumflexgrave=acircumflexgrave.rcltBase",
+"acircumflexhookabove=acircumflexhookabove.rcltBase",
+"acircumflextilde=acircumflextilde.rcltBase",
+"adieresis=adieresis.rcltBase",
+"adotbelow=adotbelow.rcltBase",
+"agrave=agrave.rcltBase",
+"ahookabove=ahookabove.rcltBase",
+"ainvertedbreve=ainvertedbreve.rcltBase",
+"amacron=amacron.rcltBase",
+"aogonek=aogonek.rcltBase",
+"aring=aring.rcltBase",
+"atilde=atilde.rcltBase",
+"ae=ae.rcltBase",
+"aemacron=aemacron.rcltBase",
+"ordfeminine=ordfeminine.rcltBase",
+"f=f.rcltBase",
+"t=t.rcltBase",
+"tbar=tbar.rcltBase",
+"tcaron=tcaron.rcltBase",
+"tcedilla=tcedilla.rcltBase",
+"tcommaaccent=tcommaaccent.rcltBase",
+"tdotbelow=tdotbelow.rcltBase",
+"tmacronbelow=tmacronbelow.rcltBase",
+"fi=fi.rcltBase",
+"fl=fl.rcltBase",
+"f_f_i=f_f_i.rcltBase",
+"f_f_l=f_f_l.rcltBase",
+"f_t=f_t.rcltBase",
+"ijacute=ijacute.rcltBase",
+"j=j.rcltBase",
+"jdotless=jdotless.rcltBase",
+"jacute=jacute.rcltBase",
+"jcircumflex=jcircumflex.rcltBase",
+"y=y.rcltBase",
+"yacute=yacute.rcltBase",
+"ycircumflex=ycircumflex.rcltBase",
+"ydieresis=ydieresis.rcltBase",
+"ydotaccent=ydotaccent.rcltBase",
+"ydotbelow=ydotbelow.rcltBase",
+"ygrave=ygrave.rcltBase",
+"yhookabove=yhookabove.rcltBase",
+"ytilde=ytilde.rcltBase"
 );
 },
 {
@@ -204566,37 +204776,37 @@ value = "14400";
 {
 name = "Rename Glyphs";
 value = (
-"a=a.rcltText",
-"aacute=aacute.rcltText",
-"abreve=abreve.rcltText",
-"abreveacute=abreveacute.rcltText",
-"abrevedotbelow=abrevedotbelow.rcltText",
-"abrevegrave=abrevegrave.rcltText",
-"abrevehookabove=abrevehookabove.rcltText",
-"abrevetilde=abrevetilde.rcltText",
-"acircumflex=acircumflex.rcltText",
-"acircumflexacute=acircumflexacute.rcltText",
-"acircumflexdotbelow=acircumflexdotbelow.rcltText",
-"acircumflexgrave=acircumflexgrave.rcltText",
-"acircumflexhookabove=acircumflexhookabove.rcltText",
-"acircumflextilde=acircumflextilde.rcltText",
-"adieresis=adieresis.rcltText",
-"adotbelow=adotbelow.rcltText",
-"agrave=agrave.rcltText",
-"ahookabove=ahookabove.rcltText",
-"ainvertedbreve=ainvertedbreve.rcltText",
-"amacron=amacron.rcltText",
-"aogonek=aogonek.rcltText",
-"aring=aring.rcltText",
-"atilde=atilde.rcltText",
-"ae=ae.rcltText",
-"aemacron=aemacron.rcltText",
-"ordfeminine=ordfeminine.rcltText",
-"f=f.rcltText",
-"fi=fi.rcltText",
-"fl=fl.rcltText",
-"f_f_i=f_f_i.rcltText",
-"f_f_l=f_f_l.rcltText",
+"a=a.rcltBase",
+"aacute=aacute.rcltBase",
+"abreve=abreve.rcltBase",
+"abreveacute=abreveacute.rcltBase",
+"abrevedotbelow=abrevedotbelow.rcltBase",
+"abrevegrave=abrevegrave.rcltBase",
+"abrevehookabove=abrevehookabove.rcltBase",
+"abrevetilde=abrevetilde.rcltBase",
+"acircumflex=acircumflex.rcltBase",
+"acircumflexacute=acircumflexacute.rcltBase",
+"acircumflexdotbelow=acircumflexdotbelow.rcltBase",
+"acircumflexgrave=acircumflexgrave.rcltBase",
+"acircumflexhookabove=acircumflexhookabove.rcltBase",
+"acircumflextilde=acircumflextilde.rcltBase",
+"adieresis=adieresis.rcltBase",
+"adotbelow=adotbelow.rcltBase",
+"agrave=agrave.rcltBase",
+"ahookabove=ahookabove.rcltBase",
+"ainvertedbreve=ainvertedbreve.rcltBase",
+"amacron=amacron.rcltBase",
+"aogonek=aogonek.rcltBase",
+"aring=aring.rcltBase",
+"atilde=atilde.rcltBase",
+"ae=ae.rcltBase",
+"aemacron=aemacron.rcltBase",
+"ordfeminine=ordfeminine.rcltBase",
+"f=f.rcltBase",
+"fi=fi.rcltBase",
+"fl=fl.rcltBase",
+"f_f_i=f_f_i.rcltBase",
+"f_f_l=f_f_l.rcltBase",
 "u=u.rcltGeo",
 "uacute=uacute.rcltGeo",
 "ubreve=ubreve.rcltGeo",
@@ -204826,37 +205036,37 @@ value = "14500";
 {
 name = "Rename Glyphs";
 value = (
-"a=a.rcltText",
-"aacute=aacute.rcltText",
-"abreve=abreve.rcltText",
-"abreveacute=abreveacute.rcltText",
-"abrevedotbelow=abrevedotbelow.rcltText",
-"abrevegrave=abrevegrave.rcltText",
-"abrevehookabove=abrevehookabove.rcltText",
-"abrevetilde=abrevetilde.rcltText",
-"acircumflex=acircumflex.rcltText",
-"acircumflexacute=acircumflexacute.rcltText",
-"acircumflexdotbelow=acircumflexdotbelow.rcltText",
-"acircumflexgrave=acircumflexgrave.rcltText",
-"acircumflexhookabove=acircumflexhookabove.rcltText",
-"acircumflextilde=acircumflextilde.rcltText",
-"adieresis=adieresis.rcltText",
-"adotbelow=adotbelow.rcltText",
-"agrave=agrave.rcltText",
-"ahookabove=ahookabove.rcltText",
-"ainvertedbreve=ainvertedbreve.rcltText",
-"amacron=amacron.rcltText",
-"aogonek=aogonek.rcltText",
-"aring=aring.rcltText",
-"atilde=atilde.rcltText",
-"ae=ae.rcltText",
-"aemacron=aemacron.rcltText",
-"ordfeminine=ordfeminine.rcltText",
-"f=f.rcltText",
-"fi=fi.rcltText",
-"fl=fl.rcltText",
-"f_f_i=f_f_i.rcltText",
-"f_f_l=f_f_l.rcltText",
+"a=a.rcltBase",
+"aacute=aacute.rcltBase",
+"abreve=abreve.rcltBase",
+"abreveacute=abreveacute.rcltBase",
+"abrevedotbelow=abrevedotbelow.rcltBase",
+"abrevegrave=abrevegrave.rcltBase",
+"abrevehookabove=abrevehookabove.rcltBase",
+"abrevetilde=abrevetilde.rcltBase",
+"acircumflex=acircumflex.rcltBase",
+"acircumflexacute=acircumflexacute.rcltBase",
+"acircumflexdotbelow=acircumflexdotbelow.rcltBase",
+"acircumflexgrave=acircumflexgrave.rcltBase",
+"acircumflexhookabove=acircumflexhookabove.rcltBase",
+"acircumflextilde=acircumflextilde.rcltBase",
+"adieresis=adieresis.rcltBase",
+"adotbelow=adotbelow.rcltBase",
+"agrave=agrave.rcltBase",
+"ahookabove=ahookabove.rcltBase",
+"ainvertedbreve=ainvertedbreve.rcltBase",
+"amacron=amacron.rcltBase",
+"aogonek=aogonek.rcltBase",
+"aring=aring.rcltBase",
+"atilde=atilde.rcltBase",
+"ae=ae.rcltBase",
+"aemacron=aemacron.rcltBase",
+"ordfeminine=ordfeminine.rcltBase",
+"f=f.rcltBase",
+"fi=fi.rcltBase",
+"fl=fl.rcltBase",
+"f_f_i=f_f_i.rcltBase",
+"f_f_l=f_f_l.rcltBase",
 "u=u.rcltGeo",
 "uacute=uacute.rcltGeo",
 "ubreve=ubreve.rcltGeo",
@@ -205097,37 +205307,37 @@ value = "14600";
 {
 name = "Rename Glyphs";
 value = (
-"a=a.rcltText",
-"aacute=aacute.rcltText",
-"abreve=abreve.rcltText",
-"abreveacute=abreveacute.rcltText",
-"abrevedotbelow=abrevedotbelow.rcltText",
-"abrevegrave=abrevegrave.rcltText",
-"abrevehookabove=abrevehookabove.rcltText",
-"abrevetilde=abrevetilde.rcltText",
-"acircumflex=acircumflex.rcltText",
-"acircumflexacute=acircumflexacute.rcltText",
-"acircumflexdotbelow=acircumflexdotbelow.rcltText",
-"acircumflexgrave=acircumflexgrave.rcltText",
-"acircumflexhookabove=acircumflexhookabove.rcltText",
-"acircumflextilde=acircumflextilde.rcltText",
-"adieresis=adieresis.rcltText",
-"adotbelow=adotbelow.rcltText",
-"agrave=agrave.rcltText",
-"ahookabove=ahookabove.rcltText",
-"ainvertedbreve=ainvertedbreve.rcltText",
-"amacron=amacron.rcltText",
-"aogonek=aogonek.rcltText",
-"aring=aring.rcltText",
-"atilde=atilde.rcltText",
-"ae=ae.rcltText",
-"aemacron=aemacron.rcltText",
-"ordfeminine=ordfeminine.rcltText",
-"f=f.rcltText",
-"fi=fi.rcltText",
-"fl=fl.rcltText",
-"f_f_i=f_f_i.rcltText",
-"f_f_l=f_f_l.rcltText",
+"a=a.rcltBase",
+"aacute=aacute.rcltBase",
+"abreve=abreve.rcltBase",
+"abreveacute=abreveacute.rcltBase",
+"abrevedotbelow=abrevedotbelow.rcltBase",
+"abrevegrave=abrevegrave.rcltBase",
+"abrevehookabove=abrevehookabove.rcltBase",
+"abrevetilde=abrevetilde.rcltBase",
+"acircumflex=acircumflex.rcltBase",
+"acircumflexacute=acircumflexacute.rcltBase",
+"acircumflexdotbelow=acircumflexdotbelow.rcltBase",
+"acircumflexgrave=acircumflexgrave.rcltBase",
+"acircumflexhookabove=acircumflexhookabove.rcltBase",
+"acircumflextilde=acircumflextilde.rcltBase",
+"adieresis=adieresis.rcltBase",
+"adotbelow=adotbelow.rcltBase",
+"agrave=agrave.rcltBase",
+"ahookabove=ahookabove.rcltBase",
+"ainvertedbreve=ainvertedbreve.rcltBase",
+"amacron=amacron.rcltBase",
+"aogonek=aogonek.rcltBase",
+"aring=aring.rcltBase",
+"atilde=atilde.rcltBase",
+"ae=ae.rcltBase",
+"aemacron=aemacron.rcltBase",
+"ordfeminine=ordfeminine.rcltBase",
+"f=f.rcltBase",
+"fi=fi.rcltBase",
+"fl=fl.rcltBase",
+"f_f_i=f_f_i.rcltBase",
+"f_f_l=f_f_l.rcltBase",
 "u=u.rcltGeo",
 "uacute=uacute.rcltGeo",
 "ubreve=ubreve.rcltGeo",
@@ -205368,37 +205578,37 @@ value = "14700";
 {
 name = "Rename Glyphs";
 value = (
-"a=a.rcltText",
-"aacute=aacute.rcltText",
-"abreve=abreve.rcltText",
-"abreveacute=abreveacute.rcltText",
-"abrevedotbelow=abrevedotbelow.rcltText",
-"abrevegrave=abrevegrave.rcltText",
-"abrevehookabove=abrevehookabove.rcltText",
-"abrevetilde=abrevetilde.rcltText",
-"acircumflex=acircumflex.rcltText",
-"acircumflexacute=acircumflexacute.rcltText",
-"acircumflexdotbelow=acircumflexdotbelow.rcltText",
-"acircumflexgrave=acircumflexgrave.rcltText",
-"acircumflexhookabove=acircumflexhookabove.rcltText",
-"acircumflextilde=acircumflextilde.rcltText",
-"adieresis=adieresis.rcltText",
-"adotbelow=adotbelow.rcltText",
-"agrave=agrave.rcltText",
-"ahookabove=ahookabove.rcltText",
-"ainvertedbreve=ainvertedbreve.rcltText",
-"amacron=amacron.rcltText",
-"aogonek=aogonek.rcltText",
-"aring=aring.rcltText",
-"atilde=atilde.rcltText",
-"ae=ae.rcltText",
-"aemacron=aemacron.rcltText",
-"ordfeminine=ordfeminine.rcltText",
-"f=f.rcltText",
-"fi=fi.rcltText",
-"fl=fl.rcltText",
-"f_f_i=f_f_i.rcltText",
-"f_f_l=f_f_l.rcltText",
+"a=a.rcltBase",
+"aacute=aacute.rcltBase",
+"abreve=abreve.rcltBase",
+"abreveacute=abreveacute.rcltBase",
+"abrevedotbelow=abrevedotbelow.rcltBase",
+"abrevegrave=abrevegrave.rcltBase",
+"abrevehookabove=abrevehookabove.rcltBase",
+"abrevetilde=abrevetilde.rcltBase",
+"acircumflex=acircumflex.rcltBase",
+"acircumflexacute=acircumflexacute.rcltBase",
+"acircumflexdotbelow=acircumflexdotbelow.rcltBase",
+"acircumflexgrave=acircumflexgrave.rcltBase",
+"acircumflexhookabove=acircumflexhookabove.rcltBase",
+"acircumflextilde=acircumflextilde.rcltBase",
+"adieresis=adieresis.rcltBase",
+"adotbelow=adotbelow.rcltBase",
+"agrave=agrave.rcltBase",
+"ahookabove=ahookabove.rcltBase",
+"ainvertedbreve=ainvertedbreve.rcltBase",
+"amacron=amacron.rcltBase",
+"aogonek=aogonek.rcltBase",
+"aring=aring.rcltBase",
+"atilde=atilde.rcltBase",
+"ae=ae.rcltBase",
+"aemacron=aemacron.rcltBase",
+"ordfeminine=ordfeminine.rcltBase",
+"f=f.rcltBase",
+"fi=fi.rcltBase",
+"fl=fl.rcltBase",
+"f_f_i=f_f_i.rcltBase",
+"f_f_l=f_f_l.rcltBase",
 "u=u.rcltGeo",
 "uacute=uacute.rcltGeo",
 "ubreve=ubreve.rcltGeo",
@@ -205535,59 +205745,59 @@ value = (
 "Gmacron=Gmacron.rcltUI",
 "guarani=guarani.rcltUI",
 "guarani.tf=guarani.tf.rcltUI",
-"I=I.rcltA11Y",
-"IJ=IJ.rcltA11Y",
-"IJacute=IJacute.rcltA11Y",
-"Iacute=Iacute.rcltA11Y",
-"Icircumflex=Icircumflex.rcltA11Y",
-"Idieresis=Idieresis.rcltA11Y",
-"Idotaccent=Idotaccent.rcltA11Y",
-"Idotbelow=Idotbelow.rcltA11Y",
-"Igrave=Igrave.rcltA11Y",
-"Ihookabove=Ihookabove.rcltA11Y",
-"Iinvertedbreve=Iinvertedbreve.rcltA11Y",
-"Imacron=Imacron.rcltA11Y",
-"Iogonek=Iogonek.rcltA11Y",
-"Itilde=Itilde.rcltA11Y",
-"l=l.rcltA11Y",
-"lacute=lacute.rcltA11Y",
-"lcaron=lcaron.rcltA11Y",
-"lcommaaccent=lcommaaccent.rcltA11Y",
-"ldot=ldot.rcltA11Y",
-"ldotbelow=ldotbelow.rcltA11Y",
-"ldotbelowmacron=ldotbelowmacron.rcltA11Y",
-"lmacronbelow=lmacronbelow.rcltA11Y",
-"lslash=lslash.rcltA11Y",
-"lcommaaccent.loclMAH=lcommaaccent.loclMAH.rcltA11Y",
-"a=a.rcltA11Y",
-"aacute=aacute.rcltA11Y",
-"abreve=abreve.rcltA11Y",
-"abreveacute=abreveacute.rcltA11Y",
-"abrevedotbelow=abrevedotbelow.rcltA11Y",
-"abrevegrave=abrevegrave.rcltA11Y",
-"abrevehookabove=abrevehookabove.rcltA11Y",
-"abrevetilde=abrevetilde.rcltA11Y",
-"acircumflex=acircumflex.rcltA11Y",
-"acircumflexacute=acircumflexacute.rcltA11Y",
-"acircumflexdotbelow=acircumflexdotbelow.rcltA11Y",
-"acircumflexgrave=acircumflexgrave.rcltA11Y",
-"acircumflexhookabove=acircumflexhookabove.rcltA11Y",
-"acircumflextilde=acircumflextilde.rcltA11Y",
-"adieresis=adieresis.rcltA11Y",
-"adotbelow=adotbelow.rcltA11Y",
-"agrave=agrave.rcltA11Y",
-"ahookabove=ahookabove.rcltA11Y",
-"ainvertedbreve=ainvertedbreve.rcltA11Y",
-"amacron=amacron.rcltA11Y",
-"aogonek=aogonek.rcltA11Y",
-"aring=aring.rcltA11Y",
-"atilde=atilde.rcltA11Y",
-"g=g.rcltA11Y",
-"gbreve=gbreve.rcltA11Y",
-"gmacron=gmacron.rcltA11Y",
-"gdotaccent=gdotaccent.rcltA11Y",
-"gcircumflex=gcircumflex.rcltA11Y",
-"gcommaaccent=gcommaaccent.rcltA11Y"
+"I=I.rcltA11y",
+"IJ=IJ.rcltA11y",
+"IJacute=IJacute.rcltA11y",
+"Iacute=Iacute.rcltA11y",
+"Icircumflex=Icircumflex.rcltA11y",
+"Idieresis=Idieresis.rcltA11y",
+"Idotaccent=Idotaccent.rcltA11y",
+"Idotbelow=Idotbelow.rcltA11y",
+"Igrave=Igrave.rcltA11y",
+"Ihookabove=Ihookabove.rcltA11y",
+"Iinvertedbreve=Iinvertedbreve.rcltA11y",
+"Imacron=Imacron.rcltA11y",
+"Iogonek=Iogonek.rcltA11y",
+"Itilde=Itilde.rcltA11y",
+"l=l.rcltA11y",
+"lacute=lacute.rcltA11y",
+"lcaron=lcaron.rcltA11y",
+"lcommaaccent=lcommaaccent.rcltA11y",
+"ldot=ldot.rcltA11y",
+"ldotbelow=ldotbelow.rcltA11y",
+"ldotbelowmacron=ldotbelowmacron.rcltA11y",
+"lmacronbelow=lmacronbelow.rcltA11y",
+"lslash=lslash.rcltA11y",
+"lcommaaccent.loclMAH=lcommaaccent.loclMAH.rcltA11y",
+"a=a.rcltA11y",
+"aacute=aacute.rcltA11y",
+"abreve=abreve.rcltA11y",
+"abreveacute=abreveacute.rcltA11y",
+"abrevedotbelow=abrevedotbelow.rcltA11y",
+"abrevegrave=abrevegrave.rcltA11y",
+"abrevehookabove=abrevehookabove.rcltA11y",
+"abrevetilde=abrevetilde.rcltA11y",
+"acircumflex=acircumflex.rcltA11y",
+"acircumflexacute=acircumflexacute.rcltA11y",
+"acircumflexdotbelow=acircumflexdotbelow.rcltA11y",
+"acircumflexgrave=acircumflexgrave.rcltA11y",
+"acircumflexhookabove=acircumflexhookabove.rcltA11y",
+"acircumflextilde=acircumflextilde.rcltA11y",
+"adieresis=adieresis.rcltA11y",
+"adotbelow=adotbelow.rcltA11y",
+"agrave=agrave.rcltA11y",
+"ahookabove=ahookabove.rcltA11y",
+"ainvertedbreve=ainvertedbreve.rcltA11y",
+"amacron=amacron.rcltA11y",
+"aogonek=aogonek.rcltA11y",
+"aring=aring.rcltA11y",
+"atilde=atilde.rcltA11y",
+"g=g.rcltA11y",
+"gbreve=gbreve.rcltA11y",
+"gmacron=gmacron.rcltA11y",
+"gdotaccent=gdotaccent.rcltA11y",
+"gcircumflex=gcircumflex.rcltA11y",
+"gcommaaccent=gcommaaccent.rcltA11y"
 );
 }
 );
@@ -205644,59 +205854,59 @@ value = (
 "Gmacron=Gmacron.rcltUI",
 "guarani=guarani.rcltUI",
 "guarani.tf=guarani.tf.rcltUI",
-"I=I.rcltA11Y",
-"IJ=IJ.rcltA11Y",
-"IJacute=IJacute.rcltA11Y",
-"Iacute=Iacute.rcltA11Y",
-"Icircumflex=Icircumflex.rcltA11Y",
-"Idieresis=Idieresis.rcltA11Y",
-"Idotaccent=Idotaccent.rcltA11Y",
-"Idotbelow=Idotbelow.rcltA11Y",
-"Igrave=Igrave.rcltA11Y",
-"Ihookabove=Ihookabove.rcltA11Y",
-"Iinvertedbreve=Iinvertedbreve.rcltA11Y",
-"Imacron=Imacron.rcltA11Y",
-"Iogonek=Iogonek.rcltA11Y",
-"Itilde=Itilde.rcltA11Y",
-"l=l.rcltA11Y",
-"lacute=lacute.rcltA11Y",
-"lcaron=lcaron.rcltA11Y",
-"lcommaaccent=lcommaaccent.rcltA11Y",
-"ldot=ldot.rcltA11Y",
-"ldotbelow=ldotbelow.rcltA11Y",
-"ldotbelowmacron=ldotbelowmacron.rcltA11Y",
-"lmacronbelow=lmacronbelow.rcltA11Y",
-"lslash=lslash.rcltA11Y",
-"lcommaaccent.loclMAH=lcommaaccent.loclMAH.rcltA11Y",
-"a=a.rcltA11Y",
-"aacute=aacute.rcltA11Y",
-"abreve=abreve.rcltA11Y",
-"abreveacute=abreveacute.rcltA11Y",
-"abrevedotbelow=abrevedotbelow.rcltA11Y",
-"abrevegrave=abrevegrave.rcltA11Y",
-"abrevehookabove=abrevehookabove.rcltA11Y",
-"abrevetilde=abrevetilde.rcltA11Y",
-"acircumflex=acircumflex.rcltA11Y",
-"acircumflexacute=acircumflexacute.rcltA11Y",
-"acircumflexdotbelow=acircumflexdotbelow.rcltA11Y",
-"acircumflexgrave=acircumflexgrave.rcltA11Y",
-"acircumflexhookabove=acircumflexhookabove.rcltA11Y",
-"acircumflextilde=acircumflextilde.rcltA11Y",
-"adieresis=adieresis.rcltA11Y",
-"adotbelow=adotbelow.rcltA11Y",
-"agrave=agrave.rcltA11Y",
-"ahookabove=ahookabove.rcltA11Y",
-"ainvertedbreve=ainvertedbreve.rcltA11Y",
-"amacron=amacron.rcltA11Y",
-"aogonek=aogonek.rcltA11Y",
-"aring=aring.rcltA11Y",
-"atilde=atilde.rcltA11Y",
-"g=g.rcltA11Y",
-"gbreve=gbreve.rcltA11Y",
-"gmacron=gmacron.rcltA11Y",
-"gdotaccent=gdotaccent.rcltA11Y",
-"gcircumflex=gcircumflex.rcltA11Y",
-"gcommaaccent=gcommaaccent.rcltA11Y"
+"I=I.rcltA11y",
+"IJ=IJ.rcltA11y",
+"IJacute=IJacute.rcltA11y",
+"Iacute=Iacute.rcltA11y",
+"Icircumflex=Icircumflex.rcltA11y",
+"Idieresis=Idieresis.rcltA11y",
+"Idotaccent=Idotaccent.rcltA11y",
+"Idotbelow=Idotbelow.rcltA11y",
+"Igrave=Igrave.rcltA11y",
+"Ihookabove=Ihookabove.rcltA11y",
+"Iinvertedbreve=Iinvertedbreve.rcltA11y",
+"Imacron=Imacron.rcltA11y",
+"Iogonek=Iogonek.rcltA11y",
+"Itilde=Itilde.rcltA11y",
+"l=l.rcltA11y",
+"lacute=lacute.rcltA11y",
+"lcaron=lcaron.rcltA11y",
+"lcommaaccent=lcommaaccent.rcltA11y",
+"ldot=ldot.rcltA11y",
+"ldotbelow=ldotbelow.rcltA11y",
+"ldotbelowmacron=ldotbelowmacron.rcltA11y",
+"lmacronbelow=lmacronbelow.rcltA11y",
+"lslash=lslash.rcltA11y",
+"lcommaaccent.loclMAH=lcommaaccent.loclMAH.rcltA11y",
+"a=a.rcltA11y",
+"aacute=aacute.rcltA11y",
+"abreve=abreve.rcltA11y",
+"abreveacute=abreveacute.rcltA11y",
+"abrevedotbelow=abrevedotbelow.rcltA11y",
+"abrevegrave=abrevegrave.rcltA11y",
+"abrevehookabove=abrevehookabove.rcltA11y",
+"abrevetilde=abrevetilde.rcltA11y",
+"acircumflex=acircumflex.rcltA11y",
+"acircumflexacute=acircumflexacute.rcltA11y",
+"acircumflexdotbelow=acircumflexdotbelow.rcltA11y",
+"acircumflexgrave=acircumflexgrave.rcltA11y",
+"acircumflexhookabove=acircumflexhookabove.rcltA11y",
+"acircumflextilde=acircumflextilde.rcltA11y",
+"adieresis=adieresis.rcltA11y",
+"adotbelow=adotbelow.rcltA11y",
+"agrave=agrave.rcltA11y",
+"ahookabove=ahookabove.rcltA11y",
+"ainvertedbreve=ainvertedbreve.rcltA11y",
+"amacron=amacron.rcltA11y",
+"aogonek=aogonek.rcltA11y",
+"aring=aring.rcltA11y",
+"atilde=atilde.rcltA11y",
+"g=g.rcltA11y",
+"gbreve=gbreve.rcltA11y",
+"gmacron=gmacron.rcltA11y",
+"gdotaccent=gdotaccent.rcltA11y",
+"gcircumflex=gcircumflex.rcltA11y",
+"gcommaaccent=gcommaaccent.rcltA11y"
 );
 },
 {
@@ -205764,59 +205974,59 @@ value = (
 "Gmacron=Gmacron.rcltUI",
 "guarani=guarani.rcltUI",
 "guarani.tf=guarani.tf.rcltUI",
-"I=I.rcltA11Y",
-"IJ=IJ.rcltA11Y",
-"IJacute=IJacute.rcltA11Y",
-"Iacute=Iacute.rcltA11Y",
-"Icircumflex=Icircumflex.rcltA11Y",
-"Idieresis=Idieresis.rcltA11Y",
-"Idotaccent=Idotaccent.rcltA11Y",
-"Idotbelow=Idotbelow.rcltA11Y",
-"Igrave=Igrave.rcltA11Y",
-"Ihookabove=Ihookabove.rcltA11Y",
-"Iinvertedbreve=Iinvertedbreve.rcltA11Y",
-"Imacron=Imacron.rcltA11Y",
-"Iogonek=Iogonek.rcltA11Y",
-"Itilde=Itilde.rcltA11Y",
-"l=l.rcltA11Y",
-"lacute=lacute.rcltA11Y",
-"lcaron=lcaron.rcltA11Y",
-"lcommaaccent=lcommaaccent.rcltA11Y",
-"ldot=ldot.rcltA11Y",
-"ldotbelow=ldotbelow.rcltA11Y",
-"ldotbelowmacron=ldotbelowmacron.rcltA11Y",
-"lmacronbelow=lmacronbelow.rcltA11Y",
-"lslash=lslash.rcltA11Y",
-"lcommaaccent.loclMAH=lcommaaccent.loclMAH.rcltA11Y",
-"a=a.rcltA11Y",
-"aacute=aacute.rcltA11Y",
-"abreve=abreve.rcltA11Y",
-"abreveacute=abreveacute.rcltA11Y",
-"abrevedotbelow=abrevedotbelow.rcltA11Y",
-"abrevegrave=abrevegrave.rcltA11Y",
-"abrevehookabove=abrevehookabove.rcltA11Y",
-"abrevetilde=abrevetilde.rcltA11Y",
-"acircumflex=acircumflex.rcltA11Y",
-"acircumflexacute=acircumflexacute.rcltA11Y",
-"acircumflexdotbelow=acircumflexdotbelow.rcltA11Y",
-"acircumflexgrave=acircumflexgrave.rcltA11Y",
-"acircumflexhookabove=acircumflexhookabove.rcltA11Y",
-"acircumflextilde=acircumflextilde.rcltA11Y",
-"adieresis=adieresis.rcltA11Y",
-"adotbelow=adotbelow.rcltA11Y",
-"agrave=agrave.rcltA11Y",
-"ahookabove=ahookabove.rcltA11Y",
-"ainvertedbreve=ainvertedbreve.rcltA11Y",
-"amacron=amacron.rcltA11Y",
-"aogonek=aogonek.rcltA11Y",
-"aring=aring.rcltA11Y",
-"atilde=atilde.rcltA11Y",
-"g=g.rcltA11Y",
-"gbreve=gbreve.rcltA11Y",
-"gmacron=gmacron.rcltA11Y",
-"gdotaccent=gdotaccent.rcltA11Y",
-"gcircumflex=gcircumflex.rcltA11Y",
-"gcommaaccent=gcommaaccent.rcltA11Y"
+"I=I.rcltA11y",
+"IJ=IJ.rcltA11y",
+"IJacute=IJacute.rcltA11y",
+"Iacute=Iacute.rcltA11y",
+"Icircumflex=Icircumflex.rcltA11y",
+"Idieresis=Idieresis.rcltA11y",
+"Idotaccent=Idotaccent.rcltA11y",
+"Idotbelow=Idotbelow.rcltA11y",
+"Igrave=Igrave.rcltA11y",
+"Ihookabove=Ihookabove.rcltA11y",
+"Iinvertedbreve=Iinvertedbreve.rcltA11y",
+"Imacron=Imacron.rcltA11y",
+"Iogonek=Iogonek.rcltA11y",
+"Itilde=Itilde.rcltA11y",
+"l=l.rcltA11y",
+"lacute=lacute.rcltA11y",
+"lcaron=lcaron.rcltA11y",
+"lcommaaccent=lcommaaccent.rcltA11y",
+"ldot=ldot.rcltA11y",
+"ldotbelow=ldotbelow.rcltA11y",
+"ldotbelowmacron=ldotbelowmacron.rcltA11y",
+"lmacronbelow=lmacronbelow.rcltA11y",
+"lslash=lslash.rcltA11y",
+"lcommaaccent.loclMAH=lcommaaccent.loclMAH.rcltA11y",
+"a=a.rcltA11y",
+"aacute=aacute.rcltA11y",
+"abreve=abreve.rcltA11y",
+"abreveacute=abreveacute.rcltA11y",
+"abrevedotbelow=abrevedotbelow.rcltA11y",
+"abrevegrave=abrevegrave.rcltA11y",
+"abrevehookabove=abrevehookabove.rcltA11y",
+"abrevetilde=abrevetilde.rcltA11y",
+"acircumflex=acircumflex.rcltA11y",
+"acircumflexacute=acircumflexacute.rcltA11y",
+"acircumflexdotbelow=acircumflexdotbelow.rcltA11y",
+"acircumflexgrave=acircumflexgrave.rcltA11y",
+"acircumflexhookabove=acircumflexhookabove.rcltA11y",
+"acircumflextilde=acircumflextilde.rcltA11y",
+"adieresis=adieresis.rcltA11y",
+"adotbelow=adotbelow.rcltA11y",
+"agrave=agrave.rcltA11y",
+"ahookabove=ahookabove.rcltA11y",
+"ainvertedbreve=ainvertedbreve.rcltA11y",
+"amacron=amacron.rcltA11y",
+"aogonek=aogonek.rcltA11y",
+"aring=aring.rcltA11y",
+"atilde=atilde.rcltA11y",
+"g=g.rcltA11y",
+"gbreve=gbreve.rcltA11y",
+"gmacron=gmacron.rcltA11y",
+"gdotaccent=gdotaccent.rcltA11y",
+"gcircumflex=gcircumflex.rcltA11y",
+"gcommaaccent=gcommaaccent.rcltA11y"
 );
 },
 {
@@ -205884,59 +206094,59 @@ value = (
 "Gmacron=Gmacron.rcltUI",
 "guarani=guarani.rcltUI",
 "guarani.tf=guarani.tf.rcltUI",
-"I=I.rcltA11Y",
-"IJ=IJ.rcltA11Y",
-"IJacute=IJacute.rcltA11Y",
-"Iacute=Iacute.rcltA11Y",
-"Icircumflex=Icircumflex.rcltA11Y",
-"Idieresis=Idieresis.rcltA11Y",
-"Idotaccent=Idotaccent.rcltA11Y",
-"Idotbelow=Idotbelow.rcltA11Y",
-"Igrave=Igrave.rcltA11Y",
-"Ihookabove=Ihookabove.rcltA11Y",
-"Iinvertedbreve=Iinvertedbreve.rcltA11Y",
-"Imacron=Imacron.rcltA11Y",
-"Iogonek=Iogonek.rcltA11Y",
-"Itilde=Itilde.rcltA11Y",
-"l=l.rcltA11Y",
-"lacute=lacute.rcltA11Y",
-"lcaron=lcaron.rcltA11Y",
-"lcommaaccent=lcommaaccent.rcltA11Y",
-"ldot=ldot.rcltA11Y",
-"ldotbelow=ldotbelow.rcltA11Y",
-"ldotbelowmacron=ldotbelowmacron.rcltA11Y",
-"lmacronbelow=lmacronbelow.rcltA11Y",
-"lslash=lslash.rcltA11Y",
-"lcommaaccent.loclMAH=lcommaaccent.loclMAH.rcltA11Y",
-"a=a.rcltA11Y",
-"aacute=aacute.rcltA11Y",
-"abreve=abreve.rcltA11Y",
-"abreveacute=abreveacute.rcltA11Y",
-"abrevedotbelow=abrevedotbelow.rcltA11Y",
-"abrevegrave=abrevegrave.rcltA11Y",
-"abrevehookabove=abrevehookabove.rcltA11Y",
-"abrevetilde=abrevetilde.rcltA11Y",
-"acircumflex=acircumflex.rcltA11Y",
-"acircumflexacute=acircumflexacute.rcltA11Y",
-"acircumflexdotbelow=acircumflexdotbelow.rcltA11Y",
-"acircumflexgrave=acircumflexgrave.rcltA11Y",
-"acircumflexhookabove=acircumflexhookabove.rcltA11Y",
-"acircumflextilde=acircumflextilde.rcltA11Y",
-"adieresis=adieresis.rcltA11Y",
-"adotbelow=adotbelow.rcltA11Y",
-"agrave=agrave.rcltA11Y",
-"ahookabove=ahookabove.rcltA11Y",
-"ainvertedbreve=ainvertedbreve.rcltA11Y",
-"amacron=amacron.rcltA11Y",
-"aogonek=aogonek.rcltA11Y",
-"aring=aring.rcltA11Y",
-"atilde=atilde.rcltA11Y",
-"g=g.rcltA11Y",
-"gbreve=gbreve.rcltA11Y",
-"gmacron=gmacron.rcltA11Y",
-"gdotaccent=gdotaccent.rcltA11Y",
-"gcircumflex=gcircumflex.rcltA11Y",
-"gcommaaccent=gcommaaccent.rcltA11Y"
+"I=I.rcltA11y",
+"IJ=IJ.rcltA11y",
+"IJacute=IJacute.rcltA11y",
+"Iacute=Iacute.rcltA11y",
+"Icircumflex=Icircumflex.rcltA11y",
+"Idieresis=Idieresis.rcltA11y",
+"Idotaccent=Idotaccent.rcltA11y",
+"Idotbelow=Idotbelow.rcltA11y",
+"Igrave=Igrave.rcltA11y",
+"Ihookabove=Ihookabove.rcltA11y",
+"Iinvertedbreve=Iinvertedbreve.rcltA11y",
+"Imacron=Imacron.rcltA11y",
+"Iogonek=Iogonek.rcltA11y",
+"Itilde=Itilde.rcltA11y",
+"l=l.rcltA11y",
+"lacute=lacute.rcltA11y",
+"lcaron=lcaron.rcltA11y",
+"lcommaaccent=lcommaaccent.rcltA11y",
+"ldot=ldot.rcltA11y",
+"ldotbelow=ldotbelow.rcltA11y",
+"ldotbelowmacron=ldotbelowmacron.rcltA11y",
+"lmacronbelow=lmacronbelow.rcltA11y",
+"lslash=lslash.rcltA11y",
+"lcommaaccent.loclMAH=lcommaaccent.loclMAH.rcltA11y",
+"a=a.rcltA11y",
+"aacute=aacute.rcltA11y",
+"abreve=abreve.rcltA11y",
+"abreveacute=abreveacute.rcltA11y",
+"abrevedotbelow=abrevedotbelow.rcltA11y",
+"abrevegrave=abrevegrave.rcltA11y",
+"abrevehookabove=abrevehookabove.rcltA11y",
+"abrevetilde=abrevetilde.rcltA11y",
+"acircumflex=acircumflex.rcltA11y",
+"acircumflexacute=acircumflexacute.rcltA11y",
+"acircumflexdotbelow=acircumflexdotbelow.rcltA11y",
+"acircumflexgrave=acircumflexgrave.rcltA11y",
+"acircumflexhookabove=acircumflexhookabove.rcltA11y",
+"acircumflextilde=acircumflextilde.rcltA11y",
+"adieresis=adieresis.rcltA11y",
+"adotbelow=adotbelow.rcltA11y",
+"agrave=agrave.rcltA11y",
+"ahookabove=ahookabove.rcltA11y",
+"ainvertedbreve=ainvertedbreve.rcltA11y",
+"amacron=amacron.rcltA11y",
+"aogonek=aogonek.rcltA11y",
+"aring=aring.rcltA11y",
+"atilde=atilde.rcltA11y",
+"g=g.rcltA11y",
+"gbreve=gbreve.rcltA11y",
+"gmacron=gmacron.rcltA11y",
+"gdotaccent=gdotaccent.rcltA11y",
+"gcircumflex=gcircumflex.rcltA11y",
+"gcommaaccent=gcommaaccent.rcltA11y"
 );
 }
 );
@@ -206245,59 +206455,59 @@ value = (
 "Gmacron=Gmacron.rcltUI",
 "guarani=guarani.rcltUI",
 "guarani.tf=guarani.tf.rcltUI",
-"a=a.rcltText",
-"aacute=aacute.rcltText",
-"abreve=abreve.rcltText",
-"abreveacute=abreveacute.rcltText",
-"abrevedotbelow=abrevedotbelow.rcltText",
-"abrevegrave=abrevegrave.rcltText",
-"abrevehookabove=abrevehookabove.rcltText",
-"abrevetilde=abrevetilde.rcltText",
-"acircumflex=acircumflex.rcltText",
-"acircumflexacute=acircumflexacute.rcltText",
-"acircumflexdotbelow=acircumflexdotbelow.rcltText",
-"acircumflexgrave=acircumflexgrave.rcltText",
-"acircumflexhookabove=acircumflexhookabove.rcltText",
-"acircumflextilde=acircumflextilde.rcltText",
-"adieresis=adieresis.rcltText",
-"adotbelow=adotbelow.rcltText",
-"agrave=agrave.rcltText",
-"ahookabove=ahookabove.rcltText",
-"ainvertedbreve=ainvertedbreve.rcltText",
-"amacron=amacron.rcltText",
-"aogonek=aogonek.rcltText",
-"aring=aring.rcltText",
-"atilde=atilde.rcltText",
-"ae=ae.rcltText",
-"aemacron=aemacron.rcltText",
-"ordfeminine=ordfeminine.rcltText",
-"f=f.rcltText",
-"t=t.rcltText",
-"tbar=tbar.rcltText",
-"tcaron=tcaron.rcltText",
-"tcedilla=tcedilla.rcltText",
-"tcommaaccent=tcommaaccent.rcltText",
-"tdotbelow=tdotbelow.rcltText",
-"tmacronbelow=tmacronbelow.rcltText",
-"fi=fi.rcltText",
-"fl=fl.rcltText",
-"f_f_i=f_f_i.rcltText",
-"f_f_l=f_f_l.rcltText",
-"f_t=f_t.rcltText",
-"ijacute=ijacute.rcltText",
-"j=j.rcltText",
-"jdotless=jdotless.rcltText",
-"jacute=jacute.rcltText",
-"jcircumflex=jcircumflex.rcltText",
-"y=y.rcltText",
-"yacute=yacute.rcltText",
-"ycircumflex=ycircumflex.rcltText",
-"ydieresis=ydieresis.rcltText",
-"ydotaccent=ydotaccent.rcltText",
-"ydotbelow=ydotbelow.rcltText",
-"ygrave=ygrave.rcltText",
-"yhookabove=yhookabove.rcltText",
-"ytilde=ytilde.rcltText"
+"a=a.rcltBase",
+"aacute=aacute.rcltBase",
+"abreve=abreve.rcltBase",
+"abreveacute=abreveacute.rcltBase",
+"abrevedotbelow=abrevedotbelow.rcltBase",
+"abrevegrave=abrevegrave.rcltBase",
+"abrevehookabove=abrevehookabove.rcltBase",
+"abrevetilde=abrevetilde.rcltBase",
+"acircumflex=acircumflex.rcltBase",
+"acircumflexacute=acircumflexacute.rcltBase",
+"acircumflexdotbelow=acircumflexdotbelow.rcltBase",
+"acircumflexgrave=acircumflexgrave.rcltBase",
+"acircumflexhookabove=acircumflexhookabove.rcltBase",
+"acircumflextilde=acircumflextilde.rcltBase",
+"adieresis=adieresis.rcltBase",
+"adotbelow=adotbelow.rcltBase",
+"agrave=agrave.rcltBase",
+"ahookabove=ahookabove.rcltBase",
+"ainvertedbreve=ainvertedbreve.rcltBase",
+"amacron=amacron.rcltBase",
+"aogonek=aogonek.rcltBase",
+"aring=aring.rcltBase",
+"atilde=atilde.rcltBase",
+"ae=ae.rcltBase",
+"aemacron=aemacron.rcltBase",
+"ordfeminine=ordfeminine.rcltBase",
+"f=f.rcltBase",
+"t=t.rcltBase",
+"tbar=tbar.rcltBase",
+"tcaron=tcaron.rcltBase",
+"tcedilla=tcedilla.rcltBase",
+"tcommaaccent=tcommaaccent.rcltBase",
+"tdotbelow=tdotbelow.rcltBase",
+"tmacronbelow=tmacronbelow.rcltBase",
+"fi=fi.rcltBase",
+"fl=fl.rcltBase",
+"f_f_i=f_f_i.rcltBase",
+"f_f_l=f_f_l.rcltBase",
+"f_t=f_t.rcltBase",
+"ijacute=ijacute.rcltBase",
+"j=j.rcltBase",
+"jdotless=jdotless.rcltBase",
+"jacute=jacute.rcltBase",
+"jcircumflex=jcircumflex.rcltBase",
+"y=y.rcltBase",
+"yacute=yacute.rcltBase",
+"ycircumflex=ycircumflex.rcltBase",
+"ydieresis=ydieresis.rcltBase",
+"ydotaccent=ydotaccent.rcltBase",
+"ydotbelow=ydotbelow.rcltBase",
+"ygrave=ygrave.rcltBase",
+"yhookabove=yhookabove.rcltBase",
+"ytilde=ytilde.rcltBase"
 );
 }
 );
@@ -206354,59 +206564,59 @@ value = (
 "Gmacron=Gmacron.rcltUI",
 "guarani=guarani.rcltUI",
 "guarani.tf=guarani.tf.rcltUI",
-"a=a.rcltText",
-"aacute=aacute.rcltText",
-"abreve=abreve.rcltText",
-"abreveacute=abreveacute.rcltText",
-"abrevedotbelow=abrevedotbelow.rcltText",
-"abrevegrave=abrevegrave.rcltText",
-"abrevehookabove=abrevehookabove.rcltText",
-"abrevetilde=abrevetilde.rcltText",
-"acircumflex=acircumflex.rcltText",
-"acircumflexacute=acircumflexacute.rcltText",
-"acircumflexdotbelow=acircumflexdotbelow.rcltText",
-"acircumflexgrave=acircumflexgrave.rcltText",
-"acircumflexhookabove=acircumflexhookabove.rcltText",
-"acircumflextilde=acircumflextilde.rcltText",
-"adieresis=adieresis.rcltText",
-"adotbelow=adotbelow.rcltText",
-"agrave=agrave.rcltText",
-"ahookabove=ahookabove.rcltText",
-"ainvertedbreve=ainvertedbreve.rcltText",
-"amacron=amacron.rcltText",
-"aogonek=aogonek.rcltText",
-"aring=aring.rcltText",
-"atilde=atilde.rcltText",
-"ae=ae.rcltText",
-"aemacron=aemacron.rcltText",
-"ordfeminine=ordfeminine.rcltText",
-"f=f.rcltText",
-"t=t.rcltText",
-"tbar=tbar.rcltText",
-"tcaron=tcaron.rcltText",
-"tcedilla=tcedilla.rcltText",
-"tcommaaccent=tcommaaccent.rcltText",
-"tdotbelow=tdotbelow.rcltText",
-"tmacronbelow=tmacronbelow.rcltText",
-"fi=fi.rcltText",
-"fl=fl.rcltText",
-"f_f_i=f_f_i.rcltText",
-"f_f_l=f_f_l.rcltText",
-"f_t=f_t.rcltText",
-"ijacute=ijacute.rcltText",
-"j=j.rcltText",
-"jdotless=jdotless.rcltText",
-"jacute=jacute.rcltText",
-"jcircumflex=jcircumflex.rcltText",
-"y=y.rcltText",
-"yacute=yacute.rcltText",
-"ycircumflex=ycircumflex.rcltText",
-"ydieresis=ydieresis.rcltText",
-"ydotaccent=ydotaccent.rcltText",
-"ydotbelow=ydotbelow.rcltText",
-"ygrave=ygrave.rcltText",
-"yhookabove=yhookabove.rcltText",
-"ytilde=ytilde.rcltText"
+"a=a.rcltBase",
+"aacute=aacute.rcltBase",
+"abreve=abreve.rcltBase",
+"abreveacute=abreveacute.rcltBase",
+"abrevedotbelow=abrevedotbelow.rcltBase",
+"abrevegrave=abrevegrave.rcltBase",
+"abrevehookabove=abrevehookabove.rcltBase",
+"abrevetilde=abrevetilde.rcltBase",
+"acircumflex=acircumflex.rcltBase",
+"acircumflexacute=acircumflexacute.rcltBase",
+"acircumflexdotbelow=acircumflexdotbelow.rcltBase",
+"acircumflexgrave=acircumflexgrave.rcltBase",
+"acircumflexhookabove=acircumflexhookabove.rcltBase",
+"acircumflextilde=acircumflextilde.rcltBase",
+"adieresis=adieresis.rcltBase",
+"adotbelow=adotbelow.rcltBase",
+"agrave=agrave.rcltBase",
+"ahookabove=ahookabove.rcltBase",
+"ainvertedbreve=ainvertedbreve.rcltBase",
+"amacron=amacron.rcltBase",
+"aogonek=aogonek.rcltBase",
+"aring=aring.rcltBase",
+"atilde=atilde.rcltBase",
+"ae=ae.rcltBase",
+"aemacron=aemacron.rcltBase",
+"ordfeminine=ordfeminine.rcltBase",
+"f=f.rcltBase",
+"t=t.rcltBase",
+"tbar=tbar.rcltBase",
+"tcaron=tcaron.rcltBase",
+"tcedilla=tcedilla.rcltBase",
+"tcommaaccent=tcommaaccent.rcltBase",
+"tdotbelow=tdotbelow.rcltBase",
+"tmacronbelow=tmacronbelow.rcltBase",
+"fi=fi.rcltBase",
+"fl=fl.rcltBase",
+"f_f_i=f_f_i.rcltBase",
+"f_f_l=f_f_l.rcltBase",
+"f_t=f_t.rcltBase",
+"ijacute=ijacute.rcltBase",
+"j=j.rcltBase",
+"jdotless=jdotless.rcltBase",
+"jacute=jacute.rcltBase",
+"jcircumflex=jcircumflex.rcltBase",
+"y=y.rcltBase",
+"yacute=yacute.rcltBase",
+"ycircumflex=ycircumflex.rcltBase",
+"ydieresis=ydieresis.rcltBase",
+"ydotaccent=ydotaccent.rcltBase",
+"ydotbelow=ydotbelow.rcltBase",
+"ygrave=ygrave.rcltBase",
+"yhookabove=yhookabove.rcltBase",
+"ytilde=ytilde.rcltBase"
 );
 },
 {
@@ -206474,59 +206684,59 @@ value = (
 "Gmacron=Gmacron.rcltUI",
 "guarani=guarani.rcltUI",
 "guarani.tf=guarani.tf.rcltUI",
-"a=a.rcltText",
-"aacute=aacute.rcltText",
-"abreve=abreve.rcltText",
-"abreveacute=abreveacute.rcltText",
-"abrevedotbelow=abrevedotbelow.rcltText",
-"abrevegrave=abrevegrave.rcltText",
-"abrevehookabove=abrevehookabove.rcltText",
-"abrevetilde=abrevetilde.rcltText",
-"acircumflex=acircumflex.rcltText",
-"acircumflexacute=acircumflexacute.rcltText",
-"acircumflexdotbelow=acircumflexdotbelow.rcltText",
-"acircumflexgrave=acircumflexgrave.rcltText",
-"acircumflexhookabove=acircumflexhookabove.rcltText",
-"acircumflextilde=acircumflextilde.rcltText",
-"adieresis=adieresis.rcltText",
-"adotbelow=adotbelow.rcltText",
-"agrave=agrave.rcltText",
-"ahookabove=ahookabove.rcltText",
-"ainvertedbreve=ainvertedbreve.rcltText",
-"amacron=amacron.rcltText",
-"aogonek=aogonek.rcltText",
-"aring=aring.rcltText",
-"atilde=atilde.rcltText",
-"ae=ae.rcltText",
-"aemacron=aemacron.rcltText",
-"ordfeminine=ordfeminine.rcltText",
-"f=f.rcltText",
-"t=t.rcltText",
-"tbar=tbar.rcltText",
-"tcaron=tcaron.rcltText",
-"tcedilla=tcedilla.rcltText",
-"tcommaaccent=tcommaaccent.rcltText",
-"tdotbelow=tdotbelow.rcltText",
-"tmacronbelow=tmacronbelow.rcltText",
-"fi=fi.rcltText",
-"fl=fl.rcltText",
-"f_f_i=f_f_i.rcltText",
-"f_f_l=f_f_l.rcltText",
-"f_t=f_t.rcltText",
-"ijacute=ijacute.rcltText",
-"j=j.rcltText",
-"jdotless=jdotless.rcltText",
-"jacute=jacute.rcltText",
-"jcircumflex=jcircumflex.rcltText",
-"y=y.rcltText",
-"yacute=yacute.rcltText",
-"ycircumflex=ycircumflex.rcltText",
-"ydieresis=ydieresis.rcltText",
-"ydotaccent=ydotaccent.rcltText",
-"ydotbelow=ydotbelow.rcltText",
-"ygrave=ygrave.rcltText",
-"yhookabove=yhookabove.rcltText",
-"ytilde=ytilde.rcltText"
+"a=a.rcltBase",
+"aacute=aacute.rcltBase",
+"abreve=abreve.rcltBase",
+"abreveacute=abreveacute.rcltBase",
+"abrevedotbelow=abrevedotbelow.rcltBase",
+"abrevegrave=abrevegrave.rcltBase",
+"abrevehookabove=abrevehookabove.rcltBase",
+"abrevetilde=abrevetilde.rcltBase",
+"acircumflex=acircumflex.rcltBase",
+"acircumflexacute=acircumflexacute.rcltBase",
+"acircumflexdotbelow=acircumflexdotbelow.rcltBase",
+"acircumflexgrave=acircumflexgrave.rcltBase",
+"acircumflexhookabove=acircumflexhookabove.rcltBase",
+"acircumflextilde=acircumflextilde.rcltBase",
+"adieresis=adieresis.rcltBase",
+"adotbelow=adotbelow.rcltBase",
+"agrave=agrave.rcltBase",
+"ahookabove=ahookabove.rcltBase",
+"ainvertedbreve=ainvertedbreve.rcltBase",
+"amacron=amacron.rcltBase",
+"aogonek=aogonek.rcltBase",
+"aring=aring.rcltBase",
+"atilde=atilde.rcltBase",
+"ae=ae.rcltBase",
+"aemacron=aemacron.rcltBase",
+"ordfeminine=ordfeminine.rcltBase",
+"f=f.rcltBase",
+"t=t.rcltBase",
+"tbar=tbar.rcltBase",
+"tcaron=tcaron.rcltBase",
+"tcedilla=tcedilla.rcltBase",
+"tcommaaccent=tcommaaccent.rcltBase",
+"tdotbelow=tdotbelow.rcltBase",
+"tmacronbelow=tmacronbelow.rcltBase",
+"fi=fi.rcltBase",
+"fl=fl.rcltBase",
+"f_f_i=f_f_i.rcltBase",
+"f_f_l=f_f_l.rcltBase",
+"f_t=f_t.rcltBase",
+"ijacute=ijacute.rcltBase",
+"j=j.rcltBase",
+"jdotless=jdotless.rcltBase",
+"jacute=jacute.rcltBase",
+"jcircumflex=jcircumflex.rcltBase",
+"y=y.rcltBase",
+"yacute=yacute.rcltBase",
+"ycircumflex=ycircumflex.rcltBase",
+"ydieresis=ydieresis.rcltBase",
+"ydotaccent=ydotaccent.rcltBase",
+"ydotbelow=ydotbelow.rcltBase",
+"ygrave=ygrave.rcltBase",
+"yhookabove=yhookabove.rcltBase",
+"ytilde=ytilde.rcltBase"
 );
 },
 {
@@ -206594,59 +206804,59 @@ value = (
 "Gmacron=Gmacron.rcltUI",
 "guarani=guarani.rcltUI",
 "guarani.tf=guarani.tf.rcltUI",
-"a=a.rcltText",
-"aacute=aacute.rcltText",
-"abreve=abreve.rcltText",
-"abreveacute=abreveacute.rcltText",
-"abrevedotbelow=abrevedotbelow.rcltText",
-"abrevegrave=abrevegrave.rcltText",
-"abrevehookabove=abrevehookabove.rcltText",
-"abrevetilde=abrevetilde.rcltText",
-"acircumflex=acircumflex.rcltText",
-"acircumflexacute=acircumflexacute.rcltText",
-"acircumflexdotbelow=acircumflexdotbelow.rcltText",
-"acircumflexgrave=acircumflexgrave.rcltText",
-"acircumflexhookabove=acircumflexhookabove.rcltText",
-"acircumflextilde=acircumflextilde.rcltText",
-"adieresis=adieresis.rcltText",
-"adotbelow=adotbelow.rcltText",
-"agrave=agrave.rcltText",
-"ahookabove=ahookabove.rcltText",
-"ainvertedbreve=ainvertedbreve.rcltText",
-"amacron=amacron.rcltText",
-"aogonek=aogonek.rcltText",
-"aring=aring.rcltText",
-"atilde=atilde.rcltText",
-"ae=ae.rcltText",
-"aemacron=aemacron.rcltText",
-"ordfeminine=ordfeminine.rcltText",
-"f=f.rcltText",
-"t=t.rcltText",
-"tbar=tbar.rcltText",
-"tcaron=tcaron.rcltText",
-"tcedilla=tcedilla.rcltText",
-"tcommaaccent=tcommaaccent.rcltText",
-"tdotbelow=tdotbelow.rcltText",
-"tmacronbelow=tmacronbelow.rcltText",
-"fi=fi.rcltText",
-"fl=fl.rcltText",
-"f_f_i=f_f_i.rcltText",
-"f_f_l=f_f_l.rcltText",
-"f_t=f_t.rcltText",
-"ijacute=ijacute.rcltText",
-"j=j.rcltText",
-"jdotless=jdotless.rcltText",
-"jacute=jacute.rcltText",
-"jcircumflex=jcircumflex.rcltText",
-"y=y.rcltText",
-"yacute=yacute.rcltText",
-"ycircumflex=ycircumflex.rcltText",
-"ydieresis=ydieresis.rcltText",
-"ydotaccent=ydotaccent.rcltText",
-"ydotbelow=ydotbelow.rcltText",
-"ygrave=ygrave.rcltText",
-"yhookabove=yhookabove.rcltText",
-"ytilde=ytilde.rcltText"
+"a=a.rcltBase",
+"aacute=aacute.rcltBase",
+"abreve=abreve.rcltBase",
+"abreveacute=abreveacute.rcltBase",
+"abrevedotbelow=abrevedotbelow.rcltBase",
+"abrevegrave=abrevegrave.rcltBase",
+"abrevehookabove=abrevehookabove.rcltBase",
+"abrevetilde=abrevetilde.rcltBase",
+"acircumflex=acircumflex.rcltBase",
+"acircumflexacute=acircumflexacute.rcltBase",
+"acircumflexdotbelow=acircumflexdotbelow.rcltBase",
+"acircumflexgrave=acircumflexgrave.rcltBase",
+"acircumflexhookabove=acircumflexhookabove.rcltBase",
+"acircumflextilde=acircumflextilde.rcltBase",
+"adieresis=adieresis.rcltBase",
+"adotbelow=adotbelow.rcltBase",
+"agrave=agrave.rcltBase",
+"ahookabove=ahookabove.rcltBase",
+"ainvertedbreve=ainvertedbreve.rcltBase",
+"amacron=amacron.rcltBase",
+"aogonek=aogonek.rcltBase",
+"aring=aring.rcltBase",
+"atilde=atilde.rcltBase",
+"ae=ae.rcltBase",
+"aemacron=aemacron.rcltBase",
+"ordfeminine=ordfeminine.rcltBase",
+"f=f.rcltBase",
+"t=t.rcltBase",
+"tbar=tbar.rcltBase",
+"tcaron=tcaron.rcltBase",
+"tcedilla=tcedilla.rcltBase",
+"tcommaaccent=tcommaaccent.rcltBase",
+"tdotbelow=tdotbelow.rcltBase",
+"tmacronbelow=tmacronbelow.rcltBase",
+"fi=fi.rcltBase",
+"fl=fl.rcltBase",
+"f_f_i=f_f_i.rcltBase",
+"f_f_l=f_f_l.rcltBase",
+"f_t=f_t.rcltBase",
+"ijacute=ijacute.rcltBase",
+"j=j.rcltBase",
+"jdotless=jdotless.rcltBase",
+"jacute=jacute.rcltBase",
+"jcircumflex=jcircumflex.rcltBase",
+"y=y.rcltBase",
+"yacute=yacute.rcltBase",
+"ycircumflex=ycircumflex.rcltBase",
+"ydieresis=ydieresis.rcltBase",
+"ydotaccent=ydotaccent.rcltBase",
+"ydotbelow=ydotbelow.rcltBase",
+"ygrave=ygrave.rcltBase",
+"yhookabove=yhookabove.rcltBase",
+"ytilde=ytilde.rcltBase"
 );
 }
 );
@@ -206698,37 +206908,37 @@ value = "24400";
 {
 name = "Rename Glyphs";
 value = (
-"a=a.rcltText",
-"aacute=aacute.rcltText",
-"abreve=abreve.rcltText",
-"abreveacute=abreveacute.rcltText",
-"abrevedotbelow=abrevedotbelow.rcltText",
-"abrevegrave=abrevegrave.rcltText",
-"abrevehookabove=abrevehookabove.rcltText",
-"abrevetilde=abrevetilde.rcltText",
-"acircumflex=acircumflex.rcltText",
-"acircumflexacute=acircumflexacute.rcltText",
-"acircumflexdotbelow=acircumflexdotbelow.rcltText",
-"acircumflexgrave=acircumflexgrave.rcltText",
-"acircumflexhookabove=acircumflexhookabove.rcltText",
-"acircumflextilde=acircumflextilde.rcltText",
-"adieresis=adieresis.rcltText",
-"adotbelow=adotbelow.rcltText",
-"agrave=agrave.rcltText",
-"ahookabove=ahookabove.rcltText",
-"ainvertedbreve=ainvertedbreve.rcltText",
-"amacron=amacron.rcltText",
-"aogonek=aogonek.rcltText",
-"aring=aring.rcltText",
-"atilde=atilde.rcltText",
-"ae=ae.rcltText",
-"aemacron=aemacron.rcltText",
-"ordfeminine=ordfeminine.rcltText",
-"f=f.rcltText",
-"fi=fi.rcltText",
-"fl=fl.rcltText",
-"f_f_i=f_f_i.rcltText",
-"f_f_l=f_f_l.rcltText",
+"a=a.rcltBase",
+"aacute=aacute.rcltBase",
+"abreve=abreve.rcltBase",
+"abreveacute=abreveacute.rcltBase",
+"abrevedotbelow=abrevedotbelow.rcltBase",
+"abrevegrave=abrevegrave.rcltBase",
+"abrevehookabove=abrevehookabove.rcltBase",
+"abrevetilde=abrevetilde.rcltBase",
+"acircumflex=acircumflex.rcltBase",
+"acircumflexacute=acircumflexacute.rcltBase",
+"acircumflexdotbelow=acircumflexdotbelow.rcltBase",
+"acircumflexgrave=acircumflexgrave.rcltBase",
+"acircumflexhookabove=acircumflexhookabove.rcltBase",
+"acircumflextilde=acircumflextilde.rcltBase",
+"adieresis=adieresis.rcltBase",
+"adotbelow=adotbelow.rcltBase",
+"agrave=agrave.rcltBase",
+"ahookabove=ahookabove.rcltBase",
+"ainvertedbreve=ainvertedbreve.rcltBase",
+"amacron=amacron.rcltBase",
+"aogonek=aogonek.rcltBase",
+"aring=aring.rcltBase",
+"atilde=atilde.rcltBase",
+"ae=ae.rcltBase",
+"aemacron=aemacron.rcltBase",
+"ordfeminine=ordfeminine.rcltBase",
+"f=f.rcltBase",
+"fi=fi.rcltBase",
+"fl=fl.rcltBase",
+"f_f_i=f_f_i.rcltBase",
+"f_f_l=f_f_l.rcltBase",
 "u=u.rcltGeo",
 "uacute=uacute.rcltGeo",
 "ubreve=ubreve.rcltGeo",
@@ -206854,37 +207064,37 @@ value = "24500";
 {
 name = "Rename Glyphs";
 value = (
-"a=a.rcltText",
-"aacute=aacute.rcltText",
-"abreve=abreve.rcltText",
-"abreveacute=abreveacute.rcltText",
-"abrevedotbelow=abrevedotbelow.rcltText",
-"abrevegrave=abrevegrave.rcltText",
-"abrevehookabove=abrevehookabove.rcltText",
-"abrevetilde=abrevetilde.rcltText",
-"acircumflex=acircumflex.rcltText",
-"acircumflexacute=acircumflexacute.rcltText",
-"acircumflexdotbelow=acircumflexdotbelow.rcltText",
-"acircumflexgrave=acircumflexgrave.rcltText",
-"acircumflexhookabove=acircumflexhookabove.rcltText",
-"acircumflextilde=acircumflextilde.rcltText",
-"adieresis=adieresis.rcltText",
-"adotbelow=adotbelow.rcltText",
-"agrave=agrave.rcltText",
-"ahookabove=ahookabove.rcltText",
-"ainvertedbreve=ainvertedbreve.rcltText",
-"amacron=amacron.rcltText",
-"aogonek=aogonek.rcltText",
-"aring=aring.rcltText",
-"atilde=atilde.rcltText",
-"ae=ae.rcltText",
-"aemacron=aemacron.rcltText",
-"ordfeminine=ordfeminine.rcltText",
-"f=f.rcltText",
-"fi=fi.rcltText",
-"fl=fl.rcltText",
-"f_f_i=f_f_i.rcltText",
-"f_f_l=f_f_l.rcltText",
+"a=a.rcltBase",
+"aacute=aacute.rcltBase",
+"abreve=abreve.rcltBase",
+"abreveacute=abreveacute.rcltBase",
+"abrevedotbelow=abrevedotbelow.rcltBase",
+"abrevegrave=abrevegrave.rcltBase",
+"abrevehookabove=abrevehookabove.rcltBase",
+"abrevetilde=abrevetilde.rcltBase",
+"acircumflex=acircumflex.rcltBase",
+"acircumflexacute=acircumflexacute.rcltBase",
+"acircumflexdotbelow=acircumflexdotbelow.rcltBase",
+"acircumflexgrave=acircumflexgrave.rcltBase",
+"acircumflexhookabove=acircumflexhookabove.rcltBase",
+"acircumflextilde=acircumflextilde.rcltBase",
+"adieresis=adieresis.rcltBase",
+"adotbelow=adotbelow.rcltBase",
+"agrave=agrave.rcltBase",
+"ahookabove=ahookabove.rcltBase",
+"ainvertedbreve=ainvertedbreve.rcltBase",
+"amacron=amacron.rcltBase",
+"aogonek=aogonek.rcltBase",
+"aring=aring.rcltBase",
+"atilde=atilde.rcltBase",
+"ae=ae.rcltBase",
+"aemacron=aemacron.rcltBase",
+"ordfeminine=ordfeminine.rcltBase",
+"f=f.rcltBase",
+"fi=fi.rcltBase",
+"fl=fl.rcltBase",
+"f_f_i=f_f_i.rcltBase",
+"f_f_l=f_f_l.rcltBase",
 "u=u.rcltGeo",
 "uacute=uacute.rcltGeo",
 "ubreve=ubreve.rcltGeo",
@@ -207021,37 +207231,37 @@ value = "24600";
 {
 name = "Rename Glyphs";
 value = (
-"a=a.rcltText",
-"aacute=aacute.rcltText",
-"abreve=abreve.rcltText",
-"abreveacute=abreveacute.rcltText",
-"abrevedotbelow=abrevedotbelow.rcltText",
-"abrevegrave=abrevegrave.rcltText",
-"abrevehookabove=abrevehookabove.rcltText",
-"abrevetilde=abrevetilde.rcltText",
-"acircumflex=acircumflex.rcltText",
-"acircumflexacute=acircumflexacute.rcltText",
-"acircumflexdotbelow=acircumflexdotbelow.rcltText",
-"acircumflexgrave=acircumflexgrave.rcltText",
-"acircumflexhookabove=acircumflexhookabove.rcltText",
-"acircumflextilde=acircumflextilde.rcltText",
-"adieresis=adieresis.rcltText",
-"adotbelow=adotbelow.rcltText",
-"agrave=agrave.rcltText",
-"ahookabove=ahookabove.rcltText",
-"ainvertedbreve=ainvertedbreve.rcltText",
-"amacron=amacron.rcltText",
-"aogonek=aogonek.rcltText",
-"aring=aring.rcltText",
-"atilde=atilde.rcltText",
-"ae=ae.rcltText",
-"aemacron=aemacron.rcltText",
-"ordfeminine=ordfeminine.rcltText",
-"f=f.rcltText",
-"fi=fi.rcltText",
-"fl=fl.rcltText",
-"f_f_i=f_f_i.rcltText",
-"f_f_l=f_f_l.rcltText",
+"a=a.rcltBase",
+"aacute=aacute.rcltBase",
+"abreve=abreve.rcltBase",
+"abreveacute=abreveacute.rcltBase",
+"abrevedotbelow=abrevedotbelow.rcltBase",
+"abrevegrave=abrevegrave.rcltBase",
+"abrevehookabove=abrevehookabove.rcltBase",
+"abrevetilde=abrevetilde.rcltBase",
+"acircumflex=acircumflex.rcltBase",
+"acircumflexacute=acircumflexacute.rcltBase",
+"acircumflexdotbelow=acircumflexdotbelow.rcltBase",
+"acircumflexgrave=acircumflexgrave.rcltBase",
+"acircumflexhookabove=acircumflexhookabove.rcltBase",
+"acircumflextilde=acircumflextilde.rcltBase",
+"adieresis=adieresis.rcltBase",
+"adotbelow=adotbelow.rcltBase",
+"agrave=agrave.rcltBase",
+"ahookabove=ahookabove.rcltBase",
+"ainvertedbreve=ainvertedbreve.rcltBase",
+"amacron=amacron.rcltBase",
+"aogonek=aogonek.rcltBase",
+"aring=aring.rcltBase",
+"atilde=atilde.rcltBase",
+"ae=ae.rcltBase",
+"aemacron=aemacron.rcltBase",
+"ordfeminine=ordfeminine.rcltBase",
+"f=f.rcltBase",
+"fi=fi.rcltBase",
+"fl=fl.rcltBase",
+"f_f_i=f_f_i.rcltBase",
+"f_f_l=f_f_l.rcltBase",
 "u=u.rcltGeo",
 "uacute=uacute.rcltGeo",
 "ubreve=ubreve.rcltGeo",
@@ -207188,37 +207398,37 @@ value = "24700";
 {
 name = "Rename Glyphs";
 value = (
-"a=a.rcltText",
-"aacute=aacute.rcltText",
-"abreve=abreve.rcltText",
-"abreveacute=abreveacute.rcltText",
-"abrevedotbelow=abrevedotbelow.rcltText",
-"abrevegrave=abrevegrave.rcltText",
-"abrevehookabove=abrevehookabove.rcltText",
-"abrevetilde=abrevetilde.rcltText",
-"acircumflex=acircumflex.rcltText",
-"acircumflexacute=acircumflexacute.rcltText",
-"acircumflexdotbelow=acircumflexdotbelow.rcltText",
-"acircumflexgrave=acircumflexgrave.rcltText",
-"acircumflexhookabove=acircumflexhookabove.rcltText",
-"acircumflextilde=acircumflextilde.rcltText",
-"adieresis=adieresis.rcltText",
-"adotbelow=adotbelow.rcltText",
-"agrave=agrave.rcltText",
-"ahookabove=ahookabove.rcltText",
-"ainvertedbreve=ainvertedbreve.rcltText",
-"amacron=amacron.rcltText",
-"aogonek=aogonek.rcltText",
-"aring=aring.rcltText",
-"atilde=atilde.rcltText",
-"ae=ae.rcltText",
-"aemacron=aemacron.rcltText",
-"ordfeminine=ordfeminine.rcltText",
-"f=f.rcltText",
-"fi=fi.rcltText",
-"fl=fl.rcltText",
-"f_f_i=f_f_i.rcltText",
-"f_f_l=f_f_l.rcltText",
+"a=a.rcltBase",
+"aacute=aacute.rcltBase",
+"abreve=abreve.rcltBase",
+"abreveacute=abreveacute.rcltBase",
+"abrevedotbelow=abrevedotbelow.rcltBase",
+"abrevegrave=abrevegrave.rcltBase",
+"abrevehookabove=abrevehookabove.rcltBase",
+"abrevetilde=abrevetilde.rcltBase",
+"acircumflex=acircumflex.rcltBase",
+"acircumflexacute=acircumflexacute.rcltBase",
+"acircumflexdotbelow=acircumflexdotbelow.rcltBase",
+"acircumflexgrave=acircumflexgrave.rcltBase",
+"acircumflexhookabove=acircumflexhookabove.rcltBase",
+"acircumflextilde=acircumflextilde.rcltBase",
+"adieresis=adieresis.rcltBase",
+"adotbelow=adotbelow.rcltBase",
+"agrave=agrave.rcltBase",
+"ahookabove=ahookabove.rcltBase",
+"ainvertedbreve=ainvertedbreve.rcltBase",
+"amacron=amacron.rcltBase",
+"aogonek=aogonek.rcltBase",
+"aring=aring.rcltBase",
+"atilde=atilde.rcltBase",
+"ae=ae.rcltBase",
+"aemacron=aemacron.rcltBase",
+"ordfeminine=ordfeminine.rcltBase",
+"f=f.rcltBase",
+"fi=fi.rcltBase",
+"fl=fl.rcltBase",
+"f_f_i=f_f_i.rcltBase",
+"f_f_l=f_f_l.rcltBase",
 "u=u.rcltGeo",
 "uacute=uacute.rcltGeo",
 "ubreve=ubreve.rcltGeo",
@@ -217754,7 +217964,7 @@ value = WORD;
 },
 {
 key = versionString;
-value = "1.955";
+value = "1.956";
 }
 );
 stems = (
@@ -217889,5 +218099,5 @@ tH = "43";
 };
 };
 versionMajor = 1;
-versionMinor = 954;
+versionMinor = 956;
 }
