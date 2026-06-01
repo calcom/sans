@@ -7,6 +7,8 @@ Copyright (c) 2026, Mark Davis mark@wordmark.nyc, with typefaces "Cal Sans UI," 
 [![npm](https://badgen.net/npm/v/cal-sans)](https://www.npmjs.com/package/cal-sans)
 [![packagephobia/install](https://badgen.net/packagephobia/install/cal-sans)](https://www.npmjs.com/package/cal-sans)
 [![packagephobia/publish](https://badgen.net/packagephobia/publish/cal-sans)](https://www.npmjs.com/package/cal-sans)
+[![interactive showcase](documentation/images/isite.svg)](https://cal.com/font)
+
 
 Cal Sans 2 is an open-source variable font purpose-built for both product design and brand — a single file that spans fine-print UI at 8 pt through large display headlines, adapting its proportions, spacing, and geometry at every step. It belongs to the same generation of optically-scaled geometric typefaces as Google Sans Flex, Inter, and Anthropic Sans, the latter a variable Geist fork with a 16–48 pt optical size range. Cal Sans 2 pushes that range further: **8–32 pt**, covering the full stack from dense data UI through hero type with a single `font-optical-sizing: auto` declaration.
 
