@@ -1,0 +1,307 @@
+,STYLE NAMES,"Axes:
+opsz / Optical Size
+wght / Weight
+GEOM / Geometric Form
+YTAS / Ascender Height
+SHRP / Sharp","Ranges:
+008–048
+400–700
+000–100
+720–800
+000–100",,,,,,,,,,,Variable packages (not differently name fonts),
+,Cal Sans (Roman),,(v2.000),,,Cal Sans (Italic),,(v2.000),,,Cal Sans Office / Gsuite,,,Cal Sans (Variable),✓ HOI & brace layer injections
+,GEOM 0–10 // A11y,GEOM 15–30 // UI,GEOM 40–60 // (Base Just Cal Sans),GEOM 80–100 // Geo,,GEOM 0–10 // A11y,GEOM 15–30 // UI,GEOM 40–60 // (Base Just Cal Sans),GEOM 80–100 // Geo,,,,,,
+,"Cal Sans A11y Regular
+Cal Sans A11y Text Regular
+Cal Sans A11y Micro Regular","Cal Sans UI Regular
+Cal Sans UI Text Regular
+Cal Sans UI Micro Regular","Cal Sans Regular
+Cal Sans Text Regular
+Cal Sans Micro Regular","Cal Sans Geo Regular
+Cal Sans Geo Text Regular
+Cal Sans Geo Micro Regular",,"Cal Sans A11y Italic
+Cal Sans A11y Text Italic
+Cal Sans A11y Micro Italic","Cal Sans UI Italic
+Cal Sans UI Text Italic
+Cal Sans UI Micro Italic","Cal Sans Italic
+Cal Sans Text Italic
+Cal Sans Micro Italic","Cal Sans Geo Italic
+Cal Sans Geo Text Italic
+Cal Sans Geo Micro Italic",,"Cal Sans Regular
+Cal Sans Text Regular
+","Cal Sans Italic
+Cal Sans Text Italic
+",,Cal Sans Workspace,Instanced or two variable versions without OPSZ implementation 
+,"Cal Sans A11y Medium
+Cal Sans A11y Text Medium
+Cal Sans A11y Micro Medium","Cal Sans UI Medium
+Cal Sans UI Text Medium
+Cal Sans UI Micro Medium","Cal Sans Medium
+Cal Sans Text Medium
+Cal Sans Micro Medium","Cal Sans Geo Medium
+Cal Sans Geo Text Medium
+Cal Sans Geo Micro Medium",,"Cal Sans A11y Medium Italic
+Cal Sans A11y Text Medium Italic
+Cal Sans A11y Micro Medium Italic","Cal Sans UI Medium Italic
+Cal Sans UI Text Medium Italic
+Cal Sans UI Micro Medium Italic","Cal Sans Medium Italic
+Cal Sans Text Medium Italic
+Cal Sans Micro Medium Italic","Cal Sans Geo Medium Italic
+Cal Sans Geo Text Medium Italic
+Cal Sans Geo Micro Medium Italic",,"Cal Sans Medium
+Cal Sans Text Medium
+","Cal Sans Medium Italic
+Cal Sans Text Medium Italic
+",,Cal Sans API,Subsetted however Emma Marichal needs
+,"Cal Sans A11y SemiBold
+Cal Sans A11y Text SemiBold
+Cal Sans A11y Micro SemiBold","Cal Sans UI SemiBold
+Cal Sans UI Text SemiBold
+Cal Sans UI Micro SemiBold","Cal Sans SemiBold
+Cal Sans Text SemiBold
+Cal Sans Micro SemiBold","Cal Sans Geo SemiBold
+Cal Sans Geo Text SemiBold
+Cal Sans Geo Micro SemiBold",,"Cal Sans A11y SemiBold Italic
+Cal Sans A11y Text SemiBold Italic
+Cal Sans A11y Micro SemiBold Italic","Cal Sans UI SemiBold Italic
+Cal Sans UI Text SemiBold Italic
+Cal Sans UI Micro SemiBold Italic","Cal Sans SemiBold Italic
+Cal Sans Text SemiBold Italic
+Cal Sans Micro SemiBold Italic","Cal Sans Geo SemiBold Italic
+Cal Sans Geo Text SemiBold Italic
+Cal Sans Geo Micro SemiBold Italic",,"Cal Sans SemiBold
+Cal Sans Text SemiBold
+","Cal Sans SemiBold Italic
+Cal Sans Text SemiBold Italic
+",,Cal Sans CossUI,Subsetted for CalCom use
+,"Cal Sans A11y Bold
+Cal Sans A11y Text Bold
+Cal Sans A11y Micro Bold","Cal Sans UI Bold
+Cal Sans UI Text Bold
+Cal Sans UI Micro Bold","Cal Sans Bold
+Cal Sans Text Bold
+Cal Sans Micro Bold","Cal Sans Geo Bold
+Cal Sans Geo Text Bold
+Cal Sans Geo Micro Bold",,"Cal Sans A11y Bold Italic
+Cal Sans A11y Text Bold Italic
+Cal Sans A11y Micro Bold Italic","Cal Sans UI Bold Italic
+Cal Sans UI Text Bold Italic
+Cal Sans UI Micro Bold Italic","Cal Sans Bold Italic
+Cal Sans Text Bold Italic
+Cal Sans Micro Bold Italic","Cal Sans Geo Bold Italic
+Cal Sans Geo Text Bold Italic
+Cal Sans Geo Micro Bold Italic",,"Cal Sans Bold
+Cal Sans Text Bold
+","Cal Sans Bold Italic
+Cal Sans Text Bold Italic
+",,Cal Sans Magic,Hidden YTAS parametric axis; @ 8opsz YTAS 777
+,,,,,,,,,,,,,,,
+,YTAS 100 — Tall,YTAS 100 — Tall,YTAS 100 — Tall,YTAS 100 — Tall,,YTAS 100 — Tall,YTAS 100 — Tall,YTAS 100 — Tall,YTAS 100 — Tall,,,,,Static packages (not differently name fonts),
+,"Cal Sans A11y Tall Regular
+Cal Sans A11y Tall Text Regular
+Cal Sans A11y Tall Micro Regular","Cal Sans UI Tall Regular
+Cal Sans UI Tall Text Regular
+Cal Sans UI Tall Micro Regular","Cal Sans Tall Regular
+Cal Sans Tall Text Regular
+Cal Sans Tall Micro Regular","Cal Sans Geo Tall Regular
+Cal Sans Geo Tall Text Regular
+Cal Sans Geo Tall Micro Regular",,"Cal Sans A11y Tall Italic
+Cal Sans A11y Tall Text Italic
+Cal Sans A11y Tall Micro Italic","Cal Sans UI Tall Italic
+Cal Sans UI Tall Text Italic
+Cal Sans UI Tall Micro Italic","Cal Sans Tall Italic
+Cal Sans Tall Text Italic
+Cal Sans Tall Micro Italic","Cal Sans Geo Tall Italic
+Cal Sans Geo Tall Text Italic
+Cal Sans Geo Tall Micro Italic",,,,,Cal Sans Static Base,
+,"Cal Sans A11y Tall Medium
+Cal Sans A11y Tall Text Medium
+Cal Sans A11y Tall Micro Medium","Cal Sans UI Tall Medium
+Cal Sans UI Tall Text Medium
+Cal Sans UI Tall Micro Medium","Cal Sans Tall Medium
+Cal Sans Tall Text Medium
+Cal Sans Tall Micro Medium","Cal Sans Geo Tall Medium
+Cal Sans Geo Tall Text Medium
+Cal Sans Geo Tall Micro Medium",,"Cal Sans A11y Tall Medium Italic
+Cal Sans A11y Tall Text Medium Italic
+Cal Sans A11y Tall Micro Medium Italic","Cal Sans UI Tall Medium Italic
+Cal Sans UI Tall Text Medium Italic
+Cal Sans UI Tall Micro Medium Italic","Cal Sans Tall Medium Italic
+Cal Sans Tall Text Medium Italic
+Cal Sans Tall Micro Medium Italic","Cal Sans Geo Tall Medium Italic
+Cal Sans Geo Tall Text Medium Italic
+Cal Sans Geo Tall Micro Medium Italic",,CONFIRMED DEPLOYMENT WITH PASQUALE,,,Cal Sans Static Geom,
+,"Cal Sans A11y Tall SemiBold
+Cal Sans A11y Tall Text SemiBold
+Cal Sans A11y Tall Micro SemiBold","Cal Sans UI Tall SemiBold
+Cal Sans UI Tall Text SemiBold
+Cal Sans UI Tall Micro SemiBold","Cal Sans Tall SemiBold
+Cal Sans Tall Text SemiBold
+Cal Sans Tall Micro SemiBold","Cal Sans Geo Tall SemiBold
+Cal Sans Geo Tall Text SemiBold
+Cal Sans Geo Tall Micro SemiBold",,"Cal Sans A11y Tall SemiBold Italic
+Cal Sans A11y Tall Text SemiBold Italic
+Cal Sans A11y Tall Micro SemiBold Italic","Cal Sans UI Tall SemiBold Italic
+Cal Sans UI Tall Text SemiBold Italic
+Cal Sans UI Tall Micro SemiBold Italic","Cal Sans Tall SemiBold Italic
+Cal Sans Tall Text SemiBold Italic
+Cal Sans Tall Micro SemiBold Italic","Cal Sans Geo Tall SemiBold Italic
+Cal Sans Geo Tall Text SemiBold Italic
+Cal Sans Geo Tall Micro SemiBold Italic",,CONFIRMING DEPLOYMENT WITH EMMA,,,Cal Sans 100% run??,
+,"Cal Sans A11y Tall Bold
+Cal Sans A11y Tall Text Bold
+Cal Sans A11y Tall Micro Bold","Cal Sans UI Tall Bold
+Cal Sans UI Tall Text Bold
+Cal Sans UI Tall Micro Bold","Cal Sans Tall Bold
+Cal Sans Tall Text Bold
+Cal Sans Tall Micro Bold","Cal Sans Geo Tall Bold
+Cal Sans Geo Tall Text Bold
+Cal Sans Geo Tall Micro Bold",,"Cal Sans A11y Tall Bold Italic
+Cal Sans A11y Tall Text Bold Italic
+Cal Sans A11y Tall Micro Bold Italic","Cal Sans UI Tall Bold Italic
+Cal Sans UI Tall Text Bold Italic
+Cal Sans UI Tall Micro Bold Italic","Cal Sans Tall Bold Italic
+Cal Sans Tall Text Bold Italic
+Cal Sans Tall Micro Bold Italic","Cal Sans Geo Tall Bold Italic
+Cal Sans Geo Tall Text Bold Italic
+Cal Sans Geo Tall Micro Bold Italic",,,,,Cal Sans anything else?,
+,,,,,,,,,,,,,,,
+,SHRP 100 — Sharp,SHRP 100 — Sharp,SHRP 100 — Sharp,SHRP 100 — Sharp,,SHRP 100 — Sharp,SHRP 100 — Sharp,SHRP 100 — Sharp,SHRP 100 — Sharp,,,,,,
+,"Cal Sans A11y Sharp Regular
+Cal Sans A11y Sharp Text Regular
+Cal Sans A11y Sharp Micro Regular","Cal Sans UI Sharp Regular
+Cal Sans UI Sharp Text Regular
+Cal Sans UI Sharp Micro Regular","Cal Sans Sharp Regular
+Cal Sans Sharp Text Regular
+Cal Sans Sharp Micro Regular","Cal Sans Geo Sharp Regular
+Cal Sans Geo Sharp Text Regular
+Cal Sans Geo Sharp Micro Regular",,"Cal Sans A11y Sharp Italic
+Cal Sans A11y Sharp Text Italic
+Cal Sans A11y Sharp Micro Italic","Cal Sans UI Sharp Italic
+Cal Sans UI Sharp Text Italic
+Cal Sans UI Sharp Micro Italic","Cal Sans Sharp Italic
+Cal Sans Sharp Text Italic
+Cal Sans Sharp Micro Italic","Cal Sans Geo Sharp Italic
+Cal Sans Geo Sharp Text Italic
+Cal Sans Geo Sharp Micro Italic",,,,,,
+,"Cal Sans A11y Sharp Medium
+Cal Sans A11y Sharp Text Medium
+Cal Sans A11y Sharp Micro Medium","Cal Sans UI Sharp Medium
+Cal Sans UI Sharp Text Medium
+Cal Sans UI Sharp Micro Medium","Cal Sans Sharp Medium
+Cal Sans Sharp Text Medium
+Cal Sans Sharp Micro Medium","Cal Sans Geo Sharp Medium
+Cal Sans Geo Sharp Text Medium
+Cal Sans Geo Sharp Micro Medium",,"Cal Sans A11y Sharp Medium Italic
+Cal Sans A11y Sharp Text Medium Italic
+Cal Sans A11y Sharp Micro Medium Italic","Cal Sans UI Sharp Medium Italic
+Cal Sans UI Sharp Text Medium Italic
+Cal Sans UI Sharp Micro Medium Italic","Cal Sans Sharp Medium Italic
+Cal Sans Sharp Text Medium Italic
+Cal Sans Sharp Micro Medium Italic","Cal Sans Geo Sharp Medium Italic
+Cal Sans Geo Sharp Text Medium Italic
+Cal Sans Geo Sharp Micro Medium Italic",,,,,,
+,"Cal Sans A11y Sharp SemiBold
+Cal Sans A11y Sharp Text SemiBold
+Cal Sans A11y Sharp Micro SemiBold","Cal Sans UI Sharp SemiBold
+Cal Sans UI Sharp Text SemiBold
+Cal Sans UI Sharp Micro SemiBold","Cal Sans Sharp SemiBold
+Cal Sans Sharp Text SemiBold
+Cal Sans Sharp Micro SemiBold","Cal Sans Geo Sharp SemiBold
+Cal Sans Geo Sharp Text SemiBold
+Cal Sans Geo Sharp Micro SemiBold",,"Cal Sans A11y Sharp SemiBold Italic
+Cal Sans A11y Sharp Text SemiBold Italic
+Cal Sans A11y Sharp Micro SemiBold Italic","Cal Sans UI Sharp SemiBold Italic
+Cal Sans UI Sharp Text SemiBold Italic
+Cal Sans UI Sharp Micro SemiBold Italic","Cal Sans Sharp SemiBold Italic
+Cal Sans Sharp Text SemiBold Italic
+Cal Sans Sharp Micro SemiBold Italic","Cal Sans Geo Sharp SemiBold Italic
+Cal Sans Geo Sharp Text SemiBold Italic
+Cal Sans Geo Sharp Micro SemiBold Italic",,,,,,
+,"Cal Sans A11y Sharp Bold
+Cal Sans A11y Sharp Text Bold
+Cal Sans A11y Sharp Micro Bold","Cal Sans UI Sharp Bold
+Cal Sans UI Sharp Text Bold
+Cal Sans UI Sharp Micro Bold","Cal Sans Sharp Bold
+Cal Sans Sharp Text Bold
+Cal Sans Sharp Micro Bold","Cal Sans Geo Sharp Bold
+Cal Sans Geo Sharp Text Bold
+Cal Sans Geo Sharp Micro Bold",,"Cal Sans A11y Sharp Bold Italic
+Cal Sans A11y Sharp Text Bold Italic
+Cal Sans A11y Sharp Micro Bold Italic","Cal Sans UI Sharp Bold Italic
+Cal Sans UI Sharp Text Bold Italic
+Cal Sans UI Sharp Micro Bold Italic","Cal Sans Sharp Bold Italic
+Cal Sans Sharp Text Bold Italic
+Cal Sans Sharp Micro Bold Italic","Cal Sans Geo Sharp Bold Italic
+Cal Sans Geo Sharp Text Bold Italic
+Cal Sans Geo Sharp Micro Bold Italic",,,,,,
+,,,,,,,,,,,,,,,
+,YTAS 100 + SHRP 100 — Tall Sharp,YTAS 100 + SHRP 100 — Tall Sharp,YTAS 100 + SHRP 100 — Tall Sharp,YTAS 100 + SHRP 100 — Tall Sharp,,YTAS 100 + SHRP 100 — Tall Sharp,YTAS 100 + SHRP 100 — Tall Sharp,YTAS 100 + SHRP 100 — Tall Sharp,YTAS 100 + SHRP 100 — Tall Sharp,,,,,,
+,"Cal Sans A11y Tall Sharp Regular
+Cal Sans A11y Tall Sharp Text Regular
+Cal Sans A11y Tall Sharp Micro Regular","Cal Sans UI Tall Sharp Regular
+Cal Sans UI Tall Sharp Text Regular
+Cal Sans UI Tall Sharp Micro Regular","Cal Sans Tall Sharp Regular
+Cal Sans Tall Sharp Text Regular
+Cal Sans Tall Sharp Micro Regular","Cal Sans Geo Tall Sharp Regular
+Cal Sans Geo Tall Sharp Text Regular
+Cal Sans Geo Tall Sharp Micro Regular",,"Cal Sans A11y Tall Sharp Italic
+Cal Sans A11y Tall Sharp Text Italic
+Cal Sans A11y Tall Sharp Micro Italic","Cal Sans UI Tall Sharp Italic
+Cal Sans UI Tall Sharp Text Italic
+Cal Sans UI Tall Sharp Micro Italic","Cal Sans Tall Sharp Italic
+Cal Sans Tall Sharp Text Italic
+Cal Sans Tall Sharp Micro Italic","Cal Sans Geo Tall Sharp Italic
+Cal Sans Geo Tall Sharp Text Italic
+Cal Sans Geo Tall Sharp Micro Italic",,,,,,
+,"Cal Sans A11y Tall Sharp Medium
+Cal Sans A11y Tall Sharp Text Medium
+Cal Sans A11y Tall Sharp Micro Medium","Cal Sans UI Tall Sharp Medium
+Cal Sans UI Tall Sharp Text Medium
+Cal Sans UI Tall Sharp Micro Medium","Cal Sans Tall Sharp Medium
+Cal Sans Tall Sharp Text Medium
+Cal Sans Tall Sharp Micro Medium","Cal Sans Geo Tall Sharp Medium
+Cal Sans Geo Tall Sharp Text Medium
+Cal Sans Geo Tall Sharp Micro Medium",,"Cal Sans A11y Tall Sharp Medium Italic
+Cal Sans A11y Tall Sharp Text Medium Italic
+Cal Sans A11y Tall Sharp Micro Medium Italic","Cal Sans UI Tall Sharp Medium Italic
+Cal Sans UI Tall Sharp Text Medium Italic
+Cal Sans UI Tall Sharp Micro Medium Italic","Cal Sans Tall Sharp Medium Italic
+Cal Sans Tall Sharp Text Medium Italic
+Cal Sans Tall Sharp Micro Medium Italic","Cal Sans Geo Tall Sharp Medium Italic
+Cal Sans Geo Tall Sharp Text Medium Italic
+Cal Sans Geo Tall Sharp Micro Medium Italic",,,,,,
+,"Cal Sans A11y Tall Sharp SemiBold
+Cal Sans A11y Tall Sharp Text SemiBold
+Cal Sans A11y Tall Sharp Micro SemiBold","Cal Sans UI Tall Sharp SemiBold
+Cal Sans UI Tall Sharp Text SemiBold
+Cal Sans UI Tall Sharp Micro SemiBold","Cal Sans Tall Sharp SemiBold
+Cal Sans Tall Sharp Text SemiBold
+Cal Sans Tall Sharp Micro SemiBold","Cal Sans Geo Tall Sharp SemiBold
+Cal Sans Geo Tall Sharp Text SemiBold
+Cal Sans Geo Tall Sharp Micro SemiBold",,"Cal Sans A11y Tall Sharp SemiBold Italic
+Cal Sans A11y Tall Sharp Text SemiBold Italic
+Cal Sans A11y Tall Sharp Micro SemiBold Italic","Cal Sans UI Tall Sharp SemiBold Italic
+Cal Sans UI Tall Sharp Text SemiBold Italic
+Cal Sans UI Tall Sharp Micro SemiBold Italic","Cal Sans Tall Sharp SemiBold Italic
+Cal Sans Tall Sharp Text SemiBold Italic
+Cal Sans Tall Sharp Micro SemiBold Italic","Cal Sans Geo Tall Sharp SemiBold Italic
+Cal Sans Geo Tall Sharp Text SemiBold Italic
+Cal Sans Geo Tall Sharp Micro SemiBold Italic",,,,,,
+,"Cal Sans A11y Tall Sharp Bold
+Cal Sans A11y Tall Sharp Text Bold
+Cal Sans A11y Tall Sharp Micro Bold","Cal Sans UI Tall Sharp Bold
+Cal Sans UI Tall Sharp Text Bold
+Cal Sans UI Tall Sharp Micro Bold","Cal Sans Tall Sharp Bold
+Cal Sans Tall Sharp Text Bold
+Cal Sans Tall Sharp Micro Bold","Cal Sans Geo Tall Sharp Bold
+Cal Sans Geo Tall Sharp Text Bold
+Cal Sans Geo Tall Sharp Micro Bold",,"Cal Sans A11y Tall Sharp Bold Italic
+Cal Sans A11y Tall Sharp Text Bold Italic
+Cal Sans A11y Tall Sharp Micro Bold Italic","Cal Sans UI Tall Sharp Bold Italic
+Cal Sans UI Tall Sharp Text Bold Italic
+Cal Sans UI Tall Sharp Micro Bold Italic","Cal Sans Tall Sharp Bold Italic
+Cal Sans Tall Sharp Text Bold Italic
+Cal Sans Tall Sharp Micro Bold Italic","Cal Sans Geo Tall Sharp Bold Italic
+Cal Sans Geo Tall Sharp Text Bold Italic
+Cal Sans Geo Tall Sharp Micro Bold Italic",,,,,,
