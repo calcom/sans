@@ -44,15 +44,21 @@ python3 -m scripts
 ```
 
 This runs the entire pipeline end-to-end — source → packaged release folders —
-printing a numbered, timed `[n/9]` header for each step. Expect it to take a
+printing a numbered, timed `[n/10]` header for each step (`[n/9]` with `--no-magic`). Expect it to take a
 while: `glyphsLib.load` alone takes ~45s, and the instancing/compiling steps
 are CPU-heavy (the full run can take well over ten minutes).
 
 Useful flags:
 
-- `--variable-only` — compile just the variable font and stop, skipping
-  instancing, compression, and packaging.
-- `--italic` / `--no-italic` — override `config.BUILD_ITALIC` for a single run.
+- `--varonly` (alias `--variable-only`) — compile just the variable font and
+  stop, skipping instancing, compression, and packaging. The variable build
+  still runs its post-compile passes (GEOM merge, YTAS accent-rise, axis-default
+  shift, STAT + instance names), so it's a fast way to test variable-font output.
+- `--roman` — build roman styles only (192), skipping the italic statics.
+  Italics are built by default (384 styles).
+- `--no-magic` — skip the **Cal Sans Magic** build (step 7, the HOI
+  variable-morph font). Magic is built **by default** on every full run; this
+  opts out for a faster build when you only need the base/static families.
 - `--verbose` — show full glyph/instance name lists in the pre-processing
   stage (step 4); by default only counts and the first few names are printed.
 
@@ -67,20 +73,27 @@ Useful flags:
    intermediates that fontmake compiles from.
 6. **Compile the variable font** — runs `fontmake`, then post-processes the
    result (merges overlapping GEOM feature variations, shifts axis defaults).
-7. **Instance statics** — generates all static styles (192 roman, or 384 with
-   italics) into `scripts/temp/static/`, baking the correct GEOM substitutions into
-   each.
-8. **Compress** — generates `.woff2` siblings for the variable font and statics.
-9. **Package releases** — sorts the finished exports into the `fonts/` release
-   folders (e.g. `calsans-var-full`, `calsans-static-essentials`,
-   `calsans-gf-workspace`, etc.)
+7. **Compile Cal Sans Magic** — re-preps a fresh copy of the source, injects the
+   HOI variable-morph braces and strips the morphed glyphs from the conditionset
+   (so GEOM glyphs *interpolate* instead of hard-swapping), compiles a **second**
+   variable font from that disposable `_MAGIC` package, then applies avar2 + hides
+   the YTAS axis + renames it to **Cal Sans Magic**. Magic-family only; the base
+   build keeps the discrete swaps. Skip with `--no-magic`. See VISION.md §8.
+8. **Instance statics** — generates all static styles (384 with italics by
+   default, or 192 roman-only with `--roman`) into `scripts/temp/static/`, baking
+   the correct GEOM substitutions into each.
+9. **Compress** — generates `.woff2` siblings for the variable font and statics.
+10. **Package releases** — sorts the finished exports into the `fonts/` release
+    folders (e.g. `calsans-var-full`, `calsans-var-magic`, `calsans-static-essentials`,
+    `calsans-gf-workspace`, etc.)
 
 ### Configuration
 
 A few constants in `scripts/config.py` control the run:
 
-- `BUILD_ITALIC` — `False` builds 192 roman-only styles; `True` builds the
-  full 384 (roman + italic).
+- `BUILD_ITALIC` — `True` (default) builds the full 384 styles (roman + italic);
+  `False` builds 192 roman-only. The CLI `--roman` flag forces roman-only for a
+  single run.
 - `SOURCE_PATH` / `OUTPUT_PATH` / `BUILD_DIR` / `RELEASE_DIR` — paths for the
   source, intermediate `_READY` files, build artifacts, and final release
   folders, respectively.
@@ -104,10 +117,10 @@ There are two output locations, serving different purposes:
   | Package | Contents |
   |---------|----------|
   | `calsans-var-full` | The full variable font, all axes exposed |
-  | `calsans-var-magic` | Avar2 "magic" build — YTAS hidden, follows `opsz` parametrically (see issue #2) |
+  | `calsans-var-magic` | **Cal Sans Magic** — the HOI variable-morph build: GEOM glyphs interpolate instead of hard-swapping, plus avar2 (YTAS hidden, follows `opsz`). Built by default (step 7); skip with `--no-magic`. See VISION.md §8. |
   | `calsans-cossui` | Variable font with `ss*`/`cv*`/`aalt` features and their alternate glyphs subset out |
   | `calsans-gf-api` | Same subsetting as `cossui`, packaged for the Google Fonts API |
-  | `calsans-static-full` | All static instances (192 roman-only, or 384 with `BUILD_ITALIC=True`) |
+  | `calsans-static-full` | All static instances (384 with italics by default, or 192 roman-only with `--roman`) |
   | `calsans-static-{a11y,ui,base,geo}` | Per-GEOM-family static subsets (base YTAS/SHRP only) |
   | `calsans-static-essentials` | Curated minimal set: Text+UI (roman) and Display+Base (incl. italics), TTF-only |
   | `calsans-gf-workspace` | Same curated set as `static-essentials`, deployed without `opsz`-axis awareness |

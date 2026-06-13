@@ -1,6 +1,0 @@
-glyphsLib
-fontTools
-fontmake
-tqdm
-uharfbuzz
-brotli

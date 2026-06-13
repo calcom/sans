@@ -14,3 +14,10 @@ yarn.lock
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+scripts/temp/
+sources/CalSans_READY.glyphspackage
+sources/CalSans_READY_static.glyphspackage
+sources/CalSans_FLEX.glyphspackage
+sources/metrics.json
+__pycache__/
+*.pyc
