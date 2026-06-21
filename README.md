@@ -2,7 +2,7 @@ Copyright (c) 2026, Mark Davis mark@wordmark.nyc, with typefaces “Cal Sans,”
 
 <!-- markdownlint-disable MD033 MD036 MD041 -->
 
-# Cal Sans v1.9xx
+# Cal Sans v1.99x
 
 [![npm](https://badgen.net/npm/v/cal-sans)](https://www.npmjs.com/package/cal-sans)
 [![packagephobia/install](https://badgen.net/packagephobia/install/cal-sans)](https://www.npmjs.com/package/cal-sans)
@@ -10,7 +10,7 @@ Copyright (c) 2026, Mark Davis mark@wordmark.nyc, with typefaces “Cal Sans,”
 [![interactive showcase](documentation/images/isite.svg)](https://cal.com/font)
 
 
-Cal Sans (v2.000) is an open-source variable font purpose-built for both product design and brand — a single file that spans fine-print UI at 8 pt through large display headlines, adapting its proportions, spacing, and geometry at every step. It belongs to the same generation of optically-scaling geometric typefaces as Google Sans Flex, Inter, and Anthropic Sans, the latter a variable Geist fork with a 16–48 pt optical size range. Cal Sans 2 pushes that range further: **8–32 pt**, covering the full stack from dense data UI through hero type with a single `font-optical-sizing: auto` declaration.
+Cal Sans (v2.000) is an open-source variable font purpose-built for both product design and brand — a single file that spans fine-print UI at 8 pt through large display headlines, adapting its proportions, spacing, and geometry at every step. It belongs to the same generation of optically-scaling geometric typefaces as Google Sans Flex, Inter, and Anthropic Sans, the latter a variable Geist fork with a 16–48 pt optical size range. Cal Sans 2 pushes that range further: **8–45 pt**, covering the full stack from dense data UI through hero type with a single `font-optical-sizing: auto` declaration.
 
 ![Specimen Example](documentation/images/1_opengraph.png)
 
@@ -84,7 +84,7 @@ For explicit control over every axis:
 /* Large display headline — full geometric Cal Sans character */
 .hero {
   font-family: "Cal Sans", sans-serif;
-  font-variation-settings: "opsz" 32, "GEOM" 50, "wght" 600;
+  font-variation-settings: "opsz" 45, "GEOM" 50, "wght" 600;
 }
 
 /* UI body text — neutral, accessibility-friendly */
@@ -102,7 +102,7 @@ For explicit control over every axis:
 /* Sharpen corners for display use */
 .display-sharp {
   font-family: "Cal Sans", sans-serif;
-  font-variation-settings: "opsz" 32, "GEOM" 50, "wght" 700, "SHRP" 80;
+  font-variation-settings: "opsz" 45, "GEOM" 50, "wght" 700, "SHRP" 80;
 }
 ```
 
@@ -175,7 +175,7 @@ For GEOM, SHRP, and YTAS variants in Tailwind utility classes:
 
 ## Design Philosophy and Unique Characteristics
 
-**Display end geometric sans(opsz 20–32).** The original Cal Sans vision: “tight but not touching” geometric headlines. Letters are spaced for large-size use right out of the box. The proportions are pure, circular, and close to Futura in spirit. At this end of the optical size axis, positive letter-spacing should be applied as size decreases. We relegated any v1.000 Sharp parts to `SHRP` or extending ascenders to `YTAS`.
+**Display end geometric sans(opsz 20–45).** The original Cal Sans vision: “tight but not touching” geometric headlines. Letters are spaced for large-size use right out of the box. The proportions are pure, circular, and close to Futura in spirit. At this end of the optical size axis, positive letter-spacing should be applied as size decreases. We relegated any v1.000 Sharp parts to `SHRP` or extending ascenders to `YTAS`.
 
 **UI and text end neo-grotesque (opsz 8–14).** Proportions are re-optimized: x-heights lower (improving sentence-shape legibility around capitals), circular characters flatten by approximately 7–8% of their width for economy, and built-in sidebearings expand by 40–42 units compared to display end. Minuscule gaps open to blunt stroke joints, and terminals rotate away from counter forms by 8%, all contributing to clarity at small sizes. It remains tighter than comparable Open Source UI fonts by design.
 
@@ -201,7 +201,7 @@ The two optical size ends do more than space letters out, the letterforms adapt 
 
 | Axis              | Tag    | Range     | Default | Description                                                                         |
 | :---------------- | :----- | :-------- | :------ | :---------------------------------------------------------------------------------- |
-| Optical Size      | `opsz` | 8 – 32    | 14      | Adapts spacing, proportion, and detail from<br>**08** pt fine print / UI to<br>**32** pt display     |
+| Optical Size      | `opsz` | 8 – 45    | 14      | Adapts spacing, proportion, and detail from<br>**08** pt fine print / UI to<br>**45** pt display     |
 | Geometric Form    | `GEOM` | 0 – 100   | 25      | **000** → Accessibility<br>**025** → Neutrality/UI default<br>**050** → Cal Sans brand<br>**100** → Geo    |
 | Weight            | `wght` | 400 – 700 | 400     | Regular → Bold                                                                      |
 | Ascender Height   | `YTAS` | 720 – 800 | 720     | Adjusts ascenders for metric compatibility or visual preferences, with no impact on line height      |
@@ -211,26 +211,26 @@ The two optical size ends do more than space letters out, the letterforms adapt 
 
 The following named instances are included as presets across two optical sizes and four GEOM zones:
 
-### Cal Sans ~42px
+### Cal Sans ~60px
 
 | Instance      | opsz | GEOM | wght |
 | :------------ | :--- | :--- | :--- |
-| Regular       | 32   | 50   | 400  |
-| Medium        | 32   | 50   | 500  |
-| SemiBold      | 32   | 50   | 600  |
-| Bold          | 32   | 50   | 700  |
-| UI Regular    | 32   | 25   | 400  |
-| UI Medium     | 32   | 25   | 500  |
-| UI SemiBold   | 32   | 25   | 600  |
-| UI Bold       | 32   | 25   | 700  |
-| Geo Regular   | 32   | 100  | 400  |
-| Geo Medium    | 32   | 100  | 500  |
-| Geo SemiBold  | 32   | 100  | 600  |
-| Geo Bold      | 32   | 100  | 700  |
-| A11y Regular  | 32   | 0    | 400  |
-| A11y Medium   | 32   | 0    | 500  |
-| A11y SemiBold | 32   | 0    | 600  |
-| A11y Bold     | 32   | 0    | 700  |
+| Regular       | 45   | 50   | 400  |
+| Medium        | 45   | 50   | 500  |
+| SemiBold      | 45   | 50   | 600  |
+| Bold          | 45   | 50   | 700  |
+| UI Regular    | 45   | 25   | 400  |
+| UI Medium     | 45   | 25   | 500  |
+| UI SemiBold   | 45   | 25   | 600  |
+| UI Bold       | 45   | 25   | 700  |
+| Geo Regular   | 45   | 100  | 400  |
+| Geo Medium    | 45   | 100  | 500  |
+| Geo SemiBold  | 45   | 100  | 600  |
+| Geo Bold      | 45   | 100  | 700  |
+| A11y Regular  | 45   | 0    | 400  |
+| A11y Medium   | 45   | 0    | 500  |
+| A11y SemiBold | 45   | 0    | 600  |
+| A11y Bold     | 45   | 0    | 700  |
 
 ### Cal Sans Text ~14px
 
@@ -280,18 +280,17 @@ Afrikaans • Albanian • Asturian • Asu • Azerbaijani • Basque • Bemba
 
 ## Special Thanks
 
-Thank you to Peer for commissioning this project from the start, and for [Maxim Leyzerovich](https://twitter.com/round) for the original recommendation. Bold Monday’s Futura Today remains a design I love and a quiet reference. Thanks to Wei Huang for his Open Source “Perfect Glyphs Example File” that is [Work Sans dot glyphs](https://github.com/weiweihuanghuang/Work-Sans/blob/master/sources/WorkSans.glyphs) — incredibly helpful, and exhibits genius.
+Thank you to Peer for commissioning this project from the start. Bold Monday’s Futura Today remains a design I love and a quiet reference. Thanks to Wei Huang for his Open Source “Perfect Glyphs Example File” that is [Work Sans dot glyphs](https://github.com/weiweihuanghuang/Work-Sans/blob/master/sources/WorkSans.glyphs) — incredibly helpful, and exhibits genius.
 
 The following people were invaluable to this project, in no specific order, with an undisclosed amount of personal (or impersonal) influence:
 
-- Stephen “Thunder” Nixon
 - Luke Shuman
 - Paul Renner
 - Roger Black, David Berlow, Tobias Frere-Jones, Matthew Carter, Jonathan Hoefler, Kris Sowersby
-- Troy Leinster, David Jonathan Ross, Hannes Famira, Cara Di Edwardo, Andy Clymer, Thomas Jockin
+- Troy Leinster, Stephen “Thunder” Nixon AKA Arrow Type, Sebastian Carewe and [Italify](https://www.sebastiancarewe.com/italify), Thomas Jockin, David Jonathan Ross, Hannes Famira, Cara DiEdwardo, Andy Clymer
 - Doriel Jacov, Jamaal Nelson
-- [ArrowType’s Type-x Chrome Extension](https://github.com/arrowtype/type-x)
-- Eva Roa, ᴡᴏʀᴅᴍᴀʀᴋ COO and resident Python expert and evaGPT terminal; Doriel Jacov
+- [ArrowType’s Type-x Chrome Extension](https://chromewebstore.google.com/detail/type-x/paelebbajjhdmomglaffoachiepobeag?pli=1)
+- Eva Roa, ᴡᴏʀᴅᴍᴀʀᴋ COO and resident Python expert and evaGPT terminal
 - Cal Sans is my baby, all the more grateful to my parents Scott & Lori Davis
 
 ## License

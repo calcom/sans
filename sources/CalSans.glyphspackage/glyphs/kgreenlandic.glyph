@@ -133,7 +133,7 @@ italify.stemId = (
 );
 }
 );
-width = 615;
+width = 593;
 },
 {
 anchors = (
@@ -250,7 +250,7 @@ italify.stemId = (
 );
 }
 );
-width = 558;
+width = 539;
 },
 {
 anchors = (
@@ -682,7 +682,7 @@ italify.stemId = (
 );
 }
 );
-width = 574;
+width = 580;
 },
 {
 anchors = (
@@ -915,7 +915,7 @@ italify.stemId = (
 );
 }
 );
-width = 523;
+width = 519;
 },
 {
 anchors = (
@@ -1141,7 +1141,7 @@ italify.stemId = (
 );
 }
 );
-width = 615;
+width = 598;
 },
 {
 anchors = (
@@ -1370,7 +1370,7 @@ italify.stemId = (
 );
 }
 );
-width = 558;
+width = 538;
 }
 );
 metricRight = k;

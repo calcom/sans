@@ -10,7 +10,7 @@ shapes = (
 ref = a.alt;
 },
 {
-pos = (286,8);
+pos = (286,7);
 ref = circumflexcomb_tildecomb;
 }
 );
@@ -36,7 +36,7 @@ shapes = (
 ref = a.alt;
 },
 {
-pos = (236,8);
+pos = (236,7);
 ref = circumflexcomb_tildecomb;
 }
 );
@@ -75,7 +75,7 @@ shapes = (
 ref = a.alt;
 },
 {
-pos = (238,8);
+pos = (238,7);
 ref = circumflexcomb_tildecomb;
 }
 );
@@ -101,7 +101,7 @@ shapes = (
 ref = a.alt;
 },
 {
-pos = (287,8);
+pos = (287,7);
 ref = circumflexcomb_tildecomb;
 }
 );

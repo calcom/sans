@@ -428,7 +428,7 @@ pos = (109,720);
 },
 {
 name = topright;
-pos = (238,750);
+pos = (238,720);
 }
 );
 background = {
@@ -470,7 +470,25 @@ nodes = (
 );
 },
 {
-ref = l.rcltA11y;
+closed = 1;
+nodes = (
+(219,0,o),
+(234,0,o),
+(249,0,c),
+(249,119,l),
+(240,119,o),
+(231,119,o),
+(222,119,cs),
+(195,119,o),
+(179,134,o),
+(179,168,cs),
+(179,765,l),
+(40,765,l),
+(40,166,ls),
+(40,50,o),
+(98,0,o),
+(204,0,cs)
+);
 }
 );
 };
@@ -498,22 +516,22 @@ shapes = (
 {
 closed = 1;
 nodes = (
-(292,0,l),
-(292,119,l),
-(255,119,ls),
-(205,119,o),
-(179,127,o),
-(179,185,cs),
+(255,0,l),
+(255,119,l),
+(222,119,ls),
+(195,119,o),
+(179,137,o),
+(179,168,cs),
 (179,720,l),
 (40,720,l),
-(40,178,ls),
-(40,43,o),
-(108,0,o),
-(216,0,cs)
+(40,163,ls),
+(40,61,o),
+(81,0,o),
+(189,0,cs)
 );
 }
 );
-width = 307;
+width = 270;
 },
 {
 anchors = (
@@ -550,7 +568,7 @@ associatedMasterId = "0B84D982-BA46-4CB9-89EB-4BEFB54BBE92";
 attr = {
 coordinates = (
 10,
-0,
+25,
 400,
 800,
 0,
@@ -672,7 +690,7 @@ associatedMasterId = m006;
 attr = {
 coordinates = (
 10,
-0,
+25,
 700,
 800,
 0,
@@ -793,8 +811,8 @@ pos = (172,800);
 associatedMasterId = "F32A93D6-BEB9-4F11-B510-2860D42C0CD2";
 attr = {
 coordinates = (
-32,
-0,
+45,
+25,
 400,
 800,
 0,
@@ -981,8 +999,8 @@ pos = (238,800);
 associatedMasterId = "1B5AC656-48C3-4864-953F-2CD31E7BA751";
 attr = {
 coordinates = (
-32,
-0,
+45,
+25,
 700,
 800,
 0,
@@ -1035,19 +1053,17 @@ ref = l.rcltA11y;
 hints = (
 {
 horizontal = 1;
-origin = (0,3);
-target = (0,6);
+place = (119,681);
 type = Stem;
 },
 {
 horizontal = 1;
-origin = (0,11);
+place = (0,-20);
 target = down;
 type = TopGhost;
 },
 {
-origin = (0,10);
-target = (0,0);
+place = (108,184);
 type = Stem;
 }
 );
@@ -1057,22 +1073,22 @@ shapes = (
 {
 closed = 1;
 nodes = (
-(292,0,l),
-(292,119,l),
-(255,119,ls),
-(205,119,o),
-(179,127,o),
-(179,185,cs),
+(255,0,l),
+(255,119,l),
+(222,119,ls),
+(195,119,o),
+(179,137,o),
+(179,168,cs),
 (179,800,l),
 (40,800,l),
-(40,178,ls),
-(40,43,o),
-(108,0,o),
-(216,0,cs)
+(40,163,ls),
+(40,61,o),
+(81,0,o),
+(189,0,cs)
 );
 }
 );
-width = 307;
+width = 270;
 },
 {
 anchors = (
@@ -1102,7 +1118,7 @@ pos = (185,720);
 },
 {
 name = topright;
-pos = (319,750);
+pos = (310,720);
 }
 );
 background = {
@@ -1182,7 +1198,7 @@ nodes = (
 hints = (
 {
 horizontal = 1;
-origin = (0,3);
+origin = (0,2);
 target = (0,6);
 type = Stem;
 },
@@ -1193,8 +1209,8 @@ target = down;
 type = TopGhost;
 },
 {
-origin = (0,10);
-target = (0,0);
+origin = (0,8);
+target = (0,1);
 type = Stem;
 }
 );
@@ -1203,22 +1219,22 @@ shapes = (
 {
 closed = 1;
 nodes = (
-(247,0,l),
-(267,119,l),
-(234,119,ls),
-(183,119,o),
-(156,128,o),
-(167,194,cs),
+(211,0,l),
+(231,119,l),
+(198,119,ls),
+(171,119,o),
+(156,127,o),
+(163,168,cs),
 (255,720,l),
 (116,720,l),
-(29,202,ls),
-(3,49,o),
-(63,0,o),
-(171,0,cs)
+(23,163,ls),
+(6,61,o),
+(55,0,o),
+(146,0,cs)
 );
 }
 );
-width = 307;
+width = 271;
 },
 {
 anchors = (
@@ -1254,8 +1270,8 @@ pos = (327,800);
 associatedMasterId = "0DDD66F2-BE4C-471A-8E86-2163424A6CF0";
 attr = {
 coordinates = (
-32,
-0,
+45,
+25,
 700,
 800,
 0,
@@ -1308,19 +1324,17 @@ ref = l.rcltA11y;
 hints = (
 {
 horizontal = 1;
-origin = (0,3);
-target = (0,6);
+place = (119,681);
 type = Stem;
 },
 {
 horizontal = 1;
-origin = (0,11);
+place = (0,-20);
 target = down;
 type = TopGhost;
 },
 {
-origin = (0,10);
-target = (0,0);
+place = (72,175);
 type = Stem;
 }
 );
@@ -1330,22 +1344,22 @@ shapes = (
 {
 closed = 1;
 nodes = (
-(247,0,l),
-(267,119,l),
-(240,119,ls),
-(183,119,o),
-(156,128,o),
-(167,194,cs),
+(211,0,l),
+(231,119,l),
+(198,119,ls),
+(171,119,o),
+(156,127,o),
+(163,168,cs),
 (268,800,l),
 (129,800,l),
-(29,202,ls),
-(3,49,o),
-(72,0,o),
-(194,0,cs)
+(23,163,ls),
+(6,61,o),
+(55,0,o),
+(146,0,cs)
 );
 }
 );
-width = 307;
+width = 271;
 },
 {
 anchors = (
@@ -1527,8 +1541,8 @@ pos = (262,800);
 associatedMasterId = "CC8ADC1C-440E-49BA-9C42-2F7F780CE9BF";
 attr = {
 coordinates = (
-32,
-0,
+45,
+25,
 400,
 800,
 0,
@@ -1850,7 +1864,7 @@ associatedMasterId = "FA9346B6-A16F-4CF3-996A-4A8FD0AD301D";
 attr = {
 coordinates = (
 10,
-0,
+25,
 700,
 800,
 0,
@@ -2042,11 +2056,6 @@ horizontal = 1;
 origin = (0,3);
 target = (0,6);
 type = Stem;
-},
-{
-origin = (0,0);
-target = (0,10);
-type = Stem;
 }
 );
 layerId = "33BF50A0-DEC8-4619-95BB-DD23FBD7FB0B";
@@ -2058,14 +2067,14 @@ nodes = (
 (233,78,l),
 (199,78,ls),
 (160,78,o),
-(145,97,o),
+(144,90,o),
 (152,136,cs),
 (249,720,l),
 (161,720,l),
 (65,145,ls),
-(49,46,o),
-(75,0,o),
-(169,0,cs)
+(50,52,o),
+(89,0,o),
+(176,0,cs)
 );
 }
 );
@@ -2106,7 +2115,7 @@ associatedMasterId = "33BF50A0-DEC8-4619-95BB-DD23FBD7FB0B";
 attr = {
 coordinates = (
 10,
-0,
+25,
 400,
 800,
 0,

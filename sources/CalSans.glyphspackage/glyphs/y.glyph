@@ -239,6 +239,33 @@ shapes = (
 {
 pos = (4,0);
 ref = v;
+},
+{
+closed = 1;
+nodes = (
+(286,-92,l),
+(307,-42,l),
+(223,-7,l),
+(202,-57,l)
+);
+},
+{
+closed = 1;
+nodes = (
+(354,-127,l),
+(354,-73,l),
+(263,-74,l),
+(263,-128,l)
+);
+},
+{
+closed = 1;
+nodes = (
+(79,-151,l),
+(26,-139,l),
+(6,-228,l),
+(59,-240,l)
+);
 }
 );
 };
@@ -257,7 +284,7 @@ type = TopGhost;
 },
 {
 horizontal = 1;
-origin = (0,23);
+origin = (0,26);
 target = up;
 type = BottomGhost;
 }
@@ -268,8 +295,8 @@ shapes = (
 closed = 1;
 nodes = (
 (166,-237,o),
-(237,-210,o),
-(294,-75,cs,{
+(236,-210,o),
+(286,-92,cs,{
 italify.anchorEdge = (
 "8FB8804C-3FCB-4A6A-9C71-A4577BC79418"
 );
@@ -364,7 +391,7 @@ italify.stemId = (
 "3D7BE720-8772-469A-9F44-B35F01FB2370"
 );
 }),
-(222,-6,l,{
+(223,-7,l,{
 italify.anchorEdge = (
 "3D7BE720-8772-469A-9F44-B35F01FB2370"
 );
@@ -375,19 +402,19 @@ italify.stemId = (
 "3D7BE720-8772-469A-9F44-B35F01FB2370"
 );
 }),
-(202,-58,ls,{
+(202,-57,ls,{
 italify.stemId = (
 "8FB8804C-3FCB-4A6A-9C71-A4577BC79418"
 );
 }),
-(171,-135,o),
-(131,-153,o),
-(86,-153,cs),
-(61,-153,o),
-(43,-150,o),
-(21,-143,c),
-(5,-225,l),
-(27,-232,o),
+(169,-134,o),
+(131,-150,o),
+(84,-150,cs),
+(64,-150,o),
+(47,-147,o),
+(26,-141,c),
+(6,-226,l),
+(29,-233,o),
 (53,-237,o),
 (88,-237,cs)
 );
@@ -634,7 +661,7 @@ associatedMasterId = "0B84D982-BA46-4CB9-89EB-4BEFB54BBE92";
 attr = {
 coordinates = (
 10,
-0,
+25,
 400,
 720,
 100,
@@ -646,20 +673,175 @@ shapes = (
 {
 closed = 1;
 nodes = (
-(291,-24,l),
-(535,514,l),
-(435,514,l),
-(325,261,ls),
-(312,230,o),
-(298,192,o),
-(290,161,c),
-(282,161,l),
-(273,192,o),
-(260,230,o),
-(246,261,cs),
-(132,514,l),
-(32,514,l),
-(275,-24,l)
+(-409,-24,l),
+(-165,514,l),
+(-265,514,l),
+(-375,261,ls),
+(-388,230,o),
+(-402,192,o),
+(-410,161,c),
+(-418,161,l),
+(-427,192,o),
+(-440,230,o),
+(-454,261,cs),
+(-568,514,l),
+(-668,514,l),
+(-425,-24,l)
+);
+},
+{
+closed = 1;
+nodes = (
+(166,-199,o),
+(236,-172,o),
+(286,-55,cs,{
+italify.anchorEdge = (
+"8FB8804C-3FCB-4A6A-9C71-A4577BC79418"
+);
+italify.stemCorner = (
+"8FB8804C-3FCB-4A6A-9C71-A4577BC79418"
+);
+italify.stemId = (
+"8FB8804C-3FCB-4A6A-9C71-A4577BC79418"
+);
+}),
+(544,552,l,{
+italify.anchorEdge = (
+"8FB8804C-3FCB-4A6A-9C71-A4577BC79418"
+);
+italify.stemCorner = (
+"8FB8804C-3FCB-4A6A-9C71-A4577BC79418"
+);
+italify.stemId = (
+"8FB8804C-3FCB-4A6A-9C71-A4577BC79418"
+);
+}),
+(443,552,l,{
+italify.stemCorner = (
+"8FB8804C-3FCB-4A6A-9C71-A4577BC79418"
+);
+italify.stemId = (
+"8FB8804C-3FCB-4A6A-9C71-A4577BC79418"
+);
+}),
+(318,234,ls,{
+italify.stemId = (
+"8FB8804C-3FCB-4A6A-9C71-A4577BC79418"
+);
+}),
+(306,204,o,{
+italify.stemId = (
+"8FB8804C-3FCB-4A6A-9C71-A4577BC79418"
+);
+}),
+(286,154,o,{
+italify.stemId = (
+"8FB8804C-3FCB-4A6A-9C71-A4577BC79418"
+);
+}),
+(279,116,c,{
+italify.stemCorner = (
+"8FB8804C-3FCB-4A6A-9C71-A4577BC79418"
+);
+italify.stemId = (
+"8FB8804C-3FCB-4A6A-9C71-A4577BC79418"
+);
+}),
+(270,116,l,{
+italify.stemCorner = (
+"3D7BE720-8772-469A-9F44-B35F01FB2370"
+);
+italify.stemId = (
+"3D7BE720-8772-469A-9F44-B35F01FB2370"
+);
+}),
+(261,154,o,{
+italify.stemId = (
+"3D7BE720-8772-469A-9F44-B35F01FB2370"
+);
+}),
+(240,207,o,{
+italify.stemId = (
+"3D7BE720-8772-469A-9F44-B35F01FB2370"
+);
+}),
+(230,234,cs,{
+italify.stemId = (
+"3D7BE720-8772-469A-9F44-B35F01FB2370"
+);
+}),
+(106,552,l,{
+italify.stemCorner = (
+"3D7BE720-8772-469A-9F44-B35F01FB2370"
+);
+italify.stemId = (
+"3D7BE720-8772-469A-9F44-B35F01FB2370"
+);
+}),
+(5,552,l,{
+italify.anchorEdge = (
+"3D7BE720-8772-469A-9F44-B35F01FB2370"
+);
+italify.stemCorner = (
+"3D7BE720-8772-469A-9F44-B35F01FB2370"
+);
+italify.stemId = (
+"3D7BE720-8772-469A-9F44-B35F01FB2370"
+);
+}),
+(223,31,l,{
+italify.anchorEdge = (
+"3D7BE720-8772-469A-9F44-B35F01FB2370"
+);
+italify.stemCorner = (
+"3D7BE720-8772-469A-9F44-B35F01FB2370"
+);
+italify.stemId = (
+"3D7BE720-8772-469A-9F44-B35F01FB2370"
+);
+}),
+(202,-19,ls,{
+italify.stemId = (
+"8FB8804C-3FCB-4A6A-9C71-A4577BC79418"
+);
+}),
+(169,-96,o),
+(131,-115,o),
+(88,-115,cs),
+(61,-115,o),
+(45,-111,o),
+(26,-104,c),
+(5,-187,l),
+(27,-194,o),
+(53,-199,o),
+(88,-199,cs)
+);
+},
+{
+closed = 1;
+nodes = (
+(269,-93,l),
+(290,-43,l),
+(206,-8,l),
+(185,-58,l)
+);
+},
+{
+closed = 1;
+nodes = (
+(337,-128,l),
+(337,-74,l),
+(246,-75,l),
+(246,-129,l)
+);
+},
+{
+closed = 1;
+nodes = (
+(58,-148,l),
+(5,-136,l),
+(-15,-225,l),
+(38,-237,l)
 );
 }
 );
@@ -691,8 +873,8 @@ shapes = (
 closed = 1;
 nodes = (
 (146,-237,o),
-(217,-210,o),
-(277,-75,cs,{
+(218,-210,o),
+(269,-93,cs,{
 italify.anchorEdge = (
 "8FB8804C-3FCB-4A6A-9C71-A4577BC79418"
 );
@@ -722,22 +904,22 @@ italify.stemId = (
 "8FB8804C-3FCB-4A6A-9C71-A4577BC79418"
 );
 }),
-(311,231,ls,{
+(315,215,ls,{
 italify.stemId = (
 "8FB8804C-3FCB-4A6A-9C71-A4577BC79418"
 );
 }),
-(297,200,o,{
+(302,183,o,{
 italify.stemId = (
 "8FB8804C-3FCB-4A6A-9C71-A4577BC79418"
 );
 }),
-(284,162,o,{
+(289,146,o,{
 italify.stemId = (
 "8FB8804C-3FCB-4A6A-9C71-A4577BC79418"
 );
 }),
-(275,132,c,{
+(280,116,c,{
 italify.stemCorner = (
 "8FB8804C-3FCB-4A6A-9C71-A4577BC79418"
 );
@@ -745,7 +927,7 @@ italify.stemId = (
 "8FB8804C-3FCB-4A6A-9C71-A4577BC79418"
 );
 }),
-(266,132,l,{
+(271,116,l,{
 italify.stemCorner = (
 "3D7BE720-8772-469A-9F44-B35F01FB2370"
 );
@@ -753,17 +935,17 @@ italify.stemId = (
 "3D7BE720-8772-469A-9F44-B35F01FB2370"
 );
 }),
-(257,162,o,{
+(262,146,o,{
 italify.stemId = (
 "3D7BE720-8772-469A-9F44-B35F01FB2370"
 );
 }),
-(244,200,o,{
+(247,184,o,{
 italify.stemId = (
 "3D7BE720-8772-469A-9F44-B35F01FB2370"
 );
 }),
-(230,231,cs,{
+(234,215,cs,{
 italify.stemId = (
 "3D7BE720-8772-469A-9F44-B35F01FB2370"
 );
@@ -787,7 +969,7 @@ italify.stemId = (
 "3D7BE720-8772-469A-9F44-B35F01FB2370"
 );
 }),
-(223,29,l,{
+(223,31,l,{
 italify.anchorEdge = (
 "3D7BE720-8772-469A-9F44-B35F01FB2370"
 );
@@ -804,11 +986,11 @@ italify.stemId = (
 );
 }),
 (152,-134,o),
-(112,-153,o),
-(67,-153,cs),
-(42,-153,o),
-(24,-149,o),
-(3,-142,c),
+(115,-150,o),
+(68,-150,cs),
+(44,-150,o),
+(26,-146,o),
+(4,-140,c),
 (-15,-225,l),
 (7,-232,o),
 (33,-237,o),
@@ -833,7 +1015,7 @@ associatedMasterId = m006;
 attr = {
 coordinates = (
 10,
-0,
+25,
 700,
 720,
 100,
@@ -1082,8 +1264,8 @@ pos = (316,535);
 associatedMasterId = "1B5AC656-48C3-4864-953F-2CD31E7BA751";
 attr = {
 coordinates = (
-32,
-0,
+45,
+25,
 700,
 720,
 100,
@@ -1576,8 +1758,8 @@ pos = (255,520);
 associatedMasterId = "F32A93D6-BEB9-4F11-B510-2860D42C0CD2";
 attr = {
 coordinates = (
-32,
-0,
+45,
+25,
 400,
 720,
 100,
@@ -2114,8 +2296,8 @@ pos = (361,535);
 associatedMasterId = "0DDD66F2-BE4C-471A-8E86-2163424A6CF0";
 attr = {
 coordinates = (
-32,
-0,
+45,
+25,
 700,
 720,
 100,
@@ -2771,8 +2953,8 @@ pos = (299,520);
 associatedMasterId = "CC8ADC1C-440E-49BA-9C42-2F7F780CE9BF";
 attr = {
 coordinates = (
-32,
-0,
+45,
+25,
 400,
 720,
 100,
@@ -3467,7 +3649,7 @@ associatedMasterId = "FA9346B6-A16F-4CF3-996A-4A8FD0AD301D";
 attr = {
 coordinates = (
 10,
-0,
+25,
 700,
 720,
 100,
@@ -4169,7 +4351,7 @@ associatedMasterId = "33BF50A0-DEC8-4619-95BB-DD23FBD7FB0B";
 attr = {
 coordinates = (
 10,
-0,
+25,
 400,
 720,
 100,

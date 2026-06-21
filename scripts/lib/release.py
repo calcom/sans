@@ -1,9 +1,15 @@
+import os
+import re
 import shutil
+from multiprocessing import Pool
 from pathlib import Path
+
+from tqdm import tqdm
 from fontTools import subset
 from fontTools.ttLib import TTFont
 from scripts.lib.manifest import all_styles
-from scripts.lib.build_magic import build_magic
+from scripts.lib.build_flex import build_flex
+from scripts.lib.utils import axis_by_tag
 from scripts import config
 
 _PFX = config.RELEASE_PACKAGE_PREFIX
@@ -11,11 +17,23 @@ _PFX = config.RELEASE_PACKAGE_PREFIX
 
 # ── Helpers ───────────────────────────────────────────────────────────────────
 
+def _compress_one(ttf_path: str):
+    font = TTFont(ttf_path)
+    font.flavor = "woff2"
+    font.save(str(Path(ttf_path).with_suffix(".woff2")))
+
+
 def _compress_dir(dir_path: Path):
-    for ttf in sorted(dir_path.glob("*.ttf")):
-        font = TTFont(str(ttf))
-        font.flavor = "woff2"
-        font.save(str(ttf.with_suffix(".woff2")))
+    """WOFF2-compress every TTF in dir_path. Brotli is CPU-bound and per-file
+    independent, so the files are farmed out across processes (like instancing)."""
+    ttfs = [str(p) for p in sorted(dir_path.glob("*.ttf"))]
+    if not ttfs:
+        return
+    workers = min(os.cpu_count() or 4, len(ttfs))
+    with Pool(processes=workers) as pool:
+        for _ in tqdm(pool.imap_unordered(_compress_one, ttfs), total=len(ttfs),
+                      desc=f"   ↳ WOFF2 {dir_path.name}", leave=False):
+            pass
 
 
 def _copy_pair(src_dir: Path, filename: str, dest_dir: Path, woff2: bool = True) -> bool:
@@ -33,12 +51,9 @@ def _copy_pair(src_dir: Path, filename: str, dest_dir: Path, woff2: bool = True)
     return found
 
 
-def _strip_ss_cv(src_ttf: Path, dest_dir: Path, woff2: bool = True):
-    """Write TTF (+ WOFF2 unless woff2=False) to dest_dir with ss/cv stylistic-set/
-    character-variant features—and their now-unreferenced alternate glyphs—subset out."""
-    dest_dir.mkdir(parents=True, exist_ok=True)
-    font = TTFont(str(src_ttf))
-
+def _subset_ss_cv(font: TTFont):
+    """Strip ss/cv stylistic-set / character-variant features—and their now-
+    unreferenced alternate glyphs—from an open font, in place."""
     feature_tags = set()
     for tag in ("GSUB", "GPOS"):
         if tag in font:
@@ -58,9 +73,92 @@ def _strip_ss_cv(src_ttf: Path, dest_dir: Path, woff2: bool = True):
     subsetter.populate(unicodes=font.getBestCmap().keys())
     subsetter.subset(font)
 
+
+def _relabel_opsz_max(font: TTFont, new_max: float):
+    """Relabel the opsz axis maximum down to new_max WITHOUT resampling outlines: gvar
+    deltas live in normalized space and the large-optical master sits at normalized +1.0,
+    so after lowering fvar maxValue, input=new_max still maps to that master design. This
+    is a pure relabel (fvar/STAT/instance metadata) — not an instancer range-limit, which
+    would interpolate a milder design at new_max. Used so cossui presents opsz 8–new_max
+    while shipping the same display drawing the full build labels at the source max."""
+    fvar = font["fvar"]
+    axis = axis_by_tag(fvar.axes, "opsz")
+    old_max = axis.maxValue
+    if new_max >= old_max:
+        return
+    axis.maxValue = new_max
+    for inst in fvar.instances:
+        if inst.coordinates.get("opsz") == old_max:
+            inst.coordinates["opsz"] = new_max
+    if "STAT" in font and font["STAT"].table.AxisValueArray:
+        stat = font["STAT"].table
+        opsz_idx = next((i for i, a in enumerate(stat.DesignAxisRecord.Axis)
+                         if a.AxisTag == "opsz"), None)
+        if opsz_idx is not None:
+            for axv in stat.AxisValueArray.AxisValue:
+                if getattr(axv, "AxisIndex", None) == opsz_idx and getattr(axv, "Value", None) == old_max:
+                    axv.Value = new_max
+
+
+def _strip_ss_cv(src_ttf: Path, dest_dir: Path, woff2: bool = True, opsz_max: float = None):
+    """Write TTF (+ WOFF2 unless woff2=False) to dest_dir with ss/cv features subset out.
+    If opsz_max is set, the opsz axis max is also relabeled down to it (see _relabel_opsz_max)."""
+    dest_dir.mkdir(parents=True, exist_ok=True)
+    font = TTFont(str(src_ttf))
+    _subset_ss_cv(font)
+    if opsz_max is not None:
+        _relabel_opsz_max(font, opsz_max)
+
     dest_ttf = dest_dir / src_ttf.name
     font.save(str(dest_ttf))
     if woff2:
+        font.flavor = "woff2"
+        font.save(str(dest_ttf.with_suffix(".woff2")))
+
+
+def _set_style_names(font: TTFont, subfamily: str):
+    """Set the RIBBI + typographic name records for a single-style VF (Roman or Italic).
+    Subsetting drops nameID 16/17, and the combined VF's defaults are the Roman ones, so
+    rewrite both name IDs and the family/full/PS records on Windows + Mac platforms."""
+    name = font["name"]
+    family = name.getDebugName(16) or name.getDebugName(1) or "Cal Sans"
+    full = f"{family} {subfamily}"
+    ps = f"{family}-{subfamily}".replace(" ", "")
+    for nid, val in ((1, family), (2, subfamily), (4, full), (6, ps), (16, family), (17, subfamily)):
+        name.setName(val, nid, 3, 1, 0x0409)  # Windows, English (US)
+        name.setName(val, nid, 1, 0, 0)        # Mac, Roman
+    if subfamily == "Italic":
+        if "OS/2" in font:
+            os2 = font["OS/2"]
+            os2.fsSelection = (os2.fsSelection & ~0x0040) | 0x0001  # clear REGULAR, set ITALIC
+        if "head" in font:
+            font["head"].macStyle |= 0x0002
+
+
+def _build_gf_api(src_ttf: Path, dest_dir: Path):
+    """gf-api ships roman + italic as TWO variable fonts (Google Fonts spec): the ital
+    axis is instanced out of fvar and survives only as a STAT style-link record (Roman
+    elidable, linkedValue → Italic). Both files derive from the combined VF — its masters
+    sit exactly at ital 0/1, so the pin is lossless. ss/cv are subset out like cossui."""
+    from fontTools.varLib.instancer import instantiateVariableFont
+    dest_dir.mkdir(parents=True, exist_ok=True)
+
+    probe = TTFont(str(src_ttf))
+    has_ital = any(a.axisTag == "ital" for a in probe["fvar"].axes)
+    family_ps = (probe["name"].getDebugName(16) or "Cal Sans").replace(" ", "")
+    m = re.search(r"\[([^\]]*)\]", src_ttf.stem)
+    tags = m.group(1).split(",") if m else [a.axisTag for a in probe["fvar"].axes]
+    bracket = ",".join(t for t in tags if t.strip() != "ital")
+
+    targets = [(0, "", "Regular")] + ([(1, "-Italic", "Italic")] if has_ital else [])
+    for ital_value, suffix, subfamily in targets:
+        font = TTFont(str(src_ttf))
+        _subset_ss_cv(font)
+        if has_ital:
+            instantiateVariableFont(font, {"ital": ital_value}, inplace=True, updateFontNames=False)
+        _set_style_names(font, subfamily)
+        dest_ttf = dest_dir / f"{family_ps}{suffix}[{bracket}].ttf"
+        font.save(str(dest_ttf))
         font.flavor = "woff2"
         font.save(str(dest_ttf.with_suffix(".woff2")))
 
@@ -82,7 +180,8 @@ def compress_build_outputs(build_dir: str):
             _compress_dir(d)
 
 
-def build_release_folders(build_dir: str, output_dir: str, build_italic: bool = False):
+def build_release_folders(build_dir: str, output_dir: str, build_italic: bool = False,
+                          flex_var_ttf: str = None):
     build_path = Path(build_dir)
     out_path   = Path(output_dir)
     var_dir    = build_path / "variable"
@@ -93,6 +192,11 @@ def build_release_folders(build_dir: str, output_dir: str, build_italic: bool = 
     if out_path.exists():
         shutil.rmtree(out_path)
     out_path.mkdir()
+
+    # fonts/ is wiped above, so re-emit its README each run from the source copy.
+    readme_src = Path(__file__).parent / "fonts_README.md"
+    if readme_src.exists():
+        shutil.copy2(readme_src, out_path / "README.md")
 
     print("📦 Building release folders...")
     missing = 0
@@ -110,18 +214,28 @@ def build_release_folders(build_dir: str, output_dir: str, build_italic: bool = 
         _copy_pair(var_dir, ttf.name, pkg)
     _report(pkg, f"{_PFX}-var-full")
 
-    # var-magic: avar2 build — YTAS follows opsz, axis hidden from users
-    pkg = out_path / f"{_PFX}-var-magic"
+    # var-flex: the HOI morphing build (Flex-family only) → avar2, YTAS hidden/slaved to opsz.
+    # Uses the HOI variable TTF when the flex stage produced one; else falls back to the base VF.
+    pkg = out_path / f"{_PFX}-var-flex"
     pkg.mkdir(parents=True, exist_ok=True)
-    for ttf in sorted(var_dir.glob("*.ttf")):
-        build_magic(str(ttf), str(pkg))
-    _report(pkg, f"{_PFX}-var-magic")
+    flex_input = flex_var_ttf or next((str(t) for t in sorted(var_dir.glob("*.ttf"))), None)
+    if flex_input:
+        build_flex(flex_input, str(pkg))
+    _report(pkg, f"{_PFX}-var-flex")
 
-    for pkg_name in (f"{_PFX}-cossui", f"{_PFX}-gf-api"):
-        pkg = out_path / pkg_name
-        for ttf in sorted(var_dir.glob("*.ttf")):
-            _strip_ss_cv(ttf, pkg)
-        _report(pkg, pkg_name)
+    # cossui: combined VF (ital axis retained), ss/cv stripped — single file.
+    # opsz capped at 32 (source tops out at 45); default optical size unchanged.
+    pkg = out_path / f"{_PFX}-cossui"
+    for ttf in sorted(var_dir.glob("*.ttf")):
+        _strip_ss_cv(ttf, pkg, opsz_max=config.COSSUI_OPSZ_MAX)
+    _report(pkg, f"{_PFX}-cossui")
+
+    # gf-api: GF spec — roman + italic shipped as TWO variable fonts, ital instanced
+    # out of fvar and kept only as a STAT style-link record.
+    pkg = out_path / f"{_PFX}-gf-api"
+    for ttf in sorted(var_dir.glob("*.ttf")):
+        _build_gf_api(ttf, pkg)
+    _report(pkg, f"{_PFX}-gf-api")
 
     # ── Static packages ───────────────────────────────────────────────────────
 

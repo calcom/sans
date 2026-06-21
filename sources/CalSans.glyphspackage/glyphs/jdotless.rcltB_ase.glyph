@@ -1,7 +1,7 @@
 {
 color = 4;
 glyphname = jdotless.rcltBase;
-kernLeft = n;
+kernLeft = j;
 kernRight = u;
 layers = (
 {

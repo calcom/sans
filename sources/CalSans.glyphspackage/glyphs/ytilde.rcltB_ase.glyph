@@ -23,7 +23,7 @@ shapes = (
 ref = y.rcltBase;
 },
 {
-pos = (273,0);
+pos = (273,-1);
 ref = tildecomb;
 }
 );

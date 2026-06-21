@@ -10,7 +10,7 @@ shapes = (
 ref = a.alt;
 },
 {
-pos = (279,0);
+pos = (279,-1);
 ref = tildecomb;
 }
 );
@@ -36,7 +36,7 @@ shapes = (
 ref = a.alt;
 },
 {
-pos = (246,6);
+pos = (246,5);
 ref = tildecomb;
 }
 );
@@ -75,7 +75,7 @@ shapes = (
 ref = a.alt;
 },
 {
-pos = (247,6);
+pos = (247,5);
 ref = tildecomb;
 }
 );
@@ -101,7 +101,7 @@ shapes = (
 ref = a.alt;
 },
 {
-pos = (279,0);
+pos = (279,-1);
 ref = tildecomb;
 }
 );

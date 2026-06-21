@@ -5,7 +5,6 @@ layers = (
 layerId = m006;
 shapes = (
 {
-pos = (-4,0);
 ref = zero.tf.rcltGeo;
 }
 );
@@ -15,7 +14,6 @@ width = 637;
 layerId = "0B84D982-BA46-4CB9-89EB-4BEFB54BBE92";
 shapes = (
 {
-pos = (-4,0);
 ref = zero.tf.rcltGeo;
 }
 );
@@ -61,7 +59,6 @@ width = 560;
 layerId = "FA9346B6-A16F-4CF3-996A-4A8FD0AD301D";
 shapes = (
 {
-pos = (-4,0);
 ref = zero.tf.rcltGeo;
 }
 );
@@ -71,7 +68,6 @@ width = 637;
 layerId = "33BF50A0-DEC8-4619-95BB-DD23FBD7FB0B";
 shapes = (
 {
-pos = (-4,0);
 ref = zero.tf.rcltGeo;
 }
 );

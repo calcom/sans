@@ -10,14 +10,14 @@ curated release packages — all without ever modifying the source file. See
 
 You'll need Python 3.9+ and a virtual environment.
 
-###MacOS
+### MacOS
 
 ```bash
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
 ```
-###Windows
+### Windows
 
 ```bash
 python3 -m venv venv
@@ -44,7 +44,7 @@ python3 -m scripts
 ```
 
 This runs the entire pipeline end-to-end — source → packaged release folders —
-printing a numbered, timed `[n/10]` header for each step (`[n/9]` with `--no-magic`). Expect it to take a
+printing a numbered, timed `[n/10]` header for each step (`[n/9]` with `--no-flex`). Expect it to take a
 while: `glyphsLib.load` alone takes ~45s, and the instancing/compiling steps
 are CPU-heavy (the full run can take well over ten minutes).
 
@@ -56,8 +56,8 @@ Useful flags:
   shift, STAT + instance names), so it's a fast way to test variable-font output.
 - `--roman` — build roman styles only (192), skipping the italic statics.
   Italics are built by default (384 styles).
-- `--no-magic` — skip the **Cal Sans Magic** build (step 7, the HOI
-  variable-morph font). Magic is built **by default** on every full run; this
+- `--no-flex` — skip the **Cal Sans Flex** build (step 7, the HOI
+  variable-morph font). Flex is built **by default** on every full run; this
   opts out for a faster build when you only need the base/static families.
 - `--verbose` — show full glyph/instance name lists in the pre-processing
   stage (step 4); by default only counts and the first few names are printed.
@@ -73,18 +73,18 @@ Useful flags:
    intermediates that fontmake compiles from.
 6. **Compile the variable font** — runs `fontmake`, then post-processes the
    result (merges overlapping GEOM feature variations, shifts axis defaults).
-7. **Compile Cal Sans Magic** — re-preps a fresh copy of the source, injects the
+7. **Compile Cal Sans Flex** — re-preps a fresh copy of the source, injects the
    HOI variable-morph braces and strips the morphed glyphs from the conditionset
    (so GEOM glyphs *interpolate* instead of hard-swapping), compiles a **second**
-   variable font from that disposable `_MAGIC` package, then applies avar2 + hides
-   the YTAS axis + renames it to **Cal Sans Magic**. Magic-family only; the base
-   build keeps the discrete swaps. Skip with `--no-magic`. See VISION.md §8.
+   variable font from that disposable `_FLEX` package, then applies avar2 + hides
+   the YTAS axis + renames it to **Cal Sans Flex**. Flex-family only; the base
+   build keeps the discrete swaps. Skip with `--no-flex`. See VISION.md §8.
 8. **Instance statics** — generates all static styles (384 with italics by
    default, or 192 roman-only with `--roman`) into `scripts/temp/static/`, baking
    the correct GEOM substitutions into each.
 9. **Compress** — generates `.woff2` siblings for the variable font and statics.
 10. **Package releases** — sorts the finished exports into the `fonts/` release
-    folders (e.g. `calsans-var-full`, `calsans-var-magic`, `calsans-static-essentials`,
+    folders (e.g. `calsans-var-full`, `calsans-var-flex`, `calsans-static-essentials`,
     `calsans-gf-workspace`, etc.)
 
 ### Configuration
@@ -117,7 +117,7 @@ There are two output locations, serving different purposes:
   | Package | Contents |
   |---------|----------|
   | `calsans-var-full` | The full variable font, all axes exposed |
-  | `calsans-var-magic` | **Cal Sans Magic** — the HOI variable-morph build: GEOM glyphs interpolate instead of hard-swapping, plus avar2 (YTAS hidden, follows `opsz`). Built by default (step 7); skip with `--no-magic`. See VISION.md §8. |
+  | `calsans-var-flex` | **Cal Sans Flex** — the HOI variable-morph build: GEOM glyphs interpolate instead of hard-swapping, plus avar2 (YTAS hidden, follows `opsz`). Built by default (step 7); skip with `--no-flex`. See VISION.md §8. |
   | `calsans-cossui` | Variable font with `ss*`/`cv*`/`aalt` features and their alternate glyphs subset out |
   | `calsans-gf-api` | Same subsetting as `cossui`, packaged for the Google Fonts API |
   | `calsans-static-full` | All static instances (384 with italics by default, or 192 roman-only with `--roman`) |
