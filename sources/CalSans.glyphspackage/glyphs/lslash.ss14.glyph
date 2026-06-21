@@ -37,7 +37,7 @@ shapes = (
 ref = lslash.rcltA11y;
 }
 );
-width = 301;
+width = 277;
 },
 {
 layerId = "0DDD66F2-BE4C-471A-8E86-2163424A6CF0";
@@ -46,7 +46,7 @@ shapes = (
 ref = lslash.rcltA11y;
 }
 );
-width = 301;
+width = 277;
 },
 {
 layerId = "CC8ADC1C-440E-49BA-9C42-2F7F780CE9BF";

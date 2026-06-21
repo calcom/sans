@@ -5,9 +5,10 @@
 SOURCE_PATH        = "sources/CalSans.glyphspackage"
 OUTPUT_PATH        = "sources/CalSans_READY.glyphspackage"
 OUTPUT_PATH_STATIC = "sources/CalSans_READY_static.glyphspackage"
+OUTPUT_PATH_FLEX   = "sources/CalSans_FLEX.glyphspackage"   # disposable HOI brace-injected source
 BUILD_DIR    = "scripts/temp"
 RELEASE_DIR  = "fonts"
-BUILD_ITALIC = False  # True → 384 styles (roman + italic); False → 192 roman
+BUILD_ITALIC = True  # True → 384 styles (roman + italic); False → 192 roman. Default builds italics; CLI --roman opts out.
 
 
 # ── Static style manifest (scripts/lib/manifest.py) ─────────────────────
@@ -22,7 +23,9 @@ STATIC_ITAL_TOKENS = [("roman", ""), ("italic", "Italic")]
 # Axis user-space coordinates for fontTools instancer, keyed by the same ids above.
 STATIC_AXIS_VALUES = {
     "geom":  {"a11y": 0,   "ui": 25,  "base": 50,  "geo": 100},
-    "opsz":  {"display": 32, "text": 10, "micro": 8},
+    # display pins the large-optical master, which now sits at opsz=45 (was 32) after
+    # the source relabel — pinning 45 keeps the Display statics identical in appearance.
+    "opsz":  {"display": 45, "text": 10, "micro": 8},
     "wght":  {"regular": 400, "medium": 500, "semibold": 600, "bold": 700},
     "ytas":  {"base": 720, "tall": 800},
     "shrp":  {"base": 0,   "sharp": 100},
@@ -36,17 +39,25 @@ RELEASE_PACKAGE_PREFIX = "calsans"
 PER_GEOM_PACKAGE_IDS = ("a11y", "ui", "base", "geo")
 
 
-# ── Magic build / avar2 ───────
-MAGIC_FAMILY_NAME = "Cal Sans Magic"
-MAGIC_STYLE_NAME  = "Regular"
+# ── Micro optical-size tracking (instance_statics) ───────────────────────
+# The Micro (opsz=8) statics get +N units added to every spacing glyph's advance
+# width (LSB unchanged → outlines/anchors don't move, so no accent/component drift;
+# zero-advance combining marks are skipped). Looser spacing for the smallest size
+# without editing source sidebearings.
+MICRO_TRACKING_ADVANCE = 10
+
+
+# ── Flex build / avar2 ───────
+FLEX_FAMILY_NAME = "Cal Sans Flex"
+FLEX_STYLE_NAME  = "Regular"
 # (input opsz, output YTAS) calibration points for the avar2 axis mapping
-MAGIC_OPSZ_TO_YTAS = [(16.0, 720.0), (10.0, 750.0), (8.0, 800.0)]
+FLEX_OPSZ_TO_YTAS = [(16.0, 720.0), (10.0, 750.0), (8.0, 800.0)]
 
 
 # ── Expected source shape (pre-flight validation) ────────────────────────
 EXPECTED_AXES         = ["opsz", "GEOM", "wght", "YTAS", "SHRP", "ital"]
 EXPECTED_MASTER_COUNT = 8
-EXPECTED_OPSZ_VALUES  = [10, 32]
+EXPECTED_OPSZ_VALUES  = [10, 45]
 
 
 # ── Dialect translation: Glyphs app → feaLib (prepare_for_fontmake) ──────
@@ -54,6 +65,9 @@ RCLT_FEATURE_TAG       = "rclt"
 VARIATIONS_PREFIX_NAME = "VARIATIONS"
 ALL_CLASS_NAME         = "All"
 RENAME_GLYPHS_PARAM    = "Rename Glyphs"
+# frac's `sub @Figures' fraction by @Numerators` rules need these three classes equal-length and
+# index-aligned; prepare_for_fontmake drops any position where they disagree (commented / non-export).
+FRACTION_PARALLEL_CLASSES = ("Figures", "Numerators", "Denominators")
 CV_PARAM_PLATFORM_LANG = (3, 1, 0x0409)  # Windows, English (US) — used in cvParameters rewrite
 
 
@@ -61,23 +75,91 @@ CV_PARAM_PLATFORM_LANG = (3, 1, 0x0409)  # Windows, English (US) — used in cvP
 GEOM_AXIS_TAG = "GEOM"
 
 
-# ── Shipping axis defaults (shift_axis_defaults / build_magic.shift_defaults) ─
+# ── Shipping axis defaults (shift_axis_defaults / build_flex.shift_defaults) ─
 # Pinned post-compile so the shipped default coordinate differs from the
 # masters' authored default while keeping the full axis range available.
 SHIPPING_DEFAULTS = {"opsz": 14, "GEOM": 25}
 
+# cossui presents a narrower optical-size range than the full source: the opsz
+# axis max is RELABELED from 45 down to 32 (pure fvar metadata — see
+# release._relabel_opsz_max), so the display drawing the full build labels 45 is
+# the same drawing cossui labels 32. var-full / gf-api / var-flex keep 8–45.
+COSSUI_OPSZ_MAX = 32
 
-# ── YTAS accent-rise  ─────────────────────────────────────────────────────
+
+# ── STAT table + fvar instance names (build_stat_and_instance_names) ─────
+# glyphsLib ships the variable font with an empty STAT AxisValueArray and with
+# opsz NOT encoded in the named-instance names, so the opsz=10 ("Text") and
+# opsz=32 ("Display") instances collide (e.g. two "UI Regular") and Adobe can't
+# pin optical size. We rebuild both post-compile.
+#
+# STAT axis values, in name-composition order (list index = AxisOrdering, so
+# opsz composes before GEOM → "Text UI Regular", matching the source's
+# Variable Style Names). flag 0x2 = ELIDABLE (hidden from composed names).
+STAT_ELIDABLE = 0x2
+STAT_AXES = [
+    {"tag": "opsz", "name": "Optical size", "values": [
+        {"value": 8,  "name": "Micro"},
+        {"value": 10, "name": "Text"},
+        {"value": 14, "name": "Default", "flags": STAT_ELIDABLE},
+        {"value": 45, "name": "Display", "flags": STAT_ELIDABLE},
+    ]},
+    {"tag": "GEOM", "name": "Geometric Form", "values": [
+        {"value": 0,   "name": "A11y"},
+        {"value": 25,  "name": "UI"},
+        {"value": 50,  "name": "Default", "flags": STAT_ELIDABLE},
+        {"value": 100, "name": "Geo"},
+    ]},
+    {"tag": "wght", "name": "Weight", "values": [
+        {"value": 400, "name": "Regular", "flags": STAT_ELIDABLE, "linkedValue": 700},
+        {"value": 500, "name": "Medium"},
+        {"value": 600, "name": "SemiBold"},
+        {"value": 700, "name": "Bold"},
+    ]},
+    {"tag": "YTAS", "name": "Ascender Height", "values": [
+        {"value": 720, "name": "Default", "flags": STAT_ELIDABLE},
+        {"value": 800, "name": "Tall"},
+    ]},
+    {"tag": "SHRP", "name": "Sharp", "values": [
+        {"value": 0,   "name": "Default", "flags": STAT_ELIDABLE},
+        {"value": 100, "name": "Sharp"},
+    ]},
+    {"tag": "ital", "name": "Italic", "values": [
+        {"value": 0, "name": "Roman", "flags": STAT_ELIDABLE, "linkedValue": 1},
+        {"value": 1, "name": "Italic"},
+    ]},
+]
+STAT_ELIDED_FALLBACK = "Regular"
+
+# fvar instance subfamily names are composed from the static token tables (so
+# they match the static families): opsz first, then GEOM, YTAS, SHRP, wght,
+# ital. Empty-label tokens (Display opsz, base GEOM/YTAS/SHRP, Roman) drop out,
+# so opsz=10 → "Text UI Regular" while its opsz=32 sibling stays "UI Regular".
+INSTANCE_NAME_ORDER = [
+    ("opsz", "opsz", STATIC_OPSZ_TOKENS),
+    ("GEOM", "geom", STATIC_GEOM_TOKENS),
+    ("YTAS", "ytas", STATIC_YTAS_TOKENS),
+    ("SHRP", "shrp", STATIC_SHRP_TOKENS),
+    ("wght", "wght", STATIC_WGHT_TOKENS),
+    ("ital", "ital", STATIC_ITAL_TOKENS),
+]
+
+
+# ── YTAS accent-ascend  ───────────────────────────────────────────────────
 # Lowercase base glyphs whose stacked top-marks (acute, grave, circumflex,
-# dieresis, ring, dot-above, etc.) should rise with the YTAS axis — "the way
-# i and j were, only moving the top anchor". idotless/jdotless from the
-# issue's list are dotlessi/uni0237 in this font.
-YTAS_ACCENT_RISE_BASES = (
-    "a", "a.alt", "a.rcltA11y", "a.rcltBase", "ae", "ae.rcltBase", "c", "c.rcltGeo", "dotlessi", "e",
+# dieresis, ring, dot-above, etc.) should ascend with the YTAS axis — "the way
+# i and j were, only moving the top anchor". The i/j bases are idotless and
+# jdotless in this font (an earlier note guessed dotlessi/uni0237 — wrong names,
+# so the whole i/j family was silently skipped). Tall ascender letters
+# (b d f h k l) and uppercase are intentionally absent: they already carry YTAS
+# brace layers as ascender glyphs and their accents are not meant to move.
+# (t's top is moved on YTAS too, but it isn't a classical ascender.)
+YTAS_ACCENT_ASCEND_BASES = (
+    "a", "a.alt", "a.rcltA11y", "a.rcltBase", "ae", "ae.rcltBase", "c", "c.rcltGeo", "idotless", "e",
     "g", "g.rcltA11y", "m", "n", "o", "oe", "p", "r", "s", "u", "u.rcltGeo", "uhorn", "uhorn.rcltGeo",
-    "uni0237", "uni0237.rcltBase", "uni0237.rcltGeo", "w", "y", "y.rcltBase", "y.rcltGeo", "z",
+    "jdotless", "jdotless.rcltBase", "jdotless.rcltGeo", "w", "y", "y.rcltBase", "y.rcltGeo", "z",
 )
-YTAS_ACCENT_RISE_DY = 30   # vertical drift (font units) at YTAS=800
+YTAS_ACCENT_ASCEND_DY = 30   # how far top-marks ascend (font units) at YTAS=800
 ITALIC_SLANT_DEGREES = 9.5  # used to derive the italic horizontal compensation (dx = dy·tan(angle))
 
 

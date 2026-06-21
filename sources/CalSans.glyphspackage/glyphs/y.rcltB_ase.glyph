@@ -212,7 +212,7 @@ pos = (431,0);
 },
 {
 name = top;
-pos = (269,515);
+pos = (269,514);
 },
 {
 name = top_hook;
@@ -282,6 +282,24 @@ nodes = (
 (28,-231,o),
 (66,-231,o),
 (88,-231,cs)
+);
+},
+{
+closed = 1;
+nodes = (
+(274,-107,l),
+(295,-57,l),
+(211,-22,l),
+(190,-72,l)
+);
+},
+{
+closed = 1;
+nodes = (
+(342,-142,l),
+(342,-88,l),
+(251,-89,l),
+(251,-143,l)
 );
 }
 );
@@ -410,7 +428,7 @@ italify.stemId = (
 "025032A7-BD5B-4F4C-92AF-E171F0374596"
 );
 }),
-(191,-79,ls,{
+(193,-74,ls,{
 italify.stemCorner = (
 "CE396ECA-1628-41B9-A398-8EADD3D193CF"
 );
@@ -426,7 +444,7 @@ italify.stemId = (
 (5,-146,c),
 (5,-230,l),
 (28,-230,o),
-(52,-230,o),
+(63,-230,o),
 (96,-230,cs)
 );
 }
@@ -610,7 +628,7 @@ pos = (402,0);
 },
 {
 name = top;
-pos = (269,515);
+pos = (269,514);
 },
 {
 name = top_hook;
@@ -621,7 +639,7 @@ associatedMasterId = "0B84D982-BA46-4CB9-89EB-4BEFB54BBE92";
 attr = {
 coordinates = (
 10,
-0,
+25,
 400,
 720,
 100,
@@ -697,6 +715,24 @@ nodes = (
 (20,-230,o),
 (64,-230,cs)
 );
+},
+{
+closed = 1;
+nodes = (
+(244,-103,l),
+(265,-53,l),
+(181,-18,l),
+(160,-68,l)
+);
+},
+{
+closed = 1;
+nodes = (
+(412,-138,l),
+(412,-84,l),
+(321,-85,l),
+(321,-139,l)
+);
 }
 );
 };
@@ -721,7 +757,7 @@ closed = 1;
 nodes = (
 (159,-228,o),
 (202,-198,o),
-(242,-107,cs,{
+(244,-103,cs,{
 italify.anchorEdge = (
 "CE396ECA-1628-41B9-A398-8EADD3D193CF"
 );
@@ -813,7 +849,7 @@ italify.stemId = (
 "025032A7-BD5B-4F4C-92AF-E171F0374596"
 );
 }),
-(209,40,l,{
+(207,44,l,{
 italify.anchorEdge = (
 "025032A7-BD5B-4F4C-92AF-E171F0374596"
 );
@@ -824,7 +860,7 @@ italify.stemId = (
 "025032A7-BD5B-4F4C-92AF-E171F0374596"
 );
 }),
-(159,-77,ls,{
+(160,-68,ls,{
 italify.stemCorner = (
 "CE396ECA-1628-41B9-A398-8EADD3D193CF"
 );
@@ -832,7 +868,7 @@ italify.stemId = (
 "CE396ECA-1628-41B9-A398-8EADD3D193CF"
 );
 }),
-(135,-133,o),
+(134,-130,o),
 (116,-147,o),
 (65,-147,cs),
 (25,-147,o),
@@ -866,7 +902,7 @@ associatedMasterId = m006;
 attr = {
 coordinates = (
 10,
-0,
+25,
 700,
 720,
 100,
@@ -1111,8 +1147,8 @@ pos = (265,472);
 associatedMasterId = "1B5AC656-48C3-4864-953F-2CD31E7BA751";
 attr = {
 coordinates = (
-32,
-0,
+45,
+25,
 700,
 720,
 100,
@@ -1455,8 +1491,8 @@ pos = (233,457);
 associatedMasterId = "F32A93D6-BEB9-4F11-B510-2860D42C0CD2";
 attr = {
 coordinates = (
-32,
-0,
+45,
+25,
 400,
 720,
 100,
@@ -1951,8 +1987,8 @@ pos = (299,472);
 associatedMasterId = "0DDD66F2-BE4C-471A-8E86-2163424A6CF0";
 attr = {
 coordinates = (
-32,
-0,
+45,
+25,
 700,
 720,
 100,
@@ -2600,8 +2636,8 @@ pos = (266,457);
 associatedMasterId = "CC8ADC1C-440E-49BA-9C42-2F7F780CE9BF";
 attr = {
 coordinates = (
-32,
-0,
+45,
+25,
 400,
 720,
 100,
@@ -3250,7 +3286,7 @@ associatedMasterId = "FA9346B6-A16F-4CF3-996A-4A8FD0AD301D";
 attr = {
 coordinates = (
 10,
-0,
+25,
 700,
 720,
 100,
@@ -3909,7 +3945,7 @@ associatedMasterId = "33BF50A0-DEC8-4619-95BB-DD23FBD7FB0B";
 attr = {
 coordinates = (
 10,
-0,
+25,
 400,
 720,
 100,

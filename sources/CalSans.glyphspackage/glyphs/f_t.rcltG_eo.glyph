@@ -22,6 +22,15 @@ alignment = -1;
 pos = (-2,0);
 ref = partstroke.comb;
 scale = (1.7211,1);
+},
+{
+closed = 1;
+nodes = (
+(540,0,l),
+(540,651,l),
+(451,651,l),
+(451,0,l)
+);
 }
 );
 };
@@ -39,13 +48,8 @@ pos = (-5,0);
 ref = _part.stroke;
 },
 {
-closed = 1;
-nodes = (
-(540,0,l),
-(540,651,l),
-(451,651,l),
-(451,0,l)
-);
+pos = (324,0);
+ref = tpartcrltGeo.comb;
 }
 );
 width = 671;
@@ -60,14 +64,23 @@ pos = (414,0);
 background = {
 shapes = (
 {
-pos = (324,0);
+pos = (824,0);
 ref = t.rcltGeo;
 },
 {
 alignment = -1;
-pos = (-4,0);
+pos = (496,0);
 ref = partstroke.comb;
 scale = (1.8293,1);
+},
+{
+closed = 1;
+nodes = (
+(604,0,l),
+(604,658,l),
+(462,658,l),
+(462,0,l)
+);
 }
 );
 };
@@ -85,13 +98,8 @@ pos = (-5,0);
 ref = _part.stroke;
 },
 {
-closed = 1;
-nodes = (
-(604,0,l),
-(604,658,l),
-(462,658,l),
-(462,0,l)
-);
+pos = (336,0);
+ref = tpartcrltGeo.comb;
 }
 );
 width = 707;
@@ -106,14 +114,23 @@ pos = (318,0);
 background = {
 shapes = (
 {
-pos = (272,0);
+pos = (619,0);
 ref = t.ss10;
 },
 {
 alignment = -1;
-pos = (-4,0);
+pos = (343,0);
 ref = partstroke.comb;
 scale = (1.8293,1);
+},
+{
+closed = 1;
+nodes = (
+(501,0,l),
+(501,658,l),
+(362,658,l),
+(362,0,l)
+);
 }
 );
 };
@@ -129,13 +146,9 @@ width = 598;
 ref = _part.stroke;
 },
 {
-closed = 1;
-nodes = (
-(501,0,l),
-(501,658,l),
-(362,658,l),
-(362,0,l)
-);
+alignment = -1;
+pos = (272,0);
+ref = tpartcrltGeo.comb;
 }
 );
 width = 608;
@@ -183,239 +196,11 @@ width = 540;
 ref = _part.stroke;
 },
 {
-closed = 1;
-nodes = (
-(440,0,l),
-(440,643,l),
-(354,643,l),
-(354,0,l)
-);
+pos = (262,0);
+ref = tpartcrltGeo.comb;
 }
 );
 width = 550;
-},
-{
-anchors = (
-{
-name = caret_1;
-pos = (384,0);
-}
-);
-associatedMasterId = "0B84D982-BA46-4CB9-89EB-4BEFB54BBE92";
-attr = {
-coordinates = (
-10,
-0,
-400,
-800,
-0,
-0
-);
-};
-background = {
-shapes = (
-{
-pos = (310,0);
-ref = t.rcltGeo;
-},
-{
-alignment = -1;
-pos = (-15,0);
-ref = partstroke.comb;
-scale = (1.7211,1);
-}
-);
-};
-layerId = "94EBDD7A-8A70-4FF2-9FAF-6479DD4E6B42";
-name = "May 16, 26 at 02:40";
-shapes = (
-{
-alignment = -1;
-ref = fpart.comb;
-},
-{
-piece = {
-width = 635;
-};
-pos = (-5,0);
-ref = _part.stroke;
-},
-{
-closed = 1;
-nodes = (
-(540,0,l),
-(540,666,l),
-(451,666,l),
-(451,0,l)
-);
-}
-);
-width = 671;
-},
-{
-anchors = (
-{
-name = caret_1;
-pos = (414,0);
-}
-);
-associatedMasterId = m006;
-attr = {
-coordinates = (
-10,
-0,
-700,
-800,
-0,
-0
-);
-};
-background = {
-shapes = (
-{
-pos = (315,0);
-ref = t.rcltGeo;
-},
-{
-alignment = -1;
-pos = (-4,0);
-ref = partstroke.comb;
-scale = (1.8293,1);
-}
-);
-};
-layerId = "2F558A24-450D-4CFA-9340-2050148DA0C4";
-name = "May 16, 26 at 02:40";
-shapes = (
-{
-alignment = -1;
-ref = fpart.comb;
-},
-{
-piece = {
-width = 671;
-};
-pos = (-5,0);
-ref = _part.stroke;
-},
-{
-closed = 1;
-nodes = (
-(604,0,l),
-(604,679,l),
-(462,679,l),
-(462,0,l)
-);
-}
-);
-width = 707;
-},
-{
-anchors = (
-{
-name = caret_1;
-pos = (285,0);
-}
-);
-associatedMasterId = "F32A93D6-BEB9-4F11-B510-2860D42C0CD2";
-attr = {
-coordinates = (
-32,
-0,
-400,
-800,
-0,
-0
-);
-};
-background = {
-shapes = (
-{
-pos = (260,0);
-ref = t.rcltGeo;
-}
-);
-};
-layerId = "B9C3DCF9-9D4A-456F-8614-74A0062CB501";
-name = "May 16, 26 at 02:40";
-shapes = (
-{
-alignment = -1;
-ref = fpart.comb;
-},
-{
-piece = {
-width = 540;
-};
-ref = _part.stroke;
-},
-{
-closed = 1;
-nodes = (
-(440,0,l),
-(440,660,l),
-(354,660,l),
-(354,0,l)
-);
-}
-);
-width = 550;
-},
-{
-anchors = (
-{
-name = caret_1;
-pos = (318,0);
-}
-);
-associatedMasterId = "1B5AC656-48C3-4864-953F-2CD31E7BA751";
-attr = {
-coordinates = (
-32,
-0,
-700,
-800,
-0,
-0
-);
-};
-background = {
-shapes = (
-{
-pos = (272,0);
-ref = t.ss10;
-},
-{
-alignment = -1;
-pos = (-4,0);
-ref = partstroke.comb;
-scale = (1.8293,1);
-}
-);
-};
-layerId = "CC55D55B-B8CB-4117-ACDE-2ED6EC8CA2F2";
-name = "May 16, 26 at 02:40";
-shapes = (
-{
-ref = fpart.comb;
-},
-{
-piece = {
-width = 598;
-};
-ref = _part.stroke;
-},
-{
-closed = 1;
-nodes = (
-(501,0,l),
-(501,675,l),
-(362,675,l),
-(362,0,l)
-);
-}
-);
-width = 608;
 },
 {
 anchors = (
@@ -427,14 +212,26 @@ pos = (273,0);
 background = {
 shapes = (
 {
-pos = (272,0);
+pos = (531,0);
 ref = t.ss10;
 },
 {
 alignment = -1;
-pos = (-4,0);
+pos = (255,0);
 ref = partstroke.comb;
 scale = (1.8293,1);
+},
+{
+closed = 1;
+nodes = (
+(456,0,l),
+(566,658,l),
+(427,658,l),
+(317,0,l)
+);
+},
+{
+ref = f;
 }
 );
 };
@@ -450,69 +247,9 @@ width = 598;
 ref = _part.stroke;
 },
 {
-closed = 1;
-nodes = (
-(456,0,l),
-(566,658,l),
-(427,658,l),
-(317,0,l)
-);
-}
-);
-width = 608;
-},
-{
-anchors = (
-{
-name = caret_1;
-pos = (273,0);
-}
-);
-associatedMasterId = "0DDD66F2-BE4C-471A-8E86-2163424A6CF0";
-attr = {
-coordinates = (
-32,
-0,
-700,
-800,
-0,
-1
-);
-};
-background = {
-shapes = (
-{
-pos = (272,0);
-ref = t.ss10;
-},
-{
 alignment = -1;
-pos = (-4,0);
-ref = partstroke.comb;
-scale = (1.8293,1);
-}
-);
-};
-layerId = "D9D8C903-D773-42C1-A76F-02DE4B95D6F5";
-name = "May 16, 26 at 02:40";
-shapes = (
-{
-ref = fpart.comb;
-},
-{
-piece = {
-width = 598;
-};
-ref = _part.stroke;
-},
-{
-closed = 1;
-nodes = (
-(456,0,l),
-(569,675,l),
-(430,675,l),
-(317,0,l)
-);
+pos = (271,0);
+ref = tpartcrltGeo.comb;
 }
 );
 width = 608;
@@ -544,20 +281,6 @@ nodes = (
 (354,643,l),
 (354,0,l)
 );
-}
-);
-};
-layerId = "CC8ADC1C-440E-49BA-9C42-2F7F780CE9BF";
-shapes = (
-{
-alignment = -1;
-ref = fpart.comb;
-},
-{
-piece = {
-width = 540;
-};
-ref = _part.stroke;
 },
 {
 closed = 1;
@@ -569,36 +292,8 @@ nodes = (
 );
 }
 );
-width = 550;
-},
-{
-anchors = (
-{
-name = caret_1;
-pos = (241,0);
-}
-);
-associatedMasterId = "CC8ADC1C-440E-49BA-9C42-2F7F780CE9BF";
-attr = {
-coordinates = (
-32,
-0,
-400,
-800,
-0,
-1
-);
 };
-background = {
-shapes = (
-{
-pos = (260,0);
-ref = t.rcltGeo;
-}
-);
-};
-layerId = "62E2527F-E06E-4A23-B524-F82252235F39";
-name = "May 16, 26 at 02:40";
+layerId = "CC8ADC1C-440E-49BA-9C42-2F7F780CE9BF";
 shapes = (
 {
 alignment = -1;
@@ -606,21 +301,16 @@ ref = fpart.comb;
 },
 {
 piece = {
-width = 540;
+width = 541;
 };
 ref = _part.stroke;
 },
 {
-closed = 1;
-nodes = (
-(396,0,l),
-(507,660,l),
-(421,660,l),
-(310,0,l)
-);
+pos = (262,0);
+ref = tpartcrltGeo.comb;
 }
 );
-width = 550;
+width = 551;
 },
 {
 anchors = (
@@ -632,29 +322,14 @@ pos = (370,0);
 background = {
 shapes = (
 {
-pos = (324,0);
+pos = (573,0);
 ref = t.rcltGeo;
 },
 {
 alignment = -1;
-pos = (-4,0);
+pos = (245,0);
 ref = partstroke.comb;
 scale = (1.8293,1);
-}
-);
-};
-layerId = "FA9346B6-A16F-4CF3-996A-4A8FD0AD301D";
-shapes = (
-{
-alignment = -1;
-ref = fpart.comb;
-},
-{
-piece = {
-width = 671;
-};
-pos = (-5,0);
-ref = _part.stroke;
 },
 {
 closed = 1;
@@ -666,42 +341,8 @@ nodes = (
 );
 }
 );
-width = 707;
-},
-{
-anchors = (
-{
-name = caret_1;
-pos = (370,0);
-}
-);
-associatedMasterId = "FA9346B6-A16F-4CF3-996A-4A8FD0AD301D";
-attr = {
-coordinates = (
-10,
-0,
-700,
-800,
-0,
-1
-);
 };
-background = {
-shapes = (
-{
-pos = (315,0);
-ref = t.rcltGeo;
-},
-{
-alignment = -1;
-pos = (-4,0);
-ref = partstroke.comb;
-scale = (1.8293,1);
-}
-);
-};
-layerId = "C7181970-4373-4FAD-BC1B-5E3A0D1838A3";
-name = "May 16, 26 at 02:40";
+layerId = "FA9346B6-A16F-4CF3-996A-4A8FD0AD301D";
 shapes = (
 {
 alignment = -1;
@@ -709,22 +350,17 @@ ref = fpart.comb;
 },
 {
 piece = {
-width = 671;
+width = 707;
 };
 pos = (-5,0);
 ref = _part.stroke;
 },
 {
-closed = 1;
-nodes = (
-(560,0,l),
-(673,679,l),
-(531,679,l),
-(418,0,l)
-);
+pos = (336,0);
+ref = tpartcrltGeo.comb;
 }
 );
-width = 707;
+width = 743;
 },
 {
 anchors = (
@@ -744,6 +380,15 @@ alignment = -1;
 pos = (-2,0);
 ref = partstroke.comb;
 scale = (1.7211,1);
+},
+{
+closed = 1;
+nodes = (
+(497,0,l),
+(606,651,l),
+(517,651,l),
+(408,0,l)
+);
 }
 );
 };
@@ -761,71 +406,8 @@ pos = (-5,0);
 ref = _part.stroke;
 },
 {
-closed = 1;
-nodes = (
-(497,0,l),
-(606,651,l),
-(517,651,l),
-(408,0,l)
-);
-}
-);
-width = 671;
-},
-{
-anchors = (
-{
-name = caret_1;
-pos = (341,0);
-}
-);
-associatedMasterId = "33BF50A0-DEC8-4619-95BB-DD23FBD7FB0B";
-attr = {
-coordinates = (
-10,
-0,
-400,
-800,
-0,
-1
-);
-};
-background = {
-shapes = (
-{
-pos = (310,0);
-ref = t.rcltGeo;
-},
-{
-alignment = -1;
-pos = (-15,0);
-ref = partstroke.comb;
-scale = (1.7211,1);
-}
-);
-};
-layerId = "E62B8215-6CE6-4BE8-AB55-885C4E3B37BF";
-name = "May 16, 26 at 02:40";
-shapes = (
-{
-alignment = -1;
-ref = fpart.comb;
-},
-{
-piece = {
-width = 635;
-};
-pos = (-5,0);
-ref = _part.stroke;
-},
-{
-closed = 1;
-nodes = (
-(497,0,l),
-(608,666,l),
-(519,666,l),
-(408,0,l)
-);
+pos = (324,0);
+ref = tpartcrltGeo.comb;
 }
 );
 width = 671;

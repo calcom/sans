@@ -23,7 +23,7 @@ shapes = (
 ref = y.rcltBase;
 },
 {
-pos = (269,1);
+pos = (269,0);
 ref = dotaccentcomb;
 }
 );

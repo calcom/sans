@@ -64,12 +64,12 @@ shapes = (
 ref = I;
 },
 {
-pos = (96,0);
+pos = (97,0);
 ref = ogonekcomb;
 scale = (0.9,1);
 }
 );
-width = 244;
+width = 245;
 },
 {
 layerId = "CC8ADC1C-440E-49BA-9C42-2F7F780CE9BF";
@@ -83,7 +83,7 @@ ref = ogonekcomb;
 scale = (0.9,1);
 }
 );
-width = 194;
+width = 195;
 },
 {
 layerId = "FA9346B6-A16F-4CF3-996A-4A8FD0AD301D";

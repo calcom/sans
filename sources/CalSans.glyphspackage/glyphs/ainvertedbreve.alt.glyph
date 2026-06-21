@@ -10,7 +10,7 @@ shapes = (
 ref = a.alt;
 },
 {
-pos = (278,0);
+pos = (278,-1);
 ref = breveinvertedcomb;
 }
 );
@@ -36,7 +36,7 @@ shapes = (
 ref = a.alt;
 },
 {
-pos = (237,0);
+pos = (237,-1);
 ref = breveinvertedcomb;
 }
 );
@@ -75,7 +75,7 @@ shapes = (
 ref = a.alt;
 },
 {
-pos = (237,0);
+pos = (237,-1);
 ref = breveinvertedcomb;
 }
 );
@@ -101,7 +101,7 @@ shapes = (
 ref = a.alt;
 },
 {
-pos = (278,0);
+pos = (278,-1);
 ref = breveinvertedcomb;
 }
 );

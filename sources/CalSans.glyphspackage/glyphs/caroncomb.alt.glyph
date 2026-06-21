@@ -158,7 +158,7 @@ associatedMasterId = "0B84D982-BA46-4CB9-89EB-4BEFB54BBE92";
 attr = {
 coordinates = (
 10,
-0,
+25,
 400,
 720,
 100,
@@ -204,7 +204,7 @@ associatedMasterId = m006;
 attr = {
 coordinates = (
 10,
-0,
+25,
 700,
 720,
 100,
@@ -262,8 +262,8 @@ pos = (45,720);
 associatedMasterId = "F32A93D6-BEB9-4F11-B510-2860D42C0CD2";
 attr = {
 coordinates = (
-32,
-0,
+45,
+25,
 400,
 720,
 100,
@@ -308,8 +308,8 @@ pos = (46,720);
 associatedMasterId = "1B5AC656-48C3-4864-953F-2CD31E7BA751";
 attr = {
 coordinates = (
-32,
-0,
+45,
+25,
 700,
 720,
 100,
@@ -390,8 +390,8 @@ pos = (122,720);
 associatedMasterId = "0DDD66F2-BE4C-471A-8E86-2163424A6CF0";
 attr = {
 coordinates = (
-32,
-0,
+45,
+25,
 700,
 720,
 100,
@@ -498,8 +498,8 @@ pos = (122,720);
 associatedMasterId = "CC8ADC1C-440E-49BA-9C42-2F7F780CE9BF";
 attr = {
 coordinates = (
-32,
-0,
+45,
+25,
 400,
 720,
 100,
@@ -611,7 +611,7 @@ associatedMasterId = "FA9346B6-A16F-4CF3-996A-4A8FD0AD301D";
 attr = {
 coordinates = (
 10,
-0,
+25,
 700,
 720,
 100,
@@ -736,7 +736,7 @@ associatedMasterId = "33BF50A0-DEC8-4619-95BB-DD23FBD7FB0B";
 attr = {
 coordinates = (
 10,
-0,
+25,
 400,
 720,
 100,

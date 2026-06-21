@@ -1,5 +1,11 @@
+import copy
+import math
 import re
+import unicodedata
+import uuid
 
+from glyphsLib import glyphdata
+from glyphsLib.types import Point
 from tqdm import tqdm
 
 from scripts import config
@@ -20,50 +26,6 @@ def patch_smart_components(font):
     Filling in missing axes causes duplicate variation model locations, so we leave them alone."""
     smart_glyphs = [g for g in font.glyphs if g.smartComponentAxes]
     print(f"   Found {len(smart_glyphs)} smart component glyph(s) — no patching applied")
-
-
-def remove_non_exported_glyphs(font, verbose=False):
-    """Remove non-exported glyphs not needed by any exported glyph.
-    Walks component references transitively so glyphs only used by other
-    non-exported glyphs are also removed."""
-    # Collect all component references in the font for reporting
-    referenced_by = {}
-    for glyph in tqdm(font.glyphs, desc="   ↳ Scanning components", leave=False):
-        for layer in glyph.layers:
-            for component in layer.components:
-                referenced_by.setdefault(component.name, set()).add(glyph.name)
-
-    # Walk transitively from exported glyphs to find everything they need
-    needed = set()
-    to_check = [g.name for g in font.glyphs if g.export]
-    while to_check:
-        name = to_check.pop()
-        if name in needed:
-            continue
-        needed.add(name)
-        glyph = font.glyphs[name]
-        if glyph:
-            for layer in glyph.layers:
-                for component in layer.components:
-                    if component.name not in needed:
-                        to_check.append(component.name)
-
-    names = [g.name for g in font.glyphs if not g.export and g.name not in needed]
-    kept = [g.name for g in font.glyphs if not g.export and g.name in needed]
-
-    for name in names:
-        del font.glyphs[name]
-    if names:
-        print(f"   ✅ Removed {len(names)} non-exported glyphs from build: {_format_names(sorted(names), verbose)}")
-    if kept:
-        print(f"   ℹ️  Kept {len(kept)} non-exported glyph(s) needed by exported glyphs", end="")
-        if verbose:
-            print(":")
-            for name in kept:
-                users = sorted(referenced_by.get(name, []))
-                print(f"      {name} ← used by: {', '.join(users)}")
-        else:
-            print()
 
 
 def prepare_for_fontmake(font, verbose=False):
@@ -126,6 +88,25 @@ def prepare_for_fontmake(font, verbose=False):
             else:
                 print(f"   @{config.ALL_CLASS_NAME} class unchanged — all {before} glyphs are exported")
 
+    # Keep the parallel fraction classes index-aligned. feaLib requires @Figures/@Numerators/
+    # @Denominators to be equal-length in frac's `sub @Figures' fraction by @Numerators` rules,
+    # but inconsistent `#` commenting across the three (half-finished numr/dnom work) desyncs them
+    # (e.g. zero.rcltGeo active while #zero.numr.rcltGeo is commented). Drop any index where the
+    # three disagree (a partner is commented or non-exported); what survives is parallel and valid,
+    # so frac keeps working for the finished figures.
+    by_name = {c.name: c for c in getattr(font, "classes", [])}
+    triple = [by_name.get(n) for n in config.FRACTION_PARALLEL_CLASSES]
+    if all(triple) and len({len(c.code.split()) for c in triple}) == 1:
+        toks = [c.code.split() for c in triple]
+        live = [i for i in range(len(toks[0]))
+                if all(not t[i].startswith("#") and t[i] in exported for t in toks)]
+        dropped = len(toks[0]) - len(live)
+        for c, t in zip(triple, toks):
+            c.code = " ".join(t[i] for i in live)
+        if dropped:
+            print(f"   ✅ Aligned fraction classes {config.FRACTION_PARALLEL_CLASSES} — "
+                  f"dropped {dropped} unaligned index(es), {len(live)} kept")
+
     # Remove "Replace Glyph" instance parameters — rclt feature handles substitution,
     # and Replace Glyph causes cyclical component references when alternates use base as component.
     removed = 0
@@ -162,3 +143,125 @@ def prepare_for_fontmake(font, verbose=False):
     if lang and prefixes != lang + rest:
         font.featurePrefixes = lang + rest
         print(f"   ✅ Moved {len(lang)} languagesystem prefix(es) before variation blocks")
+
+
+def _clone_layer(layer):
+    """deepcopy a GSLayer without dragging the whole font. A layer reaches the
+    GSFont two ways: via `.parent` (the glyph) AND, on outline glyphs, through its
+    paths/nodes — so detaching `.parent` alone still clones the entire font graph
+    per path glyph (~5s each). Pre-seed the deepcopy memo with the font and glyph
+    so deepcopy treats them as already-copied (reuses the originals) and only
+    duplicates the layer's own paths/anchors/components. ~600× faster on outline
+    glyphs (5s → 0.01s); composites were already fast."""
+    glyph = layer.parent
+    font = glyph.parent if glyph is not None else None
+    layer.parent = None
+    try:
+        memo = {}
+        if font is not None:
+            memo[id(font)] = font
+        if glyph is not None:
+            memo[id(glyph)] = glyph
+        return copy.deepcopy(layer, memo)
+    finally:
+        layer.parent = glyph
+
+
+SS_ALL_CASE = frozenset({"ss01", "ss02", "ss03", "ss04", "ss07"})
+SS_LOWER_ONLY = frozenset({"ss10", "ss14"})
+
+
+def _is_target_stylistic_set(glyph_name):
+    """The .ssNN alternates are component-references to .rclt forms; after fontmake
+    flattens components they lose the YTAS variation they'd otherwise inherit, so
+    they need their own brace (a plain clone — the ascend re-resolves through the
+    flattened .rclt component at YTAS=800). Target sets, per design: ss01–04 and
+    ss07 (all members), plus ss10/ss14 LOWERCASE only — those two sets also carry
+    uppercase alternates, whose accents don't move."""
+    suffixes = glyph_name.split(".")[1:]
+    if any(s in SS_ALL_CASE for s in suffixes):
+        return True
+    if any(s in SS_LOWER_ONLY for s in suffixes):
+        root = glyph_name.split(".")[0]
+        u = glyphdata.get_glyph(root).unicode
+        return bool(u) and chr(int(u, 16)).islower()
+    return False
+
+
+def _is_top_mark(name):
+    """True if every combining piece of `name` is an above-base (combining class
+    230) mark — acute/grave/circumflex/dieresis/ring/macron/breve, the i/j dot
+    (dotaccentcomb), and combined marks like brevecomb_acutecomb — but not
+    cedilla/ogonek/dot-below. Resolves Glyphs-style mark names via glyphsLib's own
+    GlyphData (fontTools' AGL only knows a handful), splitting ligature mark names
+    on '_' so stacked accents are judged as a whole."""
+    cps = []
+    for part in name.split(".")[0].split("_"):
+        u = glyphdata.get_glyph(part).unicode
+        if u:
+            cps.append(int(u, 16))
+    cccs = [c for c in (unicodedata.combining(chr(cp)) for cp in cps) if c != 0]
+    return bool(cccs) and all(c == 230 for c in cccs)
+
+
+def inject_ytas_ascend_braces(font, verbose=False):
+    """Add a YTAS=800 brace (intermediate) layer to every targeted glyph and, on
+    that brace, move the `top` anchor and any above-base mark components up by
+    config.YTAS_ACCENT_ASCEND_DY (with a calculated italic dx = dy·tan(angle)).
+
+    fontmake compiles these braces into BOTH a variable GPOS `top` anchor — so
+    live mark-to-base / mark-to-mark accents ascend (the mkmk stack rides the base
+    anchor) — AND gvar component deltas, so precomposed accents ascend too. This
+    replaces the old post-compile gvar pass, which could only reach precomposed
+    glyphs. Scope is the curated lowercase bases in config.YTAS_ACCENT_ASCEND_BASES
+    (a glyph qualifies if it IS one of them or its base/first component is)."""
+    axes = [a.axisTag for a in font.axes]
+    ytas_i, ital_i = axes.index("YTAS"), axes.index("ital")
+    ytas_top = config.STATIC_AXIS_VALUES["ytas"]["tall"]
+    ytas_extent = ytas_top - config.STATIC_AXIS_VALUES["ytas"]["base"]
+    dy = config.YTAS_ACCENT_ASCEND_DY
+    ital_dx = round(dy * math.tan(math.radians(config.ITALIC_SLANT_DEGREES)))
+    bases = set(config.YTAS_ACCENT_ASCEND_BASES)
+
+    def in_scope(glyph):
+        if glyph.name in bases:
+            return True
+        if any(layer and layer.components and layer.components[0].name in bases
+               for layer in (glyph.layers[m.id] for m in font.masters)):
+            return True
+        return _is_target_stylistic_set(glyph.name)
+
+    targets = [g for g in font.glyphs if in_scope(g)]
+    anchors = 0
+    for glyph in tqdm(targets, desc="   ↳ YTAS ascend braces", leave=False):
+        for m in font.masters:
+            ml = glyph.layers[m.id]
+            if ml is None:
+                continue
+            # Don't double-brace: skip if this glyph already ships a YTAS-top brace
+            # for this master (ascender letters do — they're out of scope, but guard
+            # anyway so a re-run or future source can't stack duplicate braces).
+            if any((getattr(layer, "attributes", {}) or {}).get("coordinates")
+                   and round(layer.attributes["coordinates"][ytas_i]) == ytas_top
+                   and layer.associatedMasterId == m.id
+                   for layer in glyph.layers):
+                continue
+            dx = ital_dx if round(m.axes[ital_i]) == 1 else 0
+            br = _clone_layer(ml)
+            br.layerId = str(uuid.uuid4()).upper()
+            br.associatedMasterId = m.id
+            coords = [round(v) for v in m.axes]
+            coords[ytas_i] = ytas_top
+            br.attributes["coordinates"] = coords
+            br.name = f"YTAS{ytas_top}"
+
+            top = next((a for a in br.anchors if a.name == "top"), None)
+            if top is not None:
+                top.position = Point(top.position.x + dx, top.position.y + dy)
+                anchors += 1
+            for c in br.components:
+                if _is_top_mark(c.name):
+                    c.position = Point(c.position.x + dx, c.position.y + dy)
+            glyph.layers.append(br)
+
+    print(f"   ✅ coordinated {anchors} top anchors so attached marks ascend {dy}u as ascenders extend {ytas_extent}u")

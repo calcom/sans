@@ -23,7 +23,7 @@ shapes = (
 ref = y.rcltBase;
 },
 {
-pos = (271,0);
+pos = (271,-1);
 ref = hookabovecomb;
 }
 );

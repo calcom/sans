@@ -1,3 +1,5 @@
+"""Step 1 of the build — measure each master's metrics and stem widths and dump them to
+sources/metrics.json (an optical-size design reference)."""
 import os
 import json
 import glyphsLib

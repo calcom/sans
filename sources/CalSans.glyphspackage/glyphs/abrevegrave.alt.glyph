@@ -10,7 +10,7 @@ shapes = (
 ref = a.alt;
 },
 {
-pos = (285,0);
+pos = (285,-1);
 ref = brevecomb_gravecomb;
 }
 );
@@ -36,7 +36,7 @@ shapes = (
 ref = a.alt;
 },
 {
-pos = (235,0);
+pos = (235,-1);
 ref = brevecomb_gravecomb;
 }
 );
@@ -75,7 +75,7 @@ shapes = (
 ref = a.alt;
 },
 {
-pos = (235,0);
+pos = (235,-1);
 ref = brevecomb_gravecomb;
 }
 );
@@ -101,7 +101,7 @@ shapes = (
 ref = a.alt;
 },
 {
-pos = (285,0);
+pos = (285,-1);
 ref = brevecomb_gravecomb;
 }
 );

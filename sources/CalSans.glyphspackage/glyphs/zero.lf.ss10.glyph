@@ -73,7 +73,7 @@ shapes = (
 ref = zero.lf.rcltGeo;
 }
 );
-width = 640;
+width = 648;
 }
 );
 metricLeft = zero.ss10.lf;

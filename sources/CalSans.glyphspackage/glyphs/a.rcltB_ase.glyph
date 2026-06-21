@@ -674,7 +674,7 @@ associatedMasterId = "0B84D982-BA46-4CB9-89EB-4BEFB54BBE92";
 attr = {
 coordinates = (
 8,
-0,
+25,
 400,
 720,
 0,
@@ -850,7 +850,7 @@ associatedMasterId = m006;
 attr = {
 coordinates = (
 8,
-0,
+25,
 700,
 720,
 0,
@@ -1800,7 +1800,7 @@ associatedMasterId = "FA9346B6-A16F-4CF3-996A-4A8FD0AD301D";
 attr = {
 coordinates = (
 8,
-0,
+25,
 700,
 720,
 0,
@@ -2283,7 +2283,7 @@ associatedMasterId = "33BF50A0-DEC8-4619-95BB-DD23FBD7FB0B";
 attr = {
 coordinates = (
 8,
-0,
+25,
 400,
 720,
 0,

@@ -23,7 +23,7 @@ shapes = (
 ref = y.rcltBase;
 },
 {
-pos = (272,8);
+pos = (272,7);
 ref = circumflexcomb;
 }
 );
