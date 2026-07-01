@@ -99,7 +99,7 @@ pos = (238,0);
 ref = dotbelowcomb;
 },
 {
-pos = (237,0);
+pos = (238,1);
 ref = brevecomb;
 }
 );

@@ -62,7 +62,7 @@ shapes = (
 ref = G;
 },
 {
-pos = (392,0);
+pos = (368,0);
 ref = dotaccentcomb.case;
 }
 );
@@ -75,7 +75,7 @@ shapes = (
 ref = G;
 },
 {
-pos = (393,0);
+pos = (377,0);
 ref = dotaccentcomb.case;
 }
 );
@@ -88,7 +88,7 @@ shapes = (
 ref = G;
 },
 {
-pos = (425,-14);
+pos = (387,0);
 ref = dotaccentcomb.case;
 }
 );
@@ -101,7 +101,7 @@ shapes = (
 ref = G;
 },
 {
-pos = (414,-14);
+pos = (407,0);
 ref = dotaccentcomb.case;
 }
 );

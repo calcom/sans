@@ -77,7 +77,7 @@ pos = (2,0);
 ref = brevecomb;
 },
 {
-pos = (25,149);
+pos = (24,149);
 ref = acutecomb;
 }
 );

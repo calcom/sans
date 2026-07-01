@@ -104,7 +104,7 @@ pos = (197,0);
 },
 {
 name = cedilla;
-pos = (208,0);
+pos = (211,0);
 },
 {
 name = center;
@@ -236,7 +236,7 @@ pos = (135,0);
 },
 {
 name = cedilla;
-pos = (156,0);
+pos = (160,0);
 },
 {
 name = center;
@@ -346,7 +346,7 @@ pos = (160,0);
 },
 {
 name = cedilla;
-pos = (191,0);
+pos = (198,0);
 },
 {
 name = center;
@@ -567,7 +567,7 @@ pos = (154,0);
 },
 {
 name = cedilla;
-pos = (164,0);
+pos = (167,0);
 },
 {
 name = center;
@@ -678,7 +678,7 @@ pos = (91,0);
 },
 {
 name = cedilla;
-pos = (112,0);
+pos = (106,0);
 },
 {
 name = center;
@@ -788,7 +788,7 @@ pos = (115,0);
 },
 {
 name = cedilla;
-pos = (146,0);
+pos = (153,0);
 },
 {
 name = center;
@@ -1142,7 +1142,7 @@ nodes = (
 );
 }
 );
-width = 282;
+width = 290;
 },
 {
 anchors = (
@@ -1156,7 +1156,7 @@ pos = (197,0);
 },
 {
 name = cedilla;
-pos = (208,0);
+pos = (211,0);
 },
 {
 name = center;
@@ -1300,7 +1300,7 @@ pos = (160,0);
 },
 {
 name = cedilla;
-pos = (191,0);
+pos = (198,0);
 },
 {
 name = center;
@@ -1545,7 +1545,7 @@ pos = (154,0);
 },
 {
 name = cedilla;
-pos = (164,0);
+pos = (167,0);
 },
 {
 name = center;
@@ -1675,7 +1675,7 @@ pos = (91,0);
 },
 {
 name = cedilla;
-pos = (112,0);
+pos = (106,0);
 },
 {
 name = center;
@@ -1804,7 +1804,7 @@ pos = (115,0);
 },
 {
 name = cedilla;
-pos = (146,0);
+pos = (153,0);
 },
 {
 name = center;

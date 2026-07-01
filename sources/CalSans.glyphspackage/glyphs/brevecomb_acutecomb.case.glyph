@@ -77,7 +77,7 @@ pos = (1,0);
 ref = brevecomb.case;
 },
 {
-pos = (23,126);
+pos = (21,126);
 ref = acutecomb.case;
 }
 );
@@ -91,7 +91,7 @@ pos = (-8,0);
 ref = brevecomb.case;
 },
 {
-pos = (4,112);
+pos = (10,112);
 ref = acutecomb.case;
 }
 );
@@ -105,7 +105,7 @@ pos = (-7,0);
 ref = brevecomb.case;
 },
 {
-pos = (7,112);
+pos = (9,112);
 ref = acutecomb.case;
 }
 );

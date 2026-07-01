@@ -10,8 +10,7 @@ shapes = (
 ref = t.rcltGeo;
 },
 {
-alignment = -1;
-pos = (203,0);
+pos = (223,0);
 ref = cedillacomb;
 }
 );
@@ -24,8 +23,7 @@ shapes = (
 ref = t.rcltGeo;
 },
 {
-alignment = -1;
-pos = (168,-6);
+pos = (170,-6);
 ref = cedillacomb;
 }
 );
@@ -38,7 +36,7 @@ shapes = (
 ref = t.rcltGeo;
 },
 {
-pos = (192,0);
+pos = (199,0);
 ref = cedillacomb;
 }
 );
@@ -51,8 +49,7 @@ shapes = (
 ref = t.rcltGeo;
 },
 {
-alignment = -1;
-pos = (157,-6);
+pos = (149,0);
 ref = cedillacomb;
 }
 );
@@ -65,7 +62,7 @@ shapes = (
 ref = t.rcltGeo;
 },
 {
-pos = (192,0);
+pos = (199,0);
 ref = cedillacomb;
 }
 );
@@ -78,8 +75,7 @@ shapes = (
 ref = t.rcltGeo;
 },
 {
-alignment = -1;
-pos = (157,-6);
+pos = (149,0);
 ref = cedillacomb;
 }
 );
@@ -92,8 +88,7 @@ shapes = (
 ref = t.rcltGeo;
 },
 {
-alignment = -1;
-pos = (203,0);
+pos = (223,0);
 ref = cedillacomb;
 }
 );
@@ -106,8 +101,7 @@ shapes = (
 ref = t.rcltGeo;
 },
 {
-alignment = -1;
-pos = (168,-6);
+pos = (169,-6);
 ref = cedillacomb;
 }
 );
