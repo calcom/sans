@@ -52,12 +52,12 @@ def prepare_for_fontmake(font, verbose=False):
         platform, lang, langid = config.CV_PARAM_PLATFORM_LANG
         code = re.sub(
             r'cvParameters\s*\{\s*FeatUILabelNameID\s*\{\s*name\s*"([^"]+)"\s*;\s*\}\s*;\s*\}',
+            # Keep the rewrite on a single line: a #-commented cvParameters in the
+            # source (one line, one '#') must stay fully commented — a multi-line
+            # expansion would leak FeatUILabelNameID onto uncommented lines.
             lambda m: (
-                f'cvParameters {{\n'
-                f'    FeatUILabelNameID {{\n'
-                f'        name {platform} {lang} {hex(langid)} "{m.group(1)}";\n'
-                f'    }};\n'
-                f'}}'
+                f'cvParameters {{ FeatUILabelNameID {{ '
+                f'name {platform} {lang} {hex(langid)} "{m.group(1)}"; }}; }}'
             ),
             code
         )
@@ -168,7 +168,7 @@ def _clone_layer(layer):
 
 
 SS_ALL_CASE = frozenset({"ss01", "ss02", "ss03", "ss04", "ss07"})
-SS_LOWER_ONLY = frozenset({"ss10", "ss14"})
+SS_LOWER_ONLY = frozenset({"ss10", "ss14", "ss16"})
 
 
 def _is_target_stylistic_set(glyph_name):
