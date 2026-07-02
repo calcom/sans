@@ -1,12 +1,14 @@
 import os
 import re
 import shutil
+import subprocess
 from multiprocessing import Pool
 from pathlib import Path
 
 from tqdm import tqdm
 from fontTools import subset
 from fontTools.ttLib import TTFont
+from fontTools.ttLib.tables._f_v_a_r import NamedInstance
 from scripts.lib.manifest import all_styles
 from scripts.lib.build_flex import build_flex
 from scripts.lib.utils import axis_by_tag
@@ -135,6 +137,88 @@ def _set_style_names(font: TTFont, subfamily: str):
             font["head"].macStyle |= 0x0002
 
 
+def _trim_gf_instances(font: TTFont, ps_suffix: str = ""):
+    """Google Fonts fvar spec: named instances must be Weight-only, each pinned at the
+    shipping default of every OTHER axis. Replace fvar.instances with the config-defined
+    GF weights (Regular/Medium/SemiBold/Bold) at GEOM=25 / opsz=14 (SHRP/YTAS at their
+    fvar default). Re-adds PostScript-name entries so fvar_instance_ps_names stays happy."""
+    fvar = font["fvar"]
+    name = font["name"]
+    family_ps = (name.getDebugName(6) or "CalSans").split("-")[0]
+    axis_tags = [a.axisTag for a in fvar.axes]
+    coords0 = {a.axisTag: a.defaultValue for a in fvar.axes}
+    for tag, val in config.SHIPPING_DEFAULTS.items():      # GEOM=25, opsz=14
+        if tag in coords0:
+            coords0[tag] = val
+
+    ital = ps_suffix == "-Italic"
+    instances = []
+    for wght, style in config.GF_WEIGHT_INSTANCES:
+        coords = dict(coords0); coords["wght"] = wght
+        ps_style = (("Italic" if style == "Regular" else style.replace(" ", "") + "Italic")
+                    if ital else style.replace(" ", ""))
+        inst = NamedInstance()
+        inst.coordinates      = {t: coords[t] for t in axis_tags}
+        inst.subfamilyNameID  = name.addName(style)
+        inst.postscriptNameID = name.addName(f"{family_ps}-{ps_style}")
+        instances.append(inst)
+    fvar.instances = instances
+
+
+def _hide_gf_parametric_axes(font: TTFont):
+    """parametric_axes_hidden: set the fvar HIDDEN flag (bit 0) on the axes named in
+    config.GF_HIDDEN_AXES. The axes still function; they're just not offered in UI."""
+    for a in font["fvar"].axes:
+        if a.axisTag in config.GF_HIDDEN_AXES:
+            a.flags |= 0x0001  # HIDDEN_AXIS
+
+
+def _distribution_sha() -> str:
+    """Short git hash of the calcom/sans DISTRIBUTION repo for the version stamp — never
+    calbuild. Env var wins (CI). Otherwise probe GF_SHA_REPO_CANDIDATES in order and use
+    the first whose 'origin' remote is calcom/sans (so it works whether the builder runs
+    inside calcom/sans or from a sibling calbuild). Returns "" if none match — the build
+    stays unbroken for anyone else who runs this pipeline."""
+    sha = os.environ.get(config.GF_VERSION_SHA_ENV, "").strip()
+    if sha:
+        return sha
+    def _git(repo, *args):
+        try:
+            r = subprocess.run(["git", "-C", repo, *args], capture_output=True, text=True, timeout=5)
+            return r.stdout.strip() if r.returncode == 0 else None
+        except Exception:
+            return None
+    for repo in config.GF_SHA_REPO_CANDIDATES:
+        origin = _git(repo, "remote", "get-url", "origin")
+        if origin and config.GF_SHA_REMOTE_MATCH in origin:
+            head = _git(repo, "rev-parse", "--short", "HEAD")
+            if head:
+                return head
+    return ""
+
+
+def _set_gf_version(font: TTFont):
+    """name/version_format: nameID 5 must read 'Version X.YYY'. Base version comes from
+    head.fontRevision (the Glyphs Version field); the calcom/sans build hash is appended
+    for traceability (see _distribution_sha)."""
+    v = f"{config.GF_VERSION_PREFIX}{font['head'].fontRevision:.3f}"
+    sha = _distribution_sha()
+    if sha:
+        v += f"; {sha}"
+    name = font["name"]
+    name.setName(v, 5, 3, 1, 0x0409)  # Windows, English (US)
+    name.setName(v, 5, 1, 0, 0)        # Mac, Roman
+
+
+def _set_gf_name_overrides(font: TTFont):
+    """gf-api-only: Designer (nameID 9, GF-mandatory) + Copyright (nameID 0, GF canonical
+    pattern). Every other build keeps the source's own Designer/Copyright values."""
+    name = font["name"]
+    for val, nid in ((config.GF_DESIGNER, 9), (config.GF_COPYRIGHT, 0)):
+        name.setName(val, nid, 3, 1, 0x0409)  # Windows, English (US)
+        name.setName(val, nid, 1, 0, 0)        # Mac, Roman
+
+
 def _build_gf_api(src_ttf: Path, dest_dir: Path):
     """gf-api ships roman + italic as TWO variable fonts (Google Fonts spec): the ital
     axis is instanced out of fvar and survives only as a STAT style-link record (Roman
@@ -148,7 +232,8 @@ def _build_gf_api(src_ttf: Path, dest_dir: Path):
     family_ps = (probe["name"].getDebugName(16) or "Cal Sans").replace(" ", "")
     m = re.search(r"\[([^\]]*)\]", src_ttf.stem)
     tags = m.group(1).split(",") if m else [a.axisTag for a in probe["fvar"].axes]
-    bracket = ",".join(t for t in tags if t.strip() != "ital")
+    # canonical_filename: GF wants axis tags sorted (ASCII → uppercase axes first).
+    bracket = ",".join(sorted(t.strip() for t in tags if t.strip() != "ital"))
 
     targets = [(0, "", "Regular")] + ([(1, "-Italic", "Italic")] if has_ital else [])
     for ital_value, suffix, subfamily in targets:
@@ -157,6 +242,11 @@ def _build_gf_api(src_ttf: Path, dest_dir: Path):
         if has_ital:
             instantiateVariableFont(font, {"ital": ital_value}, inplace=True, updateFontNames=False)
         _set_style_names(font, subfamily)
+        if config.GF_TRIM_INSTANCES:
+            _trim_gf_instances(font, ps_suffix=suffix)
+        _hide_gf_parametric_axes(font)   # parametric_axes_hidden
+        _set_gf_version(font)            # name/version_format ("Version X.YYY"[; sha])
+        _set_gf_name_overrides(font)     # GF Designer (nameID 9) + Copyright (nameID 0)
         dest_ttf = dest_dir / f"{family_ps}{suffix}[{bracket}].ttf"
         font.save(str(dest_ttf))
         font.flavor = "woff2"
@@ -233,6 +323,11 @@ def build_release_folders(build_dir: str, output_dir: str, build_italic: bool = 
     # gf-api: GF spec — roman + italic shipped as TWO variable fonts, ital instanced
     # out of fvar and kept only as a STAT style-link record.
     pkg = out_path / f"{_PFX}-gf-api"
+    if config.GF_TRIM_INSTANCES:
+        print("   ⚠️  GF fvar spec: trimming named instances to Weight-only "
+              "(Regular/Medium/SemiBold/Bold) at GEOM=25, opsz=14 —")
+        print("      confirm with Dave if differently named GEOM builds would be "
+              "allowed into Google Fonts.")
     for ttf in sorted(var_dir.glob("*.ttf")):
         _build_gf_api(ttf, pkg)
     _report(pkg, f"{_PFX}-gf-api")

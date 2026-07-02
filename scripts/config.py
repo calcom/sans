@@ -86,6 +86,39 @@ SHIPPING_DEFAULTS = {"opsz": 14, "GEOM": 25}
 # the same drawing cossui labels 32. var-full / gf-api / var-flex keep 8–45.
 COSSUI_OPSZ_MAX = 32
 
+# gf-api: per the Google Fonts fvar spec, a variable font's named instances must be
+# Weight-only (Regular/Medium/SemiBold/Bold), each pinned at the shipping default of
+# every OTHER axis (GEOM=25, opsz=14 from SHIPPING_DEFAULTS; SHRP/YTAS/ital at their
+# fvar default). Default ON; set False to ship the full GEOM×opsz instance matrix.
+# ⚠️ Confirm with Dave whether differently-named GEOM instances are allowed into GF.
+GF_TRIM_INSTANCES = True
+GF_WEIGHT_INSTANCES = [(400, "Regular"), (500, "Medium"), (600, "SemiBold"), (700, "Bold")]
+
+# gf-api: axes to flag HIDDEN in fvar (parametric_axes_hidden). Only YTAS is a
+# parametric axis (its registry entry: "A parametric axis for varying the height of
+# lowercase ascenders") — GEOM (Geometric Form) and SHRP (Sharpness) are FEATURE axes
+# and stay user-visible. YTAS is also slaved to opsz via avar2 in the Flex build.
+GF_HIDDEN_AXES = ["YTAS"]
+
+# gf-api version string (name/version_format): GF requires the "Version X.YYY" prefix.
+# Base version = head.fontRevision (the Glyphs Version field). A short git hash is
+# appended for traceability (#54), auto-pulled from the DISTRIBUTION repo — the one whose
+# git 'origin' is calcom/sans, NEVER calbuild.
+GF_VERSION_PREFIX  = "Version "
+GF_VERSION_SHA_ENV = "CALCOM_FONTS_SHA"   # CI override, wins if set
+# Repos probed in order; the first whose 'origin' remote is calcom/sans wins. "." covers
+# the builder running INSIDE calcom/sans (its duped scripts/ — the production case);
+# "../sans" covers dev from a sibling calbuild checkout. Any other user (no calcom/sans
+# remote found) simply gets no hash appended — the build never breaks for them.
+GF_SHA_REPO_CANDIDATES = [".", "../sans"]
+GF_SHA_REMOTE_MATCH    = "calcom/sans"
+
+# gf-api-only name-table overrides — GF requires these, but the source's own values
+# (Designer/Copyright = "Default" in Glyphs) ship on every OTHER build unchanged.
+GF_DESIGNER  = "Mark Davis (Wordmark)"                 # nameID 9  (name/mandatory_entries)
+GF_COPYRIGHT = ("Copyright 2026 The Cal Sans Project Authors "
+                "(https://github.com/calcom/sans)")   # nameID 0  (font_copyright pattern)
+
 
 # ── STAT table + fvar instance names (build_stat_and_instance_names) ─────
 # glyphsLib ships the variable font with an empty STAT AxisValueArray and with
@@ -151,15 +184,19 @@ INSTANCE_NAME_ORDER = [
 # i and j were, only moving the top anchor". The i/j bases are idotless and
 # jdotless in this font (an earlier note guessed dotlessi/uni0237 — wrong names,
 # so the whole i/j family was silently skipped). Tall ascender letters
-# (b d f h k l) and uppercase are intentionally absent: they already carry YTAS
-# brace layers as ascender glyphs and their accents are not meant to move.
-# (t's top is moved on YTAS too, but it isn't a classical ascender.)
+# (b d f h k l) carry their own YTAS brace layers, so their BASE extends with the
+# axis (the inject guard skips an already-braced base). But their PRECOMPOSED
+# accented composites (lacute, ldotbelowmacron, hcircumflex, …) have no brace, so
+# the accent gets left behind as the ascender grows — issue #49. Listing the
+# ascender bases pulls those composites into scope so the top mark rides 1:1.
+# Uppercase stays out (cap height, not governed by YTAS).
 YTAS_ACCENT_ASCEND_BASES = (
     "a", "a.alt", "a.rcltA11y", "a.rcltBase", "ae", "ae.rcltBase", "c", "c.rcltGeo", "idotless", "e",
     "g", "g.rcltA11y", "m", "n", "o", "oe", "p", "r", "s", "u", "u.rcltGeo", "uhorn", "uhorn.rcltGeo",
     "jdotless", "jdotless.rcltBase", "jdotless.rcltGeo", "w", "y", "y.rcltBase", "y.rcltGeo", "z",
+    "b", "d", "h", "k", "l",  # ascenders — see note above (issue #49)
 )
-YTAS_ACCENT_ASCEND_DY = 30   # how far top-marks ascend (font units) at YTAS=800
+YTAS_ACCENT_ASCEND_DY = 80   # 1:1 with the 80u ascender extent (YTAS 720→800); issue #49
 ITALIC_SLANT_DEGREES = 9.5  # used to derive the italic horizontal compensation (dx = dy·tan(angle))
 
 
