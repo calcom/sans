@@ -79,7 +79,7 @@ pos = (1,0);
 ref = brevecomb;
 },
 {
-pos = (27,155);
+pos = (26,155);
 ref = hookabovecombviet;
 }
 );

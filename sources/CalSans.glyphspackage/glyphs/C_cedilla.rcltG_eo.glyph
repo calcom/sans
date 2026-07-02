@@ -66,7 +66,7 @@ pos = (402,0);
 ref = cedillacomb;
 }
 );
-width = 569;
+width = 568;
 },
 {
 layerId = "CC8ADC1C-440E-49BA-9C42-2F7F780CE9BF";
@@ -75,7 +75,7 @@ shapes = (
 ref = C.rcltGeo;
 },
 {
-pos = (382,0);
+pos = (392,0);
 ref = cedillacomb;
 }
 );
@@ -92,7 +92,7 @@ pos = (416,0);
 ref = cedillacomb;
 }
 );
-width = 610;
+width = 609;
 },
 {
 layerId = "33BF50A0-DEC8-4619-95BB-DD23FBD7FB0B";

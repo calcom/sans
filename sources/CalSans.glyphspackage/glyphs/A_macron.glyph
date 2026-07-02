@@ -82,11 +82,11 @@ shapes = (
 ref = A;
 },
 {
-pos = (327,0);
+pos = (340,0);
 ref = macroncomb.case;
 }
 );
-width = 655;
+width = 668;
 },
 {
 background = {

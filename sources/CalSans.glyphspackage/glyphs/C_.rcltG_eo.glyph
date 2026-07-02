@@ -316,7 +316,7 @@ pos = (505,0);
 },
 {
 name = top;
-pos = (383,720);
+pos = (393,720);
 }
 );
 hints = (
@@ -390,7 +390,7 @@ pos = (468,0);
 },
 {
 name = top;
-pos = (467,720);
+pos = (447,720);
 }
 );
 background = {
@@ -518,7 +518,7 @@ nodes = (
 );
 }
 );
-width = 569;
+width = 568;
 },
 {
 anchors = (
@@ -536,7 +536,7 @@ pos = (461,0);
 },
 {
 name = top;
-pos = (460,720);
+pos = (450,720);
 }
 );
 background = {
@@ -682,7 +682,7 @@ pos = (485,0);
 },
 {
 name = top;
-pos = (500,720);
+pos = (470,720);
 }
 );
 background = {
@@ -810,7 +810,7 @@ nodes = (
 );
 }
 );
-width = 610;
+width = 609;
 },
 {
 anchors = (
@@ -828,7 +828,7 @@ pos = (480,0);
 },
 {
 name = top;
-pos = (495,720);
+pos = (476,720);
 }
 );
 background = {

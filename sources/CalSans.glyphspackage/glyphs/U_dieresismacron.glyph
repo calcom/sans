@@ -1,0 +1,144 @@
+{
+glyphname = Udieresismacron;
+kernLeft = U;
+kernRight = U;
+layers = (
+{
+layerId = "0B84D982-BA46-4CB9-89EB-4BEFB54BBE92";
+shapes = (
+{
+ref = U;
+},
+{
+pos = (364,-30);
+ref = dieresiscomb.case;
+},
+{
+pos = (367,98);
+ref = macroncomb.case;
+}
+);
+width = 730;
+},
+{
+layerId = m006;
+shapes = (
+{
+ref = U;
+},
+{
+pos = (368,-16);
+ref = dieresiscomb.case;
+},
+{
+pos = (373,175);
+ref = macroncomb.case;
+}
+);
+width = 734;
+},
+{
+layerId = "F32A93D6-BEB9-4F11-B510-2860D42C0CD2";
+shapes = (
+{
+ref = U;
+},
+{
+pos = (324,-17);
+ref = dieresiscomb.case;
+},
+{
+pos = (326,111);
+ref = macroncomb.case;
+}
+);
+width = 656;
+},
+{
+layerId = "1B5AC656-48C3-4864-953F-2CD31E7BA751";
+shapes = (
+{
+ref = U;
+},
+{
+pos = (332,-17);
+ref = dieresiscomb.case;
+},
+{
+pos = (332,174);
+ref = macroncomb.case;
+}
+);
+width = 664;
+},
+{
+layerId = "33BF50A0-DEC8-4619-95BB-DD23FBD7FB0B";
+shapes = (
+{
+ref = U;
+},
+{
+pos = (361,-16);
+ref = dieresiscomb.case;
+},
+{
+pos = (385,112);
+ref = macroncomb.case;
+}
+);
+width = 730;
+},
+{
+layerId = "FA9346B6-A16F-4CF3-996A-4A8FD0AD301D";
+shapes = (
+{
+ref = U;
+},
+{
+pos = (366,-16);
+ref = dieresiscomb.case;
+},
+{
+pos = (402,175);
+ref = macroncomb.case;
+}
+);
+width = 734;
+},
+{
+layerId = "CC8ADC1C-440E-49BA-9C42-2F7F780CE9BF";
+shapes = (
+{
+ref = U;
+},
+{
+pos = (323,-17);
+ref = dieresiscomb.case;
+},
+{
+pos = (344,111);
+ref = macroncomb.case;
+}
+);
+width = 656;
+},
+{
+layerId = "0DDD66F2-BE4C-471A-8E86-2163424A6CF0";
+shapes = (
+{
+ref = U;
+},
+{
+pos = (329,-17);
+ref = dieresiscomb.case;
+},
+{
+pos = (361,174);
+ref = macroncomb.case;
+}
+);
+width = 664;
+}
+);
+unicode = 469;
+}

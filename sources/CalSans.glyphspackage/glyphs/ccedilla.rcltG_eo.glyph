@@ -75,7 +75,7 @@ shapes = (
 ref = c.rcltGeo;
 },
 {
-pos = (294,0);
+pos = (304,0);
 ref = cedillacomb;
 }
 );

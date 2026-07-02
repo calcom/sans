@@ -22,24 +22,19 @@ pos = (246,720);
 hints = (
 {
 horizontal = 1;
+origin = (1,3);
+target = (1,2);
+type = Stem;
+},
+{
+horizontal = 1;
 origin = (2,2);
 target = (2,3);
 type = Stem;
 },
 {
-horizontal = 1;
-origin = (1,3);
-target = up;
-type = BottomGhost;
-},
-{
-horizontal = 1;
-origin = (2,2);
-target = down;
-type = TopGhost;
-},
-{
-place = (205,89);
+origin = (0,4);
+target = (0,1);
 type = Stem;
 }
 );

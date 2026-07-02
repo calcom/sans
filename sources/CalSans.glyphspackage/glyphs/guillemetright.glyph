@@ -91,29 +91,29 @@ shapes = (
 {
 alignment = -1;
 angle = 180;
-pos = (284,537);
+pos = (286,537);
 ref = guilsinglleft;
 },
 {
 alignment = 1;
 angle = 180;
-pos = (433,537);
+pos = (435,537);
 ref = guilsinglleft;
 }
 );
-width = 433;
+width = 432;
 },
 {
 layerId = "FA9346B6-A16F-4CF3-996A-4A8FD0AD301D";
 shapes = (
 {
 angle = 180;
-pos = (408,550);
+pos = (411,550);
 ref = guilsinglleft;
 },
 {
 angle = 180;
-pos = (643,550);
+pos = (646,550);
 ref = guilsinglleft;
 }
 );
@@ -124,12 +124,12 @@ layerId = "33BF50A0-DEC8-4619-95BB-DD23FBD7FB0B";
 shapes = (
 {
 angle = 180;
-pos = (368,550);
+pos = (374,550);
 ref = guilsinglleft;
 },
 {
 angle = 180;
-pos = (574,550);
+pos = (580,550);
 ref = guilsinglleft;
 }
 );

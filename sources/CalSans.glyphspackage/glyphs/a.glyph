@@ -474,7 +474,7 @@ pos = (252,0);
 },
 {
 name = ogonek;
-pos = (388,0);
+pos = (353,0);
 },
 {
 name = top;
@@ -992,7 +992,7 @@ pos = (207,0);
 },
 {
 name = ogonek;
-pos = (343,0);
+pos = (308,0);
 },
 {
 name = top;

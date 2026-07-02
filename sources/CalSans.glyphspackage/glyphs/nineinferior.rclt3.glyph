@@ -50,7 +50,7 @@ layerId = "33BF50A0-DEC8-4619-95BB-DD23FBD7FB0B";
 shapes = (
 {
 angle = 180;
-pos = (392,389);
+pos = (434,389);
 ref = sixinferior.rclt3;
 }
 );
@@ -61,7 +61,7 @@ layerId = "FA9346B6-A16F-4CF3-996A-4A8FD0AD301D";
 shapes = (
 {
 angle = 180;
-pos = (419,381);
+pos = (469,381);
 ref = sixinferior.rclt3;
 }
 );
@@ -72,7 +72,7 @@ layerId = "CC8ADC1C-440E-49BA-9C42-2F7F780CE9BF";
 shapes = (
 {
 angle = 180;
-pos = (352,387);
+pos = (396,387);
 ref = sixinferior.rclt3;
 }
 );
@@ -83,7 +83,7 @@ layerId = "0DDD66F2-BE4C-471A-8E86-2163424A6CF0";
 shapes = (
 {
 angle = 180;
-pos = (365,377);
+pos = (417,377);
 ref = sixinferior.rclt3;
 }
 );

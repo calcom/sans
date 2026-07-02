@@ -422,11 +422,11 @@ width = 308;
 anchors = (
 {
 name = _cedilla;
-pos = (-33,0);
+pos = (-43,0);
 },
 {
 name = bottom;
-pos = (-9,-205);
+pos = (-77,-205);
 }
 );
 background = {

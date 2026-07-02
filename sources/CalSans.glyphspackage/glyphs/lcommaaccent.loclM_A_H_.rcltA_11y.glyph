@@ -75,7 +75,7 @@ shapes = (
 ref = l.rcltA11y;
 },
 {
-pos = (137,0);
+pos = (147,0);
 ref = cedillacomb;
 }
 );

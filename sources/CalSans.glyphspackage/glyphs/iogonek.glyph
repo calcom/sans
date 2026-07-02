@@ -14,7 +14,7 @@ pos = (151,0);
 ref = dotaccentcomb;
 },
 {
-pos = (131,0);
+pos = (123,0);
 ref = ogonekcomb;
 }
 );
@@ -66,7 +66,7 @@ pos = (85,0);
 ref = dotaccentcomb;
 },
 {
-pos = (44,0);
+pos = (55,0);
 ref = ogonekcomb;
 scale = (0.88,1);
 }
@@ -84,9 +84,9 @@ pos = (110,0);
 ref = dotaccentcomb;
 },
 {
-pos = (81,0);
+pos = (92,0);
 ref = ogonekcomb;
-scale = (0.88,1);
+scale = (0.875,1);
 }
 );
 width = 219;
@@ -102,9 +102,9 @@ pos = (85,0);
 ref = dotaccentcomb;
 },
 {
-pos = (39,0);
+pos = (50,0);
 ref = ogonekcomb;
-scale = (0.88,1);
+scale = (0.873,1);
 }
 );
 width = 170;
@@ -120,7 +120,7 @@ pos = (151,0);
 ref = dotaccentcomb;
 },
 {
-pos = (131,0);
+pos = (129,0);
 ref = ogonekcomb;
 }
 );

@@ -3,6 +3,28 @@ color = 4;
 glyphname = dottedCircle;
 layers = (
 {
+anchors = (
+{
+name = bottom;
+pos = (355,0);
+},
+{
+name = cedilla;
+pos = (367,0);
+},
+{
+name = center;
+pos = (358,313);
+},
+{
+name = top;
+pos = (355,720);
+},
+{
+name = topright;
+pos = (550,720);
+}
+);
 hints = (
 {
 horizontal = 1;
@@ -304,27 +326,34 @@ nodes = (
 width = 680;
 },
 {
+anchors = (
+{
+name = bottom;
+pos = (355,0);
+},
+{
+name = cedilla;
+pos = (367,0);
+},
+{
+name = center;
+pos = (358,313);
+},
+{
+name = top;
+pos = (355,720);
+},
+{
+name = topright;
+pos = (550,720);
+}
+);
 hints = (
 {
 horizontal = 1;
 origin = (7,8);
 target = down;
 type = TopGhost;
-},
-{
-origin = (10,11);
-target = (9,5);
-type = Stem;
-},
-{
-origin = (9,11);
-target = (8,5);
-type = Stem;
-},
-{
-origin = (8,11);
-target = (7,5);
-type = Stem;
 }
 );
 layerId = "0B84D982-BA46-4CB9-89EB-4BEFB54BBE92";
@@ -605,6 +634,28 @@ nodes = (
 width = 683;
 },
 {
+anchors = (
+{
+name = bottom;
+pos = (334,0);
+},
+{
+name = cedilla;
+pos = (346,0);
+},
+{
+name = center;
+pos = (337,313);
+},
+{
+name = top;
+pos = (334,720);
+},
+{
+name = topright;
+pos = (529,720);
+}
+);
 layerId = "1B5AC656-48C3-4864-953F-2CD31E7BA751";
 shapes = (
 {
@@ -883,6 +934,28 @@ nodes = (
 width = 644;
 },
 {
+anchors = (
+{
+name = bottom;
+pos = (329,0);
+},
+{
+name = cedilla;
+pos = (341,0);
+},
+{
+name = center;
+pos = (332,313);
+},
+{
+name = top;
+pos = (329,720);
+},
+{
+name = topright;
+pos = (524,720);
+}
+);
 hints = (
 {
 horizontal = 1;
@@ -1184,6 +1257,28 @@ nodes = (
 width = 643;
 },
 {
+anchors = (
+{
+name = bottom;
+pos = (268,0);
+},
+{
+name = cedilla;
+pos = (280,0);
+},
+{
+name = center;
+pos = (323,313);
+},
+{
+name = top;
+pos = (388,720);
+},
+{
+name = topright;
+pos = (583,720);
+}
+);
 layerId = "0DDD66F2-BE4C-471A-8E86-2163424A6CF0";
 shapes = (
 {
@@ -1462,6 +1557,28 @@ nodes = (
 width = 644;
 },
 {
+anchors = (
+{
+name = bottom;
+pos = (268,0);
+},
+{
+name = cedilla;
+pos = (280,0);
+},
+{
+name = center;
+pos = (323,313);
+},
+{
+name = top;
+pos = (388,720);
+},
+{
+name = topright;
+pos = (583,720);
+}
+);
 hints = (
 {
 horizontal = 1;
@@ -1763,6 +1880,28 @@ nodes = (
 width = 643;
 },
 {
+anchors = (
+{
+name = bottom;
+pos = (298,0);
+},
+{
+name = cedilla;
+pos = (310,0);
+},
+{
+name = center;
+pos = (353,313);
+},
+{
+name = top;
+pos = (418,720);
+},
+{
+name = topright;
+pos = (613,720);
+}
+);
 hints = (
 {
 horizontal = 1;
@@ -2064,6 +2203,28 @@ nodes = (
 width = 680;
 },
 {
+anchors = (
+{
+name = bottom;
+pos = (298,0);
+},
+{
+name = cedilla;
+pos = (310,0);
+},
+{
+name = center;
+pos = (353,313);
+},
+{
+name = top;
+pos = (418,720);
+},
+{
+name = topright;
+pos = (613,720);
+}
+);
 hints = (
 {
 horizontal = 1;

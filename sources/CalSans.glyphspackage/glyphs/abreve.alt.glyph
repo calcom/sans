@@ -75,7 +75,7 @@ shapes = (
 ref = a.alt;
 },
 {
-pos = (237,-1);
+pos = (238,0);
 ref = brevecomb;
 }
 );

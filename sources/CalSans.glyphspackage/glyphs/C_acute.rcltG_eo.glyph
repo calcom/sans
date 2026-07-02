@@ -49,7 +49,7 @@ shapes = (
 ref = C.rcltGeo;
 },
 {
-pos = (382,0);
+pos = (392,0);
 ref = acutecomb.case;
 }
 );
@@ -62,11 +62,11 @@ shapes = (
 ref = C.rcltGeo;
 },
 {
-pos = (391,0);
+pos = (371,0);
 ref = acutecomb.case;
 }
 );
-width = 569;
+width = 568;
 },
 {
 layerId = "CC8ADC1C-440E-49BA-9C42-2F7F780CE9BF";
@@ -75,7 +75,7 @@ shapes = (
 ref = C.rcltGeo;
 },
 {
-pos = (382,0);
+pos = (372,0);
 ref = acutecomb.case;
 }
 );
@@ -88,11 +88,11 @@ shapes = (
 ref = C.rcltGeo;
 },
 {
-pos = (421,-14);
+pos = (391,-14);
 ref = acutecomb.case;
 }
 );
-width = 610;
+width = 609;
 },
 {
 layerId = "33BF50A0-DEC8-4619-95BB-DD23FBD7FB0B";
@@ -101,7 +101,7 @@ shapes = (
 ref = C.rcltGeo;
 },
 {
-pos = (412,-14);
+pos = (393,-14);
 ref = acutecomb.case;
 }
 );

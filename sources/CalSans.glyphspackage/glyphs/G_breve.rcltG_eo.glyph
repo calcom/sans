@@ -62,7 +62,7 @@ shapes = (
 ref = G.rcltGeo;
 },
 {
-pos = (399,-14);
+pos = (401,0);
 ref = brevecomb.case;
 }
 );
@@ -75,7 +75,7 @@ shapes = (
 ref = G.rcltGeo;
 },
 {
-pos = (396,-14);
+pos = (399,0);
 ref = brevecomb.case;
 }
 );
@@ -88,7 +88,7 @@ shapes = (
 ref = G.rcltGeo;
 },
 {
-pos = (417,-14);
+pos = (414,0);
 ref = brevecomb.case;
 }
 );
@@ -101,7 +101,7 @@ shapes = (
 ref = G.rcltGeo;
 },
 {
-pos = (414,-14);
+pos = (414,0);
 ref = brevecomb.case;
 }
 );

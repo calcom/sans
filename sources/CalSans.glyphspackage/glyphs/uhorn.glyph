@@ -109,7 +109,7 @@ shapes = (
 ref = u;
 },
 {
-pos = (390,0);
+pos = (391,-1);
 ref = horn.alt;
 }
 );

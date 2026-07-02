@@ -544,7 +544,7 @@ width = 712;
 anchors = (
 {
 name = bottom;
-pos = (357,0);
+pos = (310,0);
 },
 {
 name = ogonek;
@@ -552,7 +552,7 @@ pos = (482,9);
 },
 {
 name = top;
-pos = (468,720);
+pos = (444,720);
 }
 );
 background = {
@@ -640,6 +640,12 @@ nodes = (
 }
 );
 };
+guides = (
+{
+angle = -100.5;
+pos = (313,15);
+}
+);
 hints = (
 {
 horizontal = 1;
@@ -711,7 +717,7 @@ width = 715;
 anchors = (
 {
 name = bottom;
-pos = (351,0);
+pos = (320,-1);
 },
 {
 name = ogonek;
@@ -719,7 +725,7 @@ pos = (482,9);
 },
 {
 name = top;
-pos = (471,720);
+pos = (454,720);
 }
 );
 background = {
@@ -807,6 +813,12 @@ nodes = (
 }
 );
 };
+guides = (
+{
+angle = -100.5;
+pos = (323,15);
+}
+);
 hints = (
 {
 horizontal = 1;
@@ -878,7 +890,7 @@ width = 712;
 anchors = (
 {
 name = bottom;
-pos = (378,0);
+pos = (330,0);
 },
 {
 name = ogonek;
@@ -886,7 +898,7 @@ pos = (504,5);
 },
 {
 name = top;
-pos = (498,720);
+pos = (464,720);
 }
 );
 background = {
@@ -1011,6 +1023,12 @@ nodes = (
 }
 );
 };
+guides = (
+{
+angle = -100.5;
+pos = (333,15);
+}
+);
 hints = (
 {
 horizontal = 1;
@@ -1087,7 +1105,7 @@ width = 770;
 anchors = (
 {
 name = bottom;
-pos = (372,0);
+pos = (350,0);
 },
 {
 name = ogonek;
@@ -1095,7 +1113,7 @@ pos = (502,9);
 },
 {
 name = top;
-pos = (491,720);
+pos = (484,720);
 }
 );
 background = {
@@ -1183,6 +1201,12 @@ nodes = (
 }
 );
 };
+guides = (
+{
+angle = -100.5;
+pos = (353,15);
+}
+);
 hints = (
 {
 horizontal = 1;

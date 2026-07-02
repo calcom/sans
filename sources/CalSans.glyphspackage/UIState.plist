@@ -162,10 +162,11 @@ H♫♪H♫♪♫
 /six.rclt3 
 
 ",
-"1/one.numr ⁄/two.dnom  ª/ordfeminine.ss02/ordfeminine.rcltBase/ordfeminine.ss01 ¹
-
+"1/one.numr ⁄/two.dnom  ª/ordfeminine.ss02/ordfeminine.rcltBase/ordfeminine.ss01 ¹  f/f.rcltBase/f.ss08 
+G/G.ss05/Gbreve.ss05/Gmacron.ss05/guarani.rcltGeo/guarani.ss05/Gdotaccent.ss05/guarani.tf.ss05/Gcircumflex.ss05/Gcommaaccent.ss05 
+/G.ss06/Gbreve.ss06/Gmacron.ss06 ₲G₲/guarani.ss06/Gdotaccent.ss06/Gcircumflex.ss06/Gcommaaccent.ss06  /guarani.tf.ss06 
 1/one.rcltGeo 2345/five.rcltGeo 6/six.rclt3/six.rclt2/six.rclt1/nine.rclt1/nine.rclt2/nine.rclt3 9780/zero.rcltGeo 
-⁄
+⁄  /G.ss05 ₉/nineinferior.ss12/j.ss07 
 H¹/onesuperior.rcltGeo ²³⁴/five.dnom/fivesuperior.rcltGeo ⁶/sixsuperior.rclt3/sixsuperior.rclt2/sixsuperior.rclt1 ⁷⁸⁰/zerosuperior.rcltGeo  /zerosuperior.rcltGeo/onesuperior.rcltGeo/fivesuperior.rcltGeo  /sixsuperior.ss12/ninesuperior.ss12 
 H/one.numr.rcltGeo/one.numr/two.numr/three.numr/four.numr/five.numr/five.numr.rcltGeo/six.numr/six.numr.rclt3/six.numr.rclt2/six.numr.rclt1/seven.numr/eight.numr/zero.numr/zero.numr.rcltGeo  /zero.numr.rcltGeo/one.numr.rcltGeo/five.numr.rcltGeo  /six.numr.ss12/nine.numr.ss12 
 H/one.dnom/one.dnom.rcltGeo/two.dnom/three.dnom/four.dnom ⁵/five.dnom.rcltGeo/six.dnom/six.dnom.rclt3/six.dnom.rclt2/six.dnom.rclt1/seven.dnom/eight.dnom/zero.dnom/zero.dnom.rcltGeo  /zero.dnom.rcltGeo/one.dnom.rcltGeo/five.dnom.rcltGeo  /six.dnom.ss12/nine.dnom.ss12 
@@ -193,6 +194,30 @@ sub oneeighth by oneeighth.ss10;
 /zerosuperior.rcltGeo/onesuperior.rcltGeo/fivesuperior.rcltGeo/zero.numr.rcltGeo/one.numr.rcltGeo/five.numr.rcltGeo 
 /zero.dnom.rcltGeo/one.dnom.rcltGeo/five.dnom.rcltGeo/zeroinferior.rcltGeo/oneinferior.rcltGeo/fiveinferior.rcltGeo 
 /zero.dnom.ss10/one.dnom.ss10/zeroinferior.ss10/oneinferior.ss10/zero.numr.ss10/one.numr.ss10/zerosuperior.ss10/onesuperior.ss10/fivesuperior.ss10/five.numr.ss10/five.dnom.ss10/fiveinferior.ss10 
-"
+",
+"gğĝģġḡ/g.ss04 
+/g.ss03/gbreve.ss03/gcircumflex.ss03/gcommaaccent.ss03/gdotaccent.ss03/gmacron.ss03 
+f/f.alt/ij.ss10/nine.rclt1  
+r1
+12 /nine.ss12   
+r3
+13 /nine.ss13 
+/nine.rclt1  /nine.rclt2  /nine.rclt3  ª/ordfeminine.rcltBase/ordfeminine.ss01/ordfeminine.ss02 
+/y.ss07  /y.ss10   /y.rcltBase  /y.rcltGeo",
+"↑↗→↘↓↙←↖↔↕
+u H↑H↗→↘↓↙←↖↔↕  
+e : ;  ( )̣/I.rcltA11y ̣/Idotbelow.rcltA11y 
+abdgk
+¢/cent.tf ¤§§«»Æ ŀ/ldot.rcltA11y/ldot.ss16/ldotbelow.ss16/ldotbelowmacron.ss16 
+÷þ /circumflexcomb.case ̆/brevecomb.case ʻ̧GĞ “”‘’
+ı̨į œk /ae.rcltBase   ΛA  /lambda.rcltGeo/lambda.rcltBase λ  y/y.rcltBase/y.rcltGeo 
+
+UǙǛǗǕǚǜǘǖ   Ξ /Xi.tf  ◌̋ ̏
+AVΛ /lambda.rcltGeo/lambda.rcltBase λ
+/y.rcltBase  /y.rcltGeo  y ∕ξ ()",
+"/tittle  ̣̇./tittle ÷̈̇/dieresiscomb.case/dotaccentcomb.case 
+",
+"AVΛ /lambda.rcltGeo/lambda.rcltBase λ
+/y.rcltBase  /y.rcltGeo  y ∕ξ ()"
 );
 }

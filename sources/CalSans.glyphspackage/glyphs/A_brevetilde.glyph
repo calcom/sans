@@ -62,7 +62,7 @@ shapes = (
 ref = A;
 },
 {
-pos = (334,-14);
+pos = (336,0);
 ref = brevecomb_tildecomb.case;
 }
 );
@@ -75,11 +75,11 @@ shapes = (
 ref = A;
 },
 {
-pos = (324,-14);
+pos = (340,0);
 ref = brevecomb_tildecomb.case;
 }
 );
-width = 655;
+width = 668;
 },
 {
 layerId = "FA9346B6-A16F-4CF3-996A-4A8FD0AD301D";
@@ -88,7 +88,7 @@ shapes = (
 ref = A;
 },
 {
-pos = (381,-14);
+pos = (378,0);
 ref = brevecomb_tildecomb.case;
 }
 );
@@ -101,7 +101,7 @@ shapes = (
 ref = A;
 },
 {
-pos = (371,-14);
+pos = (371,0);
 ref = brevecomb_tildecomb.case;
 }
 );
