@@ -43346,10 +43346,6 @@ value = "https://wordmark.nyc";
 {
 key = vendorID;
 value = WORD;
-},
-{
-key = versionString;
-value = "1.998";
 }
 );
 stems = (
