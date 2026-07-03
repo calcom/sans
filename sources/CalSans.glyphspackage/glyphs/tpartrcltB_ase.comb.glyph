@@ -120,7 +120,7 @@ ref = tpart.comb;
 },
 {
 pos = (28,0);
-ref = l.ss16;
+ref = l.ss19;
 }
 );
 };

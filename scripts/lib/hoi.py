@@ -504,6 +504,13 @@ def handle_I(font, geom_i):
             for c in L.components:
                 if c.name == "I.rcltA11y":
                     c.name = "I"
+    # The rename also orphans rclt-state coverage subs in the ss/cv features
+    # (`sub I.rcltA11y by I.ss14;`): I.rcltA11y is now I, so they dangle. The base
+    # `sub I by I.ss14;` in the same feature already covers it — drop the dead lines.
+    dead_cov = re.compile(r"^[ \t]*sub +I\.rcltA11y +by +[^;]+;[ \t]*\n?", re.MULTILINE)
+    for feat in font.features:
+        if "I.rcltA11y" in feat.code:
+            feat.code = dead_cov.sub("", feat.code)
     return True
 
 

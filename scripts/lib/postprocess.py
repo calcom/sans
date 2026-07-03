@@ -8,6 +8,33 @@ from scripts import config
 from scripts.lib.utils import axis_index
 
 
+def append_distribution_sha(font: TTFont):
+    """Swap the live calcom/sans build hash into the version string (nameID 5), keeping the
+    font's own version number and dropping any existing '; <hash>' suffix (the source carries
+    a stale one). In-memory; no-op when the hash can't be resolved (build stays unbroken)."""
+    from scripts.lib.release import _distribution_sha   # lazy: release imports build_flex
+    sha = _distribution_sha()
+    if not sha:
+        return
+    name = font["name"]
+    cur = name.getDebugName(5) or f"Version {font['head'].fontRevision:.3f}"
+    v = f"{cur.split(';')[0].rstrip()}; {sha}"
+    if v == cur:
+        return
+    name.setName(v, 5, 3, 1, 0x0409)  # Windows, English (US)
+    name.setName(v, 5, 1, 0, 0)        # Mac, Roman
+
+
+def stamp_distribution_sha(ttf_path: str):
+    """Path wrapper for append_distribution_sha — used for the compiled variable TTF, whose
+    stamped nameID 5 is then inherited by every static/subset instanced from it."""
+    font = TTFont(ttf_path)
+    before = font["name"].getDebugName(5)
+    append_distribution_sha(font)
+    if font["name"].getDebugName(5) != before:
+        font.save(ttf_path)
+
+
 def merge_gsub_feature_variations(ttf_path: str):
     """feaLib emits one FeatureVariation record per variation block, evaluated
     first-match-wins. Overlapping GEOM ranges mean only the first matching record

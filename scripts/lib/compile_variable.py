@@ -6,7 +6,7 @@ import subprocess
 from pathlib import Path
 
 from scripts.lib.postprocess import (merge_gsub_feature_variations, shift_axis_defaults,
-                                      build_stat_and_instance_names)
+                                      build_stat_and_instance_names, stamp_distribution_sha)
 
 
 def run_fontmake_variable(ready_path: str, build_dir: str):
@@ -34,6 +34,7 @@ def run_fontmake_variable(ready_path: str, build_dir: str):
         merge_gsub_feature_variations(str(ttf))
         shift_axis_defaults(str(ttf))
         build_stat_and_instance_names(str(ttf))
+        stamp_distribution_sha(str(ttf))   # statics/subsets inherit this nameID 5
 
 
 def run_fontmake_flex(flex_path: str, build_dir: str) -> str:

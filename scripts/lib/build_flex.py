@@ -26,7 +26,7 @@ from fontTools.designspaceLib import DesignSpaceDocument, AxisDescriptor, AxisMa
 from fontTools.varLib.avar.build import build as build_avar
 
 from scripts import config
-from scripts.lib.postprocess import apply_stat_and_instance_names
+from scripts.lib.postprocess import apply_stat_and_instance_names, append_distribution_sha
 from scripts.lib.utils import axis_by_tag
 
 _AXIS_NAMES = {
@@ -153,6 +153,8 @@ def build_flex(input_path: str, output_dir: str = ".") -> tuple[str, str]:
     print("Building STAT + disambiguating instance names...")
     renamed, _ = apply_stat_and_instance_names(font)
     print(f"  STAT rebuilt (YTAS hidden → no STAT values), {renamed} instance names disambiguated")
+
+    append_distribution_sha(font)   # live calcom/sans hash in nameID 5 (before save → both ttf+woff2)
 
     _verify(font)
 

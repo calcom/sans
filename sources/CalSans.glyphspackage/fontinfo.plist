@@ -44,12 +44,12 @@ name = Figures;
 },
 {
 automatic = 1;
-code = "A Aacute Abreve Abreveacute Abrevedotbelow Abrevegrave Abrevehookabove Abrevetilde Acircumflex Acircumflexacute Acircumflexdotbelow Acircumflexgrave Acircumflexhookabove Acircumflextilde Adieresis Adotbelow Agrave Ahookabove Ainvertedbreve Amacron Aogonek Aring Atilde AE AEmacron B C Cacute Ccaron Ccedilla Ccircumflex Cdotaccent D Dcaron Dcroat Ddotbelow Eth E Eacute Ecaron Ecircumflex Ecircumflexacute Ecircumflexdotbelow Ecircumflexgrave Ecircumflexhookabove Ecircumflextilde Edieresis Edotaccent Edotbelow Egrave Ehookabove Einvertedbreve Emacron Eogonek Etilde Schwa F Fhook G Gbreve Gcircumflex Gcommaaccent Gdotaccent Gmacron H Hbar Hbrevebelow Hcircumflex Hdotbelow I IJ Iacute Icircumflex Idieresis Idotaccent Idotbelow Igrave Ihookabove Iinvertedbreve Imacron Iogonek Itilde J Jacute Jcircumflex K Kcommaaccent Kmacronbelow L Lacute Lcaron Lcommaaccent Ldot Ldotbelow Ldotbelowmacron Lmacronbelow Lslash M Mdotaccent Mdotbelow N Nacute Ncaron Ncommaaccent Ndotaccent Ndotbelow Nmacronbelow Ntilde Eng O Oacute Ocircumflex Ocircumflexacute Ocircumflexdotbelow Ocircumflexgrave Ocircumflexhookabove Ocircumflextilde Odieresis Odotbelow Ograve Ohookabove Ohorn Ohornacute Ohorndotbelow Ohorngrave Ohornhookabove Ohorntilde Ohungarumlaut Oinvertedbreve Omacron Oslash Otilde OE P Thorn Q R Racute Rcaron Rcommaaccent Rdotbelowmacron Rinvertedbreve Rmacronbelow S Sacute Scaron Scedilla Scircumflex Scommaaccent Sdotbelow Germandbls T Tbar Tcaron Tcedilla Tcommaaccent Tdotbelow Tmacronbelow U Uacute Ubreve Ucircumflex Udieresis Udotbelow Ugrave Uhookabove Uhorn Uhornacute Uhorndotbelow Uhorngrave Uhornhookabove Uhorntilde Uhungarumlaut Uinvertedbreve Umacron Uogonek Uring Utilde V W Wacute Wcircumflex Wdieresis Wgrave X Y Yacute Ycircumflex Ydieresis Ydotaccent Ydotbelow Ygrave Yhookabove Ytilde Z Zacute Zcaron Zdotaccent Zdotbelow Zmacronbelow Saltillo Lcommaaccent.loclMAH Ncommaaccent.loclMAH I.rcltA11y IJ.rcltA11y Iacute.rcltA11y Icircumflex.rcltA11y Idieresis.rcltA11y Idotaccent.rcltA11y Idotbelow.rcltA11y Igrave.rcltA11y Ihookabove.rcltA11y Iinvertedbreve.rcltA11y Imacron.rcltA11y Iogonek.rcltA11y Itilde.rcltA11y C.rcltGeo Cacute.rcltGeo Ccaron.rcltGeo Ccedilla.rcltGeo Ccircumflex.rcltGeo Cdotaccent.rcltGeo G.rcltGeo Gbreve.rcltGeo Gcircumflex.rcltGeo Gcommaaccent.rcltGeo Gdotaccent.rcltGeo Gmacron.rcltGeo M.rcltGeo Mdotaccent.rcltGeo Mdotbelow.rcltGeo Eng.rcltGeo G.ss05 Gbreve.ss05 Gcircumflex.ss05 Gcommaaccent.ss05 Gdotaccent.ss05 Gmacron.ss05 G.ss06 Gbreve.ss06 Gcircumflex.ss06 Gcommaaccent.ss06 Gdotaccent.ss06 Gmacron.ss06 M.ss09 Mdotaccent.ss09 Mdotbelow.ss09 C.ss10 Cacute.ss10 Ccaron.ss10 Ccedilla.ss10 Ccircumflex.ss10 Cdotaccent.ss10 Eng.ss10 I.ss14 IJ.ss14 Iacute.ss14 Icircumflex.ss14 Idieresis.ss14 Idotaccent.ss14 Idotbelow.ss14 Igrave.ss14 Ihookabove.ss14 Iinvertedbreve.ss14 Imacron.ss14 Iogonek.ss14 Itilde.ss14 Xi Omega Xi.tf";
+code = "A Aacute Abreve Abreveacute Abrevedotbelow Abrevegrave Abrevehookabove Abrevetilde Acircumflex Acircumflexacute Acircumflexdotbelow Acircumflexgrave Acircumflexhookabove Acircumflextilde Adieresis Adotbelow Agrave Ahookabove Ainvertedbreve Amacron Aogonek Aring Atilde AE AEmacron B C Cacute Ccaron Ccedilla Ccircumflex Cdotaccent D Dcaron Dcroat Ddotbelow Eth E Eacute Ecaron Ecircumflex Ecircumflexacute Ecircumflexdotbelow Ecircumflexgrave Ecircumflexhookabove Ecircumflextilde Edieresis Edotaccent Edotbelow Egrave Ehookabove Einvertedbreve Emacron Eogonek Etilde Schwa F Fhook G Gbreve Gcircumflex Gcommaaccent Gdotaccent Gmacron H Hbar Hbrevebelow Hcircumflex Hdotbelow I IJ Iacute Icircumflex Idieresis Idotaccent Idotbelow Igrave Ihookabove Iinvertedbreve Imacron Iogonek Itilde J Jacute Jcircumflex K Kcommaaccent Kmacronbelow L Lacute Lcaron Lcommaaccent Ldot Ldotbelow Ldotbelowmacron Lmacronbelow Lslash M Mdotaccent Mdotbelow N Nacute Ncaron Ncommaaccent Ndotaccent Ndotbelow Nmacronbelow Ntilde Eng O Oacute Ocircumflex Ocircumflexacute Ocircumflexdotbelow Ocircumflexgrave Ocircumflexhookabove Ocircumflextilde Odieresis Odotbelow Ograve Ohookabove Ohorn Ohornacute Ohorndotbelow Ohorngrave Ohornhookabove Ohorntilde Ohungarumlaut Oinvertedbreve Omacron Oslash Otilde OE P Thorn Q R Racute Rcaron Rcommaaccent Rdotbelowmacron Rinvertedbreve Rmacronbelow S Sacute Scaron Scedilla Scircumflex Scommaaccent Sdotbelow Germandbls T Tbar Tcaron Tcedilla Tcommaaccent Tdotbelow Tmacronbelow U Uacute Ubreve Ucircumflex Udieresis Udotbelow Ugrave Uhookabove Uhorn Uhornacute Uhorndotbelow Uhorngrave Uhornhookabove Uhorntilde Uhungarumlaut Uinvertedbreve Umacron Uogonek Uring Utilde V W Wacute Wcircumflex Wdieresis Wgrave X Y Yacute Ycircumflex Ydieresis Ydotaccent Ydotbelow Ygrave Yhookabove Ytilde Z Zacute Zcaron Zdotaccent Zdotbelow Zmacronbelow Saltillo Lcommaaccent.loclMAH Ncommaaccent.loclMAH I.rcltA11y IJ.rcltA11y Iacute.rcltA11y Icircumflex.rcltA11y Idieresis.rcltA11y Idotaccent.rcltA11y Idotbelow.rcltA11y Igrave.rcltA11y Ihookabove.rcltA11y Iinvertedbreve.rcltA11y Imacron.rcltA11y Iogonek.rcltA11y Itilde.rcltA11y C.rcltGeo Cacute.rcltGeo Ccaron.rcltGeo Ccedilla.rcltGeo Ccircumflex.rcltGeo Cdotaccent.rcltGeo G.rcltGeo Gbreve.rcltGeo Gcircumflex.rcltGeo Gcommaaccent.rcltGeo Gdotaccent.rcltGeo Gmacron.rcltGeo M.rcltGeo Mdotaccent.rcltGeo Mdotbelow.rcltGeo Eng.rcltGeo G.ss06 Gbreve.ss06 Gcircumflex.ss06 Gcommaaccent.ss06 Gdotaccent.ss06 Gmacron.ss06 G.ss07 Gbreve.ss07 Gcircumflex.ss07 Gcommaaccent.ss07 Gdotaccent.ss07 Gmacron.ss07 M.ss12 Mdotaccent.ss12 Mdotbelow.ss12 C.ss10 Cacute.ss10 Ccaron.ss10 Ccedilla.ss10 Ccircumflex.ss10 Cdotaccent.ss10 Eng.ss10 I.ss18 IJ.ss18 Iacute.ss18 Icircumflex.ss18 Idieresis.ss18 Idotaccent.ss18 Idotbelow.ss18 Igrave.ss18 Ihookabove.ss18 Iinvertedbreve.ss18 Imacron.ss18 Iogonek.ss18 Itilde.ss18 Xi Omega Xi.tf";
 name = Uppercase;
 },
 {
 automatic = 1;
-code = "a aacute abreve abreveacute abrevedotbelow abrevegrave abrevehookabove abrevetilde acircumflex acircumflexacute acircumflexdotbelow acircumflexgrave acircumflexhookabove acircumflextilde adieresis adotbelow agrave ahookabove ainvertedbreve amacron aogonek aring atilde ae aemacron b c cacute ccaron ccedilla ccircumflex cdotaccent d dcaron dcroat ddotbelow eth e eacute ecaron ecircumflex ecircumflexacute ecircumflexdotbelow ecircumflexgrave ecircumflexhookabove ecircumflextilde edieresis edotaccent edotbelow egrave ehookabove einvertedbreve emacron eogonek etilde schwa f g gbreve gcircumflex gcommaaccent gdotaccent gmacron h hbar hbrevebelow hcircumflex hdotbelow hmacronbelow i idotless iacute icircumflex idieresis idotaccent idotbelow igrave ihookabove iinvertedbreve imacron iogonek itilde ij j jdotless jacute jcircumflex k kcommaaccent kgreenlandic kmacronbelow l lacute lcaron lcommaaccent ldot ldotbelow ldotbelowmacron lmacronbelow lslash m mdotaccent mdotbelow n nacute ncaron ncommaaccent ndotaccent ndotbelow nmacronbelow ntilde eng o oacute ocircumflex ocircumflexacute ocircumflexdotbelow ocircumflexgrave ocircumflexhookabove ocircumflextilde odieresis odotbelow ograve ohookabove ohorn ohornacute ohorndotbelow ohorngrave ohornhookabove ohorntilde ohungarumlaut oinvertedbreve omacron oslash otilde oe p thorn q r racute rcaron rcommaaccent rdotbelowmacron rinvertedbreve rmacronbelow s sacute scaron scedilla scircumflex scommaaccent sdotbelow germandbls t tbar tcaron tcedilla tcommaaccent tdotbelow tmacronbelow u uacute ubreve ucircumflex udieresis udieresisacute udieresiscaron udieresisgrave udieresismacron udotbelow ugrave uhookabove uhorn uhornacute uhorndotbelow uhorngrave uhornhookabove uhorntilde uhungarumlaut uinvertedbreve umacron uogonek uring utilde v w wacute wcircumflex wdieresis wgrave x y yacute ycircumflex ydieresis ydotaccent ydotbelow ygrave yhookabove ytilde z zacute zcaron zdotaccent zdotbelow zmacronbelow saltillo a.alt aacute.alt abreve.alt abreveacute.alt abrevedotbelow.alt abrevegrave.alt abrevehookabove.alt abrevetilde.alt acircumflex.alt acircumflexacute.alt acircumflexdotbelow.alt acircumflexgrave.alt acircumflexhookabove.alt acircumflextilde.alt adieresis.alt adotbelow.alt agrave.alt ahookabove.alt ainvertedbreve.alt amacron.alt aogonek.alt aring.alt atilde.alt f.alt lcommaaccent.loclMAH ncommaaccent.loclMAH a.rcltA11y aacute.rcltA11y abreve.rcltA11y abreveacute.rcltA11y abrevedotbelow.rcltA11y abrevegrave.rcltA11y abrevehookabove.rcltA11y abrevetilde.rcltA11y acircumflex.rcltA11y acircumflexacute.rcltA11y acircumflexdotbelow.rcltA11y acircumflexgrave.rcltA11y acircumflexhookabove.rcltA11y acircumflextilde.rcltA11y adieresis.rcltA11y adotbelow.rcltA11y agrave.rcltA11y ahookabove.rcltA11y ainvertedbreve.rcltA11y amacron.rcltA11y aogonek.rcltA11y aring.rcltA11y atilde.rcltA11y g.rcltA11y gbreve.rcltA11y gcircumflex.rcltA11y gcommaaccent.rcltA11y gdotaccent.rcltA11y gmacron.rcltA11y l.rcltA11y lacute.rcltA11y lcaron.rcltA11y lcommaaccent.rcltA11y ldot.rcltA11y ldotbelow.rcltA11y ldotbelowmacron.rcltA11y lmacronbelow.rcltA11y lslash.rcltA11y a.rcltBase aacute.rcltBase abreve.rcltBase abreveacute.rcltBase abrevedotbelow.rcltBase abrevegrave.rcltBase abrevehookabove.rcltBase abrevetilde.rcltBase acircumflex.rcltBase acircumflexacute.rcltBase acircumflexdotbelow.rcltBase acircumflexgrave.rcltBase acircumflexhookabove.rcltBase acircumflextilde.rcltBase adieresis.rcltBase adotbelow.rcltBase agrave.rcltBase ahookabove.rcltBase ainvertedbreve.rcltBase amacron.rcltBase aogonek.rcltBase aring.rcltBase atilde.rcltBase ae.rcltBase aemacron.rcltBase f.rcltBase ij.rcltBase j.rcltBase jdotless.rcltBase jacute.rcltBase jcircumflex.rcltBase t.rcltBase tbar.rcltBase tcaron.rcltBase tcedilla.rcltBase tcommaaccent.rcltBase tdotbelow.rcltBase tmacronbelow.rcltBase y.rcltBase yacute.rcltBase ycircumflex.rcltBase ydieresis.rcltBase ydotaccent.rcltBase ydotbelow.rcltBase ygrave.rcltBase yhookabove.rcltBase ytilde.rcltBase c.rcltGeo cacute.rcltGeo ccaron.rcltGeo ccedilla.rcltGeo ccircumflex.rcltGeo cdotaccent.rcltGeo ij.rcltGeo j.rcltGeo jdotless.rcltGeo jacute.rcltGeo jcircumflex.rcltGeo eng.rcltGeo t.rcltGeo tbar.rcltGeo tcaron.rcltGeo tcedilla.rcltGeo tcommaaccent.rcltGeo tdotbelow.rcltGeo tmacronbelow.rcltGeo u.rcltGeo uacute.rcltGeo ubreve.rcltGeo ucircumflex.rcltGeo udieresis.rcltGeo udieresisacute.rcltGeo udieresiscaron.rcltGeo udieresisgrave.rcltGeo udieresismacron.rcltGeo udotbelow.rcltGeo ugrave.rcltGeo uhookabove.rcltGeo uhorn.rcltGeo uhornacute.rcltGeo uhorndotbelow.rcltGeo uhorngrave.rcltGeo uhornhookabove.rcltGeo uhorntilde.rcltGeo uhungarumlaut.rcltGeo uinvertedbreve.rcltGeo umacron.rcltGeo uogonek.rcltGeo uring.rcltGeo utilde.rcltGeo y.rcltGeo yacute.rcltGeo ycircumflex.rcltGeo ydieresis.rcltGeo ydotaccent.rcltGeo ydotbelow.rcltGeo ygrave.rcltGeo yhookabove.rcltGeo ytilde.rcltGeo a.ss01 aacute.ss01 abreve.ss01 abreveacute.ss01 abrevedotbelow.ss01 abrevegrave.ss01 abrevehookabove.ss01 abrevetilde.ss01 acircumflex.ss01 acircumflexacute.ss01 acircumflexdotbelow.ss01 acircumflexgrave.ss01 acircumflexhookabove.ss01 acircumflextilde.ss01 adieresis.ss01 adotbelow.ss01 agrave.ss01 ahookabove.ss01 ainvertedbreve.ss01 amacron.ss01 aogonek.ss01 aring.ss01 atilde.ss01 ae.ss01 aemacron.ss01 a.ss02 aacute.ss02 abreve.ss02 abreveacute.ss02 abrevedotbelow.ss02 abrevegrave.ss02 abrevehookabove.ss02 abrevetilde.ss02 acircumflex.ss02 acircumflexacute.ss02 acircumflexdotbelow.ss02 acircumflexgrave.ss02 acircumflexhookabove.ss02 acircumflextilde.ss02 adieresis.ss02 adotbelow.ss02 agrave.ss02 ahookabove.ss02 ainvertedbreve.ss02 amacron.ss02 aogonek.ss02 aring.ss02 atilde.ss02 ae.ss02 aemacron.ss02 g.ss04 gbreve.ss04 gcircumflex.ss04 gcommaaccent.ss04 gdotaccent.ss04 gmacron.ss04 ij.ss07 j.ss07 jdotless.ss07 jacute.ss07 jcircumflex.ss07 y.ss07 yacute.ss07 ycircumflex.ss07 ydieresis.ss07 ydotaccent.ss07 ydotbelow.ss07 ygrave.ss07 yhookabove.ss07 ytilde.ss07 f.ss08 t.ss08 tbar.ss08 tcaron.ss08 tcedilla.ss08 tcommaaccent.ss08 tdotbelow.ss08 tmacronbelow.ss08 c.ss10 cacute.ss10 ccaron.ss10 ccedilla.ss10 ccircumflex.ss10 cdotaccent.ss10 ij.ss10 j.ss10 jdotless.ss10 jacute.ss10 jcircumflex.ss10 eng.ss10 t.ss10 tbar.ss10 tcaron.ss10 tcedilla.ss10 tcommaaccent.ss10 tdotbelow.ss10 tmacronbelow.ss10 u.ss10 uacute.ss10 ubreve.ss10 ucircumflex.ss10 udieresis.ss10 udieresisacute.ss10 udieresiscaron.ss10 udieresisgrave.ss10 udieresismacron.ss10 udotbelow.ss10 ugrave.ss10 uhookabove.ss10 uhorn.ss10 uhornacute.ss10 uhorndotbelow.ss10 uhorngrave.ss10 uhornhookabove.ss10 uhorntilde.ss10 uhungarumlaut.ss10 uinvertedbreve.ss10 umacron.ss10 uogonek.ss10 uring.ss10 utilde.ss10 y.ss10 yacute.ss10 ycircumflex.ss10 ydieresis.ss10 ydotaccent.ss10 ydotbelow.ss10 ygrave.ss10 yhookabove.ss10 ytilde.ss10 a.ss14 aacute.ss14 abreve.ss14 abreveacute.ss14 abrevedotbelow.ss14 abrevegrave.ss14 abrevehookabove.ss14 abrevetilde.ss14 acircumflex.ss14 acircumflexacute.ss14 acircumflexdotbelow.ss14 acircumflexgrave.ss14 acircumflexhookabove.ss14 acircumflextilde.ss14 adieresis.ss14 adotbelow.ss14 agrave.ss14 ahookabove.ss14 ainvertedbreve.ss14 amacron.ss14 aogonek.ss14 aring.ss14 atilde.ss14 l.ss14 lacute.ss14 lcaron.ss14 lcommaaccent.ss14 ldot.ss14 ldotbelow.ss14 ldotbelowmacron.ss14 lmacronbelow.ss14 lslash.ss14 l.ss16 lacute.ss16 lcaron.ss16 lcommaaccent.ss16 ldot.ss16 ldotbelow.ss16 ldotbelowmacron.ss16 lmacronbelow.ss16 lslash.ss16 lcommaaccent.loclMAH.rcltA11y lcommaaccent.loclMAH.ss14 lcommaaccent.loclMAH.ss16 f_f_i f_f_l f_t fi fl f_f_i.rcltBase f_f_l.rcltBase f_t.rcltBase fi.rcltBase fl.rcltBase f_t.rcltGeo f_f_i.ss08 f_f_l.ss08 f_t.ss08 fi.ss08 fl.ss08 f_t.ss10 f_f_i.ss11 f_f_l.ss11 f_t.ss11 fi.ss11 fl.ss11 pi pi.rcltGeo pi.ss10";
+code = "a aacute abreve abreveacute abrevedotbelow abrevegrave abrevehookabove abrevetilde acircumflex acircumflexacute acircumflexdotbelow acircumflexgrave acircumflexhookabove acircumflextilde adieresis adotbelow agrave ahookabove ainvertedbreve amacron aogonek aring atilde ae aemacron b c cacute ccaron ccedilla ccircumflex cdotaccent d dcaron dcroat ddotbelow eth e eacute ecaron ecircumflex ecircumflexacute ecircumflexdotbelow ecircumflexgrave ecircumflexhookabove ecircumflextilde edieresis edotaccent edotbelow egrave ehookabove einvertedbreve emacron eogonek etilde schwa f g gbreve gcircumflex gcommaaccent gdotaccent gmacron h hbar hbrevebelow hcircumflex hdotbelow hmacronbelow i idotless iacute icircumflex idieresis idotaccent idotbelow igrave ihookabove iinvertedbreve imacron iogonek itilde ij j jdotless jacute jcircumflex k kcommaaccent kgreenlandic kmacronbelow l lacute lcaron lcommaaccent ldot ldotbelow ldotbelowmacron lmacronbelow lslash m mdotaccent mdotbelow n nacute ncaron ncommaaccent ndotaccent ndotbelow nmacronbelow ntilde eng o oacute ocircumflex ocircumflexacute ocircumflexdotbelow ocircumflexgrave ocircumflexhookabove ocircumflextilde odieresis odotbelow ograve ohookabove ohorn ohornacute ohorndotbelow ohorngrave ohornhookabove ohorntilde ohungarumlaut oinvertedbreve omacron oslash otilde oe p thorn q r racute rcaron rcommaaccent rdotbelowmacron rinvertedbreve rmacronbelow s sacute scaron scedilla scircumflex scommaaccent sdotbelow germandbls t tbar tcaron tcedilla tcommaaccent tdotbelow tmacronbelow u uacute ubreve ucircumflex udieresis udieresisacute udieresiscaron udieresisgrave udieresismacron udotbelow ugrave uhookabove uhorn uhornacute uhorndotbelow uhorngrave uhornhookabove uhorntilde uhungarumlaut uinvertedbreve umacron uogonek uring utilde v w wacute wcircumflex wdieresis wgrave x y yacute ycircumflex ydieresis ydotaccent ydotbelow ygrave yhookabove ytilde z zacute zcaron zdotaccent zdotbelow zmacronbelow saltillo a.alt aacute.alt abreve.alt abreveacute.alt abrevedotbelow.alt abrevegrave.alt abrevehookabove.alt abrevetilde.alt acircumflex.alt acircumflexacute.alt acircumflexdotbelow.alt acircumflexgrave.alt acircumflexhookabove.alt acircumflextilde.alt adieresis.alt adotbelow.alt agrave.alt ahookabove.alt ainvertedbreve.alt amacron.alt aogonek.alt aring.alt atilde.alt f.alt lcommaaccent.loclMAH ncommaaccent.loclMAH a.rcltA11y aacute.rcltA11y abreve.rcltA11y abreveacute.rcltA11y abrevedotbelow.rcltA11y abrevegrave.rcltA11y abrevehookabove.rcltA11y abrevetilde.rcltA11y acircumflex.rcltA11y acircumflexacute.rcltA11y acircumflexdotbelow.rcltA11y acircumflexgrave.rcltA11y acircumflexhookabove.rcltA11y acircumflextilde.rcltA11y adieresis.rcltA11y adotbelow.rcltA11y agrave.rcltA11y ahookabove.rcltA11y ainvertedbreve.rcltA11y amacron.rcltA11y aogonek.rcltA11y aring.rcltA11y atilde.rcltA11y g.rcltA11y gbreve.rcltA11y gcircumflex.rcltA11y gcommaaccent.rcltA11y gdotaccent.rcltA11y gmacron.rcltA11y l.rcltA11y lacute.rcltA11y lcaron.rcltA11y lcommaaccent.rcltA11y ldot.rcltA11y ldotbelow.rcltA11y ldotbelowmacron.rcltA11y lmacronbelow.rcltA11y lslash.rcltA11y a.rcltBase aacute.rcltBase abreve.rcltBase abreveacute.rcltBase abrevedotbelow.rcltBase abrevegrave.rcltBase abrevehookabove.rcltBase abrevetilde.rcltBase acircumflex.rcltBase acircumflexacute.rcltBase acircumflexdotbelow.rcltBase acircumflexgrave.rcltBase acircumflexhookabove.rcltBase acircumflextilde.rcltBase adieresis.rcltBase adotbelow.rcltBase agrave.rcltBase ahookabove.rcltBase ainvertedbreve.rcltBase amacron.rcltBase aogonek.rcltBase aring.rcltBase atilde.rcltBase ae.rcltBase aemacron.rcltBase f.rcltBase ij.rcltBase j.rcltBase jdotless.rcltBase jacute.rcltBase jcircumflex.rcltBase t.rcltBase tbar.rcltBase tcaron.rcltBase tcedilla.rcltBase tcommaaccent.rcltBase tdotbelow.rcltBase tmacronbelow.rcltBase y.rcltBase yacute.rcltBase ycircumflex.rcltBase ydieresis.rcltBase ydotaccent.rcltBase ydotbelow.rcltBase ygrave.rcltBase yhookabove.rcltBase ytilde.rcltBase c.rcltGeo cacute.rcltGeo ccaron.rcltGeo ccedilla.rcltGeo ccircumflex.rcltGeo cdotaccent.rcltGeo ij.rcltGeo j.rcltGeo jdotless.rcltGeo jacute.rcltGeo jcircumflex.rcltGeo eng.rcltGeo t.rcltGeo tbar.rcltGeo tcaron.rcltGeo tcedilla.rcltGeo tcommaaccent.rcltGeo tdotbelow.rcltGeo tmacronbelow.rcltGeo u.rcltGeo uacute.rcltGeo ubreve.rcltGeo ucircumflex.rcltGeo udieresis.rcltGeo udieresisacute.rcltGeo udieresiscaron.rcltGeo udieresisgrave.rcltGeo udieresismacron.rcltGeo udotbelow.rcltGeo ugrave.rcltGeo uhookabove.rcltGeo uhorn.rcltGeo uhornacute.rcltGeo uhorndotbelow.rcltGeo uhorngrave.rcltGeo uhornhookabove.rcltGeo uhorntilde.rcltGeo uhungarumlaut.rcltGeo uinvertedbreve.rcltGeo umacron.rcltGeo uogonek.rcltGeo uring.rcltGeo utilde.rcltGeo y.rcltGeo yacute.rcltGeo ycircumflex.rcltGeo ydieresis.rcltGeo ydotaccent.rcltGeo ydotbelow.rcltGeo ygrave.rcltGeo yhookabove.rcltGeo ytilde.rcltGeo a.ss01 aacute.ss01 abreve.ss01 abreveacute.ss01 abrevedotbelow.ss01 abrevegrave.ss01 abrevehookabove.ss01 abrevetilde.ss01 acircumflex.ss01 acircumflexacute.ss01 acircumflexdotbelow.ss01 acircumflexgrave.ss01 acircumflexhookabove.ss01 acircumflextilde.ss01 adieresis.ss01 adotbelow.ss01 agrave.ss01 ahookabove.ss01 ainvertedbreve.ss01 amacron.ss01 aogonek.ss01 aring.ss01 atilde.ss01 ae.ss01 aemacron.ss01 a.ss02 aacute.ss02 abreve.ss02 abreveacute.ss02 abrevedotbelow.ss02 abrevegrave.ss02 abrevehookabove.ss02 abrevetilde.ss02 acircumflex.ss02 acircumflexacute.ss02 acircumflexdotbelow.ss02 acircumflexgrave.ss02 acircumflexhookabove.ss02 acircumflextilde.ss02 adieresis.ss02 adotbelow.ss02 agrave.ss02 ahookabove.ss02 ainvertedbreve.ss02 amacron.ss02 aogonek.ss02 aring.ss02 atilde.ss02 ae.ss02 aemacron.ss02 g.ss05 gbreve.ss05 gcircumflex.ss05 gcommaaccent.ss05 gdotaccent.ss05 gmacron.ss05 ij.ss08 j.ss08 jdotless.ss08 jacute.ss08 jcircumflex.ss08 y.ss08 yacute.ss08 ycircumflex.ss08 ydieresis.ss08 ydotaccent.ss08 ydotbelow.ss08 ygrave.ss08 yhookabove.ss08 ytilde.ss08 f.ss14 t.ss14 tbar.ss14 tcaron.ss14 tcedilla.ss14 tcommaaccent.ss14 tdotbelow.ss14 tmacronbelow.ss14 c.ss10 cacute.ss10 ccaron.ss10 ccedilla.ss10 ccircumflex.ss10 cdotaccent.ss10 ij.ss10 j.ss10 jdotless.ss10 jacute.ss10 jcircumflex.ss10 eng.ss10 t.ss10 tbar.ss10 tcaron.ss10 tcedilla.ss10 tcommaaccent.ss10 tdotbelow.ss10 tmacronbelow.ss10 u.ss10 uacute.ss10 ubreve.ss10 ucircumflex.ss10 udieresis.ss10 udieresisacute.ss10 udieresiscaron.ss10 udieresisgrave.ss10 udieresismacron.ss10 udotbelow.ss10 ugrave.ss10 uhookabove.ss10 uhorn.ss10 uhornacute.ss10 uhorndotbelow.ss10 uhorngrave.ss10 uhornhookabove.ss10 uhorntilde.ss10 uhungarumlaut.ss10 uinvertedbreve.ss10 umacron.ss10 uogonek.ss10 uring.ss10 utilde.ss10 y.ss10 yacute.ss10 ycircumflex.ss10 ydieresis.ss10 ydotaccent.ss10 ydotbelow.ss10 ygrave.ss10 yhookabove.ss10 ytilde.ss10 a.ss18 aacute.ss18 abreve.ss18 abreveacute.ss18 abrevedotbelow.ss18 abrevegrave.ss18 abrevehookabove.ss18 abrevetilde.ss18 acircumflex.ss18 acircumflexacute.ss18 acircumflexdotbelow.ss18 acircumflexgrave.ss18 acircumflexhookabove.ss18 acircumflextilde.ss18 adieresis.ss18 adotbelow.ss18 agrave.ss18 ahookabove.ss18 ainvertedbreve.ss18 amacron.ss18 aogonek.ss18 aring.ss18 atilde.ss18 l.ss18 lacute.ss18 lcaron.ss18 lcommaaccent.ss18 ldot.ss18 ldotbelow.ss18 ldotbelowmacron.ss18 lmacronbelow.ss18 lslash.ss18 l.ss19 lacute.ss19 lcaron.ss19 lcommaaccent.ss19 ldot.ss19 ldotbelow.ss19 ldotbelowmacron.ss19 lmacronbelow.ss19 lslash.ss19 lcommaaccent.loclMAH.rcltA11y lcommaaccent.loclMAH.ss18 lcommaaccent.loclMAH.ss19 f_f_i f_f_l f_t fi fl f_f_i.rcltBase f_f_l.rcltBase f_t.rcltBase fi.rcltBase fl.rcltBase f_t.rcltGeo f_f_i.ss14 f_f_l.ss14 f_t.ss14 fi.ss14 fl.ss14 f_t.ss10 f_f_i.ss11 f_f_l.ss11 f_t.ss11 fi.ss11 fl.ss11 pi pi.rcltGeo pi.ss10";
 name = Lowercase;
 },
 {
@@ -82,7 +82,7 @@ name = Denominators;
 },
 {
 automatic = 1;
-code = "A Aacute Abreve Abreveacute Abrevedotbelow Abrevegrave Abrevehookabove Abrevetilde Acircumflex Acircumflexacute Acircumflexdotbelow Acircumflexgrave Acircumflexhookabove Acircumflextilde Adieresis Adotbelow Agrave Ahookabove Ainvertedbreve Amacron Aogonek Aring Atilde AE AEmacron B C Cacute Ccaron Ccedilla Ccircumflex Cdotaccent D Dcaron Dcroat Ddotbelow Eth E Eacute Ecaron Ecircumflex Ecircumflexacute Ecircumflexdotbelow Ecircumflexgrave Ecircumflexhookabove Ecircumflextilde Edieresis Edotaccent Edotbelow Egrave Ehookabove Einvertedbreve Emacron Eogonek Etilde Schwa F Fhook G Gbreve Gcircumflex Gcommaaccent Gdotaccent Gmacron H Hbar Hbrevebelow Hcircumflex Hdotbelow I IJ Iacute Icircumflex Idieresis Idotaccent Idotbelow Igrave Ihookabove Iinvertedbreve Imacron Iogonek Itilde J Jacute Jcircumflex K Kcommaaccent Kmacronbelow L Lacute Lcaron Lcommaaccent Ldot Ldotbelow Ldotbelowmacron Lmacronbelow Lslash M Mdotaccent Mdotbelow N Nacute Ncaron Ncommaaccent Ndotaccent Ndotbelow Nmacronbelow Ntilde Eng O Oacute Ocircumflex Ocircumflexacute Ocircumflexdotbelow Ocircumflexgrave Ocircumflexhookabove Ocircumflextilde Odieresis Odotbelow Ograve Ohookabove Ohorn Ohornacute Ohorndotbelow Ohorngrave Ohornhookabove Ohorntilde Ohungarumlaut Oinvertedbreve Omacron Oslash Otilde OE P Thorn Q R Racute Rcaron Rcommaaccent Rdotbelowmacron Rinvertedbreve Rmacronbelow S Sacute Scaron Scedilla Scircumflex Scommaaccent Sdotbelow Germandbls T Tbar Tcaron Tcedilla Tcommaaccent Tdotbelow Tmacronbelow U Uacute Ubreve Ucircumflex Udieresis Udotbelow Ugrave Uhookabove Uhorn Uhornacute Uhorndotbelow Uhorngrave Uhornhookabove Uhorntilde Uhungarumlaut Uinvertedbreve Umacron Uogonek Uring Utilde V W Wacute Wcircumflex Wdieresis Wgrave X Y Yacute Ycircumflex Ydieresis Ydotaccent Ydotbelow Ygrave Yhookabove Ytilde Z Zacute Zcaron Zdotaccent Zdotbelow Zmacronbelow Saltillo Lcommaaccent.loclMAH Ncommaaccent.loclMAH I.rcltA11y IJ.rcltA11y Iacute.rcltA11y Icircumflex.rcltA11y Idieresis.rcltA11y Idotaccent.rcltA11y Idotbelow.rcltA11y Igrave.rcltA11y Ihookabove.rcltA11y Iinvertedbreve.rcltA11y Imacron.rcltA11y Iogonek.rcltA11y Itilde.rcltA11y C.rcltGeo Cacute.rcltGeo Ccaron.rcltGeo Ccedilla.rcltGeo Ccircumflex.rcltGeo Cdotaccent.rcltGeo G.rcltGeo Gbreve.rcltGeo Gcircumflex.rcltGeo Gcommaaccent.rcltGeo Gdotaccent.rcltGeo Gmacron.rcltGeo M.rcltGeo Mdotaccent.rcltGeo Mdotbelow.rcltGeo Eng.rcltGeo G.ss05 Gbreve.ss05 Gcircumflex.ss05 Gcommaaccent.ss05 Gdotaccent.ss05 Gmacron.ss05 G.ss06 Gbreve.ss06 Gcircumflex.ss06 Gcommaaccent.ss06 Gdotaccent.ss06 Gmacron.ss06 M.ss09 Mdotaccent.ss09 Mdotbelow.ss09 C.ss10 Cacute.ss10 Ccaron.ss10 Ccedilla.ss10 Ccircumflex.ss10 Cdotaccent.ss10 Eng.ss10 I.ss14 IJ.ss14 Iacute.ss14 Icircumflex.ss14 Idieresis.ss14 Idotaccent.ss14 Idotbelow.ss14 Igrave.ss14 Ihookabove.ss14 Iinvertedbreve.ss14 Imacron.ss14 Iogonek.ss14 Itilde.ss14 a aacute abreve abreveacute abrevedotbelow abrevegrave abrevehookabove abrevetilde acircumflex acircumflexacute acircumflexdotbelow acircumflexgrave acircumflexhookabove acircumflextilde adieresis adotbelow agrave ahookabove ainvertedbreve amacron aogonek aring atilde ae aemacron b c cacute ccaron ccedilla ccircumflex cdotaccent d dcaron dcroat ddotbelow eth e eacute ecaron ecircumflex ecircumflexacute ecircumflexdotbelow ecircumflexgrave ecircumflexhookabove ecircumflextilde edieresis edotaccent edotbelow egrave ehookabove einvertedbreve emacron eogonek etilde schwa f g gbreve gcircumflex gcommaaccent gdotaccent gmacron h hbar hbrevebelow hcircumflex hdotbelow hmacronbelow i idotless iacute icircumflex idieresis idotaccent idotbelow igrave ihookabove iinvertedbreve imacron iogonek itilde ij j jdotless jacute jcircumflex k kcommaaccent kgreenlandic kmacronbelow l lacute lcaron lcommaaccent ldot ldotbelow ldotbelowmacron lmacronbelow lslash m mdotaccent mdotbelow n nacute ncaron ncommaaccent ndotaccent ndotbelow nmacronbelow ntilde eng o oacute ocircumflex ocircumflexacute ocircumflexdotbelow ocircumflexgrave ocircumflexhookabove ocircumflextilde odieresis odotbelow ograve ohookabove ohorn ohornacute ohorndotbelow ohorngrave ohornhookabove ohorntilde ohungarumlaut oinvertedbreve omacron oslash otilde oe p thorn q r racute rcaron rcommaaccent rdotbelowmacron rinvertedbreve rmacronbelow s sacute scaron scedilla scircumflex scommaaccent sdotbelow germandbls t tbar tcaron tcedilla tcommaaccent tdotbelow tmacronbelow u uacute ubreve ucircumflex udieresis udieresisacute udieresiscaron udieresisgrave udieresismacron udotbelow ugrave uhookabove uhorn uhornacute uhorndotbelow uhorngrave uhornhookabove uhorntilde uhungarumlaut uinvertedbreve umacron uogonek uring utilde v w wacute wcircumflex wdieresis wgrave x y yacute ycircumflex ydieresis ydotaccent ydotbelow ygrave yhookabove ytilde z zacute zcaron zdotaccent zdotbelow zmacronbelow saltillo a.alt aacute.alt abreve.alt abreveacute.alt abrevedotbelow.alt abrevegrave.alt abrevehookabove.alt abrevetilde.alt acircumflex.alt acircumflexacute.alt acircumflexdotbelow.alt acircumflexgrave.alt acircumflexhookabove.alt acircumflextilde.alt adieresis.alt adotbelow.alt agrave.alt ahookabove.alt ainvertedbreve.alt amacron.alt aogonek.alt aring.alt atilde.alt f.alt lcommaaccent.loclMAH ncommaaccent.loclMAH a.rcltA11y aacute.rcltA11y abreve.rcltA11y abreveacute.rcltA11y abrevedotbelow.rcltA11y abrevegrave.rcltA11y abrevehookabove.rcltA11y abrevetilde.rcltA11y acircumflex.rcltA11y acircumflexacute.rcltA11y acircumflexdotbelow.rcltA11y acircumflexgrave.rcltA11y acircumflexhookabove.rcltA11y acircumflextilde.rcltA11y adieresis.rcltA11y adotbelow.rcltA11y agrave.rcltA11y ahookabove.rcltA11y ainvertedbreve.rcltA11y amacron.rcltA11y aogonek.rcltA11y aring.rcltA11y atilde.rcltA11y g.rcltA11y gbreve.rcltA11y gcircumflex.rcltA11y gcommaaccent.rcltA11y gdotaccent.rcltA11y gmacron.rcltA11y l.rcltA11y lacute.rcltA11y lcaron.rcltA11y lcommaaccent.rcltA11y ldot.rcltA11y ldotbelow.rcltA11y ldotbelowmacron.rcltA11y lmacronbelow.rcltA11y lslash.rcltA11y a.rcltBase aacute.rcltBase abreve.rcltBase abreveacute.rcltBase abrevedotbelow.rcltBase abrevegrave.rcltBase abrevehookabove.rcltBase abrevetilde.rcltBase acircumflex.rcltBase acircumflexacute.rcltBase acircumflexdotbelow.rcltBase acircumflexgrave.rcltBase acircumflexhookabove.rcltBase acircumflextilde.rcltBase adieresis.rcltBase adotbelow.rcltBase agrave.rcltBase ahookabove.rcltBase ainvertedbreve.rcltBase amacron.rcltBase aogonek.rcltBase aring.rcltBase atilde.rcltBase ae.rcltBase aemacron.rcltBase f.rcltBase ij.rcltBase j.rcltBase jdotless.rcltBase jacute.rcltBase jcircumflex.rcltBase t.rcltBase tbar.rcltBase tcaron.rcltBase tcedilla.rcltBase tcommaaccent.rcltBase tdotbelow.rcltBase tmacronbelow.rcltBase y.rcltBase yacute.rcltBase ycircumflex.rcltBase ydieresis.rcltBase ydotaccent.rcltBase ydotbelow.rcltBase ygrave.rcltBase yhookabove.rcltBase ytilde.rcltBase c.rcltGeo cacute.rcltGeo ccaron.rcltGeo ccedilla.rcltGeo ccircumflex.rcltGeo cdotaccent.rcltGeo ij.rcltGeo j.rcltGeo jdotless.rcltGeo jacute.rcltGeo jcircumflex.rcltGeo eng.rcltGeo t.rcltGeo tbar.rcltGeo tcaron.rcltGeo tcedilla.rcltGeo tcommaaccent.rcltGeo tdotbelow.rcltGeo tmacronbelow.rcltGeo u.rcltGeo uacute.rcltGeo ubreve.rcltGeo ucircumflex.rcltGeo udieresis.rcltGeo udieresisacute.rcltGeo udieresiscaron.rcltGeo udieresisgrave.rcltGeo udieresismacron.rcltGeo udotbelow.rcltGeo ugrave.rcltGeo uhookabove.rcltGeo uhorn.rcltGeo uhornacute.rcltGeo uhorndotbelow.rcltGeo uhorngrave.rcltGeo uhornhookabove.rcltGeo uhorntilde.rcltGeo uhungarumlaut.rcltGeo uinvertedbreve.rcltGeo umacron.rcltGeo uogonek.rcltGeo uring.rcltGeo utilde.rcltGeo y.rcltGeo yacute.rcltGeo ycircumflex.rcltGeo ydieresis.rcltGeo ydotaccent.rcltGeo ydotbelow.rcltGeo ygrave.rcltGeo yhookabove.rcltGeo ytilde.rcltGeo a.ss01 aacute.ss01 abreve.ss01 abreveacute.ss01 abrevedotbelow.ss01 abrevegrave.ss01 abrevehookabove.ss01 abrevetilde.ss01 acircumflex.ss01 acircumflexacute.ss01 acircumflexdotbelow.ss01 acircumflexgrave.ss01 acircumflexhookabove.ss01 acircumflextilde.ss01 adieresis.ss01 adotbelow.ss01 agrave.ss01 ahookabove.ss01 ainvertedbreve.ss01 amacron.ss01 aogonek.ss01 aring.ss01 atilde.ss01 ae.ss01 aemacron.ss01 a.ss02 aacute.ss02 abreve.ss02 abreveacute.ss02 abrevedotbelow.ss02 abrevegrave.ss02 abrevehookabove.ss02 abrevetilde.ss02 acircumflex.ss02 acircumflexacute.ss02 acircumflexdotbelow.ss02 acircumflexgrave.ss02 acircumflexhookabove.ss02 acircumflextilde.ss02 adieresis.ss02 adotbelow.ss02 agrave.ss02 ahookabove.ss02 ainvertedbreve.ss02 amacron.ss02 aogonek.ss02 aring.ss02 atilde.ss02 ae.ss02 aemacron.ss02 g.ss04 gbreve.ss04 gcircumflex.ss04 gcommaaccent.ss04 gdotaccent.ss04 gmacron.ss04 ij.ss07 j.ss07 jdotless.ss07 jacute.ss07 jcircumflex.ss07 y.ss07 yacute.ss07 ycircumflex.ss07 ydieresis.ss07 ydotaccent.ss07 ydotbelow.ss07 ygrave.ss07 yhookabove.ss07 ytilde.ss07 f.ss08 t.ss08 tbar.ss08 tcaron.ss08 tcedilla.ss08 tcommaaccent.ss08 tdotbelow.ss08 tmacronbelow.ss08 c.ss10 cacute.ss10 ccaron.ss10 ccedilla.ss10 ccircumflex.ss10 cdotaccent.ss10 ij.ss10 j.ss10 jdotless.ss10 jacute.ss10 jcircumflex.ss10 eng.ss10 t.ss10 tbar.ss10 tcaron.ss10 tcedilla.ss10 tcommaaccent.ss10 tdotbelow.ss10 tmacronbelow.ss10 u.ss10 uacute.ss10 ubreve.ss10 ucircumflex.ss10 udieresis.ss10 udieresisacute.ss10 udieresiscaron.ss10 udieresisgrave.ss10 udieresismacron.ss10 udotbelow.ss10 ugrave.ss10 uhookabove.ss10 uhorn.ss10 uhornacute.ss10 uhorndotbelow.ss10 uhorngrave.ss10 uhornhookabove.ss10 uhorntilde.ss10 uhungarumlaut.ss10 uinvertedbreve.ss10 umacron.ss10 uogonek.ss10 uring.ss10 utilde.ss10 y.ss10 yacute.ss10 ycircumflex.ss10 ydieresis.ss10 ydotaccent.ss10 ydotbelow.ss10 ygrave.ss10 yhookabove.ss10 ytilde.ss10 a.ss14 aacute.ss14 abreve.ss14 abreveacute.ss14 abrevedotbelow.ss14 abrevegrave.ss14 abrevehookabove.ss14 abrevetilde.ss14 acircumflex.ss14 acircumflexacute.ss14 acircumflexdotbelow.ss14 acircumflexgrave.ss14 acircumflexhookabove.ss14 acircumflextilde.ss14 adieresis.ss14 adotbelow.ss14 agrave.ss14 ahookabove.ss14 ainvertedbreve.ss14 amacron.ss14 aogonek.ss14 aring.ss14 atilde.ss14 l.ss14 lacute.ss14 lcaron.ss14 lcommaaccent.ss14 ldot.ss14 ldotbelow.ss14 ldotbelowmacron.ss14 lmacronbelow.ss14 lslash.ss14 l.ss16 lacute.ss16 lcaron.ss16 lcommaaccent.ss16 ldot.ss16 ldotbelow.ss16 ldotbelowmacron.ss16 lmacronbelow.ss16 lslash.ss16 lcommaaccent.loclMAH.rcltA11y lcommaaccent.loclMAH.ss14 lcommaaccent.loclMAH.ss16 f_f_i f_f_l f_t fi fl f_f_i.rcltBase f_f_l.rcltBase f_t.rcltBase fi.rcltBase fl.rcltBase f_t.rcltGeo f_f_i.ss08 f_f_l.ss08 f_t.ss08 fi.ss08 fl.ss08 f_t.ss10 f_f_i.ss11 f_f_l.ss11 f_t.ss11 fi.ss11 fl.ss11 ordfeminine ordmasculine ordfeminine.rcltBase ordfeminine.ss01 ordfeminine.ss02 Xi Omega Xi.tf pi pi.rcltGeo pi.ss10 zero one two three four five six seven eight nine zero.zero zero.disp one.disp six.disp seven.disp nine.disp zero.lf one.lf two.lf three.lf four.lf five.lf six.lf seven.lf eight.lf nine.lf six.rclt1 nine.rclt1 six.rclt2 nine.rclt2 six.rclt3 nine.rclt3 zero.rcltGeo one.rcltGeo five.rcltGeo zero.ss10 one.ss10 five.ss10 six.ss12 nine.ss12 six.ss13 nine.ss13 zero.tf one.tf two.tf three.tf four.tf five.tf six.tf seven.tf eight.tf nine.tf zero.zero.disp six.lf.rclt1 nine.lf.rclt1 zero.lf.rcltGeo one.lf.rcltGeo five.lf.rcltGeo zero.lf.ss10 one.lf.ss10 six.lf.ss12 nine.lf.ss12 six.lf.ss13 nine.lf.ss13 zero.zero.rcltGeo zero.rvrnGeo.dnom one.rvrnGeo.dnom zero.rvrnGeo.numr one.rvrnGeo.numr zero.ss10.dnom one.ss10.dnom six.tf.rclt1 nine.tf.rclt1 zero.tf.rcltGeo one.tf.rcltGeo five.tf.rcltGeo zero.tf.ss10 one.tf.ss10 six.tf.ss12 nine.tf.ss12 six.tf.ss13 nine.tf.ss13 five.tf.001 zero.dnom one.dnom two.dnom three.dnom four.dnom five.dnom six.dnom seven.dnom eight.dnom nine.dnom zero.numr one.numr two.numr three.numr four.numr five.numr six.numr seven.numr eight.numr nine.numr fraction onehalf onequarter threequarters oneeighth threeeighths fiveeighths seveneighths six.dnom.rclt1 nine.dnom.rclt1 six.numr.rclt1 nine.numr.rclt1 six.dnom.rclt2 nine.dnom.rclt2 six.numr.rclt2 nine.numr.rclt2 six.dnom.rclt3 nine.dnom.rclt3 six.numr.rclt3 nine.numr.rclt3 zero.dnom.rcltGeo one.dnom.rcltGeo five.dnom.rcltGeo zero.numr.rcltGeo one.numr.rcltGeo five.numr.rcltGeo onehalf.rcltGeo onequarter.rcltGeo oneeighth.rcltGeo fiveeighths.rcltGeo zero.dnom.ss10 one.dnom.ss10 five.dnom.ss10 zero.numr.ss10 one.numr.ss10 five.numr.ss10 onehalf.ss10 onequarter.ss10 oneeighth.ss10 fiveeighths.ss10 six.dnom.ss12 nine.dnom.ss12 six.numr.ss12 nine.numr.ss12 six.dnom.ss13 nine.dnom.ss13 six.numr.ss13 nine.numr.ss13 zeroinferior oneinferior twoinferior threeinferior fourinferior fiveinferior sixinferior seveninferior eightinferior nineinferior zerosuperior onesuperior twosuperior threesuperior foursuperior fivesuperior sixsuperior sevensuperior eightsuperior ninesuperior sixinferior.rclt1 nineinferior.rclt1 sixsuperior.rclt1 ninesuperior.rclt1 sixinferior.rclt2 nineinferior.rclt2 sixsuperior.rclt2 ninesuperior.rclt2 sixinferior.rclt3 nineinferior.rclt3 sixsuperior.rclt3 ninesuperior.rclt3 zeroinferior.rcltGeo oneinferior.rcltGeo fiveinferior.rcltGeo zerosuperior.rcltGeo onesuperior.rcltGeo fivesuperior.rcltGeo zeroinferior.ss10 oneinferior.ss10 fiveinferior.ss10 zerosuperior.ss10 onesuperior.ss10 fivesuperior.ss10 sixinferior.ss12 nineinferior.ss12 sixsuperior.ss12 ninesuperior.ss12 sixinferior.ss13 nineinferior.ss13 sixsuperior.ss13 ninesuperior.ss13 space nbspace enspace emspace threeperemspace fourperemspace sixperemspace figurespace punctuationspace thinspace hairspace zerowidthspace zerowidthnonjoiner zerowidthjoiner narrownbspace CR leftanglebracket-math rightanglebracket-math period comma colon semicolon ellipsis exclam exclamdown question questiondown periodcentered bullet asterisk dblverticalbar exclamdouble interrobang invertedinterrobang numbersign slash backslash colon.calt periodcentered.case periodcentered.loclCAT numbersign.tf periodcentered.loclCAT.case hyphen softhyphen endash emdash underscore parenleft parenright braceleft braceright bracketleft bracketright quotesinglbase quotedblbase quotedblleft quotedblright quoteleft quoteright guillemetleft guillemetright guilsinglleft guilsinglright quotedbl quotesingle florin florin.tf note-musical notedbl-musical baht baht.tf at_spam_trap APLcirclestar blackStar whiteStar ballotBoxWithCheck ballotBoxWithX heartWhiteSuit heartBlackSuit checkmark heavyCheckMark ballotX heavyBallotX blackFourPointedStar whiteFourPointedStar sparkles heavyBlackHeart at ampersand paragraph section copyright registered trademark degree minute second bar brokenbar dagger literSign daggerdbl estimated numero blackSmallStar whiteSmallStar D.circled bitcoin cedi cent colonsign currency dollar dong euro guarani hryvnia kip lari liraTurkish manat naira peso riyalSaudi ruble rupee rupeeIndian sheqel sterling tenge tugrik won yen euro.rcltGeo guarani.rcltGeo guarani.ss05 guarani.ss06 euro.ss10 bitcoin.tf cedi.tf cent.tf colonsign.tf currency.tf dollar.tf dong.tf euro.tf guarani.tf hryvnia.tf kip.tf lari.tf liraTurkish.tf naira.tf peso.tf riyalSaudi.tf ruble.tf rupee.tf rupeeIndian.tf sheqel.tf sterling.tf tenge.tf tugrik.tf won.tf yen.tf euro.tf.rcltGeo guarani.tf.rcltGeo guarani.tf.ss05 guarani.tf.ss06 euro.tf.ss10 because divisionslash plus minus multiply divide equal notequal greater less greaterequal lessequal plusminus approxequal asciitilde logicalnot asciicircum infinity emptyset integral Ohm increment product summation radical micro partialdiff percent perthousand therefore micro.rcltGeo micro.ss10 upArrow northEastArrow rightArrow southEastArrow downArrow southWestArrow leftArrow northWestArrow leftRightArrow upDownArrow blackCircle whiteCircle dottedCircle whiteBullet blackDiamond whiteDiamond lozenge blackSquare whiteSquare blackSmallSquare whiteSmallSquare mediumBlackSquare upBlackTriangle rightBlackTriangle downBlackTriangle leftBlackTriangle upWhiteTriangle rightWhiteTriangle downWhiteTriangle leftWhiteTriangle upBlackSmallTriangle rightBlackSmallTriangle downBlackSmallTriangle leftBlackSmallTriangle upWhiteSmallTriangle rightWhiteSmallTriangle downWhiteSmallTriangle leftWhiteSmallTriangle dieresiscomb dotaccentcomb gravecomb gravecomb_macroncomb acutecomb acutecomb_macroncomb hungarumlautcomb caroncomb.alt circumflexcomb caroncomb brevecomb ringcomb tildecomb macroncomb macroncomb_gravecomb macroncomb_acutecomb hookabovecomb dblgravecomb breveinvertedcomb commaturnedabovecomb horncomb dotbelowcomb dieresisbelowcomb commaaccentcomb.loclMAH commaaccentcomb cedillacomb ogonekcomb brevebelowcomb macronbelowcomb slashlongcomb brevecomb_acutecomb brevecomb_gravecomb brevecomb_hookabovecomb brevecomb_tildecomb circumflexcomb_acutecomb circumflexcomb_gravecomb circumflexcomb_hookabovecomb circumflexcomb_tildecomb dieresiscomb.case dotaccentcomb.case gravecomb.case gravecomb_macroncomb.case acutecomb.case acutecomb_macroncomb.case hungarumlautcomb.case circumflexcomb.case circumflexcomb_gravecomb.case circumflexcomb_acutecomb.case circumflexcomb_tildecomb.case circumflexcomb_hookabovecomb.case caroncomb.case brevecomb.case brevecomb_gravecomb.case brevecomb_acutecomb.case brevecomb_tildecomb.case brevecomb_hookabovecomb.case tildecomb.case macroncomb.case macroncomb_gravecomb.case macroncomb_acutecomb.case hookabovecomb.case breveinvertedcomb.case horncomb.case slashlongcomb.case dieresis dotaccent grave acute hungarumlaut circumflex caron breve ring tilde macron cedilla ogonek apostrophemod commaturnedmod primemod verticallinemod IJacute Mcommaaccent Nmacron Ocommaaccent ijacute mcommaaccent nmacron ocommaaccent IJacute.rcltA11y IJacute.ss14 Mcommaaccent.loclMAH Mcommaaccent.rcltGeo Mcommaaccent.ss09 Ocommaaccent.loclMAH ijacute.rcltBase ijacute.rcltGeo ijacute.ss07 ijacute.ss10 mcommaaccent.loclMAH ocommaaccent.loclMAH tpartcrltGeo.comb Mcommaaccent.loclMAH.rcltGeo Mcommaaccent.loclMAH.ss09";
+code = "A Aacute Abreve Abreveacute Abrevedotbelow Abrevegrave Abrevehookabove Abrevetilde Acircumflex Acircumflexacute Acircumflexdotbelow Acircumflexgrave Acircumflexhookabove Acircumflextilde Adieresis Adotbelow Agrave Ahookabove Ainvertedbreve Amacron Aogonek Aring Atilde AE AEmacron B C Cacute Ccaron Ccedilla Ccircumflex Cdotaccent D Dcaron Dcroat Ddotbelow Eth E Eacute Ecaron Ecircumflex Ecircumflexacute Ecircumflexdotbelow Ecircumflexgrave Ecircumflexhookabove Ecircumflextilde Edieresis Edotaccent Edotbelow Egrave Ehookabove Einvertedbreve Emacron Eogonek Etilde Schwa F Fhook G Gbreve Gcircumflex Gcommaaccent Gdotaccent Gmacron H Hbar Hbrevebelow Hcircumflex Hdotbelow I IJ Iacute Icircumflex Idieresis Idotaccent Idotbelow Igrave Ihookabove Iinvertedbreve Imacron Iogonek Itilde J Jacute Jcircumflex K Kcommaaccent Kmacronbelow L Lacute Lcaron Lcommaaccent Ldot Ldotbelow Ldotbelowmacron Lmacronbelow Lslash M Mdotaccent Mdotbelow N Nacute Ncaron Ncommaaccent Ndotaccent Ndotbelow Nmacronbelow Ntilde Eng O Oacute Ocircumflex Ocircumflexacute Ocircumflexdotbelow Ocircumflexgrave Ocircumflexhookabove Ocircumflextilde Odieresis Odotbelow Ograve Ohookabove Ohorn Ohornacute Ohorndotbelow Ohorngrave Ohornhookabove Ohorntilde Ohungarumlaut Oinvertedbreve Omacron Oslash Otilde OE P Thorn Q R Racute Rcaron Rcommaaccent Rdotbelowmacron Rinvertedbreve Rmacronbelow S Sacute Scaron Scedilla Scircumflex Scommaaccent Sdotbelow Germandbls T Tbar Tcaron Tcedilla Tcommaaccent Tdotbelow Tmacronbelow U Uacute Ubreve Ucircumflex Udieresis Udotbelow Ugrave Uhookabove Uhorn Uhornacute Uhorndotbelow Uhorngrave Uhornhookabove Uhorntilde Uhungarumlaut Uinvertedbreve Umacron Uogonek Uring Utilde V W Wacute Wcircumflex Wdieresis Wgrave X Y Yacute Ycircumflex Ydieresis Ydotaccent Ydotbelow Ygrave Yhookabove Ytilde Z Zacute Zcaron Zdotaccent Zdotbelow Zmacronbelow Saltillo Lcommaaccent.loclMAH Ncommaaccent.loclMAH I.rcltA11y IJ.rcltA11y Iacute.rcltA11y Icircumflex.rcltA11y Idieresis.rcltA11y Idotaccent.rcltA11y Idotbelow.rcltA11y Igrave.rcltA11y Ihookabove.rcltA11y Iinvertedbreve.rcltA11y Imacron.rcltA11y Iogonek.rcltA11y Itilde.rcltA11y C.rcltGeo Cacute.rcltGeo Ccaron.rcltGeo Ccedilla.rcltGeo Ccircumflex.rcltGeo Cdotaccent.rcltGeo G.rcltGeo Gbreve.rcltGeo Gcircumflex.rcltGeo Gcommaaccent.rcltGeo Gdotaccent.rcltGeo Gmacron.rcltGeo M.rcltGeo Mdotaccent.rcltGeo Mdotbelow.rcltGeo Eng.rcltGeo G.ss06 Gbreve.ss06 Gcircumflex.ss06 Gcommaaccent.ss06 Gdotaccent.ss06 Gmacron.ss06 G.ss07 Gbreve.ss07 Gcircumflex.ss07 Gcommaaccent.ss07 Gdotaccent.ss07 Gmacron.ss07 M.ss12 Mdotaccent.ss12 Mdotbelow.ss12 C.ss10 Cacute.ss10 Ccaron.ss10 Ccedilla.ss10 Ccircumflex.ss10 Cdotaccent.ss10 Eng.ss10 I.ss18 IJ.ss18 Iacute.ss18 Icircumflex.ss18 Idieresis.ss18 Idotaccent.ss18 Idotbelow.ss18 Igrave.ss18 Ihookabove.ss18 Iinvertedbreve.ss18 Imacron.ss18 Iogonek.ss18 Itilde.ss18 a aacute abreve abreveacute abrevedotbelow abrevegrave abrevehookabove abrevetilde acircumflex acircumflexacute acircumflexdotbelow acircumflexgrave acircumflexhookabove acircumflextilde adieresis adotbelow agrave ahookabove ainvertedbreve amacron aogonek aring atilde ae aemacron b c cacute ccaron ccedilla ccircumflex cdotaccent d dcaron dcroat ddotbelow eth e eacute ecaron ecircumflex ecircumflexacute ecircumflexdotbelow ecircumflexgrave ecircumflexhookabove ecircumflextilde edieresis edotaccent edotbelow egrave ehookabove einvertedbreve emacron eogonek etilde schwa f g gbreve gcircumflex gcommaaccent gdotaccent gmacron h hbar hbrevebelow hcircumflex hdotbelow hmacronbelow i idotless iacute icircumflex idieresis idotaccent idotbelow igrave ihookabove iinvertedbreve imacron iogonek itilde ij j jdotless jacute jcircumflex k kcommaaccent kgreenlandic kmacronbelow l lacute lcaron lcommaaccent ldot ldotbelow ldotbelowmacron lmacronbelow lslash m mdotaccent mdotbelow n nacute ncaron ncommaaccent ndotaccent ndotbelow nmacronbelow ntilde eng o oacute ocircumflex ocircumflexacute ocircumflexdotbelow ocircumflexgrave ocircumflexhookabove ocircumflextilde odieresis odotbelow ograve ohookabove ohorn ohornacute ohorndotbelow ohorngrave ohornhookabove ohorntilde ohungarumlaut oinvertedbreve omacron oslash otilde oe p thorn q r racute rcaron rcommaaccent rdotbelowmacron rinvertedbreve rmacronbelow s sacute scaron scedilla scircumflex scommaaccent sdotbelow germandbls t tbar tcaron tcedilla tcommaaccent tdotbelow tmacronbelow u uacute ubreve ucircumflex udieresis udieresisacute udieresiscaron udieresisgrave udieresismacron udotbelow ugrave uhookabove uhorn uhornacute uhorndotbelow uhorngrave uhornhookabove uhorntilde uhungarumlaut uinvertedbreve umacron uogonek uring utilde v w wacute wcircumflex wdieresis wgrave x y yacute ycircumflex ydieresis ydotaccent ydotbelow ygrave yhookabove ytilde z zacute zcaron zdotaccent zdotbelow zmacronbelow saltillo a.alt aacute.alt abreve.alt abreveacute.alt abrevedotbelow.alt abrevegrave.alt abrevehookabove.alt abrevetilde.alt acircumflex.alt acircumflexacute.alt acircumflexdotbelow.alt acircumflexgrave.alt acircumflexhookabove.alt acircumflextilde.alt adieresis.alt adotbelow.alt agrave.alt ahookabove.alt ainvertedbreve.alt amacron.alt aogonek.alt aring.alt atilde.alt f.alt lcommaaccent.loclMAH ncommaaccent.loclMAH a.rcltA11y aacute.rcltA11y abreve.rcltA11y abreveacute.rcltA11y abrevedotbelow.rcltA11y abrevegrave.rcltA11y abrevehookabove.rcltA11y abrevetilde.rcltA11y acircumflex.rcltA11y acircumflexacute.rcltA11y acircumflexdotbelow.rcltA11y acircumflexgrave.rcltA11y acircumflexhookabove.rcltA11y acircumflextilde.rcltA11y adieresis.rcltA11y adotbelow.rcltA11y agrave.rcltA11y ahookabove.rcltA11y ainvertedbreve.rcltA11y amacron.rcltA11y aogonek.rcltA11y aring.rcltA11y atilde.rcltA11y g.rcltA11y gbreve.rcltA11y gcircumflex.rcltA11y gcommaaccent.rcltA11y gdotaccent.rcltA11y gmacron.rcltA11y l.rcltA11y lacute.rcltA11y lcaron.rcltA11y lcommaaccent.rcltA11y ldot.rcltA11y ldotbelow.rcltA11y ldotbelowmacron.rcltA11y lmacronbelow.rcltA11y lslash.rcltA11y a.rcltBase aacute.rcltBase abreve.rcltBase abreveacute.rcltBase abrevedotbelow.rcltBase abrevegrave.rcltBase abrevehookabove.rcltBase abrevetilde.rcltBase acircumflex.rcltBase acircumflexacute.rcltBase acircumflexdotbelow.rcltBase acircumflexgrave.rcltBase acircumflexhookabove.rcltBase acircumflextilde.rcltBase adieresis.rcltBase adotbelow.rcltBase agrave.rcltBase ahookabove.rcltBase ainvertedbreve.rcltBase amacron.rcltBase aogonek.rcltBase aring.rcltBase atilde.rcltBase ae.rcltBase aemacron.rcltBase f.rcltBase ij.rcltBase j.rcltBase jdotless.rcltBase jacute.rcltBase jcircumflex.rcltBase t.rcltBase tbar.rcltBase tcaron.rcltBase tcedilla.rcltBase tcommaaccent.rcltBase tdotbelow.rcltBase tmacronbelow.rcltBase y.rcltBase yacute.rcltBase ycircumflex.rcltBase ydieresis.rcltBase ydotaccent.rcltBase ydotbelow.rcltBase ygrave.rcltBase yhookabove.rcltBase ytilde.rcltBase c.rcltGeo cacute.rcltGeo ccaron.rcltGeo ccedilla.rcltGeo ccircumflex.rcltGeo cdotaccent.rcltGeo ij.rcltGeo j.rcltGeo jdotless.rcltGeo jacute.rcltGeo jcircumflex.rcltGeo eng.rcltGeo t.rcltGeo tbar.rcltGeo tcaron.rcltGeo tcedilla.rcltGeo tcommaaccent.rcltGeo tdotbelow.rcltGeo tmacronbelow.rcltGeo u.rcltGeo uacute.rcltGeo ubreve.rcltGeo ucircumflex.rcltGeo udieresis.rcltGeo udieresisacute.rcltGeo udieresiscaron.rcltGeo udieresisgrave.rcltGeo udieresismacron.rcltGeo udotbelow.rcltGeo ugrave.rcltGeo uhookabove.rcltGeo uhorn.rcltGeo uhornacute.rcltGeo uhorndotbelow.rcltGeo uhorngrave.rcltGeo uhornhookabove.rcltGeo uhorntilde.rcltGeo uhungarumlaut.rcltGeo uinvertedbreve.rcltGeo umacron.rcltGeo uogonek.rcltGeo uring.rcltGeo utilde.rcltGeo y.rcltGeo yacute.rcltGeo ycircumflex.rcltGeo ydieresis.rcltGeo ydotaccent.rcltGeo ydotbelow.rcltGeo ygrave.rcltGeo yhookabove.rcltGeo ytilde.rcltGeo a.ss01 aacute.ss01 abreve.ss01 abreveacute.ss01 abrevedotbelow.ss01 abrevegrave.ss01 abrevehookabove.ss01 abrevetilde.ss01 acircumflex.ss01 acircumflexacute.ss01 acircumflexdotbelow.ss01 acircumflexgrave.ss01 acircumflexhookabove.ss01 acircumflextilde.ss01 adieresis.ss01 adotbelow.ss01 agrave.ss01 ahookabove.ss01 ainvertedbreve.ss01 amacron.ss01 aogonek.ss01 aring.ss01 atilde.ss01 ae.ss01 aemacron.ss01 a.ss02 aacute.ss02 abreve.ss02 abreveacute.ss02 abrevedotbelow.ss02 abrevegrave.ss02 abrevehookabove.ss02 abrevetilde.ss02 acircumflex.ss02 acircumflexacute.ss02 acircumflexdotbelow.ss02 acircumflexgrave.ss02 acircumflexhookabove.ss02 acircumflextilde.ss02 adieresis.ss02 adotbelow.ss02 agrave.ss02 ahookabove.ss02 ainvertedbreve.ss02 amacron.ss02 aogonek.ss02 aring.ss02 atilde.ss02 ae.ss02 aemacron.ss02 g.ss05 gbreve.ss05 gcircumflex.ss05 gcommaaccent.ss05 gdotaccent.ss05 gmacron.ss05 ij.ss08 j.ss08 jdotless.ss08 jacute.ss08 jcircumflex.ss08 y.ss08 yacute.ss08 ycircumflex.ss08 ydieresis.ss08 ydotaccent.ss08 ydotbelow.ss08 ygrave.ss08 yhookabove.ss08 ytilde.ss08 f.ss14 t.ss14 tbar.ss14 tcaron.ss14 tcedilla.ss14 tcommaaccent.ss14 tdotbelow.ss14 tmacronbelow.ss14 c.ss10 cacute.ss10 ccaron.ss10 ccedilla.ss10 ccircumflex.ss10 cdotaccent.ss10 ij.ss10 j.ss10 jdotless.ss10 jacute.ss10 jcircumflex.ss10 eng.ss10 t.ss10 tbar.ss10 tcaron.ss10 tcedilla.ss10 tcommaaccent.ss10 tdotbelow.ss10 tmacronbelow.ss10 u.ss10 uacute.ss10 ubreve.ss10 ucircumflex.ss10 udieresis.ss10 udieresisacute.ss10 udieresiscaron.ss10 udieresisgrave.ss10 udieresismacron.ss10 udotbelow.ss10 ugrave.ss10 uhookabove.ss10 uhorn.ss10 uhornacute.ss10 uhorndotbelow.ss10 uhorngrave.ss10 uhornhookabove.ss10 uhorntilde.ss10 uhungarumlaut.ss10 uinvertedbreve.ss10 umacron.ss10 uogonek.ss10 uring.ss10 utilde.ss10 y.ss10 yacute.ss10 ycircumflex.ss10 ydieresis.ss10 ydotaccent.ss10 ydotbelow.ss10 ygrave.ss10 yhookabove.ss10 ytilde.ss10 a.ss18 aacute.ss18 abreve.ss18 abreveacute.ss18 abrevedotbelow.ss18 abrevegrave.ss18 abrevehookabove.ss18 abrevetilde.ss18 acircumflex.ss18 acircumflexacute.ss18 acircumflexdotbelow.ss18 acircumflexgrave.ss18 acircumflexhookabove.ss18 acircumflextilde.ss18 adieresis.ss18 adotbelow.ss18 agrave.ss18 ahookabove.ss18 ainvertedbreve.ss18 amacron.ss18 aogonek.ss18 aring.ss18 atilde.ss18 l.ss18 lacute.ss18 lcaron.ss18 lcommaaccent.ss18 ldot.ss18 ldotbelow.ss18 ldotbelowmacron.ss18 lmacronbelow.ss18 lslash.ss18 l.ss19 lacute.ss19 lcaron.ss19 lcommaaccent.ss19 ldot.ss19 ldotbelow.ss19 ldotbelowmacron.ss19 lmacronbelow.ss19 lslash.ss19 lcommaaccent.loclMAH.rcltA11y lcommaaccent.loclMAH.ss18 lcommaaccent.loclMAH.ss19 f_f_i f_f_l f_t fi fl f_f_i.rcltBase f_f_l.rcltBase f_t.rcltBase fi.rcltBase fl.rcltBase f_t.rcltGeo f_f_i.ss14 f_f_l.ss14 f_t.ss14 fi.ss14 fl.ss14 f_t.ss10 f_f_i.ss11 f_f_l.ss11 f_t.ss11 fi.ss11 fl.ss11 ordfeminine ordmasculine ordfeminine.rcltBase ordfeminine.ss01 ordfeminine.ss02 Xi Omega Xi.tf pi pi.rcltGeo pi.ss10 zero one two three four five six seven eight nine zero.zero zero.disp one.disp six.disp seven.disp nine.disp zero.lf one.lf two.lf three.lf four.lf five.lf six.lf seven.lf eight.lf nine.lf six.rclt1 nine.rclt1 six.rclt2 nine.rclt2 six.rclt3 nine.rclt3 zero.rcltGeo one.rcltGeo five.rcltGeo zero.ss10 one.ss10 five.ss10 six.ss16 nine.ss16 six.ss17 nine.ss17 zero.tf one.tf two.tf three.tf four.tf five.tf six.tf seven.tf eight.tf nine.tf zero.zero.disp six.lf.rclt1 nine.lf.rclt1 zero.lf.rcltGeo one.lf.rcltGeo five.lf.rcltGeo zero.lf.ss10 one.lf.ss10 six.lf.ss16 nine.lf.ss16 six.lf.ss17 nine.lf.ss17 zero.zero.rcltGeo zero.rvrnGeo.dnom one.rvrnGeo.dnom zero.rvrnGeo.numr one.rvrnGeo.numr zero.ss10.dnom one.ss10.dnom six.tf.rclt1 nine.tf.rclt1 zero.tf.rcltGeo one.tf.rcltGeo five.tf.rcltGeo zero.tf.ss10 one.tf.ss10 six.tf.ss16 nine.tf.ss16 six.tf.ss17 nine.tf.ss17 five.tf.001 zero.dnom one.dnom two.dnom three.dnom four.dnom five.dnom six.dnom seven.dnom eight.dnom nine.dnom zero.numr one.numr two.numr three.numr four.numr five.numr six.numr seven.numr eight.numr nine.numr fraction onehalf onequarter threequarters oneeighth threeeighths fiveeighths seveneighths six.dnom.rclt1 nine.dnom.rclt1 six.numr.rclt1 nine.numr.rclt1 six.dnom.rclt2 nine.dnom.rclt2 six.numr.rclt2 nine.numr.rclt2 six.dnom.rclt3 nine.dnom.rclt3 six.numr.rclt3 nine.numr.rclt3 zero.dnom.rcltGeo one.dnom.rcltGeo five.dnom.rcltGeo zero.numr.rcltGeo one.numr.rcltGeo five.numr.rcltGeo onehalf.rcltGeo onequarter.rcltGeo oneeighth.rcltGeo fiveeighths.rcltGeo zero.dnom.ss10 one.dnom.ss10 five.dnom.ss10 zero.numr.ss10 one.numr.ss10 five.numr.ss10 onehalf.ss10 onequarter.ss10 oneeighth.ss10 fiveeighths.ss10 six.dnom.ss16 nine.dnom.ss16 six.numr.ss16 nine.numr.ss16 six.dnom.ss17 nine.dnom.ss17 six.numr.ss17 nine.numr.ss17 zeroinferior oneinferior twoinferior threeinferior fourinferior fiveinferior sixinferior seveninferior eightinferior nineinferior zerosuperior onesuperior twosuperior threesuperior foursuperior fivesuperior sixsuperior sevensuperior eightsuperior ninesuperior sixinferior.rclt1 nineinferior.rclt1 sixsuperior.rclt1 ninesuperior.rclt1 sixinferior.rclt2 nineinferior.rclt2 sixsuperior.rclt2 ninesuperior.rclt2 sixinferior.rclt3 nineinferior.rclt3 sixsuperior.rclt3 ninesuperior.rclt3 zeroinferior.rcltGeo oneinferior.rcltGeo fiveinferior.rcltGeo zerosuperior.rcltGeo onesuperior.rcltGeo fivesuperior.rcltGeo zeroinferior.ss10 oneinferior.ss10 fiveinferior.ss10 zerosuperior.ss10 onesuperior.ss10 fivesuperior.ss10 sixinferior.ss16 nineinferior.ss16 sixsuperior.ss16 ninesuperior.ss16 sixinferior.ss17 nineinferior.ss17 sixsuperior.ss17 ninesuperior.ss17 space nbspace enspace emspace threeperemspace fourperemspace sixperemspace figurespace punctuationspace thinspace hairspace zerowidthspace zerowidthnonjoiner zerowidthjoiner narrownbspace CR leftanglebracket-math rightanglebracket-math period comma colon semicolon ellipsis exclam exclamdown question questiondown periodcentered bullet asterisk dblverticalbar exclamdouble interrobang invertedinterrobang numbersign slash backslash colon.calt periodcentered.case periodcentered.loclCAT numbersign.tf periodcentered.loclCAT.case hyphen softhyphen endash emdash underscore parenleft parenright braceleft braceright bracketleft bracketright quotesinglbase quotedblbase quotedblleft quotedblright quoteleft quoteright guillemetleft guillemetright guilsinglleft guilsinglright quotedbl quotesingle florin florin.tf note-musical notedbl-musical baht baht.tf at_spam_trap APLcirclestar blackStar whiteStar ballotBoxWithCheck ballotBoxWithX heartWhiteSuit heartBlackSuit checkmark heavyCheckMark ballotX heavyBallotX blackFourPointedStar whiteFourPointedStar sparkles heavyBlackHeart at ampersand paragraph section copyright registered trademark degree minute second bar brokenbar dagger literSign daggerdbl estimated numero blackSmallStar whiteSmallStar D.circled bitcoin cedi cent colonsign currency dollar dong euro guarani hryvnia kip lari liraTurkish manat naira peso riyalSaudi ruble rupee rupeeIndian sheqel sterling tenge tugrik won yen euro.rcltGeo guarani.rcltGeo guarani.ss06 guarani.ss07 euro.ss10 bitcoin.tf cedi.tf cent.tf colonsign.tf currency.tf dollar.tf dong.tf euro.tf guarani.tf hryvnia.tf kip.tf lari.tf liraTurkish.tf naira.tf peso.tf riyalSaudi.tf ruble.tf rupee.tf rupeeIndian.tf sheqel.tf sterling.tf tenge.tf tugrik.tf won.tf yen.tf euro.tf.rcltGeo guarani.tf.rcltGeo guarani.tf.ss06 guarani.tf.ss07 euro.tf.ss10 because divisionslash plus minus multiply divide equal notequal greater less greaterequal lessequal plusminus approxequal asciitilde logicalnot asciicircum infinity emptyset integral Ohm increment product summation radical micro partialdiff percent perthousand therefore micro.rcltGeo micro.ss10 upArrow northEastArrow rightArrow southEastArrow downArrow southWestArrow leftArrow northWestArrow leftRightArrow upDownArrow blackCircle whiteCircle dottedCircle whiteBullet blackDiamond whiteDiamond lozenge blackSquare whiteSquare blackSmallSquare whiteSmallSquare mediumBlackSquare upBlackTriangle rightBlackTriangle downBlackTriangle leftBlackTriangle upWhiteTriangle rightWhiteTriangle downWhiteTriangle leftWhiteTriangle upBlackSmallTriangle rightBlackSmallTriangle downBlackSmallTriangle leftBlackSmallTriangle upWhiteSmallTriangle rightWhiteSmallTriangle downWhiteSmallTriangle leftWhiteSmallTriangle dieresiscomb dotaccentcomb gravecomb gravecomb_macroncomb acutecomb acutecomb_macroncomb hungarumlautcomb caroncomb.alt circumflexcomb caroncomb brevecomb ringcomb tildecomb macroncomb macroncomb_gravecomb macroncomb_acutecomb hookabovecomb dblgravecomb breveinvertedcomb commaturnedabovecomb horncomb dotbelowcomb dieresisbelowcomb commaaccentcomb.loclMAH commaaccentcomb cedillacomb ogonekcomb brevebelowcomb macronbelowcomb slashlongcomb brevecomb_acutecomb brevecomb_gravecomb brevecomb_hookabovecomb brevecomb_tildecomb circumflexcomb_acutecomb circumflexcomb_gravecomb circumflexcomb_hookabovecomb circumflexcomb_tildecomb dieresiscomb.case dotaccentcomb.case gravecomb.case gravecomb_macroncomb.case acutecomb.case acutecomb_macroncomb.case hungarumlautcomb.case circumflexcomb.case circumflexcomb_gravecomb.case circumflexcomb_acutecomb.case circumflexcomb_tildecomb.case circumflexcomb_hookabovecomb.case caroncomb.case brevecomb.case brevecomb_gravecomb.case brevecomb_acutecomb.case brevecomb_tildecomb.case brevecomb_hookabovecomb.case tildecomb.case macroncomb.case macroncomb_gravecomb.case macroncomb_acutecomb.case hookabovecomb.case breveinvertedcomb.case horncomb.case slashlongcomb.case dieresis dotaccent grave acute hungarumlaut circumflex caron breve ring tilde macron cedilla ogonek apostrophemod commaturnedmod primemod verticallinemod IJacute Mcommaaccent Nmacron Ocommaaccent ijacute mcommaaccent nmacron ocommaaccent IJacute.rcltA11y IJacute.ss18 Mcommaaccent.loclMAH Mcommaaccent.rcltGeo Mcommaaccent.ss12 Ocommaaccent.loclMAH ijacute.rcltBase ijacute.rcltGeo ijacute.ss08 ijacute.ss10 mcommaaccent.loclMAH ocommaaccent.loclMAH tpartcrltGeo.comb Mcommaaccent.loclMAH.rcltGeo Mcommaaccent.loclMAH.ss12";
 name = All;
 }
 );
@@ -704,7 +704,12 @@ feature ss11;
 feature ss12;
 feature ss13;
 feature ss14;
+feature ss15;
 feature ss16;
+feature ss17;
+feature ss18;
+feature ss19;
+feature ss20;
 ";
 tag = aalt;
 },
@@ -741,7 +746,7 @@ lookup locl_latn_ROM {
     # Alternates explicitly mapped from your glyphset
     sub tcedilla.rcltGeo by tcommaaccent.rcltGeo;
     sub tcedilla.rcltBase by tcommaaccent.rcltBase;
-    sub tcedilla.ss08 by tcommaaccent.ss08;
+    sub tcedilla.ss14 by tcommaaccent.ss14;
     sub tcedilla.ss10 by tcommaaccent.ss10;
 } locl_latn_ROM;
 
@@ -757,8 +762,8 @@ lookup locl_latn_CAT {
     
     # Alternates explicitly mapped from your glyphset
     sub l.rcltA11y periodcentered' l.rcltA11y by periodcentered.loclCAT;
-    sub l.ss14 periodcentered' l.ss14 by periodcentered.loclCAT;
-    sub l.ss16 periodcentered' l.ss16 by periodcentered.loclCAT;
+    sub l.ss18 periodcentered' l.ss18 by periodcentered.loclCAT;
+    sub l.ss19 periodcentered' l.ss19 by periodcentered.loclCAT;
 } locl_latn_CAT;
 
 
@@ -780,10 +785,10 @@ lookup locl_latn_MAH {
     sub commaaccentcomb by commaaccentcomb.loclMAH;
     
     # Alternates explicitly mapped from your glyphset
-    sub Mcommaaccent.ss09 by Mcommaaccent.loclMAH.ss09;
+    sub Mcommaaccent.ss12 by Mcommaaccent.loclMAH.ss12;
     sub Mcommaaccent.rcltGeo by Mcommaaccent.loclMAH.rcltGeo;
     sub lcommaaccent.rcltA11y by lcommaaccent.loclMAH.rcltA11y;
-    sub lcommaaccent.ss14 by lcommaaccent.loclMAH.ss14;
+    sub lcommaaccent.ss18 by lcommaaccent.loclMAH.ss18;
     
     sub Ocommaaccent by Ocommaaccent.loclMAH;
     sub ocommaaccent by ocommaaccent.loclMAH;
@@ -1829,76 +1834,76 @@ tag = cv02;
 },
 {
 code = "cvParameters { FeatUILabelNameID { name \"Accessible/tailed a\"; }; };
-sub a by a.ss14;
-sub aacute by aacute.ss14;
-sub abreve by abreve.ss14;
-sub abreveacute by abreveacute.ss14;
-sub abrevedotbelow by abrevedotbelow.ss14;
-sub abrevegrave by abrevegrave.ss14;
-sub abrevehookabove by abrevehookabove.ss14;
-sub abrevetilde by abrevetilde.ss14;
-sub acircumflex by acircumflex.ss14;
-sub acircumflexacute by acircumflexacute.ss14;
-sub acircumflexdotbelow by acircumflexdotbelow.ss14;
-sub acircumflexgrave by acircumflexgrave.ss14;
-sub acircumflexhookabove by acircumflexhookabove.ss14;
-sub acircumflextilde by acircumflextilde.ss14;
-sub adieresis by adieresis.ss14;
-sub adotbelow by adotbelow.ss14;
-sub agrave by agrave.ss14;
-sub ahookabove by ahookabove.ss14;
-sub ainvertedbreve by ainvertedbreve.ss14;
-sub amacron by amacron.ss14;
-sub aogonek by aogonek.ss14;
-sub aring by aring.ss14;
-sub atilde by atilde.ss14;
+sub a by a.ss18;
+sub aacute by aacute.ss18;
+sub abreve by abreve.ss18;
+sub abreveacute by abreveacute.ss18;
+sub abrevedotbelow by abrevedotbelow.ss18;
+sub abrevegrave by abrevegrave.ss18;
+sub abrevehookabove by abrevehookabove.ss18;
+sub abrevetilde by abrevetilde.ss18;
+sub acircumflex by acircumflex.ss18;
+sub acircumflexacute by acircumflexacute.ss18;
+sub acircumflexdotbelow by acircumflexdotbelow.ss18;
+sub acircumflexgrave by acircumflexgrave.ss18;
+sub acircumflexhookabove by acircumflexhookabove.ss18;
+sub acircumflextilde by acircumflextilde.ss18;
+sub adieresis by adieresis.ss18;
+sub adotbelow by adotbelow.ss18;
+sub agrave by agrave.ss18;
+sub ahookabove by ahookabove.ss18;
+sub ainvertedbreve by ainvertedbreve.ss18;
+sub amacron by amacron.ss18;
+sub aogonek by aogonek.ss18;
+sub aring by aring.ss18;
+sub atilde by atilde.ss18;
 # rclt-state coverage
-sub a.rcltA11y by a.ss14;
-sub a.rcltBase by a.ss14;
-sub aacute.rcltA11y by aacute.ss14;
-sub aacute.rcltBase by aacute.ss14;
-sub abreve.rcltA11y by abreve.ss14;
-sub abreve.rcltBase by abreve.ss14;
-sub abreveacute.rcltA11y by abreveacute.ss14;
-sub abreveacute.rcltBase by abreveacute.ss14;
-sub abrevedotbelow.rcltA11y by abrevedotbelow.ss14;
-sub abrevedotbelow.rcltBase by abrevedotbelow.ss14;
-sub abrevegrave.rcltA11y by abrevegrave.ss14;
-sub abrevegrave.rcltBase by abrevegrave.ss14;
-sub abrevehookabove.rcltA11y by abrevehookabove.ss14;
-sub abrevehookabove.rcltBase by abrevehookabove.ss14;
-sub abrevetilde.rcltA11y by abrevetilde.ss14;
-sub abrevetilde.rcltBase by abrevetilde.ss14;
-sub acircumflex.rcltA11y by acircumflex.ss14;
-sub acircumflex.rcltBase by acircumflex.ss14;
-sub acircumflexacute.rcltA11y by acircumflexacute.ss14;
-sub acircumflexacute.rcltBase by acircumflexacute.ss14;
-sub acircumflexdotbelow.rcltA11y by acircumflexdotbelow.ss14;
-sub acircumflexdotbelow.rcltBase by acircumflexdotbelow.ss14;
-sub acircumflexgrave.rcltA11y by acircumflexgrave.ss14;
-sub acircumflexgrave.rcltBase by acircumflexgrave.ss14;
-sub acircumflexhookabove.rcltA11y by acircumflexhookabove.ss14;
-sub acircumflexhookabove.rcltBase by acircumflexhookabove.ss14;
-sub acircumflextilde.rcltA11y by acircumflextilde.ss14;
-sub acircumflextilde.rcltBase by acircumflextilde.ss14;
-sub adieresis.rcltA11y by adieresis.ss14;
-sub adieresis.rcltBase by adieresis.ss14;
-sub adotbelow.rcltA11y by adotbelow.ss14;
-sub adotbelow.rcltBase by adotbelow.ss14;
-sub agrave.rcltA11y by agrave.ss14;
-sub agrave.rcltBase by agrave.ss14;
-sub ahookabove.rcltA11y by ahookabove.ss14;
-sub ahookabove.rcltBase by ahookabove.ss14;
-sub ainvertedbreve.rcltA11y by ainvertedbreve.ss14;
-sub ainvertedbreve.rcltBase by ainvertedbreve.ss14;
-sub amacron.rcltA11y by amacron.ss14;
-sub amacron.rcltBase by amacron.ss14;
-sub aogonek.rcltA11y by aogonek.ss14;
-sub aogonek.rcltBase by aogonek.ss14;
-sub aring.rcltA11y by aring.ss14;
-sub aring.rcltBase by aring.ss14;
-sub atilde.rcltA11y by atilde.ss14;
-sub atilde.rcltBase by atilde.ss14;
+sub a.rcltA11y by a.ss18;
+sub a.rcltBase by a.ss18;
+sub aacute.rcltA11y by aacute.ss18;
+sub aacute.rcltBase by aacute.ss18;
+sub abreve.rcltA11y by abreve.ss18;
+sub abreve.rcltBase by abreve.ss18;
+sub abreveacute.rcltA11y by abreveacute.ss18;
+sub abreveacute.rcltBase by abreveacute.ss18;
+sub abrevedotbelow.rcltA11y by abrevedotbelow.ss18;
+sub abrevedotbelow.rcltBase by abrevedotbelow.ss18;
+sub abrevegrave.rcltA11y by abrevegrave.ss18;
+sub abrevegrave.rcltBase by abrevegrave.ss18;
+sub abrevehookabove.rcltA11y by abrevehookabove.ss18;
+sub abrevehookabove.rcltBase by abrevehookabove.ss18;
+sub abrevetilde.rcltA11y by abrevetilde.ss18;
+sub abrevetilde.rcltBase by abrevetilde.ss18;
+sub acircumflex.rcltA11y by acircumflex.ss18;
+sub acircumflex.rcltBase by acircumflex.ss18;
+sub acircumflexacute.rcltA11y by acircumflexacute.ss18;
+sub acircumflexacute.rcltBase by acircumflexacute.ss18;
+sub acircumflexdotbelow.rcltA11y by acircumflexdotbelow.ss18;
+sub acircumflexdotbelow.rcltBase by acircumflexdotbelow.ss18;
+sub acircumflexgrave.rcltA11y by acircumflexgrave.ss18;
+sub acircumflexgrave.rcltBase by acircumflexgrave.ss18;
+sub acircumflexhookabove.rcltA11y by acircumflexhookabove.ss18;
+sub acircumflexhookabove.rcltBase by acircumflexhookabove.ss18;
+sub acircumflextilde.rcltA11y by acircumflextilde.ss18;
+sub acircumflextilde.rcltBase by acircumflextilde.ss18;
+sub adieresis.rcltA11y by adieresis.ss18;
+sub adieresis.rcltBase by adieresis.ss18;
+sub adotbelow.rcltA11y by adotbelow.ss18;
+sub adotbelow.rcltBase by adotbelow.ss18;
+sub agrave.rcltA11y by agrave.ss18;
+sub agrave.rcltBase by agrave.ss18;
+sub ahookabove.rcltA11y by ahookabove.ss18;
+sub ahookabove.rcltBase by ahookabove.ss18;
+sub ainvertedbreve.rcltA11y by ainvertedbreve.ss18;
+sub ainvertedbreve.rcltBase by ainvertedbreve.ss18;
+sub amacron.rcltA11y by amacron.ss18;
+sub amacron.rcltBase by amacron.ss18;
+sub aogonek.rcltA11y by aogonek.ss18;
+sub aogonek.rcltBase by aogonek.ss18;
+sub aring.rcltA11y by aring.ss18;
+sub aring.rcltBase by aring.ss18;
+sub atilde.rcltA11y by atilde.ss18;
+sub atilde.rcltBase by atilde.ss18;
 ";
 tag = cv03;
 },
@@ -1961,38 +1966,20 @@ tag = cv06;
 },
 {
 code = "cvParameters { FeatUILabelNameID { name \"Constructed f\"; }; };
-sub f by f.ss08;
+sub f by f.ss14;
 # rclt-state coverage
-sub f.rcltBase by f.ss08;
+sub f.rcltBase by f.ss14;
 ";
 tag = cv07;
 },
 {
 code = "cvParameters { FeatUILabelNameID { name \"Geometric g\"; }; };
-sub g by g.ss03;
-sub gbreve by gbreve.ss03;
-sub gcircumflex by gcircumflex.ss03;
-sub gcommaaccent by gcommaaccent.ss03;
-sub gdotaccent by gdotaccent.ss03;
-sub gmacron by gmacron.ss03;
-sub g.rcltA11y by g.ss03;
-sub gbreve.rcltA11y by gbreve.ss03;
-sub gcircumflex.rcltA11y by gcircumflex.ss03;
-sub gcommaaccent.rcltA11y by gcommaaccent.ss03;
-sub gdotaccent.rcltA11y by gdotaccent.ss03;
-sub gmacron.rcltA11y by gmacron.ss03;
-";
-tag = cv08;
-},
-{
-code = "cvParameters { FeatUILabelNameID { name \"Gothic g\"; }; };
 sub g by g.ss04;
 sub gbreve by gbreve.ss04;
 sub gcircumflex by gcircumflex.ss04;
 sub gcommaaccent by gcommaaccent.ss04;
 sub gdotaccent by gdotaccent.ss04;
 sub gmacron by gmacron.ss04;
-# rclt-state coverage
 sub g.rcltA11y by g.ss04;
 sub gbreve.rcltA11y by gbreve.ss04;
 sub gcircumflex.rcltA11y by gcircumflex.ss04;
@@ -2000,120 +1987,138 @@ sub gcommaaccent.rcltA11y by gcommaaccent.ss04;
 sub gdotaccent.rcltA11y by gdotaccent.ss04;
 sub gmacron.rcltA11y by gmacron.ss04;
 ";
+tag = cv08;
+},
+{
+code = "cvParameters { FeatUILabelNameID { name \"Gothic g\"; }; };
+sub g by g.ss05;
+sub gbreve by gbreve.ss05;
+sub gcircumflex by gcircumflex.ss05;
+sub gcommaaccent by gcommaaccent.ss05;
+sub gdotaccent by gdotaccent.ss05;
+sub gmacron by gmacron.ss05;
+# rclt-state coverage
+sub g.rcltA11y by g.ss05;
+sub gbreve.rcltA11y by gbreve.ss05;
+sub gcircumflex.rcltA11y by gcircumflex.ss05;
+sub gcommaaccent.rcltA11y by gcommaaccent.ss05;
+sub gdotaccent.rcltA11y by gdotaccent.ss05;
+sub gmacron.rcltA11y by gmacron.ss05;
+";
 tag = cv09;
 },
 {
 code = "cvParameters { FeatUILabelNameID { name \"Geometric G\"; }; };
-sub G by G.ss05;
-sub Gbreve by Gbreve.ss05;
-sub Gcircumflex by Gcircumflex.ss05;
-sub Gcommaaccent by Gcommaaccent.ss05;
-sub Gdotaccent by Gdotaccent.ss05;
-sub Gmacron by Gmacron.ss05;
-# rclt-state coverage
-#sub G.rcltGeo by G.ss05;
-#sub Gbreve.rcltGeo by Gbreve.ss05;
-#sub Gcircumflex.rcltGeo by Gcircumflex.ss05;
-#sub Gcommaaccent.rcltGeo by Gcommaaccent.ss05;
-#sub Gdotaccent.rcltGeo by Gdotaccent.ss05;
-#sub Gmacron.rcltGeo by Gmacron.ss05;
-## cvParameters { FeatUILabelNameID { name \"TODO Geo guarani (ss05)\"; }; };
-sub guarani by guarani.ss05;
-sub guarani.tf by guarani.tf.ss05;
-# rclt-state coverage
-#sub guarani.rcltGeo by guarani.ss05;
-#sub guarani.tf.rcltGeo by guarani.tf.ss05;
-";
-tag = cv10;
-},
-{
-code = "cvParameters { FeatUILabelNameID { name \"Humanist G\"; }; };
 sub G by G.ss06;
 sub Gbreve by Gbreve.ss06;
 sub Gcircumflex by Gcircumflex.ss06;
 sub Gcommaaccent by Gcommaaccent.ss06;
 sub Gdotaccent by Gdotaccent.ss06;
 sub Gmacron by Gmacron.ss06;
-
 # rclt-state coverage
-sub G.rcltGeo by G.ss06;
-sub Gbreve.rcltGeo by Gbreve.ss06;
-sub Gcircumflex.rcltGeo by Gcircumflex.ss06;
-sub Gcommaaccent.rcltGeo by Gcommaaccent.ss06;
-sub Gdotaccent.rcltGeo by Gdotaccent.ss06;
-sub Gmacron.rcltGeo by Gmacron.ss06;
-
-## cvParameters { FeatUILabelNameID { name \"TODO Geo guarani (ss06)\"; }; };
+#sub G.rcltGeo by G.ss06;
+#sub Gbreve.rcltGeo by Gbreve.ss06;
+#sub Gcircumflex.rcltGeo by Gcircumflex.ss06;
+#sub Gcommaaccent.rcltGeo by Gcommaaccent.ss06;
+#sub Gdotaccent.rcltGeo by Gdotaccent.ss06;
+#sub Gmacron.rcltGeo by Gmacron.ss06;
+## cvParameters { FeatUILabelNameID { name \"TODO Geo guarani (ss05)\"; }; };
 sub guarani by guarani.ss06;
 sub guarani.tf by guarani.tf.ss06;
+# rclt-state coverage
+#sub guarani.rcltGeo by guarani.ss06;
+#sub guarani.tf.rcltGeo by guarani.tf.ss06;
+";
+tag = cv10;
+},
+{
+code = "cvParameters { FeatUILabelNameID { name \"Humanist G\"; }; };
+sub G by G.ss07;
+sub Gbreve by Gbreve.ss07;
+sub Gcircumflex by Gcircumflex.ss07;
+sub Gcommaaccent by Gcommaaccent.ss07;
+sub Gdotaccent by Gdotaccent.ss07;
+sub Gmacron by Gmacron.ss07;
 
 # rclt-state coverage
-sub guarani.rcltGeo by guarani.ss06;
-sub guarani.tf.rcltGeo by guarani.tf.ss06;
+sub G.rcltGeo by G.ss07;
+sub Gbreve.rcltGeo by Gbreve.ss07;
+sub Gcircumflex.rcltGeo by Gcircumflex.ss07;
+sub Gcommaaccent.rcltGeo by Gcommaaccent.ss07;
+sub Gdotaccent.rcltGeo by Gdotaccent.ss07;
+sub Gmacron.rcltGeo by Gmacron.ss07;
+
+## cvParameters { FeatUILabelNameID { name \"TODO Geo guarani (ss06)\"; }; };
+sub guarani by guarani.ss07;
+sub guarani.tf by guarani.tf.ss07;
+
+# rclt-state coverage
+sub guarani.rcltGeo by guarani.ss07;
+sub guarani.tf.rcltGeo by guarani.tf.ss07;
 ";
 tag = cv11;
 },
 {
 code = "cvParameters { FeatUILabelNameID { name \"Accessible/seriffed I\"; }; };
-sub I by I.ss14;
-sub Iacute by Iacute.ss14;
-sub Icircumflex by Icircumflex.ss14;
-sub Idieresis by Idieresis.ss14;
-sub Idotaccent by Idotaccent.ss14;
-sub Idotbelow by Idotbelow.ss14;
-sub Igrave by Igrave.ss14;
-sub Ihookabove by Ihookabove.ss14;
-sub Iinvertedbreve by Iinvertedbreve.ss14;
-sub Imacron by Imacron.ss14;
-sub Iogonek by Iogonek.ss14;
-sub Itilde by Itilde.ss14;
-sub IJ by IJ.ss14;
-sub IJacute by IJacute.ss14;
+sub I by I.ss18;
+sub Iacute by Iacute.ss18;
+sub Icircumflex by Icircumflex.ss18;
+sub Idieresis by Idieresis.ss18;
+sub Idotaccent by Idotaccent.ss18;
+sub Idotbelow by Idotbelow.ss18;
+sub Igrave by Igrave.ss18;
+sub Ihookabove by Ihookabove.ss18;
+sub Iinvertedbreve by Iinvertedbreve.ss18;
+sub Imacron by Imacron.ss18;
+sub Iogonek by Iogonek.ss18;
+sub Itilde by Itilde.ss18;
+sub IJ by IJ.ss18;
+sub IJacute by IJacute.ss18;
 
 # rclt-state coverage
-sub I.rcltA11y by I.ss14;
-sub Iacute.rcltA11y by Iacute.ss14;
-sub Icircumflex.rcltA11y by Icircumflex.ss14;
-sub Idieresis.rcltA11y by Idieresis.ss14;
-sub Idotaccent.rcltA11y by Idotaccent.ss14;
-sub Idotbelow.rcltA11y by Idotbelow.ss14;
-sub Igrave.rcltA11y by Igrave.ss14;
-sub Ihookabove.rcltA11y by Ihookabove.ss14;
-sub Iinvertedbreve.rcltA11y by Iinvertedbreve.ss14;
-sub Imacron.rcltA11y by Imacron.ss14;
-sub Iogonek.rcltA11y by Iogonek.ss14;
-sub Itilde.rcltA11y by Itilde.ss14;
-sub IJ.rcltA11y by IJ.ss14;
-sub IJacute.rcltA11y by IJacute.ss14;
+sub I.rcltA11y by I.ss18;
+sub Iacute.rcltA11y by Iacute.ss18;
+sub Icircumflex.rcltA11y by Icircumflex.ss18;
+sub Idieresis.rcltA11y by Idieresis.ss18;
+sub Idotaccent.rcltA11y by Idotaccent.ss18;
+sub Idotbelow.rcltA11y by Idotbelow.ss18;
+sub Igrave.rcltA11y by Igrave.ss18;
+sub Ihookabove.rcltA11y by Ihookabove.ss18;
+sub Iinvertedbreve.rcltA11y by Iinvertedbreve.ss18;
+sub Imacron.rcltA11y by Imacron.ss18;
+sub Iogonek.rcltA11y by Iogonek.ss18;
+sub Itilde.rcltA11y by Itilde.ss18;
+sub IJ.rcltA11y by IJ.ss18;
+sub IJacute.rcltA11y by IJacute.ss18;
 ";
 tag = cv12;
 },
 {
 code = "cvParameters { FeatUILabelNameID { name \"Constructed j\"; }; };
-sub j by j.ss07;
-sub jacute by jacute.ss07;
-sub jcircumflex by jcircumflex.ss07;
-sub jdotless by jdotless.ss07;
+sub j by j.ss08;
+sub jacute by jacute.ss08;
+sub jcircumflex by jcircumflex.ss08;
+sub jdotless by jdotless.ss08;
 
 # rclt-state coverage
-sub j.rcltBase by j.ss07;
-sub j.rcltGeo by j.ss07;
-sub jacute.rcltBase by jacute.ss07;
-sub jacute.rcltGeo by jacute.ss07;
-sub jcircumflex.rcltBase by jcircumflex.ss07;
-sub jcircumflex.rcltGeo by jcircumflex.ss07;
-sub jdotless.rcltBase by jdotless.ss07;
-sub jdotless.rcltGeo by jdotless.ss07;
+sub j.rcltBase by j.ss08;
+sub j.rcltGeo by j.ss08;
+sub jacute.rcltBase by jacute.ss08;
+sub jacute.rcltGeo by jacute.ss08;
+sub jcircumflex.rcltBase by jcircumflex.ss08;
+sub jcircumflex.rcltGeo by jcircumflex.ss08;
+sub jdotless.rcltBase by jdotless.ss08;
+sub jdotless.rcltGeo by jdotless.ss08;
 
 #cvParameters { FeatUILabelNameID { name \"TODO ij (ss07)\"; }; };
-sub ij by ij.ss07;
-sub ijacute by ijacute.ss07;
+sub ij by ij.ss08;
+sub ijacute by ijacute.ss08;
 
 # rclt-state coverage
-sub ij.rcltBase by ij.ss07;
-sub ij.rcltGeo by ij.ss07;
-sub ijacute.rcltBase by ijacute.ss07;
-sub ijacute.rcltGeo by ijacute.ss07;
+sub ij.rcltBase by ij.ss08;
+sub ij.rcltGeo by ij.ss08;
+sub ijacute.rcltBase by ijacute.ss08;
+sub ijacute.rcltGeo by ijacute.ss08;
 ";
 tag = cv13;
 },
@@ -2157,100 +2162,100 @@ tag = cv14;
 },
 {
 code = "cvParameters { FeatUILabelNameID { name \"Accessible/seriffed l\"; }; };
-sub l by l.ss14;
-sub lacute by lacute.ss14;
-sub lcaron by lcaron.ss14;
-sub lcommaaccent by lcommaaccent.ss14;
-sub lcommaaccent.loclMAH by lcommaaccent.loclMAH.ss14;
-sub ldot by ldot.ss14;
-sub ldotbelow by ldotbelow.ss14;
-sub ldotbelowmacron by ldotbelowmacron.ss14;
-sub lmacronbelow by lmacronbelow.ss14;
-sub lslash by lslash.ss14;
+sub l by l.ss18;
+sub lacute by lacute.ss18;
+sub lcaron by lcaron.ss18;
+sub lcommaaccent by lcommaaccent.ss18;
+sub lcommaaccent.loclMAH by lcommaaccent.loclMAH.ss18;
+sub ldot by ldot.ss18;
+sub ldotbelow by ldotbelow.ss18;
+sub ldotbelowmacron by ldotbelowmacron.ss18;
+sub lmacronbelow by lmacronbelow.ss18;
+sub lslash by lslash.ss18;
 
 # rclt-state coverage
-sub l.rcltA11y by l.ss14;
-sub lacute.rcltA11y by lacute.ss14;
-sub lcaron.rcltA11y by lcaron.ss14;
-sub lcommaaccent.rcltA11y by lcommaaccent.ss14;
-sub lcommaaccent.loclMAH.rcltA11y by lcommaaccent.loclMAH.ss14;
-sub ldot.rcltA11y by ldot.ss14;
-sub ldotbelow.rcltA11y by ldotbelow.ss14;
-sub ldotbelowmacron.rcltA11y by ldotbelowmacron.ss14;
-sub lmacronbelow.rcltA11y by lmacronbelow.ss14;
-sub lslash.rcltA11y by lslash.ss14;
+sub l.rcltA11y by l.ss18;
+sub lacute.rcltA11y by lacute.ss18;
+sub lcaron.rcltA11y by lcaron.ss18;
+sub lcommaaccent.rcltA11y by lcommaaccent.ss18;
+sub lcommaaccent.loclMAH.rcltA11y by lcommaaccent.loclMAH.ss18;
+sub ldot.rcltA11y by ldot.ss18;
+sub ldotbelow.rcltA11y by ldotbelow.ss18;
+sub ldotbelowmacron.rcltA11y by ldotbelowmacron.ss18;
+sub lmacronbelow.rcltA11y by lmacronbelow.ss18;
+sub lslash.rcltA11y by lslash.ss18;
 ";
 tag = cv15;
 },
 {
 code = "cvParameters { FeatUILabelNameID { name \"Constructed l\"; }; };
-sub l by l.ss16;
-sub lacute by lacute.ss16;
-sub lcaron by lcaron.ss16;
-sub lcommaaccent by lcommaaccent.ss16;
-sub lcommaaccent.loclMAH by lcommaaccent.loclMAH.ss16;
-sub ldot by ldot.ss16;
-sub ldotbelow by ldotbelow.ss16;
-sub ldotbelowmacron by ldotbelowmacron.ss16;
-sub lmacronbelow by lmacronbelow.ss16;
-sub lslash by lslash.ss16;
+sub l by l.ss19;
+sub lacute by lacute.ss19;
+sub lcaron by lcaron.ss19;
+sub lcommaaccent by lcommaaccent.ss19;
+sub lcommaaccent.loclMAH by lcommaaccent.loclMAH.ss19;
+sub ldot by ldot.ss19;
+sub ldotbelow by ldotbelow.ss19;
+sub ldotbelowmacron by ldotbelowmacron.ss19;
+sub lmacronbelow by lmacronbelow.ss19;
+sub lslash by lslash.ss19;
 
 # rclt-state coverage
-sub l.rcltA11y by l.ss16;
-sub lacute.rcltA11y by lacute.ss16;
-sub lcaron.rcltA11y by lcaron.ss16;
-sub lcommaaccent.rcltA11y by lcommaaccent.ss16;
-sub lcommaaccent.loclMAH.rcltA11y by lcommaaccent.loclMAH.ss16;
-sub ldot.rcltA11y by ldot.ss16;
-sub ldotbelow.rcltA11y by ldotbelow.ss16;
-sub ldotbelowmacron.rcltA11y by ldotbelowmacron.ss16;
-sub lmacronbelow.rcltA11y by lmacronbelow.ss16;
-sub lslash.rcltA11y by lslash.ss16;
+sub l.rcltA11y by l.ss19;
+sub lacute.rcltA11y by lacute.ss19;
+sub lcaron.rcltA11y by lcaron.ss19;
+sub lcommaaccent.rcltA11y by lcommaaccent.ss19;
+sub lcommaaccent.loclMAH.rcltA11y by lcommaaccent.loclMAH.ss19;
+sub ldot.rcltA11y by ldot.ss19;
+sub ldotbelow.rcltA11y by ldotbelow.ss19;
+sub ldotbelowmacron.rcltA11y by ldotbelowmacron.ss19;
+sub lmacronbelow.rcltA11y by lmacronbelow.ss19;
+sub lslash.rcltA11y by lslash.ss19;
 ";
 tag = cv16;
 },
 {
 code = "cvParameters { FeatUILabelNameID { name \"Angled M\"; }; };
-sub M by M.ss09;
-sub Mcommaaccent by Mcommaaccent.ss09;
-sub Mcommaaccent.loclMAH by Mcommaaccent.loclMAH.ss09;
-sub Mdotaccent by Mdotaccent.ss09;
-sub Mdotbelow by Mdotbelow.ss09;
+sub M by M.ss12;
+sub Mcommaaccent by Mcommaaccent.ss12;
+sub Mcommaaccent.loclMAH by Mcommaaccent.loclMAH.ss12;
+sub Mdotaccent by Mdotaccent.ss12;
+sub Mdotbelow by Mdotbelow.ss12;
 
 # rclt-state coverage
-sub M.rcltGeo by M.ss09;
-sub Mcommaaccent.rcltGeo by Mcommaaccent.ss09;
-sub Mcommaaccent.loclMAH.rcltGeo by Mcommaaccent.loclMAH.ss09;
-sub Mdotaccent.rcltGeo by Mdotaccent.ss09;
-sub Mdotbelow.rcltGeo by Mdotbelow.ss09;
+sub M.rcltGeo by M.ss12;
+sub Mcommaaccent.rcltGeo by Mcommaaccent.ss12;
+sub Mcommaaccent.loclMAH.rcltGeo by Mcommaaccent.loclMAH.ss12;
+sub Mdotaccent.rcltGeo by Mdotaccent.ss12;
+sub Mdotbelow.rcltGeo by Mdotbelow.ss12;
 ";
 tag = cv17;
 },
 {
 code = "cvParameters { FeatUILabelNameID { name \"Constructed t\"; }; };
-sub t by t.ss08;
-sub tbar by tbar.ss08;
-sub tcaron by tcaron.ss08;
-sub tcedilla by tcedilla.ss08;
-sub tcommaaccent by tcommaaccent.ss08;
-sub tdotbelow by tdotbelow.ss08;
-sub tmacronbelow by tmacronbelow.ss08;
+sub t by t.ss14;
+sub tbar by tbar.ss14;
+sub tcaron by tcaron.ss14;
+sub tcedilla by tcedilla.ss14;
+sub tcommaaccent by tcommaaccent.ss14;
+sub tdotbelow by tdotbelow.ss14;
+sub tmacronbelow by tmacronbelow.ss14;
 
 # rclt-state coverage
-sub t.rcltBase by t.ss08;
-sub t.rcltGeo by t.ss08;
-sub tbar.rcltBase by tbar.ss08;
-sub tbar.rcltGeo by tbar.ss08;
-sub tcaron.rcltBase by tcaron.ss08;
-sub tcaron.rcltGeo by tcaron.ss08;
-sub tcedilla.rcltBase by tcedilla.ss08;
-sub tcedilla.rcltGeo by tcedilla.ss08;
-sub tcommaaccent.rcltBase by tcommaaccent.ss08;
-sub tcommaaccent.rcltGeo by tcommaaccent.ss08;
-sub tdotbelow.rcltBase by tdotbelow.ss08;
-sub tdotbelow.rcltGeo by tdotbelow.ss08;
-sub tmacronbelow.rcltBase by tmacronbelow.ss08;
-sub tmacronbelow.rcltGeo by tmacronbelow.ss08;
+sub t.rcltBase by t.ss14;
+sub t.rcltGeo by t.ss14;
+sub tbar.rcltBase by tbar.ss14;
+sub tbar.rcltGeo by tbar.ss14;
+sub tcaron.rcltBase by tcaron.ss14;
+sub tcaron.rcltGeo by tcaron.ss14;
+sub tcedilla.rcltBase by tcedilla.ss14;
+sub tcedilla.rcltGeo by tcedilla.ss14;
+sub tcommaaccent.rcltBase by tcommaaccent.ss14;
+sub tcommaaccent.rcltGeo by tcommaaccent.ss14;
+sub tdotbelow.rcltBase by tdotbelow.ss14;
+sub tdotbelow.rcltGeo by tdotbelow.ss14;
+sub tmacronbelow.rcltBase by tmacronbelow.ss14;
+sub tmacronbelow.rcltGeo by tmacronbelow.ss14;
 ";
 tag = cv18;
 },
@@ -2345,35 +2350,35 @@ tag = cv20;
 },
 {
 code = "cvParameters { FeatUILabelNameID { name \"Constructed y\"; }; };
-sub y by y.ss07;
-sub yacute by yacute.ss07;
-sub ycircumflex by ycircumflex.ss07;
-sub ydieresis by ydieresis.ss07;
-sub ydotaccent by ydotaccent.ss07;
-sub ydotbelow by ydotbelow.ss07;
-sub ygrave by ygrave.ss07;
-sub yhookabove by yhookabove.ss07;
-sub ytilde by ytilde.ss07;
+sub y by y.ss08;
+sub yacute by yacute.ss08;
+sub ycircumflex by ycircumflex.ss08;
+sub ydieresis by ydieresis.ss08;
+sub ydotaccent by ydotaccent.ss08;
+sub ydotbelow by ydotbelow.ss08;
+sub ygrave by ygrave.ss08;
+sub yhookabove by yhookabove.ss08;
+sub ytilde by ytilde.ss08;
 
 # rclt-state coverage
-sub y.rcltBase by y.ss07;
-sub y.rcltGeo by y.ss07;
-sub yacute.rcltBase by yacute.ss07;
-sub yacute.rcltGeo by yacute.ss07;
-sub ycircumflex.rcltBase by ycircumflex.ss07;
-sub ycircumflex.rcltGeo by ycircumflex.ss07;
-sub ydieresis.rcltBase by ydieresis.ss07;
-sub ydieresis.rcltGeo by ydieresis.ss07;
-sub ydotaccent.rcltBase by ydotaccent.ss07;
-sub ydotaccent.rcltGeo by ydotaccent.ss07;
-sub ydotbelow.rcltBase by ydotbelow.ss07;
-sub ydotbelow.rcltGeo by ydotbelow.ss07;
-sub ygrave.rcltBase by ygrave.ss07;
-sub ygrave.rcltGeo by ygrave.ss07;
-sub yhookabove.rcltBase by yhookabove.ss07;
-sub yhookabove.rcltGeo by yhookabove.ss07;
-sub ytilde.rcltBase by ytilde.ss07;
-sub ytilde.rcltGeo by ytilde.ss07;
+sub y.rcltBase by y.ss08;
+sub y.rcltGeo by y.ss08;
+sub yacute.rcltBase by yacute.ss08;
+sub yacute.rcltGeo by yacute.ss08;
+sub ycircumflex.rcltBase by ycircumflex.ss08;
+sub ycircumflex.rcltGeo by ycircumflex.ss08;
+sub ydieresis.rcltBase by ydieresis.ss08;
+sub ydieresis.rcltGeo by ydieresis.ss08;
+sub ydotaccent.rcltBase by ydotaccent.ss08;
+sub ydotaccent.rcltGeo by ydotaccent.ss08;
+sub ydotbelow.rcltBase by ydotbelow.ss08;
+sub ydotbelow.rcltGeo by ydotbelow.ss08;
+sub ygrave.rcltBase by ygrave.ss08;
+sub ygrave.rcltGeo by ygrave.ss08;
+sub yhookabove.rcltBase by yhookabove.ss08;
+sub yhookabove.rcltGeo by yhookabove.ss08;
+sub ytilde.rcltBase by ytilde.ss08;
+sub ytilde.rcltGeo by ytilde.ss08;
 ";
 tag = cv21;
 },
@@ -2480,125 +2485,125 @@ tag = cv25;
 },
 {
 code = "cvParameters { FeatUILabelNameID { name \"Humanist/Grotesk 6\"; }; };
-sub six by six.ss12;
-sub six.dnom by six.dnom.ss12;
-sub six.lf by six.lf.ss12;
-sub six.numr by six.numr.ss12;
-sub six.tf by six.tf.ss12;
-sub sixinferior by sixinferior.ss12;
-sub sixsuperior by sixsuperior.ss12;
+sub six by six.ss16;
+sub six.dnom by six.dnom.ss16;
+sub six.lf by six.lf.ss16;
+sub six.numr by six.numr.ss16;
+sub six.tf by six.tf.ss16;
+sub sixinferior by sixinferior.ss16;
+sub sixsuperior by sixsuperior.ss16;
 
 # rclt-state coverage
-sub six.rclt1 by six.ss12;
-sub six.rclt2 by six.ss12;
-sub six.rclt3 by six.ss12;
-sub six.dnom.rclt1 by six.dnom.ss12;
-sub six.dnom.rclt2 by six.dnom.ss12;
-sub six.dnom.rclt3 by six.dnom.ss12;
-sub six.lf.rclt1 by six.lf.ss12;
-sub six.numr.rclt1 by six.numr.ss12;
-sub six.numr.rclt2 by six.numr.ss12;
-sub six.numr.rclt3 by six.numr.ss12;
-sub six.tf.rclt1 by six.tf.ss12;
-sub sixinferior.rclt1 by sixinferior.ss12;
-sub sixinferior.rclt2 by sixinferior.ss12;
-sub sixinferior.rclt3 by sixinferior.ss12;
-sub sixsuperior.rclt1 by sixsuperior.ss12;
-sub sixsuperior.rclt2 by sixsuperior.ss12;
-sub sixsuperior.rclt3 by sixsuperior.ss12;
+sub six.rclt1 by six.ss16;
+sub six.rclt2 by six.ss16;
+sub six.rclt3 by six.ss16;
+sub six.dnom.rclt1 by six.dnom.ss16;
+sub six.dnom.rclt2 by six.dnom.ss16;
+sub six.dnom.rclt3 by six.dnom.ss16;
+sub six.lf.rclt1 by six.lf.ss16;
+sub six.numr.rclt1 by six.numr.ss16;
+sub six.numr.rclt2 by six.numr.ss16;
+sub six.numr.rclt3 by six.numr.ss16;
+sub six.tf.rclt1 by six.tf.ss16;
+sub sixinferior.rclt1 by sixinferior.ss16;
+sub sixinferior.rclt2 by sixinferior.ss16;
+sub sixinferior.rclt3 by sixinferior.ss16;
+sub sixsuperior.rclt1 by sixsuperior.ss16;
+sub sixsuperior.rclt2 by sixsuperior.ss16;
+sub sixsuperior.rclt3 by sixsuperior.ss16;
 ";
 tag = cv26;
 },
 {
 code = "cvParameters { FeatUILabelNameID { name \"Humanist/Grotesk 9\"; }; };
-sub nine by nine.ss12;
-sub nine.dnom by nine.dnom.ss12;
-sub nine.lf by nine.lf.ss12;
-sub nine.numr by nine.numr.ss12;
-sub nine.tf by nine.tf.ss12;
-sub nineinferior by nineinferior.ss12;
-sub ninesuperior by ninesuperior.ss12;
+sub nine by nine.ss16;
+sub nine.dnom by nine.dnom.ss16;
+sub nine.lf by nine.lf.ss16;
+sub nine.numr by nine.numr.ss16;
+sub nine.tf by nine.tf.ss16;
+sub nineinferior by nineinferior.ss16;
+sub ninesuperior by ninesuperior.ss16;
 
 # rclt-state coverage
-sub nine.rclt1 by nine.ss12;
-sub nine.rclt2 by nine.ss12;
-sub nine.rclt3 by nine.ss12;
-sub nine.dnom.rclt1 by nine.dnom.ss12;
-sub nine.dnom.rclt2 by nine.dnom.ss12;
-sub nine.dnom.rclt3 by nine.dnom.ss12;
-sub nine.lf.rclt1 by nine.lf.ss12;
-sub nine.numr.rclt1 by nine.numr.ss12;
-sub nine.numr.rclt2 by nine.numr.ss12;
-sub nine.numr.rclt3 by nine.numr.ss12;
-sub nine.tf.rclt1 by nine.tf.ss12;
-sub nineinferior.rclt1 by nineinferior.ss12;
-sub nineinferior.rclt2 by nineinferior.ss12;
-sub nineinferior.rclt3 by nineinferior.ss12;
-sub ninesuperior.rclt1 by ninesuperior.ss12;
-sub ninesuperior.rclt2 by ninesuperior.ss12;
-sub ninesuperior.rclt3 by ninesuperior.ss12;
+sub nine.rclt1 by nine.ss16;
+sub nine.rclt2 by nine.ss16;
+sub nine.rclt3 by nine.ss16;
+sub nine.dnom.rclt1 by nine.dnom.ss16;
+sub nine.dnom.rclt2 by nine.dnom.ss16;
+sub nine.dnom.rclt3 by nine.dnom.ss16;
+sub nine.lf.rclt1 by nine.lf.ss16;
+sub nine.numr.rclt1 by nine.numr.ss16;
+sub nine.numr.rclt2 by nine.numr.ss16;
+sub nine.numr.rclt3 by nine.numr.ss16;
+sub nine.tf.rclt1 by nine.tf.ss16;
+sub nineinferior.rclt1 by nineinferior.ss16;
+sub nineinferior.rclt2 by nineinferior.ss16;
+sub nineinferior.rclt3 by nineinferior.ss16;
+sub ninesuperior.rclt1 by ninesuperior.ss16;
+sub ninesuperior.rclt2 by ninesuperior.ss16;
+sub ninesuperior.rclt3 by ninesuperior.ss16;
 ";
 tag = cv27;
 },
 {
 code = "cvParameters { FeatUILabelNameID { name \"Geometric/legible 6\"; }; };
-sub six by six.ss13;
-sub six.dnom by six.dnom.ss13;
-sub six.lf by six.lf.ss13;
-sub six.numr by six.numr.ss13;
-sub six.tf by six.tf.ss13;
-sub sixinferior by sixinferior.ss13;
-sub sixsuperior by sixsuperior.ss13;
+sub six by six.ss17;
+sub six.dnom by six.dnom.ss17;
+sub six.lf by six.lf.ss17;
+sub six.numr by six.numr.ss17;
+sub six.tf by six.tf.ss17;
+sub sixinferior by sixinferior.ss17;
+sub sixsuperior by sixsuperior.ss17;
 
 # rclt-state coverage
-sub six.rclt1 by six.ss13;
-sub six.rclt2 by six.ss13;
-sub six.rclt3 by six.ss13;
-sub six.dnom.rclt1 by six.dnom.ss13;
-sub six.dnom.rclt2 by six.dnom.ss13;
-sub six.dnom.rclt3 by six.dnom.ss13;
-sub six.lf.rclt1 by six.lf.ss13;
-sub six.numr.rclt1 by six.numr.ss13;
-sub six.numr.rclt2 by six.numr.ss13;
-sub six.numr.rclt3 by six.numr.ss13;
-sub six.tf.rclt1 by six.tf.ss13;
-sub sixinferior.rclt1 by sixinferior.ss13;
-sub sixinferior.rclt2 by sixinferior.ss13;
-sub sixinferior.rclt3 by sixinferior.ss13;
-sub sixsuperior.rclt1 by sixsuperior.ss13;
-sub sixsuperior.rclt2 by sixsuperior.ss13;
-sub sixsuperior.rclt3 by sixsuperior.ss13;
+sub six.rclt1 by six.ss17;
+sub six.rclt2 by six.ss17;
+sub six.rclt3 by six.ss17;
+sub six.dnom.rclt1 by six.dnom.ss17;
+sub six.dnom.rclt2 by six.dnom.ss17;
+sub six.dnom.rclt3 by six.dnom.ss17;
+sub six.lf.rclt1 by six.lf.ss17;
+sub six.numr.rclt1 by six.numr.ss17;
+sub six.numr.rclt2 by six.numr.ss17;
+sub six.numr.rclt3 by six.numr.ss17;
+sub six.tf.rclt1 by six.tf.ss17;
+sub sixinferior.rclt1 by sixinferior.ss17;
+sub sixinferior.rclt2 by sixinferior.ss17;
+sub sixinferior.rclt3 by sixinferior.ss17;
+sub sixsuperior.rclt1 by sixsuperior.ss17;
+sub sixsuperior.rclt2 by sixsuperior.ss17;
+sub sixsuperior.rclt3 by sixsuperior.ss17;
 ";
 tag = cv28;
 },
 {
 code = "cvParameters { FeatUILabelNameID { name \"Geometric/legible 9\"; }; };
-sub nine by nine.ss13;
-sub nine.dnom by nine.dnom.ss13;
-sub nine.lf by nine.lf.ss13;
-sub nine.numr by nine.numr.ss13;
-sub nine.tf by nine.tf.ss13;
-sub nineinferior by nineinferior.ss13;
-sub ninesuperior by ninesuperior.ss13;
+sub nine by nine.ss17;
+sub nine.dnom by nine.dnom.ss17;
+sub nine.lf by nine.lf.ss17;
+sub nine.numr by nine.numr.ss17;
+sub nine.tf by nine.tf.ss17;
+sub nineinferior by nineinferior.ss17;
+sub ninesuperior by ninesuperior.ss17;
 
 # rclt-state coverage
-sub nine.rclt1 by nine.ss13;
-sub nine.rclt2 by nine.ss13;
-sub nine.rclt3 by nine.ss13;
-sub nine.dnom.rclt1 by nine.dnom.ss13;
-sub nine.dnom.rclt2 by nine.dnom.ss13;
-sub nine.dnom.rclt3 by nine.dnom.ss13;
-sub nine.lf.rclt1 by nine.lf.ss13;
-sub nine.numr.rclt1 by nine.numr.ss13;
-sub nine.numr.rclt2 by nine.numr.ss13;
-sub nine.numr.rclt3 by nine.numr.ss13;
-sub nine.tf.rclt1 by nine.tf.ss13;
-sub nineinferior.rclt1 by nineinferior.ss13;
-sub nineinferior.rclt2 by nineinferior.ss13;
-sub nineinferior.rclt3 by nineinferior.ss13;
-sub ninesuperior.rclt1 by ninesuperior.ss13;
-sub ninesuperior.rclt2 by ninesuperior.ss13;
-sub ninesuperior.rclt3 by ninesuperior.ss13;
+sub nine.rclt1 by nine.ss17;
+sub nine.rclt2 by nine.ss17;
+sub nine.rclt3 by nine.ss17;
+sub nine.dnom.rclt1 by nine.dnom.ss17;
+sub nine.dnom.rclt2 by nine.dnom.ss17;
+sub nine.dnom.rclt3 by nine.dnom.ss17;
+sub nine.lf.rclt1 by nine.lf.ss17;
+sub nine.numr.rclt1 by nine.numr.ss17;
+sub nine.numr.rclt2 by nine.numr.ss17;
+sub nine.numr.rclt3 by nine.numr.ss17;
+sub nine.tf.rclt1 by nine.tf.ss17;
+sub nineinferior.rclt1 by nineinferior.ss17;
+sub nineinferior.rclt2 by nineinferior.ss17;
+sub nineinferior.rclt3 by nineinferior.ss17;
+sub ninesuperior.rclt1 by ninesuperior.ss17;
+sub ninesuperior.rclt2 by ninesuperior.ss17;
+sub ninesuperior.rclt3 by ninesuperior.ss17;
 ";
 tag = cv29;
 },
@@ -2624,10 +2629,10 @@ tag = cv31;
 },
 {
 code = "cvParameters { FeatUILabelNameID { name \"Constructed ffi\"; }; };
-sub f f i by f_f_i.ss08;
-sub f_f_i by f_f_i.ss08;
+sub f f i by f_f_i.ss14;
+sub f_f_i by f_f_i.ss14;
 # rclt-state coverage
-sub f_f_i.rcltBase by f_f_i.ss08;
+sub f_f_i.rcltBase by f_f_i.ss14;
 ";
 tag = cv32;
 },
@@ -2642,10 +2647,10 @@ tag = cv33;
 },
 {
 code = "cvParameters { FeatUILabelNameID { name \"Constructed ffl\"; }; };
-sub f f l by f_f_l.ss08;
-sub f_f_l by f_f_l.ss08;
+sub f f l by f_f_l.ss14;
+sub f_f_l by f_f_l.ss14;
 # rclt-state coverage
-sub f_f_l.rcltBase by f_f_l.ss08;
+sub f_f_l.rcltBase by f_f_l.ss14;
 ";
 tag = cv34;
 },
@@ -2660,11 +2665,11 @@ tag = cv35;
 },
 {
 code = "cvParameters { FeatUILabelNameID { name \"Constructed fi\"; }; };
-sub f i by fi.ss08;
-sub fi by fi.ss08;
+sub f i by fi.ss14;
+sub fi by fi.ss14;
 # rclt-state coverage
-sub f.rcltBase i by fi.ss08;
-sub fi.rcltBase by fi.ss08;
+sub f.rcltBase i by fi.ss14;
+sub fi.rcltBase by fi.ss14;
 ";
 tag = cv36;
 },
@@ -2683,11 +2688,11 @@ tag = cv37;
 },
 {
 code = "cvParameters { FeatUILabelNameID { name \"Constructed fl\"; }; };
-sub f l by fl.ss08;
-sub fl by fl.ss08;
+sub f l by fl.ss14;
+sub fl by fl.ss14;
 # rclt-state coverage
-sub f.rcltBase l by fl.ss08;
-sub fl.rcltBase by fl.ss08;
+sub f.rcltBase l by fl.ss14;
+sub fl.rcltBase by fl.ss14;
 ";
 tag = cv38;
 },
@@ -2703,11 +2708,11 @@ tag = cv39;
 },
 {
 code = "cvParameters { FeatUILabelNameID { name \"Constructed ft\"; }; };
-sub f t by f_t.ss08;
-sub f_t by f_t.ss08;
+sub f t by f_t.ss14;
+sub f_t by f_t.ss14;
 # rclt-state coverage
-sub f_t.rcltBase by f_t.ss08;
-sub f_t.rcltGeo by f_t.ss08;
+sub f_t.rcltBase by f_t.ss14;
+sub f_t.rcltGeo by f_t.ss14;
 ";
 tag = cv40;
 },
@@ -2881,23 +2886,63 @@ value = "Humanist a";
 tag = ss02;
 },
 {
-code = "sub g by g.ss03;
-sub gbreve by gbreve.ss03;
-sub gcircumflex by gcircumflex.ss03;
-sub gcommaaccent by gcommaaccent.ss03;
-sub gdotaccent by gdotaccent.ss03;
-sub gmacron by gmacron.ss03;
-sub g.rcltA11y by g.ss03;
-sub gbreve.rcltA11y by gbreve.ss03;
-sub gcircumflex.rcltA11y by gcircumflex.ss03;
-sub gcommaaccent.rcltA11y by gcommaaccent.ss03;
-sub gdotaccent.rcltA11y by gdotaccent.ss03;
-sub gmacron.rcltA11y by gmacron.ss03;
+code = "sub a by a.ss03;
+sub aacute by aacute.ss03;
+sub abreve by abreve.ss03;
+sub abreveacute by abreveacute.ss03;
+sub abrevedotbelow by abrevedotbelow.ss03;
+sub abrevegrave by abrevegrave.ss03;
+sub abrevehookabove by abrevehookabove.ss03;
+sub abrevetilde by abrevetilde.ss03;
+sub acircumflex by acircumflex.ss03;
+sub acircumflexacute by acircumflexacute.ss03;
+sub acircumflexdotbelow by acircumflexdotbelow.ss03;
+sub acircumflexgrave by acircumflexgrave.ss03;
+sub acircumflexhookabove by acircumflexhookabove.ss03;
+sub acircumflextilde by acircumflextilde.ss03;
+sub adieresis by adieresis.ss03;
+sub adotbelow by adotbelow.ss03;
+sub agrave by agrave.ss03;
+sub ahookabove by ahookabove.ss03;
+sub ainvertedbreve by ainvertedbreve.ss03;
+sub amacron by amacron.ss03;
+sub aogonek by aogonek.ss03;
+sub aring by aring.ss03;
+sub atilde by atilde.ss03;
+sub ae by ae.ss03;
+sub aemacron by aemacron.ss03;
+sub ordfeminine by ordfeminine.ss03;
+sub a.rcltA11y by a.ss03;
+sub aacute.rcltA11y by aacute.ss03;
+sub abreve.rcltA11y by abreve.ss03;
+sub abreveacute.rcltA11y by abreveacute.ss03;
+sub abrevedotbelow.rcltA11y by abrevedotbelow.ss03;
+sub abrevegrave.rcltA11y by abrevegrave.ss03;
+sub abrevehookabove.rcltA11y by abrevehookabove.ss03;
+sub abrevetilde.rcltA11y by abrevetilde.ss03;
+sub acircumflex.rcltA11y by acircumflex.ss03;
+sub acircumflexacute.rcltA11y by acircumflexacute.ss03;
+sub acircumflexdotbelow.rcltA11y by acircumflexdotbelow.ss03;
+sub acircumflexgrave.rcltA11y by acircumflexgrave.ss03;
+sub acircumflexhookabove.rcltA11y by acircumflexhookabove.ss03;
+sub acircumflextilde.rcltA11y by acircumflextilde.ss03;
+sub adieresis.rcltA11y by adieresis.ss03;
+sub adotbelow.rcltA11y by adotbelow.ss03;
+sub agrave.rcltA11y by agrave.ss03;
+sub ahookabove.rcltA11y by ahookabove.ss03;
+sub ainvertedbreve.rcltA11y by ainvertedbreve.ss03;
+sub amacron.rcltA11y by amacron.ss03;
+sub aogonek.rcltA11y by aogonek.ss03;
+sub aring.rcltA11y by aring.ss03;
+sub atilde.rcltA11y by atilde.ss03;
+sub ae.rcltBase by ae.ss03;
+sub aemacron.rcltBase by aemacron.ss03;
+sub ordfeminine.rcltBase by ordfeminine.ss03;
 ";
 labels = (
 {
 language = dflt;
-value = "Geometric g";
+value = "Tailed a";
 }
 );
 tag = ss03;
@@ -2909,6 +2954,34 @@ sub gcircumflex by gcircumflex.ss04;
 sub gcommaaccent by gcommaaccent.ss04;
 sub gdotaccent by gdotaccent.ss04;
 sub gmacron by gmacron.ss04;
+sub g.rcltA11y by g.ss04;
+sub gbreve.rcltA11y by gbreve.ss04;
+sub gcircumflex.rcltA11y by gcircumflex.ss04;
+sub gcommaaccent.rcltA11y by gcommaaccent.ss04;
+sub gdotaccent.rcltA11y by gdotaccent.ss04;
+sub gmacron.rcltA11y by gmacron.ss04;
+";
+labels = (
+{
+language = dflt;
+value = "Geometric g";
+}
+);
+tag = ss04;
+},
+{
+code = "sub g by g.ss05;
+sub gbreve by gbreve.ss05;
+sub gcircumflex by gcircumflex.ss05;
+sub gcommaaccent by gcommaaccent.ss05;
+sub gdotaccent by gdotaccent.ss05;
+sub gmacron by gmacron.ss05;
+sub g.rcltA11y by g.ss05;
+sub gbreve.rcltA11y by gbreve.ss05;
+sub gcircumflex.rcltA11y by gcircumflex.ss05;
+sub gcommaaccent.rcltA11y by gcommaaccent.ss05;
+sub gdotaccent.rcltA11y by gdotaccent.ss05;
+sub gmacron.rcltA11y by gmacron.ss05;
 ";
 labels = (
 {
@@ -2916,24 +2989,32 @@ language = dflt;
 value = "Gothic g";
 }
 );
-tag = ss04;
+tag = ss05;
 },
 {
-code = "sub G by G.ss05;
-sub Gbreve by Gbreve.ss05;
-sub Gcircumflex by Gcircumflex.ss05;
-sub Gcommaaccent by Gcommaaccent.ss05;
-sub Gdotaccent by Gdotaccent.ss05;
-sub Gmacron by Gmacron.ss05;
-sub guarani by guarani.ss05;
-sub guarani.tf by guarani.tf.ss05;";
+code = "sub G by G.ss06;
+sub Gbreve by Gbreve.ss06;
+sub Gcircumflex by Gcircumflex.ss06;
+sub Gcommaaccent by Gcommaaccent.ss06;
+sub Gdotaccent by Gdotaccent.ss06;
+sub Gmacron by Gmacron.ss06;
+sub guarani by guarani.ss06;
+sub guarani.tf by guarani.tf.ss06;sub G.rcltGeo by G.ss06;
+sub Gbreve.rcltGeo by Gbreve.ss06;
+sub Gcircumflex.rcltGeo by Gcircumflex.ss06;
+sub Gcommaaccent.rcltGeo by Gcommaaccent.ss06;
+sub Gdotaccent.rcltGeo by Gdotaccent.ss06;
+sub Gmacron.rcltGeo by Gmacron.ss06;
+sub guarani.rcltGeo by guarani.ss06;
+sub guarani.tf.rcltGeo by guarani.tf.ss06;
+";
 labels = (
 {
 language = dflt;
 value = "Geometric G";
 }
 );
-tag = ss05;
+tag = ss06;
 },
 {
 code = "#sub G by G.rcltGeo;
@@ -2944,22 +3025,22 @@ code = "#sub G by G.rcltGeo;
 #sub Gmacron by Gmacron.rcltGeo;
 #sub guarani by guarani.rcltGeo;
 #sub guarani.tf by guarani.tf.rcltGeo;
-sub G.rcltGeo by G.ss06;
-sub Gcommaaccent.rcltGeo by Gcommaaccent.ss06;
-sub Gdotaccent.rcltGeo by Gdotaccent.ss06;
-sub Gbreve.rcltGeo by Gbreve.ss06;
-sub Gcircumflex.rcltGeo by Gcircumflex.ss06;
-sub Gmacron.rcltGeo by Gmacron.ss06;
-sub guarani.rcltGeo by guarani.ss06;
-sub guarani.tf.rcltGeo by guarani.tf.ss06;
-sub G by G.ss06;
-sub Gbreve by Gbreve.ss06;
-sub Gmacron by Gmacron.ss06;
-sub guarani by guarani.ss06;
-sub Gdotaccent by Gdotaccent.ss06;
-sub guarani.tf by guarani.tf.ss06;
-sub Gcircumflex by Gcircumflex.ss06;
-sub Gcommaaccent by Gcommaaccent.ss06;
+sub G.rcltGeo by G.ss07;
+sub Gcommaaccent.rcltGeo by Gcommaaccent.ss07;
+sub Gdotaccent.rcltGeo by Gdotaccent.ss07;
+sub Gbreve.rcltGeo by Gbreve.ss07;
+sub Gcircumflex.rcltGeo by Gcircumflex.ss07;
+sub Gmacron.rcltGeo by Gmacron.ss07;
+sub guarani.rcltGeo by guarani.ss07;
+sub guarani.tf.rcltGeo by guarani.tf.ss07;
+sub G by G.ss07;
+sub Gbreve by Gbreve.ss07;
+sub Gmacron by Gmacron.ss07;
+sub guarani by guarani.ss07;
+sub Gdotaccent by Gdotaccent.ss07;
+sub guarani.tf by guarani.tf.ss07;
+sub Gcircumflex by Gcircumflex.ss07;
+sub Gcommaaccent by Gcommaaccent.ss07;
 ";
 labels = (
 {
@@ -2967,26 +3048,39 @@ language = dflt;
 value = "Humanist G";
 }
 );
-tag = ss06;
+tag = ss07;
 },
 {
-code = "sub ij by ij.ss07;
-sub j by j.ss07;
-sub j.rcltGeo by j.ss07;
-sub ij.rcltGeo by j.ss07; 
-sub jdotless by jdotless.ss07;
-sub jacute by jacute.ss07;
-sub jcircumflex by jcircumflex.ss07;
-sub y by y.ss07;
-sub yacute by yacute.ss07;
-sub ycircumflex by ycircumflex.ss07;
-sub ydieresis by ydieresis.ss07;
-sub ydotaccent by ydotaccent.ss07;
-sub ydotbelow by ydotbelow.ss07;
-sub ygrave by ygrave.ss07;
-sub yhookabove by yhookabove.ss07;
-sub ytilde by ytilde.ss07;
-sub ijacute by ijacute.ss07;
+code = "sub ij by ij.ss08;
+sub j by j.ss08;
+sub j.rcltGeo by j.ss08;
+sub ij.rcltGeo by j.ss08; 
+sub jdotless by jdotless.ss08;
+sub jacute by jacute.ss08;
+sub jcircumflex by jcircumflex.ss08;
+sub y by y.ss08;
+sub yacute by yacute.ss08;
+sub ycircumflex by ycircumflex.ss08;
+sub ydieresis by ydieresis.ss08;
+sub ydotaccent by ydotaccent.ss08;
+sub ydotbelow by ydotbelow.ss08;
+sub ygrave by ygrave.ss08;
+sub yhookabove by yhookabove.ss08;
+sub ytilde by ytilde.ss08;
+sub ijacute by ijacute.ss08;
+sub ijacute.rcltGeo by ijacute.ss08;
+sub jacute.rcltGeo by jacute.ss08;
+sub jcircumflex.rcltGeo by jcircumflex.ss08;
+sub jdotless.rcltGeo by jdotless.ss08;
+sub y.rcltGeo by y.ss08;
+sub yacute.rcltGeo by yacute.ss08;
+sub ycircumflex.rcltGeo by ycircumflex.ss08;
+sub ydieresis.rcltGeo by ydieresis.ss08;
+sub ydotaccent.rcltGeo by ydotaccent.ss08;
+sub ydotbelow.rcltGeo by ydotbelow.ss08;
+sub ygrave.rcltGeo by ygrave.ss08;
+sub yhookabove.rcltGeo by yhookabove.ss08;
+sub ytilde.rcltGeo by ytilde.ss08;
 ";
 labels = (
 {
@@ -2994,50 +3088,44 @@ language = dflt;
 value = "Constructed j and y";
 }
 );
-tag = ss07;
-},
-{
-code = "sub f by f.ss08;
-sub t by t.ss08;
-sub tbar by tbar.ss08;
-sub tcaron by tcaron.ss08;
-sub tcedilla by tcedilla.ss08;
-sub tcommaaccent by tcommaaccent.ss08;
-sub tdotbelow by tdotbelow.ss08;
-sub tmacronbelow by tmacronbelow.ss08;
-sub f_f_i by f_f_i.ss08;
-sub f_f_l by f_f_l.ss08;
-sub f_t by f_t.ss08;
-sub f_t.rcltGeo by f_t.ss08;
-sub fi by fi.ss08;
-sub fl by fl.ss08;
-sub t.rcltGeo by t.ss08;
-sub tbar.rcltGeo by tbar.ss08;
-sub tcaron.rcltGeo by tcaron.ss08;
-sub tcedilla.rcltGeo by tcedilla.ss08;
-sub tcommaaccent.rcltGeo by tcommaaccent.ss08;
-sub tdotbelow.rcltGeo by tdotbelow.ss08;
-sub tmacronbelow.rcltGeo by tmacronbelow.ss08;
-";
-labels = (
-{
-language = dflt;
-value = "Constructed f and t";
-}
-);
 tag = ss08;
 },
 {
-code = "sub M by M.ss09;
-sub Mdotaccent by Mdotaccent.ss09;
-sub Mdotbelow by Mdotbelow.ss09;
-sub Mcommaaccent by Mcommaaccent.ss09;
-sub Mcommaaccent.loclMAH by Mcommaaccent.loclMAH.ss09;
+code = "sub ij by ij.ss09;
+sub j by j.ss09;
+sub j.rcltGeo by j.ss09;
+sub ij.rcltGeo by j.ss09; 
+sub jdotless by jdotless.ss09;
+sub jacute by jacute.ss09;
+sub jcircumflex by jcircumflex.ss09;
+sub y by y.ss09;
+sub yacute by yacute.ss09;
+sub ycircumflex by ycircumflex.ss09;
+sub ydieresis by ydieresis.ss09;
+sub ydotaccent by ydotaccent.ss09;
+sub ydotbelow by ydotbelow.ss09;
+sub ygrave by ygrave.ss09;
+sub yhookabove by yhookabove.ss09;
+sub ytilde by ytilde.ss09;
+sub ijacute by ijacute.ss09;
+sub ijacute.rcltGeo by ijacute.ss09;
+sub jacute.rcltGeo by jacute.ss09;
+sub jcircumflex.rcltGeo by jcircumflex.ss09;
+sub jdotless.rcltGeo by jdotless.ss09;
+sub y.rcltGeo by y.ss09;
+sub yacute.rcltGeo by yacute.ss09;
+sub ycircumflex.rcltGeo by ycircumflex.ss09;
+sub ydieresis.rcltGeo by ydieresis.ss09;
+sub ydotaccent.rcltGeo by ydotaccent.ss09;
+sub ydotbelow.rcltGeo by ydotbelow.ss09;
+sub ygrave.rcltGeo by ygrave.ss09;
+sub yhookabove.rcltGeo by yhookabove.ss09;
+sub ytilde.rcltGeo by ytilde.ss09;
 ";
 labels = (
 {
 language = dflt;
-value = "Angular M";
+value = "Humanist j and y";
 }
 );
 tag = ss09;
@@ -3476,237 +3564,393 @@ value = "Futura alternatives and ligations";
 tag = ss11;
 },
 {
-code = "#sub six.rclt1 by six.ss12;
-#sub six.lf.rclt1 by six.lf.ss12;
-#sub six.tf.rclt1 by six.tf.ss12;
-#sub six.rclt2 by six.ss12;
-#sub six.rclt3 by six.ss12;
-#sub nine.rclt1 by nine.ss12;
-#sub nine.lf.rclt1 by nine.lf.ss12;
-#sub nine.tf.rclt1 by nine.tf.ss12;
-#sub nine.rclt2 by nine.ss12;
-#sub nine.rclt3 by nine.ss12;
-#sub sixsuperior by sixsuperior.ss12;
-#sub six.numr by six.numr.ss12;
-#sub six.dnom by six.dnom.ss12;
-#sub sixinferior by sixinferior.ss12;
-#sub ninesuperior by ninesuperior.ss12;
-#sub nine.numr by nine.numr.ss12;
-#sub nine.dnom by nine.dnom.ss12;
-#sub nineinferior by nineinferior.ss12;
+code = "sub M by M.ss12;
+sub Mdotaccent by Mdotaccent.ss12;
+sub Mdotbelow by Mdotbelow.ss12;
+sub Mcommaaccent by Mcommaaccent.ss12;
+sub Mcommaaccent.loclMAH by Mcommaaccent.loclMAH.ss12;
+sub M.rcltGeo by M.ss12;
+sub Mcommaaccent.loclMAH.rcltGeo by Mcommaaccent.loclMAH.ss12;
+sub Mcommaaccent.rcltGeo by Mcommaaccent.ss12;
+sub Mdotaccent.rcltGeo by Mdotaccent.ss12;
+sub Mdotbelow.rcltGeo by Mdotbelow.ss12;
+";
+labels = (
+{
+language = dflt;
+value = "Angular M";
+}
+);
+tag = ss12;
+},
+{
+code = "sub M by M.ss13;
+sub Mdotaccent by Mdotaccent.ss13;
+sub Mdotbelow by Mdotbelow.ss13;
+sub Mcommaaccent by Mcommaaccent.ss13;
+sub Mcommaaccent.loclMAH by Mcommaaccent.loclMAH.ss13;
+sub M.rcltGeo by M.ss13;
+sub Mcommaaccent.loclMAH.rcltGeo by Mcommaaccent.loclMAH.ss13;
+sub Mcommaaccent.rcltGeo by Mcommaaccent.ss13;
+sub Mdotaccent.rcltGeo by Mdotaccent.ss13;
+sub Mdotbelow.rcltGeo by Mdotbelow.ss13;
+";
+labels = (
+{
+language = dflt;
+value = "Square M";
+}
+);
+tag = ss13;
+},
+{
+code = "sub f by f.ss14;
+sub t by t.ss14;
+sub tbar by tbar.ss14;
+sub tcaron by tcaron.ss14;
+sub tcedilla by tcedilla.ss14;
+sub tcommaaccent by tcommaaccent.ss14;
+sub tdotbelow by tdotbelow.ss14;
+sub tmacronbelow by tmacronbelow.ss14;
+sub f_f_i by f_f_i.ss14;
+sub f_f_l by f_f_l.ss14;
+sub f_t by f_t.ss14;
+sub f_t.rcltGeo by f_t.ss14;
+sub fi by fi.ss14;
+sub fl by fl.ss14;
+sub t.rcltGeo by t.ss14;
+sub tbar.rcltGeo by tbar.ss14;
+sub tcaron.rcltGeo by tcaron.ss14;
+sub tcedilla.rcltGeo by tcedilla.ss14;
+sub tcommaaccent.rcltGeo by tcommaaccent.ss14;
+sub tdotbelow.rcltGeo by tdotbelow.ss14;
+sub tmacronbelow.rcltGeo by tmacronbelow.ss14;
+";
+labels = (
+{
+language = dflt;
+value = "Constructed f and t";
+}
+);
+tag = ss14;
+},
+{
+code = "sub f by f.ss15;
+sub t by t.ss15;
+sub tbar by tbar.ss15;
+sub tcaron by tcaron.ss15;
+sub tcedilla by tcedilla.ss15;
+sub tcommaaccent by tcommaaccent.ss15;
+sub tdotbelow by tdotbelow.ss15;
+sub tmacronbelow by tmacronbelow.ss15;
+sub f_f_i by f_f_i.ss15;
+sub f_f_l by f_f_l.ss15;
+sub f_t by f_t.ss15;
+sub f_t.rcltGeo by f_t.ss15;
+sub fi by fi.ss15;
+sub fl by fl.ss15;
+sub t.rcltGeo by t.ss15;
+sub tbar.rcltGeo by tbar.ss15;
+sub tcaron.rcltGeo by tcaron.ss15;
+sub tcedilla.rcltGeo by tcedilla.ss15;
+sub tcommaaccent.rcltGeo by tcommaaccent.ss15;
+sub tdotbelow.rcltGeo by tdotbelow.ss15;
+sub tmacronbelow.rcltGeo by tmacronbelow.ss15;
+";
+labels = (
+{
+language = dflt;
+value = "Humanist f and t";
+}
+);
+tag = ss15;
+},
+{
+code = "#sub six.rclt1 by six.ss16;
+#sub six.lf.rclt1 by six.lf.ss16;
+#sub six.tf.rclt1 by six.tf.ss16;
+#sub six.rclt2 by six.ss16;
+#sub six.rclt3 by six.ss16;
+#sub nine.rclt1 by nine.ss16;
+#sub nine.lf.rclt1 by nine.lf.ss16;
+#sub nine.tf.rclt1 by nine.tf.ss16;
+#sub nine.rclt2 by nine.ss16;
+#sub nine.rclt3 by nine.ss16;
+#sub sixsuperior by sixsuperior.ss16;
+#sub six.numr by six.numr.ss16;
+#sub six.dnom by six.dnom.ss16;
+#sub sixinferior by sixinferior.ss16;
+#sub ninesuperior by ninesuperior.ss16;
+#sub nine.numr by nine.numr.ss16;
+#sub nine.dnom by nine.dnom.ss16;
+#sub nineinferior by nineinferior.ss16;
 
-sub [six six.rclt1 six.rclt2 six.rclt3] by six.ss12;
-sub [six.lf six.lf.rclt1] by six.lf.ss12;
-sub [six.tf six.tf.rclt1] by six.tf.ss12;
-sub [six.numr six.numr.rclt1 six.numr.rclt2 six.numr.rclt3] by six.numr.ss12;
-sub [six.dnom six.dnom.rclt1 six.dnom.rclt2 six.dnom.rclt3] by six.dnom.ss12;
-sub [sixsuperior sixsuperior.rclt1 sixsuperior.rclt2 sixsuperior.rclt3] by sixsuperior.ss12;
-sub [sixinferior sixinferior.rclt1 sixinferior.rclt2 sixinferior.rclt3] by sixinferior.ss12;
+sub [six six.rclt1 six.rclt2 six.rclt3] by six.ss16;
+sub [six.lf six.lf.rclt1] by six.lf.ss16;
+sub [six.tf six.tf.rclt1] by six.tf.ss16;
+sub [six.numr six.numr.rclt1 six.numr.rclt2 six.numr.rclt3] by six.numr.ss16;
+sub [six.dnom six.dnom.rclt1 six.dnom.rclt2 six.dnom.rclt3] by six.dnom.ss16;
+sub [sixsuperior sixsuperior.rclt1 sixsuperior.rclt2 sixsuperior.rclt3] by sixsuperior.ss16;
+sub [sixinferior sixinferior.rclt1 sixinferior.rclt2 sixinferior.rclt3] by sixinferior.ss16;
 
-sub [nine nine.rclt1 nine.rclt2 nine.rclt3] by nine.ss12;
-sub [nine.lf nine.lf.rclt1] by nine.lf.ss12;
-sub [nine.tf nine.tf.rclt1] by nine.tf.ss12;
-sub [nine.numr nine.numr.rclt1 nine.numr.rclt2 nine.numr.rclt3] by nine.numr.ss12;
-sub [nine.dnom nine.dnom.rclt1 nine.dnom.rclt2 nine.dnom.rclt3] by nine.dnom.ss12;
-sub [ninesuperior ninesuperior.rclt1 ninesuperior.rclt2 ninesuperior.rclt3] by ninesuperior.ss12;
-sub [nineinferior nineinferior.rclt1 nineinferior.rclt2 nineinferior.rclt3] by nineinferior.ss12;";
+sub [nine nine.rclt1 nine.rclt2 nine.rclt3] by nine.ss16;
+sub [nine.lf nine.lf.rclt1] by nine.lf.ss16;
+sub [nine.tf nine.tf.rclt1] by nine.tf.ss16;
+sub [nine.numr nine.numr.rclt1 nine.numr.rclt2 nine.numr.rclt3] by nine.numr.ss16;
+sub [nine.dnom nine.dnom.rclt1 nine.dnom.rclt2 nine.dnom.rclt3] by nine.dnom.ss16;
+sub [ninesuperior ninesuperior.rclt1 ninesuperior.rclt2 ninesuperior.rclt3] by ninesuperior.ss16;
+sub [nineinferior nineinferior.rclt1 nineinferior.rclt2 nineinferior.rclt3] by nineinferior.ss16;";
 labels = (
 {
 language = dflt;
 value = "Humanist/Grotesk 6 and 9";
 }
 );
-tag = ss12;
+tag = ss16;
 },
 {
-code = "sub six.rclt1 by six.ss13;
-sub six.lf.rclt1 by six.lf.ss13;
-sub six.tf.rclt1 by six.tf.ss13;
-sub six.rclt2 by six.ss13;
-sub six.rclt3 by six.ss13;
-sub nine.rclt1 by nine.ss13;
-sub nine.lf.rclt1 by nine.lf.ss13;
-sub nine.tf.rclt1 by nine.tf.ss13;
-sub nine.rclt2 by nine.ss13;
-sub nine.rclt3 by nine.ss13;
-sub six.ss12 by six.ss13;
-sub six.lf.ss12 by six.lf.ss13;
-sub six.tf.ss12 by six.tf.ss13;
-sub nine.tf.ss12 by nine.tf.ss13;
-sub nine.ss12 by nine.ss13;
-sub nine.lf.ss12 by nine.lf.ss13;
-sub sixsuperior by sixsuperior.ss13;
-sub six.numr by six.numr.ss13;
-sub six.dnom by six.dnom.ss13;
-sub sixinferior by sixinferior.ss13;
-sub ninesuperior by ninesuperior.ss13;
-sub nine.numr by nine.numr.ss13;
-sub nine.dnom by nine.dnom.ss13;
-sub nineinferior by nineinferior.ss13;";
+code = "sub six.rclt1 by six.ss17;
+sub six.lf.rclt1 by six.lf.ss17;
+sub six.tf.rclt1 by six.tf.ss17;
+sub six.rclt2 by six.ss17;
+sub six.rclt3 by six.ss17;
+sub nine.rclt1 by nine.ss17;
+sub nine.lf.rclt1 by nine.lf.ss17;
+sub nine.tf.rclt1 by nine.tf.ss17;
+sub nine.rclt2 by nine.ss17;
+sub nine.rclt3 by nine.ss17;
+sub six.ss16 by six.ss17;
+sub six.lf.ss16 by six.lf.ss17;
+sub six.tf.ss16 by six.tf.ss17;
+sub nine.tf.ss16 by nine.tf.ss17;
+sub nine.ss16 by nine.ss17;
+sub nine.lf.ss16 by nine.lf.ss17;
+sub sixsuperior by sixsuperior.ss17;
+sub six.numr by six.numr.ss17;
+sub six.dnom by six.dnom.ss17;
+sub sixinferior by sixinferior.ss17;
+sub ninesuperior by ninesuperior.ss17;
+sub nine.numr by nine.numr.ss17;
+sub nine.dnom by nine.dnom.ss17;
+sub nineinferior by nineinferior.ss17;";
 labels = (
 {
 language = dflt;
 value = "Geometric/legible 6 and 9";
 }
 );
-tag = ss13;
+tag = ss17;
 },
 {
-code = "sub I by I.ss14;
-sub Iacute by Iacute.ss14;
-sub Icircumflex by Icircumflex.ss14;
-sub Idieresis by Idieresis.ss14;
-sub Idotaccent by Idotaccent.ss14;
-sub Idotbelow by Idotbelow.ss14;
-sub Igrave by Igrave.ss14;
-sub Ihookabove by Ihookabove.ss14;
-sub Iinvertedbreve by Iinvertedbreve.ss14;
-sub Imacron by Imacron.ss14;
-sub Iogonek by Iogonek.ss14;
-sub Itilde by Itilde.ss14;
-sub IJ by IJ.ss14;
-sub IJacute by IJacute.ss14;
-sub a by a.ss14;
-sub aacute by aacute.ss14;
-sub abreve by abreve.ss14;
-sub abreveacute by abreveacute.ss14;
-sub abrevedotbelow by abrevedotbelow.ss14;
-sub abrevegrave by abrevegrave.ss14;
-sub abrevehookabove by abrevehookabove.ss14;
-sub abrevetilde by abrevetilde.ss14;
-sub acircumflex by acircumflex.ss14;
-sub acircumflexacute by acircumflexacute.ss14;
-sub acircumflexdotbelow by acircumflexdotbelow.ss14;
-sub acircumflexgrave by acircumflexgrave.ss14;
-sub acircumflexhookabove by acircumflexhookabove.ss14;
-sub acircumflextilde by acircumflextilde.ss14;
-sub adieresis by adieresis.ss14;
-sub adotbelow by adotbelow.ss14;
-sub agrave by agrave.ss14;
-sub ahookabove by ahookabove.ss14;
-sub ainvertedbreve by ainvertedbreve.ss14;
-sub amacron by amacron.ss14;
-sub aogonek by aogonek.ss14;
-sub aring by aring.ss14;
-sub atilde by atilde.ss14;
-sub l by l.ss14;
-sub lacute by lacute.ss14;
-sub lcaron by lcaron.ss14;
-sub lcommaaccent by lcommaaccent.ss14;
-sub lcommaaccent.loclMAH by lcommaaccent.loclMAH.ss14;
-sub ldot by ldot.ss14;
-sub ldotbelow by ldotbelow.ss14;
-sub ldotbelowmacron by ldotbelowmacron.ss14;
-sub lmacronbelow by lmacronbelow.ss14;
-sub lslash by lslash.ss14;
+code = "sub I by I.ss18;
+sub Iacute by Iacute.ss18;
+sub Icircumflex by Icircumflex.ss18;
+sub Idieresis by Idieresis.ss18;
+sub Idotaccent by Idotaccent.ss18;
+sub Idotbelow by Idotbelow.ss18;
+sub Igrave by Igrave.ss18;
+sub Ihookabove by Ihookabove.ss18;
+sub Iinvertedbreve by Iinvertedbreve.ss18;
+sub Imacron by Imacron.ss18;
+sub Iogonek by Iogonek.ss18;
+sub Itilde by Itilde.ss18;
+sub IJ by IJ.ss18;
+sub IJacute by IJacute.ss18;
+sub a by a.ss18;
+sub aacute by aacute.ss18;
+sub abreve by abreve.ss18;
+sub abreveacute by abreveacute.ss18;
+sub abrevedotbelow by abrevedotbelow.ss18;
+sub abrevegrave by abrevegrave.ss18;
+sub abrevehookabove by abrevehookabove.ss18;
+sub abrevetilde by abrevetilde.ss18;
+sub acircumflex by acircumflex.ss18;
+sub acircumflexacute by acircumflexacute.ss18;
+sub acircumflexdotbelow by acircumflexdotbelow.ss18;
+sub acircumflexgrave by acircumflexgrave.ss18;
+sub acircumflexhookabove by acircumflexhookabove.ss18;
+sub acircumflextilde by acircumflextilde.ss18;
+sub adieresis by adieresis.ss18;
+sub adotbelow by adotbelow.ss18;
+sub agrave by agrave.ss18;
+sub ahookabove by ahookabove.ss18;
+sub ainvertedbreve by ainvertedbreve.ss18;
+sub amacron by amacron.ss18;
+sub aogonek by aogonek.ss18;
+sub aring by aring.ss18;
+sub atilde by atilde.ss18;
+sub l by l.ss18;
+sub lacute by lacute.ss18;
+sub lcaron by lcaron.ss18;
+sub lcommaaccent by lcommaaccent.ss18;
+sub lcommaaccent.loclMAH by lcommaaccent.loclMAH.ss18;
+sub ldot by ldot.ss18;
+sub ldotbelow by ldotbelow.ss18;
+sub ldotbelowmacron by ldotbelowmacron.ss18;
+sub lmacronbelow by lmacronbelow.ss18;
+sub lslash by lslash.ss18;
 # rclt-state coverage
-sub I.rcltA11y by I.ss14;
-sub Iacute.rcltA11y by Iacute.ss14;
-sub Icircumflex.rcltA11y by Icircumflex.ss14;
-sub Idieresis.rcltA11y by Idieresis.ss14;
-sub Idotaccent.rcltA11y by Idotaccent.ss14;
-sub Idotbelow.rcltA11y by Idotbelow.ss14;
-sub Igrave.rcltA11y by Igrave.ss14;
-sub Ihookabove.rcltA11y by Ihookabove.ss14;
-sub Iinvertedbreve.rcltA11y by Iinvertedbreve.ss14;
-sub Imacron.rcltA11y by Imacron.ss14;
-sub Iogonek.rcltA11y by Iogonek.ss14;
-sub Itilde.rcltA11y by Itilde.ss14;
-sub IJ.rcltA11y by IJ.ss14;
-sub IJacute.rcltA11y by IJacute.ss14;
-sub a.rcltA11y by a.ss14;
-sub a.rcltBase by a.ss14;
-sub aacute.rcltA11y by aacute.ss14;
-sub aacute.rcltBase by aacute.ss14;
-sub abreve.rcltA11y by abreve.ss14;
-sub abreve.rcltBase by abreve.ss14;
-sub abreveacute.rcltA11y by abreveacute.ss14;
-sub abreveacute.rcltBase by abreveacute.ss14;
-sub abrevedotbelow.rcltA11y by abrevedotbelow.ss14;
-sub abrevedotbelow.rcltBase by abrevedotbelow.ss14;
-sub abrevegrave.rcltA11y by abrevegrave.ss14;
-sub abrevegrave.rcltBase by abrevegrave.ss14;
-sub abrevehookabove.rcltA11y by abrevehookabove.ss14;
-sub abrevehookabove.rcltBase by abrevehookabove.ss14;
-sub abrevetilde.rcltA11y by abrevetilde.ss14;
-sub abrevetilde.rcltBase by abrevetilde.ss14;
-sub acircumflex.rcltA11y by acircumflex.ss14;
-sub acircumflex.rcltBase by acircumflex.ss14;
-sub acircumflexacute.rcltA11y by acircumflexacute.ss14;
-sub acircumflexacute.rcltBase by acircumflexacute.ss14;
-sub acircumflexdotbelow.rcltA11y by acircumflexdotbelow.ss14;
-sub acircumflexdotbelow.rcltBase by acircumflexdotbelow.ss14;
-sub acircumflexgrave.rcltA11y by acircumflexgrave.ss14;
-sub acircumflexgrave.rcltBase by acircumflexgrave.ss14;
-sub acircumflexhookabove.rcltA11y by acircumflexhookabove.ss14;
-sub acircumflexhookabove.rcltBase by acircumflexhookabove.ss14;
-sub acircumflextilde.rcltA11y by acircumflextilde.ss14;
-sub acircumflextilde.rcltBase by acircumflextilde.ss14;
-sub adieresis.rcltA11y by adieresis.ss14;
-sub adieresis.rcltBase by adieresis.ss14;
-sub adotbelow.rcltA11y by adotbelow.ss14;
-sub adotbelow.rcltBase by adotbelow.ss14;
-sub agrave.rcltA11y by agrave.ss14;
-sub agrave.rcltBase by agrave.ss14;
-sub ahookabove.rcltA11y by ahookabove.ss14;
-sub ahookabove.rcltBase by ahookabove.ss14;
-sub ainvertedbreve.rcltA11y by ainvertedbreve.ss14;
-sub ainvertedbreve.rcltBase by ainvertedbreve.ss14;
-sub amacron.rcltA11y by amacron.ss14;
-sub amacron.rcltBase by amacron.ss14;
-sub aogonek.rcltA11y by aogonek.ss14;
-sub aogonek.rcltBase by aogonek.ss14;
-sub aring.rcltA11y by aring.ss14;
-sub aring.rcltBase by aring.ss14;
-sub atilde.rcltA11y by atilde.ss14;
-sub atilde.rcltBase by atilde.ss14;
-sub l.rcltA11y by l.ss14;
-sub lacute.rcltA11y by lacute.ss14;
-sub lcaron.rcltA11y by lcaron.ss14;
-sub lcommaaccent.rcltA11y by lcommaaccent.ss14;
-sub lcommaaccent.loclMAH.rcltA11y by lcommaaccent.loclMAH.ss14;
-sub ldot.rcltA11y by ldot.ss14;
-sub ldotbelow.rcltA11y by ldotbelow.ss14;
-sub ldotbelowmacron.rcltA11y by ldotbelowmacron.ss14;
-sub lmacronbelow.rcltA11y by lmacronbelow.ss14;
-sub lslash.rcltA11y by lslash.ss14;";
+sub I.rcltA11y by I.ss18;
+sub Iacute.rcltA11y by Iacute.ss18;
+sub Icircumflex.rcltA11y by Icircumflex.ss18;
+sub Idieresis.rcltA11y by Idieresis.ss18;
+sub Idotaccent.rcltA11y by Idotaccent.ss18;
+sub Idotbelow.rcltA11y by Idotbelow.ss18;
+sub Igrave.rcltA11y by Igrave.ss18;
+sub Ihookabove.rcltA11y by Ihookabove.ss18;
+sub Iinvertedbreve.rcltA11y by Iinvertedbreve.ss18;
+sub Imacron.rcltA11y by Imacron.ss18;
+sub Iogonek.rcltA11y by Iogonek.ss18;
+sub Itilde.rcltA11y by Itilde.ss18;
+sub IJ.rcltA11y by IJ.ss18;
+sub IJacute.rcltA11y by IJacute.ss18;
+sub a.rcltA11y by a.ss18;
+sub a.rcltBase by a.ss18;
+sub aacute.rcltA11y by aacute.ss18;
+sub aacute.rcltBase by aacute.ss18;
+sub abreve.rcltA11y by abreve.ss18;
+sub abreve.rcltBase by abreve.ss18;
+sub abreveacute.rcltA11y by abreveacute.ss18;
+sub abreveacute.rcltBase by abreveacute.ss18;
+sub abrevedotbelow.rcltA11y by abrevedotbelow.ss18;
+sub abrevedotbelow.rcltBase by abrevedotbelow.ss18;
+sub abrevegrave.rcltA11y by abrevegrave.ss18;
+sub abrevegrave.rcltBase by abrevegrave.ss18;
+sub abrevehookabove.rcltA11y by abrevehookabove.ss18;
+sub abrevehookabove.rcltBase by abrevehookabove.ss18;
+sub abrevetilde.rcltA11y by abrevetilde.ss18;
+sub abrevetilde.rcltBase by abrevetilde.ss18;
+sub acircumflex.rcltA11y by acircumflex.ss18;
+sub acircumflex.rcltBase by acircumflex.ss18;
+sub acircumflexacute.rcltA11y by acircumflexacute.ss18;
+sub acircumflexacute.rcltBase by acircumflexacute.ss18;
+sub acircumflexdotbelow.rcltA11y by acircumflexdotbelow.ss18;
+sub acircumflexdotbelow.rcltBase by acircumflexdotbelow.ss18;
+sub acircumflexgrave.rcltA11y by acircumflexgrave.ss18;
+sub acircumflexgrave.rcltBase by acircumflexgrave.ss18;
+sub acircumflexhookabove.rcltA11y by acircumflexhookabove.ss18;
+sub acircumflexhookabove.rcltBase by acircumflexhookabove.ss18;
+sub acircumflextilde.rcltA11y by acircumflextilde.ss18;
+sub acircumflextilde.rcltBase by acircumflextilde.ss18;
+sub adieresis.rcltA11y by adieresis.ss18;
+sub adieresis.rcltBase by adieresis.ss18;
+sub adotbelow.rcltA11y by adotbelow.ss18;
+sub adotbelow.rcltBase by adotbelow.ss18;
+sub agrave.rcltA11y by agrave.ss18;
+sub agrave.rcltBase by agrave.ss18;
+sub ahookabove.rcltA11y by ahookabove.ss18;
+sub ahookabove.rcltBase by ahookabove.ss18;
+sub ainvertedbreve.rcltA11y by ainvertedbreve.ss18;
+sub ainvertedbreve.rcltBase by ainvertedbreve.ss18;
+sub amacron.rcltA11y by amacron.ss18;
+sub amacron.rcltBase by amacron.ss18;
+sub aogonek.rcltA11y by aogonek.ss18;
+sub aogonek.rcltBase by aogonek.ss18;
+sub aring.rcltA11y by aring.ss18;
+sub aring.rcltBase by aring.ss18;
+sub atilde.rcltA11y by atilde.ss18;
+sub atilde.rcltBase by atilde.ss18;
+sub l.rcltA11y by l.ss18;
+sub lacute.rcltA11y by lacute.ss18;
+sub lcaron.rcltA11y by lcaron.ss18;
+sub lcommaaccent.rcltA11y by lcommaaccent.ss18;
+sub lcommaaccent.loclMAH.rcltA11y by lcommaaccent.loclMAH.ss18;
+sub ldot.rcltA11y by ldot.ss18;
+sub ldotbelow.rcltA11y by ldotbelow.ss18;
+sub ldotbelowmacron.rcltA11y by ldotbelowmacron.ss18;
+sub lmacronbelow.rcltA11y by lmacronbelow.ss18;
+sub lslash.rcltA11y by lslash.ss18;";
 labels = (
 {
 language = dflt;
 value = "A11Y I l a";
 }
 );
-tag = ss14;
+tag = ss18;
 },
 {
-code = "sub l by l.ss16;
-sub lacute by lacute.ss16;
-sub lcaron by lcaron.ss16;
-sub lcommaaccent by lcommaaccent.ss16;
-sub lcommaaccent.loclMAH by lcommaaccent.loclMAH.ss16;
-sub ldot by ldot.ss16;
-sub ldotbelow by ldotbelow.ss16;
-sub ldotbelowmacron by ldotbelowmacron.ss16;
-sub lmacronbelow by lmacronbelow.ss16;
-sub lslash by lslash.ss16;
+code = "sub l by l.ss19;
+sub lacute by lacute.ss19;
+sub lcaron by lcaron.ss19;
+sub lcommaaccent by lcommaaccent.ss19;
+sub lcommaaccent.loclMAH by lcommaaccent.loclMAH.ss19;
+sub ldot by ldot.ss19;
+sub ldotbelow by ldotbelow.ss19;
+sub ldotbelowmacron by ldotbelowmacron.ss19;
+sub lmacronbelow by lmacronbelow.ss19;
+sub lslash by lslash.ss19;
 # rclt-state coverage
-sub l.rcltA11y by l.ss16;
-sub lacute.rcltA11y by lacute.ss16;
-sub lcaron.rcltA11y by lcaron.ss16;
-sub lcommaaccent.rcltA11y by lcommaaccent.ss16;
-sub lcommaaccent.loclMAH.rcltA11y by lcommaaccent.loclMAH.ss16;
-sub ldot.rcltA11y by ldot.ss16;
-sub ldotbelow.rcltA11y by ldotbelow.ss16;
-sub ldotbelowmacron.rcltA11y by ldotbelowmacron.ss16;
-sub lmacronbelow.rcltA11y by lmacronbelow.ss16;
-sub lslash.rcltA11y by lslash.ss16;";
+sub l.rcltA11y by l.ss19;
+sub lacute.rcltA11y by lacute.ss19;
+sub lcaron.rcltA11y by lcaron.ss19;
+sub lcommaaccent.rcltA11y by lcommaaccent.ss19;
+sub lcommaaccent.loclMAH.rcltA11y by lcommaaccent.loclMAH.ss19;
+sub ldot.rcltA11y by ldot.ss19;
+sub ldotbelow.rcltA11y by ldotbelow.ss19;
+sub ldotbelowmacron.rcltA11y by ldotbelowmacron.ss19;
+sub lmacronbelow.rcltA11y by lmacronbelow.ss19;
+sub lslash.rcltA11y by lslash.ss19;";
 labels = (
 {
 language = dflt;
 value = "Constructed l";
 }
 );
-tag = ss16;
+tag = ss19;
+},
+{
+code = "sub Z by Z.ss20;
+sub Zacute by Zacute.ss20;
+sub Zcaron by Zcaron.ss20;
+sub Zdotaccent by Zdotaccent.ss20;
+sub Zdotbelow by Zdotbelow.ss20;
+sub Zmacronbelow by Zmacronbelow.ss20;
+sub z by z.ss20;
+sub zacute by zacute.ss20;
+sub zcaron by zcaron.ss20;
+sub zdotaccent by zdotaccent.ss20;
+sub zdotbelow by zdotbelow.ss20;
+sub zmacronbelow by zmacronbelow.ss20;
+sub one by one.ss20;
+sub one.lf by one.lf.ss20;
+sub one.tf by one.tf.ss20;
+sub one.dnom by one.dnom.ss20;
+sub one.numr by one.numr.ss20;
+sub oneinferior by oneinferior.ss20;
+sub onesuperior by onesuperior.ss20;
+sub two by two.ss20;
+sub two.lf by two.lf.ss20;
+sub two.tf by two.tf.ss20;
+sub two.dnom by two.dnom.ss20;
+sub two.numr by two.numr.ss20;
+sub twoinferior by twoinferior.ss20;
+sub twosuperior by twosuperior.ss20;
+sub four by four.ss20;
+sub four.lf by four.lf.ss20;
+sub four.tf by four.tf.ss20;
+sub four.dnom by four.dnom.ss20;
+sub four.numr by four.numr.ss20;
+sub fourinferior by fourinferior.ss20;
+sub foursuperior by foursuperior.ss20;
+sub seven by seven.ss20;
+sub seven.disp by seven.disp.ss20;
+sub seven.lf by seven.lf.ss20;
+sub seven.tf by seven.tf.ss20;
+sub seven.dnom by seven.dnom.ss20;
+sub seven.numr by seven.numr.ss20;
+sub seveninferior by seveninferior.ss20;
+sub sevensuperior by sevensuperior.ss20;
+sub one.lf.rcltGeo by one.lf.ss20;
+sub one.rcltGeo by one.ss20;
+sub one.tf.rcltGeo by one.tf.ss20;
+";
+labels = (
+{
+language = dflt;
+value = "Horizontal Sharps";
+}
+);
+tag = ss20;
 },
 {
 automatic = 1;
@@ -4208,7 +4452,7 @@ over = -13;
 pos = -230;
 },
 {
-pos = -9.5;
+pos = 9.5;
 }
 );
 name = "10 Italic";
@@ -4301,7 +4545,7 @@ over = -13;
 pos = -230;
 },
 {
-pos = -9.5;
+pos = 9.5;
 }
 );
 name = "10 Bold Italic";
@@ -4393,7 +4637,7 @@ over = -13;
 pos = -230;
 },
 {
-pos = -9.5;
+pos = 9.5;
 }
 );
 name = "45 Italic";
@@ -4486,7 +4730,7 @@ over = -13;
 pos = -230;
 },
 {
-pos = -9.5;
+pos = 9.5;
 }
 );
 name = "45 Bold Italic";
@@ -29947,7 +30191,7 @@ zero = -10;
 "@MMK_R_questiondown" = -144;
 "@MMK_R_quoteright" = 10;
 "@MMK_R_seven" = 9;
-M.ss09 = -60;
+M.ss12 = -60;
 ampersand = -51;
 cent = -41;
 equal = -41;
@@ -32411,7 +32655,7 @@ zero = -10.28;
 "@MMK_R_questiondown" = -143.92;
 "@MMK_R_quoteright" = 10.28;
 "@MMK_R_seven" = 41.12;
-M.ss09 = -60;
+M.ss12 = -60;
 ampersand = -51.4;
 cent = -41.12;
 equal = -41.12;
@@ -40293,7 +40537,7 @@ zero = -10;
 "@MMK_R_questiondown" = -144;
 "@MMK_R_quoteright" = 10;
 "@MMK_R_seven" = 9;
-M.ss09 = -60;
+M.ss12 = -60;
 ampersand = -51;
 cent = -41;
 equal = -41;
@@ -42757,7 +43001,7 @@ zero = -10.28;
 "@MMK_R_questiondown" = -143.92;
 "@MMK_R_quoteright" = 10.28;
 "@MMK_R_seven" = 41.12;
-M.ss09 = -60;
+M.ss12 = -60;
 ampersand = -51.4;
 cent = -41.12;
 equal = -41.12;
