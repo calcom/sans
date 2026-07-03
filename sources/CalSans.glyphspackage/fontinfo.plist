@@ -3859,7 +3859,16 @@ sub ldot.rcltA11y by ldot.ss18;
 sub ldotbelow.rcltA11y by ldotbelow.ss18;
 sub ldotbelowmacron.rcltA11y by ldotbelowmacron.ss18;
 sub lmacronbelow.rcltA11y by lmacronbelow.ss18;
-sub lslash.rcltA11y by lslash.ss18;";
+sub lslash.rcltA11y by lslash.ss18;sub ae by ae.ss03;
+sub aemacron by aemacron.ss03;
+sub ordfeminine by ordfeminine.ss03;
+sub g by g.rcltA11y;
+sub gbreve by gbreve.rcltA11y;
+sub gcircumflex by gcircumflex.rcltA11y;
+sub gcommaaccent by gcommaaccent.rcltA11y;
+sub gdotaccent by gdotaccent.rcltA11y;
+sub gmacron by gmacron.rcltA11y;
+";
 labels = (
 {
 language = dflt;
