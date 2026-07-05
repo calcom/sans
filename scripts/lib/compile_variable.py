@@ -1,9 +1,16 @@
 """Run fontmake to compile the variable fonts (main build + Flex), then hand the result to the
 post-compile fix-ups in postprocess.py (GEOM band merge, default shift, STAT/instance names)."""
 import os
+import sys
 import shutil
 import subprocess
 from pathlib import Path
+
+# Always invoke the fontmake of the interpreter running this pipeline (the venv),
+# NOT a bare "fontmake" off PATH — a stale system install (older glyphsLib) keys
+# brace-layer sources by raw name, silently dropping empty-named intermediate
+# (SHRP etc.) layers. See the positional-figures SHRP regression.
+FONTMAKE = [sys.executable, "-m", "fontmake"]
 
 from scripts.lib.postprocess import (merge_gsub_feature_variations, shift_axis_defaults,
                                       build_stat_and_instance_names, stamp_distribution_sha)
@@ -17,7 +24,7 @@ def run_fontmake_variable(ready_path: str, build_dir: str):
 
     print("🔨 Building variable font...")
     result = subprocess.run(
-        ["fontmake", "-g", ready_path, "-o", "variable",
+        [*FONTMAKE, "-g", ready_path, "-o", "variable",
          "--output-dir", f"{build_dir}/variable",
          "--master-dir", f"{build_dir}/master_ufo",
          "--filter", "FlattenComponentsFilter",
@@ -47,7 +54,7 @@ def run_fontmake_flex(flex_path: str, build_dir: str) -> str:
 
     print("🪄 Compiling HOI (Flex) variable font...")
     result = subprocess.run(
-        ["fontmake", "-g", flex_path, "-o", "variable",
+        [*FONTMAKE, "-g", flex_path, "-o", "variable",
          "--output-dir", out_dir, "--master-dir", f"{build_dir}/flex_ufo",
          "--filter", "FlattenComponentsFilter"],
         capture_output=True, text=True,

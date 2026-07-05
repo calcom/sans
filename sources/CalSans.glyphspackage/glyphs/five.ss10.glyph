@@ -1,5 +1,7 @@
 {
 glyphname = five.ss10;
+kernLeft = five;
+kernRight = five;
 layers = (
 {
 layerId = "0B84D982-BA46-4CB9-89EB-4BEFB54BBE92";

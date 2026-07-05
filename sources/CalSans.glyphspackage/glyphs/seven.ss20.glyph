@@ -1,5 +1,7 @@
 {
 glyphname = seven.ss20;
+kernLeft = seven;
+kernRight = seven;
 layers = (
 {
 hints = (

@@ -1,7 +1,7 @@
 {
 glyphname = seven.lf;
 kernLeft = seven;
-kernRight = V;
+kernRight = seven;
 layers = (
 {
 layerId = m006;

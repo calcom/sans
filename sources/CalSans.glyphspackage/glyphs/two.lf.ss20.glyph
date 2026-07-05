@@ -1,5 +1,7 @@
 {
 glyphname = two.lf.ss20;
+kernLeft = two;
+kernRight = two;
 layers = (
 {
 hints = (

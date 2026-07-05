@@ -3,6 +3,12 @@ color = 4;
 glyphname = zero;
 layers = (
 {
+anchors = (
+{
+name = center;
+pos = (357,364);
+}
+);
 background = {
 shapes = (
 {
@@ -192,6 +198,12 @@ nodes = (
 width = 713;
 },
 {
+anchors = (
+{
+name = center;
+pos = (331,364);
+}
+);
 background = {
 shapes = (
 {
@@ -454,6 +466,12 @@ nodes = (
 width = 661;
 },
 {
+anchors = (
+{
+name = center;
+pos = (329,364);
+}
+);
 background = {
 shapes = (
 {
@@ -598,6 +616,12 @@ nodes = (
 width = 657;
 },
 {
+anchors = (
+{
+name = center;
+pos = (301,364);
+}
+);
 hints = (
 {
 horizontal = 1;
@@ -666,6 +690,12 @@ nodes = (
 width = 601;
 },
 {
+anchors = (
+{
+name = center;
+pos = (343,364);
+}
+);
 background = {
 hints = (
 {
@@ -732,6 +762,12 @@ nodes = (
 }
 );
 };
+guides = (
+{
+angle = 80.5;
+pos = (321,235);
+}
+);
 layerId = "0DDD66F2-BE4C-471A-8E86-2163424A6CF0";
 shapes = (
 {
@@ -776,6 +812,12 @@ nodes = (
 width = 657;
 },
 {
+anchors = (
+{
+name = center;
+pos = (318,364);
+}
+);
 background = {
 hints = (
 {
@@ -842,6 +884,12 @@ nodes = (
 }
 );
 };
+guides = (
+{
+angle = 80.5;
+pos = (296,235);
+}
+);
 layerId = "CC8ADC1C-440E-49BA-9C42-2F7F780CE9BF";
 shapes = (
 {
@@ -886,6 +934,12 @@ nodes = (
 width = 601;
 },
 {
+anchors = (
+{
+name = center;
+pos = (373,364);
+}
+);
 background = {
 hints = (
 {
@@ -959,6 +1013,12 @@ pos = (-17339,-6107);
 scale = (13.4227,13.4227);
 slant = (59.1385,0);
 };
+guides = (
+{
+angle = 80.5;
+pos = (351,235);
+}
+);
 layerId = "FA9346B6-A16F-4CF3-996A-4A8FD0AD301D";
 shapes = (
 {
@@ -1003,6 +1063,12 @@ nodes = (
 width = 713;
 },
 {
+anchors = (
+{
+name = center;
+pos = (346,364);
+}
+);
 background = {
 hints = (
 {
@@ -1069,6 +1135,12 @@ nodes = (
 }
 );
 };
+guides = (
+{
+angle = 80.5;
+pos = (324,235);
+}
+);
 layerId = "33BF50A0-DEC8-4619-95BB-DD23FBD7FB0B";
 shapes = (
 {

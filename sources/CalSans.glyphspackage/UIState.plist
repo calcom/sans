@@ -1,6 +1,20 @@
 {
 displayStrings = (
-"/M.rcltGeo EDIU/M.rcltGeo a
+"/g.rcltA11y  cv09
+/I.rcltA11y  cv12
+/l.rcltA11y  cv15
+
+
+lalblcldlelflglhliljlklllmlnlolplqlrlsltlulvlwlxlylzl 
+fZh gAh gBh gCh gDh gEh gFh gGh gHh gIh gJh gKh gLh gMh gNh gOh gPh gQh gRh gSh gTh gUh gVh gWh gXh gYh gZh hAh hBh hCh gagbgcgdgegfggghgigjgkglgmgngogpgqgrgsgtgugvgwgxgygzg
+−A−B−C−D−E−F−G−H−I−J−K−L−M−N−O−P−Q−R−S−T−U−V−W−X−Y−Z−Æ−Ð−Ŋ−Þ−
+lAh lBh lCh lDh lEh lFh lGh lHh lIh lJh lKh lLh lMh lNh lOh lPh lQh lRh lSh lTh lUh lVh lWh lXh lYh lZh
+ly
+IJIKILIMINIOIPIQIRISITIUIVIWIXIYIZI
+IAIBICIDIEIFIGIHIIIJIKILIMINIOIPIQIRISITIUIVIWIXIYIZI 
+
+
+/M.rcltGeo EDIU/M.rcltGeo a
 ÆAPŒ/I.rcltA11y əïĩ/t.rcltGeo/f_f_i/f_f_l/f_t ﬁﬂ/f_f_i.rcltBase/f_f_l.rcltBase/f_t.rcltBase/fi.rcltBase/fl.rcltBase/f_t.rcltGeo/f_f_i.ss11/f_f_l.ss11/f_t.ss11/fi.ss11/fl.ss11 ₲̣̤̦̈̇̏̒/dieresiscomb.case 
 A/l.rcltA11y/I.rcltA11y/IJ.rcltA11y/Iacute.rcltA11y/Icircumflex.rcltA11y/Idieresis.rcltA11y/Idotaccent.rcltA11y/Idotbelow.rcltA11y/Igrave.rcltA11y/Ihookabove.rcltA11y/Iinvertedbreve.rcltA11y/Imacron.rcltA11y/Iogonek.rcltA11y/Itilde.rcltA11y/IJacute/IJacute.rcltA11y 
 /six.rclt1/tittle/dotaccentcomb.case 
@@ -167,7 +181,7 @@ G/guarani.rcltGeo
 /G.ss06/Gbreve.ss06/Gmacron.ss06 ₲G₲/guarani.ss06/Gdotaccent.ss06/Gcircumflex.ss06/Gcommaaccent.ss06  /guarani.tf.ss06 
 1/one.rcltGeo 2345/five.rcltGeo 6/six.rclt3/six.rclt2/six.rclt1/nine.rclt1/nine.rclt2/nine.rclt3 9780/zero.rcltGeo 
 ⁄  ₉
-H¹/onesuperior.rcltGeo ²³⁴/five.dnom/fivesuperior.rcltGeo ⁶/sixsuperior.rclt3/sixsuperior.rclt2/sixsuperior.rclt1 ⁷⁸⁰/zerosuperior.rcltGeo  /zerosuperior.rcltGeo/onesuperior.rcltGeo/fivesuperior.rcltGeo  
+H¹/onesuperior.rcltGeo ²³⁴/fivesuperior.rcltGeo ⁶/sixsuperior.rclt3/sixsuperior.rclt2/sixsuperior.rclt1 ⁷⁸⁰/zerosuperior.rcltGeo  /zerosuperior.rcltGeo/onesuperior.rcltGeo/fivesuperior.rcltGeo  
 H/one.numr.rcltGeo/one.numr/two.numr/three.numr/four.numr/five.numr/five.numr.rcltGeo/six.numr/six.numr.rclt3/six.numr.rclt2/six.numr.rclt1/seven.numr/eight.numr/zero.numr/zero.numr.rcltGeo  /zero.numr.rcltGeo/one.numr.rcltGeo/five.numr.rcltGeo  
 H/one.dnom/one.dnom.rcltGeo/two.dnom/three.dnom/four.dnom ⁵/five.dnom.rcltGeo/six.dnom/six.dnom.rclt3/six.dnom.rclt2/six.dnom.rclt1/seven.dnom/eight.dnom/zero.dnom/zero.dnom.rcltGeo  /zero.dnom.rcltGeo/one.dnom.rcltGeo/five.dnom.rcltGeo  
 H₁/oneinferior.rcltGeo ₂₃₄₅/fiveinferior.rcltGeo ₆/sixinferior.rclt3/sixinferior.rclt2/sixinferior.rclt1 ₇₈₀/zeroinferior.rcltGeo  /zeroinferior.rcltGeo/oneinferior.rcltGeo/fiveinferior.rcltGeo  
@@ -208,6 +222,7 @@ r3
 u H↑H↗→↘↓↙←↖↔↕  
 e : ;  ( )̣/I.rcltA11y ̣/Idotbelow.rcltA11y 
 abdgk
+⅓/onethird.rcltGeo ⅔/twothirds.rcltGeo/onethird.ss10/twothirds.ss10 
 ¢/cent.tf ¤§§«»Æ ŀ/ldot.rcltA11y 
 ÷þ /circumflexcomb.case ̆/brevecomb.case ʻ̧GĞ “”‘’
 ı̨į œk /ae.rcltBase   ΛA  /lambda.rcltGeo/lambda.rcltBase λ  y/y.rcltBase/y.rcltGeo 
@@ -228,6 +243,27 @@ AVΛ /lambda.rcltGeo/lambda.rcltBase λ
 "/tittle  ̣̇./tittle ÷̈̇/dieresiscomb.case/dotaccentcomb.case 
 ",
 "AVΛ /lambda.rcltGeo/lambda.rcltBase λ
-/y.rcltBase  /y.rcltGeo  y ∕ξ ()"
+/y.rcltBase  /y.rcltGeo  y ∕ξ ()",
+"k5⁵₅
+³/three.numr",
+"/zero.dnom/one.dnom/two.dnom/three.dnom/four.dnom/five.dnom.rcltGeo/five.dnom.ss10/six.dnom/seven.dnom/eight.dnom/nine.dnom/zero.numr/one.numr/two.numr/three.numr/four.numr/five.numr/six.numr/seven.numr/eight.numr/nine.numr/six.dnom.rclt1/nine.dnom.rclt1/six.numr.rclt1/nine.numr.rclt1/six.dnom.rclt2/nine.dnom.rclt2/six.numr.rclt2/nine.numr.rclt2/six.dnom.rclt3/nine.dnom.rclt3/six.numr.rclt3/nine.numr.rclt3/zero.dnom.rcltGeo/one.dnom.rcltGeo/five.dnom.rcltGeo/zero.numr.rcltGeo/one.numr.rcltGeo/five.numr.rcltGeo/zero.dnom.ss10/one.dnom.ss10/five.dnom.ss10/zero.numr.ss10/one.numr.ss10/five.numr.ss10/six.dnom.ss16/nine.dnom.ss16/six.numr.ss16/nine.numr.ss16/six.dnom.ss17/nine.dnom.ss17/six.numr.ss17/nine.numr.ss17/one.dnom.ss20/two.dnom.ss20/four.dnom.ss20/seven.dnom.ss20/one.numr.ss20/two.numr.ss20/four.numr.ss20/seven.numr.ss20 ₀₁₂₃₄₅₆₇₈₉⁰¹²³⁴/five.dnom ⁶⁷⁸⁹/sixinferior.rclt1/nineinferior.rclt1/sixsuperior.rclt1/ninesuperior.rclt1/sixinferior.rclt2/nineinferior.rclt2/sixsuperior.rclt2/ninesuperior.rclt2/sixinferior.rclt3/nineinferior.rclt3/sixsuperior.rclt3/ninesuperior.rclt3/zeroinferior.rcltGeo/oneinferior.rcltGeo/fiveinferior.rcltGeo/zerosuperior.rcltGeo/onesuperior.rcltGeo/fivesuperior.rcltGeo/zeroinferior.ss10/oneinferior.ss10/fiveinferior.ss10/zerosuperior.ss10/onesuperior.ss10/fivesuperior.ss10/sixinferior.ss16/nineinferior.ss16/sixsuperior.ss16/ninesuperior.ss16/sixinferior.ss17/nineinferior.ss17/sixsuperior.ss17/ninesuperior.ss17/oneinferior.ss20/twoinferior.ss20/fourinferior.ss20/seveninferior.ss20/onesuperior.ss20/twosuperior.ss20/foursuperior.ss20/sevensuperior.ss20 
+
+5/five.lf/five.tf/five.rcltGeo/five.ss10/five.lf.rcltGeo/five.tf.rcltGeo 
+₅/five.dnom ⁵/five.numr/fiveinferior.rcltGeo/fiveinferior.ss10/five.dnom.rcltGeo/five.dnom.ss10/five.numr.rcltGeo/five.numr.ss10/fivesuperior.rcltGeo/fivesuperior.ss10 
+/fiveeighths.rcltGeo  /fiveeighths.ss10  
+
+onehalf.ss20  onequarter.ss20 onethird.ss20 twothirds.ss20 oneeighth.ss20
+/onehalf.ss20  /onequarter.ss20  /onethird.ss20  /twothirds.ss20  /oneeighth.ss20 
+/onehalf.ss10.ss20/onequarter.ss10.ss20/onethird.ss10.ss20/twothirds.ss10.ss20/oneeighth.ss10.ss20 
+",
+"
+A11y/I.rcltA11y talic
+/five.ss10.ss20/five.lf.ss10.ss20 
+/five.tf.ss10.ss20/five.tf.rcltGeo.ss20/fiveinferior.ss10.ss20/five.dnom.rcltGeo.ss20/five.dnom.ss10.ss20/five.numr.rcltGeo.ss20/five.numr.ss10.ss20/fivesuperior.rcltGeo.ss20/fivesuperior.ss10.ss20/fiveeighths.rcltGeo.ss20/fiveeighths.ss10.ss20 
+/five.rcltGeo.ss20/five.lf.rcltGeo.ss20 
+/five.ss20/five.lf.ss20 ỵ/ydotbelow.rcltBase/ydotbelow.rcltGeo 
+/verticalTopCurrencycomb ฿₿$₲/guarani.rcltGeo/guarani.tf/guarani.tf.rcltGeo ₿/bitcoin.tf 
+a0/zero.zero/_zeroslashcomb 
+/one.disp"
 );
 }

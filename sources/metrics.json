@@ -243,7 +243,7 @@
                 "@MMK_R_minute": -70,
                 "@MMK_R_nine": -50,
                 "@MMK_R_o": -20,
-                "@MMK_R_one": -30,
+                "@MMK_R_one": -50,
                 "@MMK_R_period": 10,
                 "@MMK_R_quoteleft": -100,
                 "@MMK_R_quoteright": -60,
@@ -467,8 +467,14 @@
                 "@MMK_R_V": -20,
                 "@MMK_R_W": -10,
                 "@MMK_R_Y": -10,
+                "@MMK_R_g.rcltA11y": -20,
                 "@MMK_R_questiondown": -20,
                 "@MMK_R_seven": 0
+            },
+            "@MMK_L_I.rcltA11y": {
+                "@MMK_R_O": -65,
+                "@MMK_R_S": -40,
+                "@MMK_R_t": -50
             },
             "@MMK_L_K": {
                 "@MMK_R_A": 45,
@@ -569,6 +575,7 @@
             "@MMK_L_O": {
                 "@MMK_R_A": -40,
                 "@MMK_R_AE": -95,
+                "@MMK_R_I.rcltA11y": -60,
                 "@MMK_R_J": -85,
                 "@MMK_R_S": -20,
                 "@MMK_R_T": -55,
@@ -619,6 +626,7 @@
             "@MMK_L_P": {
                 "@MMK_R_A": -75,
                 "@MMK_R_AE": -145,
+                "@MMK_R_I.rcltA11y": -60,
                 "@MMK_R_J": -125,
                 "@MMK_R_S": -20,
                 "@MMK_R_T": -5,
@@ -685,6 +693,7 @@
             "@MMK_L_S": {
                 "@MMK_R_A": -10,
                 "@MMK_R_AE": -30,
+                "@MMK_R_I.rcltA11y": -40,
                 "@MMK_R_J": -30,
                 "@MMK_R_O": -5,
                 "@MMK_R_S": -10,
@@ -1612,6 +1621,7 @@
                 "@MMK_R_Y": 60,
                 "@MMK_R_Z": 0,
                 "@MMK_R_four": -10,
+                "@MMK_R_g.rcltA11y": -20,
                 "@MMK_R_hbar": 41.958,
                 "@MMK_R_i": 14.985,
                 "@MMK_R_questiondown": -20,
@@ -1683,6 +1693,7 @@
                 "@MMK_R_Y": -85,
                 "@MMK_R_asterisk": -30,
                 "@MMK_R_f": -20,
+                "@MMK_R_g.rcltA11y": -20,
                 "@MMK_R_minute": -20,
                 "@MMK_R_one": -30,
                 "@MMK_R_quoteleft": -55,
@@ -2154,6 +2165,7 @@
                 "@MMK_R_Z": -50,
                 "@MMK_R_a": 10,
                 "@MMK_R_f": 0,
+                "@MMK_R_g.rcltA11y": -20,
                 "@MMK_R_hbar": 0,
                 "@MMK_R_l": 0,
                 "@MMK_R_minute": -20,
@@ -2208,7 +2220,7 @@
                 "@MMK_R_f": 15,
                 "@MMK_R_five": -25,
                 "@MMK_R_four": -50,
-                "@MMK_R_g.rcltA11y": -30,
+                "@MMK_R_g.rcltA11y": -60,
                 "@MMK_R_hyphen": -20,
                 "@MMK_R_o": -25,
                 "@MMK_R_one": -10,
@@ -3026,7 +3038,7 @@
                 "@MMK_R_minute": -67.932,
                 "@MMK_R_nine": -51.948,
                 "@MMK_R_o": -20.979,
-                "@MMK_R_one": -30.969,
+                "@MMK_R_one": -50,
                 "@MMK_R_period": 9.99,
                 "@MMK_R_quoteleft": -90,
                 "@MMK_R_quoteright": -72.927,
@@ -3247,8 +3259,12 @@
                 "@MMK_R_V": -20.979,
                 "@MMK_R_W": -9.99,
                 "@MMK_R_Y": -9.99,
+                "@MMK_R_g.rcltA11y": -10,
                 "@MMK_R_questiondown": -20.979,
                 "@MMK_R_seven": 0
+            },
+            "@MMK_L_I.rcltA11y": {
+                "@MMK_R_t": -50
             },
             "@MMK_L_K": {
                 "@MMK_R_A": 45.954,
@@ -4369,6 +4385,7 @@
                 "@MMK_R_Y": 61.938,
                 "@MMK_R_Z": 30.969,
                 "@MMK_R_four": -10,
+                "@MMK_R_g.rcltA11y": -20,
                 "@MMK_R_hbar": 41.958,
                 "@MMK_R_i": 0,
                 "@MMK_R_questiondown": -20.979,
@@ -4422,6 +4439,7 @@
                 "@MMK_R_Y": -86.913,
                 "@MMK_R_asterisk": -31.968,
                 "@MMK_R_f": -9.99,
+                "@MMK_R_g.rcltA11y": -10,
                 "@MMK_R_minute": -20.979,
                 "@MMK_R_one": -28.971,
                 "@MMK_R_quoteleft": -55,
@@ -4891,6 +4909,7 @@
                 "@MMK_R_Z": -51.948,
                 "@MMK_R_a": 9.99,
                 "@MMK_R_f": 0,
+                "@MMK_R_g.rcltA11y": -10,
                 "@MMK_R_hbar": 0,
                 "@MMK_R_l": 0,
                 "@MMK_R_minute": -20.979,
@@ -4946,7 +4965,7 @@
                 "@MMK_R_f": 13,
                 "@MMK_R_five": -26.973,
                 "@MMK_R_four": -51.948,
-                "@MMK_R_g.rcltA11y": -50,
+                "@MMK_R_g.rcltA11y": -60,
                 "@MMK_R_hyphen": -20.979,
                 "@MMK_R_o": -34.965,
                 "@MMK_R_one": -9.99,
@@ -5727,7 +5746,7 @@
                 "@MMK_R_minute": -67,
                 "@MMK_R_nine": -51,
                 "@MMK_R_o": -21,
-                "@MMK_R_one": -31,
+                "@MMK_R_one": -60,
                 "@MMK_R_period": 10,
                 "@MMK_R_quoteleft": -130,
                 "@MMK_R_quoteright": -61,
@@ -5959,6 +5978,9 @@
                 "@MMK_R_Y": 0,
                 "@MMK_R_questiondown": -21,
                 "@MMK_R_seven": 0
+            },
+            "@MMK_L_I.rcltA11y": {
+                "@MMK_R_t": -50
             },
             "@MMK_L_K": {
                 "@MMK_R_A": 46,
@@ -7176,7 +7198,7 @@
                 "@MMK_R_u": -20,
                 "@MMK_R_v": -55,
                 "@MMK_R_w": -50,
-                "@MMK_R_y": -40,
+                "@MMK_R_y": 0,
                 "periodcentered.loclCAT": -60
             },
             "@MMK_L_minute": {
@@ -8702,7 +8724,7 @@
                 "@MMK_R_minute": -66.82,
                 "@MMK_R_nine": -51.4,
                 "@MMK_R_o": -20.56,
-                "@MMK_R_one": -30.84,
+                "@MMK_R_one": -60,
                 "@MMK_R_period": 10.28,
                 "@MMK_R_quoteleft": -120,
                 "@MMK_R_quoteright": -71.96,
@@ -8861,6 +8883,9 @@
             },
             "@MMK_L_H": {
                 "@MMK_R_questiondown": -20.56
+            },
+            "@MMK_L_I.rcltA11y": {
+                "@MMK_R_t": -45
             },
             "@MMK_L_K": {
                 "@MMK_R_A": 46.26,
@@ -9733,7 +9758,6 @@
                 "@MMK_R_t": -40,
                 "@MMK_R_v": -70,
                 "@MMK_R_w": -50,
-                "@MMK_R_y": -60,
                 "periodcentered.loclCAT": -80
             },
             "@MMK_L_minute": {
@@ -10651,7 +10675,7 @@
                 "@MMK_R_minute": -67.932,
                 "@MMK_R_nine": -51.948,
                 "@MMK_R_o": -20,
-                "@MMK_R_one": -30.969,
+                "@MMK_R_one": -80,
                 "@MMK_R_period": 9.99,
                 "@MMK_R_quoteleft": -100,
                 "@MMK_R_quoteright": -62,
@@ -10871,8 +10895,12 @@
                 "@MMK_R_V": -20.979,
                 "@MMK_R_W": -9.99,
                 "@MMK_R_Y": -9.99,
+                "@MMK_R_g.rcltA11y": -20,
                 "@MMK_R_questiondown": -20.979,
                 "@MMK_R_seven": 0
+            },
+            "@MMK_L_I.rcltA11y": {
+                "@MMK_R_t": -50
             },
             "@MMK_L_K": {
                 "@MMK_R_A": 45.954,
@@ -12006,6 +12034,7 @@
                 "@MMK_R_Y": 61.938,
                 "@MMK_R_Z": 1.998,
                 "@MMK_R_four": -9.99,
+                "@MMK_R_g.rcltA11y": -30,
                 "@MMK_R_hbar": 41.958,
                 "@MMK_R_i": 14.985,
                 "@MMK_R_questiondown": -20.979,
@@ -12024,7 +12053,6 @@
                 "@MMK_R_t": -20,
                 "@MMK_R_v": -60,
                 "@MMK_R_w": -50,
-                "@MMK_R_y": -60,
                 "periodcentered.loclCAT": -80,
                 "six": -10
             },
@@ -12068,6 +12096,7 @@
                 "@MMK_R_Y": -86.913,
                 "@MMK_R_asterisk": -31.968,
                 "@MMK_R_f": -9.99,
+                "@MMK_R_g.rcltA11y": -20,
                 "@MMK_R_minute": -20.979,
                 "@MMK_R_one": -28.971,
                 "@MMK_R_quoteleft": -55,
@@ -12536,6 +12565,7 @@
                 "@MMK_R_Z": -51.948,
                 "@MMK_R_a": 9.99,
                 "@MMK_R_f": 0,
+                "@MMK_R_g.rcltA11y": -20,
                 "@MMK_R_hbar": 0,
                 "@MMK_R_l": 0,
                 "@MMK_R_minute": -20.979,
@@ -13372,7 +13402,7 @@
                 "@MMK_R_minute": -67.932,
                 "@MMK_R_nine": -51.948,
                 "@MMK_R_o": -20.979,
-                "@MMK_R_one": -30.969,
+                "@MMK_R_one": -80,
                 "@MMK_R_period": 9.99,
                 "@MMK_R_quoteleft": -90,
                 "@MMK_R_quoteright": -72.927,
@@ -13593,8 +13623,12 @@
                 "@MMK_R_V": -20.979,
                 "@MMK_R_W": -9.99,
                 "@MMK_R_Y": -9.99,
+                "@MMK_R_g.rcltA11y": -10,
                 "@MMK_R_questiondown": -20.979,
                 "@MMK_R_seven": 0
+            },
+            "@MMK_L_I.rcltA11y": {
+                "@MMK_R_t": -50
             },
             "@MMK_L_K": {
                 "@MMK_R_A": 45.954,
@@ -14715,6 +14749,7 @@
                 "@MMK_R_Y": 61.938,
                 "@MMK_R_Z": 30.969,
                 "@MMK_R_four": -10,
+                "@MMK_R_g.rcltA11y": -20,
                 "@MMK_R_hbar": 41.958,
                 "@MMK_R_i": 0,
                 "@MMK_R_questiondown": -20.979,
@@ -14768,6 +14803,7 @@
                 "@MMK_R_Y": -86.913,
                 "@MMK_R_asterisk": -31.968,
                 "@MMK_R_f": -9.99,
+                "@MMK_R_g.rcltA11y": -10,
                 "@MMK_R_minute": -20.979,
                 "@MMK_R_one": -28.971,
                 "@MMK_R_quoteleft": -55,
@@ -15237,6 +15273,7 @@
                 "@MMK_R_Z": -51.948,
                 "@MMK_R_a": 9.99,
                 "@MMK_R_f": 0,
+                "@MMK_R_g.rcltA11y": -10,
                 "@MMK_R_hbar": 0,
                 "@MMK_R_l": 0,
                 "@MMK_R_minute": -20.979,
@@ -16073,7 +16110,7 @@
                 "@MMK_R_minute": -67,
                 "@MMK_R_nine": -51,
                 "@MMK_R_o": -21,
-                "@MMK_R_one": -31,
+                "@MMK_R_one": -70,
                 "@MMK_R_period": 10,
                 "@MMK_R_quoteleft": -130,
                 "@MMK_R_quoteright": -61,
@@ -16305,6 +16342,9 @@
                 "@MMK_R_Y": 0,
                 "@MMK_R_questiondown": -21,
                 "@MMK_R_seven": 0
+            },
+            "@MMK_L_I.rcltA11y": {
+                "@MMK_R_t": -50
             },
             "@MMK_L_K": {
                 "@MMK_R_A": 46,
@@ -17522,7 +17562,6 @@
                 "@MMK_R_u": -20,
                 "@MMK_R_v": -55,
                 "@MMK_R_w": -50,
-                "@MMK_R_y": -40,
                 "periodcentered.loclCAT": -60
             },
             "@MMK_L_minute": {
@@ -19048,7 +19087,7 @@
                 "@MMK_R_minute": -66.82,
                 "@MMK_R_nine": -51.4,
                 "@MMK_R_o": -20.56,
-                "@MMK_R_one": -30.84,
+                "@MMK_R_one": -70,
                 "@MMK_R_period": 10.28,
                 "@MMK_R_quoteleft": -120,
                 "@MMK_R_quoteright": -71.96,
@@ -19207,6 +19246,9 @@
             },
             "@MMK_L_H": {
                 "@MMK_R_questiondown": -20.56
+            },
+            "@MMK_L_I.rcltA11y": {
+                "@MMK_R_t": -45
             },
             "@MMK_L_K": {
                 "@MMK_R_A": 46.26,
@@ -20079,7 +20121,6 @@
                 "@MMK_R_t": -40,
                 "@MMK_R_v": -70,
                 "@MMK_R_w": -50,
-                "@MMK_R_y": -60,
                 "periodcentered.loclCAT": -80
             },
             "@MMK_L_minute": {

@@ -176,6 +176,10 @@ def _instance_subfamily_name(coords) -> str:
         label = dict(tokens)[tok_id]
         if label:
             parts.append(label)
+    # RIBBI: the default "Regular" weight is implied once a style is present, so
+    # an Italic instance is "… Italic", never "… Regular Italic".
+    if "Italic" in parts and "Regular" in parts:
+        parts.remove("Regular")
     return " ".join(parts) if parts else "Regular"
 
 

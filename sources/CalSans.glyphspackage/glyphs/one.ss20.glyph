@@ -1,5 +1,7 @@
 {
 glyphname = one.ss20;
+kernLeft = one;
+kernRight = one;
 layers = (
 {
 anchors = (

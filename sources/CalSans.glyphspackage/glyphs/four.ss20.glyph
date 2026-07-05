@@ -1,5 +1,7 @@
 {
 glyphname = four.ss20;
+kernLeft = four;
+kernRight = four;
 layers = (
 {
 hints = (
