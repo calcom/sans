@@ -10,7 +10,7 @@ shapes = (
 ref = E;
 },
 {
-pos = (319,-14);
+pos = (313,-14);
 ref = caroncomb.case;
 }
 );
@@ -23,7 +23,7 @@ shapes = (
 ref = E;
 },
 {
-pos = (310,-14);
+pos = (307,-14);
 ref = caroncomb.case;
 }
 );
@@ -49,7 +49,7 @@ shapes = (
 ref = E;
 },
 {
-pos = (257,0);
+pos = (258,0);
 ref = caroncomb.case;
 }
 );
@@ -62,7 +62,7 @@ shapes = (
 ref = E;
 },
 {
-pos = (266,0);
+pos = (267,0);
 ref = caroncomb.case;
 }
 );
@@ -75,7 +75,7 @@ shapes = (
 ref = E;
 },
 {
-pos = (257,0);
+pos = (258,0);
 ref = caroncomb.case;
 }
 );
@@ -88,7 +88,7 @@ shapes = (
 ref = E;
 },
 {
-pos = (316,-14);
+pos = (310,-14);
 ref = caroncomb.case;
 }
 );
@@ -101,7 +101,7 @@ shapes = (
 ref = E;
 },
 {
-pos = (307,-14);
+pos = (304,-14);
 ref = caroncomb.case;
 }
 );
