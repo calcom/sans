@@ -56,10 +56,10 @@ Cal Sans (v1.000, 2021) was a single static weight built for display — tight, 
 
 ```sh
 # using npm
-npm install cal-sans
+npm install @calcom/cal-sans-ui
 
 # using yarn
-yarn add cal-sans
+yarn add @calcom/cal-sans-ui
 ```
 
 ## Example Usage
