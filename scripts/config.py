@@ -86,19 +86,74 @@ SHIPPING_DEFAULTS = {"opsz": 14, "GEOM": 25}
 # the same drawing cossui labels 32. var-full / gf-api / var-flex keep 8–45.
 COSSUI_OPSZ_MAX = 32
 
+# post.italicAngle for italic outputs. The source carries 9.5° on all four italic
+# masters, and that reaches hhea's caret slope (rise 1000 / run 167), but varLib has
+# no MVAR 'itlc' entry — italic angle cannot ride an axis into the variable font, so
+# every font instanced from it inherits post.italicAngle = 0. Injected per-style
+# instead (instance_statics._apply_static_names, release._set_style_names).
+# Negative per the OpenType spec: a right-leaning face has a negative angle.
+ITALIC_ANGLE = -9.5
+
 # gf-api: per the Google Fonts fvar spec, a variable font's named instances must be
 # Weight-only (Regular/Medium/SemiBold/Bold), each pinned at the shipping default of
 # every OTHER axis (GEOM=25, opsz=14 from SHIPPING_DEFAULTS; SHRP/YTAS/ital at their
 # fvar default). Default ON; set False to ship the full GEOM×opsz instance matrix.
-# ⚠️ Confirm with Dave whether differently-named GEOM instances are allowed into GF.
+# Settled with Dave (google/fonts#9970): GEOM-named instances stay out of GF — the
+# UI/Text position ships as its own second family instead (gf-api-textui below).
 GF_TRIM_INSTANCES = True
 GF_WEIGHT_INSTANCES = [(400, "Regular"), (500, "Medium"), (600, "SemiBold"), (700, "Bold")]
+
+# gf-api-textui: the second GF deliverable agreed in google/fonts#9970 — "Cal Sans
+# Text UI", a small-optical-size variable font with ONE active axis (wght 400–700),
+# shipped Roman + Italic like gf-api. Every other axis is baked at the Text UI
+# position, except YTAS which is raised 720→760 for this family:
+GF_TEXTUI_FAMILY = "Cal Sans Text UI"
+GF_TEXTUI_PINNED = {"opsz": 10, "GEOM": 25, "YTAS": 760, "SHRP": 0}
+# The curved l (l.rcltA11y) becomes the DEFAULT l for I/l differentiation — as a
+# glyph-identity change, not a feature: release.py retargets cmap at the curved
+# glyphs, renames them to the canonical names (l, lacute, …) on the final binary,
+# and keeps a small rclt backstop + locl-chain twins for straight glyphs GSUB
+# itself emits (see _make_curved_l_default / _save_with_curved_l_names). The
+# kerning/contextual rules for the curved forms already exist and bind by glyph.
+# The whole lowercase-l family goes, by COMPILED (production) glyph name:
+# uni013C lcommaaccent · uni1E37 ldotbelow · uni1E39 ldotbelowmacron ·
+# uni1E3B lmacronbelow. Uppercase I keeps its geometric form.
+# ldot (ŀ U+0140) is deliberately NOT swapped: ccmp decomposes it to l +
+# periodcentered.loclCAT — spaced/kerned as the long-term sub solution — and the
+# emitted straight l is then caught by the rclt backstop, so ŀ rides the swap
+# through its components exactly like typed l·.
+GF_TEXTUI_CURVED_L_GLYPHS = (
+    "l", "lacute", "lcaron", "lslash",
+    "uni013C", "uni013C.loclMAH", "uni1E37", "uni1E39", "uni1E3B",
+)
+GF_TEXTUI_ALT_SUFFIX = ".rcltA11y"
 
 # gf-api: axes to flag HIDDEN in fvar (parametric_axes_hidden). Only YTAS is a
 # parametric axis (its registry entry: "A parametric axis for varying the height of
 # lowercase ascenders") — GEOM (Geometric Form) and SHRP (Sharpness) are FEATURE axes
 # and stay user-visible. YTAS is also slaved to opsz via avar2 in the Flex build.
 GF_HIDDEN_AXES = ["YTAS"]
+
+# gasp — applied to EVERY compiled font, not just the GF deliverables. Glyphs has no
+# clean way to author this, so the pipeline writes it post-compile: version 1 with a
+# single 0xFFFF range set to 15 (GRIDFIT | DOGRAY | SYMMETRIC_GRIDFIT | SYMMETRIC_SMOOTHING),
+# i.e. "hint and antialias at every size". Deterministic here, and impossible to
+# re-edit by accident in the source.
+GASP_VERSION = 1
+GASP_RANGES  = {65535: 15}
+
+# gf vertical metrics. Three GF conformance fixes, applied to every GF deliverable:
+#  1. fsSelection bit 7 (USE_TYPO_METRICS). Without it Windows apps lay out from win
+#     (1024/245) while everyone else uses typo (900/245) — one font, two line heights.
+#     This is the only vertical-metrics FAIL in the GF check set.
+#  2. hhea mirrors win (1024 / -245). It currently copies typo, so mac and Windows
+#     disagree for the same reason. win is NOT lowered to meet hhea: YTAS pushes accents
+#     to 800, so the 1024 headroom has to stay or tall accents clip.
+#  3. sTypoLineGap 55. typo sums to 900 + 245 + 0 = 1145/1000 = 1.145 em; GF's house
+#     default is ~1.2, and 55 lands exactly on 1200 without moving a drawn outline.
+GF_USE_TYPO_METRICS = True
+GF_TYPO_LINE_GAP    = 55
+GF_HHEA_MIRRORS_WIN = True
 
 # gf-api version string (name/version_format): GF requires the "Version X.YYY" prefix.
 # Base version = head.fontRevision (the Glyphs Version field). A short git hash is

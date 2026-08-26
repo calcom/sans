@@ -1,10 +1,9 @@
-# Cal Sans Build Pipeline
+# calBuild
 
-Automated "Single Build Pipeline" for Cal Sans — a 6-axis variable font (`opsz`,
+The Cal Sans build pipeline: a single automated build for a 6-axis variable font (`opsz`,
 `GEOM`, `wght`, `YTAS`, `SHRP`, `ital`). The `scripts` package takes the
-hand-drawn Glyphs source and produces the variable font, ~192–384 static instances, and a set of
-curated release packages — all without ever modifying the source file. See
-[VISION.md](VISION.md) for the full design rationale and pipeline internals.
+hand-drawn Glyphs source and produces the variable font, 384 static instances (192 roman-only), and a set of
+curated release packages, all without ever modifying the source file.
 
 ## Setup
 
@@ -17,11 +16,11 @@ python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
 ```
-### Windows
+### Windows (PowerShell)
 
-```bash
-python3 -m venv venv
-source venv\Scripts\activate
+```powershell
+python -m venv venv
+.\venv\Scripts\Activate.ps1
 pip install -r requirements.txt
 ```
 
@@ -33,11 +32,11 @@ pip install -r requirements.txt
 - **uharfbuzz** — gives fontTools access to HarfBuzz's `hb.repack` table
   packer, which is needed to correctly resolve GPOS table overflow during
   compilation (without it, fontTools falls back to a legacy packer that
-  crashes on this font's large `@All`-class GPOS table — see VISION.md §6)
-- **brotli** — required by fontTools to write `.woff2` files (step 8/9
+  crashes on this font's large `@All`-class GPOS table)
+- **brotli** — required by fontTools to write `.woff2` files (step 9/10
   compresses the variable font and all static instances to WOFF2)
 
-## Running the build
+## Run the build
 
 ```bash
 python3 -m scripts
@@ -78,7 +77,7 @@ Useful flags:
    (so GEOM glyphs *interpolate* instead of hard-swapping), compiles a **second**
    variable font from that disposable `_FLEX` package, then applies avar2 + hides
    the YTAS axis + renames it to **Cal Sans Flex**. Flex-family only; the base
-   build keeps the discrete swaps. Skip with `--no-flex`. See VISION.md §8.
+   build keeps the discrete swaps. Skip with `--no-flex`.
 8. **Instance statics** — generates all static styles (384 with italics by
    default, or 192 roman-only with `--roman`) into `scripts/temp/static/`, baking
    the correct GEOM substitutions into each.
@@ -110,29 +109,29 @@ There are two output locations, serving different purposes:
   - `scripts/temp/variable/` — compiled variable font(s)
   - `scripts/temp/static/` — all instanced static styles (TTF + WOFF2)
 - **`fonts/`** — the final, curated, ready-to-ship release packages, sorted
-  from `scripts/temp/`'s output by step 9/9. **This directory is wiped and
-  regenerated from scratch on every run.** See VISION.md §7 for the full
-  rationale; the packages are:
+  from `scripts/temp/`'s output by step 10/10. **This directory is wiped and
+  regenerated from scratch on every run.** The packages are:
 
   | Package | Contents |
   |---------|----------|
   | `calsans-var-full` | The full variable font, all axes exposed |
-  | `calsans-var-flex` | **Cal Sans Flex** — the HOI variable-morph build: GEOM glyphs interpolate instead of hard-swapping, plus avar2 (YTAS hidden, follows `opsz`). Built by default (step 7); skip with `--no-flex`. See VISION.md §8. |
+  | `calsans-var-flex` | **Cal Sans Flex** — the HOI variable-morph build: GEOM glyphs interpolate instead of hard-swapping, plus avar2 (YTAS hidden, follows `opsz`). Built by default (step 7); skip with `--no-flex`. |
   | `calsans-cossui` | Variable font with `ss*`/`cv*`/`aalt` features and their alternate glyphs subset out |
   | `calsans-gf-api` | Same subsetting as `cossui`, packaged for the Google Fonts API |
+  | `calsans-gf-api-textui` | **Cal Sans Text UI** — second GF family ([google/fonts#9970](https://github.com/google/fonts/issues/9970)): `wght`-only (400–700) VF pair, `opsz` 10 / `GEOM` 25 / `YTAS` 760 baked, curved l (`l.rcltA11y`) as default |
   | `calsans-static-full` | All static instances (384 with italics by default, or 192 roman-only with `--roman`) |
   | `calsans-static-{a11y,ui,base,geo}` | Per-GEOM-family static subsets (base YTAS/SHRP only) |
   | `calsans-static-essentials` | Curated minimal set: Text+UI (roman) and Display+Base (incl. italics), TTF-only |
-  | `calsans-gf-workspace` | Same curated set as `static-essentials`, deployed without `opsz`-axis awareness |
+  | `calsans-gf-workspace` | Same two families as `static-essentials`, without `opsz`-axis awareness; the Text UI half is instanced fresh at the `gf-api-textui` position (`YTAS` 760, curved l) |
 
 ## Troubleshooting
 
 - **`fontmake: Error: ... Generating fonts from Designspace failed`** during
-  step 6/9, with a `GPOS` `OTLOffsetOverflowError` in the log — make sure
+  step 6/10, with a `GPOS` `OTLOffsetOverflowError` in the log — make sure
   `uharfbuzz` is installed (`pip install uharfbuzz` or re-run
   `pip install -r requirements.txt`). Without it, fontTools uses a legacy
   table packer that can crash on this font's large GPOS table.
-- **`ImportError: No module named brotli`** during step 8/9 (WOFF2
+- **`ImportError: No module named brotli`** during step 9/10 (WOFF2
   compression) — install `brotli` (`pip install brotli` or re-run
   `pip install -r requirements.txt`).
 - **`command not found: fontmake`** — the `fontmake` console script may have

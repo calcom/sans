@@ -33,6 +33,8 @@ def _apply_static_names(font, style_name):
             font["head"].macStyle |= 0x0002
         else:
             font["head"].macStyle &= ~0x0002
+    if "post" in font:
+        font["post"].italicAngle = config.ITALIC_ANGLE if r["italic"] else 0.0
 
 # The variable font is loaded once into bytes and handed to each worker process
 # via the Pool initializer, so we don't re-read/decompile it 384 times.

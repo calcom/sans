@@ -1,7 +1,7 @@
 """Post-compile fix-ups applied to the fontmake-compiled variable TTF, shared by the main variable
 build and the Flex build: merge the overlapping GEOM FeatureVariations into non-overlapping bands,
 pin the shipping axis defaults, and rebuild the STAT table + fvar instance names."""
-from fontTools.ttLib import TTFont
+from fontTools.ttLib import TTFont, newTable
 from fontTools.ttLib.tables import otTables
 
 from scripts import config
@@ -241,6 +241,17 @@ def apply_stat_and_instance_names(font: TTFont) -> tuple[int, str]:
     buildStatTable(font, axes, elidedFallbackName=config.STAT_ELIDED_FALLBACK)
 
     return renamed, full
+
+
+def ensure_gasp(ttf_path: str):
+    """Write the gasp table (config.GASP_RANGES). Runs on the compiled variable fonts, so
+    every static instanced from them — and every package cut from those — inherits it."""
+    font = TTFont(ttf_path)
+    gasp = newTable("gasp")
+    gasp.version = config.GASP_VERSION
+    gasp.gaspRange = dict(config.GASP_RANGES)
+    font["gasp"] = gasp
+    font.save(ttf_path)
 
 
 def build_stat_and_instance_names(ttf_path: str):

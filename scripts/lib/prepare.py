@@ -44,6 +44,19 @@ def prepare_for_fontmake(font, verbose=False):
         font.features.remove(f)
     print(f"   ✅ Removed {len(to_remove)} condition-based {config.RCLT_FEATURE_TAG} feature(s) — VARIATIONS prefix handles substitution")
 
+    # Move ccmp to the FRONT of the feature list. The source has it dead last (after
+    # ss20), and feaLib assigns GSUB lookup indices in source order — but shapers apply
+    # lookups in INDEX order, so ccmp's decompositions (fi/fl/ldot/Ldot → components)
+    # compiled to indices ABOVE liga's and re-decomposed every liga-formed fi/fl
+    # ligature. First in source → lowest indices → decompose-then-religate, the
+    # intended chain (typed U+FB01 ≡ typed f,i).
+    ccmp = [f for f in font.features if getattr(f, "name", "").lower() == "ccmp"]
+    if ccmp:
+        rest = [f for f in font.features if f not in ccmp]
+        font.features = ccmp + rest  # the glyphsLib proxy rejects slice assignment
+        print(f"   ✅ Moved {len(ccmp)} ccmp feature(s) to the front (was after ss20 — "
+              f"its late lookup indices undid the fi/fl liga ligatures)")
+
     # Convert Glyphs shorthand cvParameters to AFDKO/feaLib format:
     #   cvParameters { FeatUILabelNameID { name "Label"; }; };
     # → cvParameters { FeatUILabelNameID { name 3 1 0x0409 "Label"; }; };

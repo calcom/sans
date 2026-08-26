@@ -13,7 +13,8 @@ from pathlib import Path
 FONTMAKE = [sys.executable, "-m", "fontmake"]
 
 from scripts.lib.postprocess import (merge_gsub_feature_variations, shift_axis_defaults,
-                                      build_stat_and_instance_names, stamp_distribution_sha)
+                                      build_stat_and_instance_names, stamp_distribution_sha,
+                                      ensure_gasp)
 
 
 def run_fontmake_variable(ready_path: str, build_dir: str):
@@ -42,6 +43,7 @@ def run_fontmake_variable(ready_path: str, build_dir: str):
         shift_axis_defaults(str(ttf))
         build_stat_and_instance_names(str(ttf))
         stamp_distribution_sha(str(ttf))   # statics/subsets inherit this nameID 5
+        ensure_gasp(str(ttf))              # ditto — every downstream cut inherits gasp
 
 
 def run_fontmake_flex(flex_path: str, build_dir: str) -> str:
@@ -66,5 +68,6 @@ def run_fontmake_flex(flex_path: str, build_dir: str) -> str:
 
     ttf = str(sorted(Path(out_dir).glob("*.ttf"))[0])
     merge_gsub_feature_variations(ttf)
+    ensure_gasp(ttf)
     print(f"   ✅ HOI (Flex) variable font built → {ttf}")
     return ttf
