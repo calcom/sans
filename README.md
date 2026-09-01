@@ -7,7 +7,7 @@
 [![packagephobia/publish](https://badgen.net/packagephobia/publish/cal-sans)](https://www.npmjs.com/package/cal-sans)
 [![interactive showcase](documentation/images/isite.svg)](https://cal.com/font)
 
-###Every size. Every surface. One file.
+### Every size. Every surface. One file.
 
 Cal Sans is an open-source variable font built for product design and brand in the same breath. One file spans fine-print UI at 8 pt through hero display at 45, adapting its proportions, spacing, and geometry continuously along the way.
 
