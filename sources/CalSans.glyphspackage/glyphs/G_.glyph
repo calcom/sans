@@ -717,7 +717,7 @@ width = 715;
 anchors = (
 {
 name = bottom;
-pos = (320,-1);
+pos = (290,-1);
 },
 {
 name = ogonek;
@@ -725,7 +725,7 @@ pos = (482,9);
 },
 {
 name = top;
-pos = (454,720);
+pos = (424,720);
 }
 );
 background = {
@@ -890,7 +890,7 @@ width = 712;
 anchors = (
 {
 name = bottom;
-pos = (330,0);
+pos = (320,0);
 },
 {
 name = ogonek;
@@ -898,7 +898,7 @@ pos = (504,5);
 },
 {
 name = top;
-pos = (464,720);
+pos = (454,720);
 }
 );
 background = {
@@ -1105,7 +1105,7 @@ width = 770;
 anchors = (
 {
 name = bottom;
-pos = (350,0);
+pos = (310,0);
 },
 {
 name = ogonek;
@@ -1113,7 +1113,7 @@ pos = (502,9);
 },
 {
 name = top;
-pos = (484,720);
+pos = (444,720);
 }
 );
 background = {

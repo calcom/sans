@@ -18,6 +18,7 @@ from scripts.lib.hoi import inject_hoi
 from scripts.lib.utils import axis_index
 from scripts.lib.instance_statics import run_instancer_statics
 from scripts.lib.release import compress_build_outputs, build_release_folders
+from scripts.lib import charalts
 
 
 # ── Build step progress ───────────────────────────────────────────────────────
@@ -35,13 +36,16 @@ def step(label):
 
 class _Ctx:
     """Carries state (the in-memory font, compiled paths, run options) between stages."""
-    def __init__(self, build_italic=BUILD_ITALIC, verbose=False, flex=True):
+    def __init__(self, build_italic=BUILD_ITALIC, verbose=False, flex=True, docs=True):
         self.font = None
         self.var_ttf = None
         self.flex_var_ttf = None
         self.build_italic = build_italic
         self.verbose = verbose
         self.flex = flex
+        self.docs = docs
+        self.docs_proc = None
+        self.docs_log = None
 
 
 def stage_metrics(ctx):
@@ -92,6 +96,20 @@ def stage_compile_variable(ctx):
     ctx.var_ttf = sorted(Path(f"{BUILD_DIR}/variable").glob("*.ttf"))[0]
 
 
+def stage_docs(ctx):
+    """Regenerate docs/character-alternatives.md + its ~900 SVG cells from the freshly
+    compiled VF — in a SEPARATE python process that we do not wait on. The font
+    build owns the terminal; the docs just have to be finished by the time anyone
+    reads them. Skipped by --no-docs, which leaves the committed doc untouched."""
+    if not (ctx.docs and config.BUILD_CHARALTS):
+        print("   (skipped \u2014 --no-docs)")
+        return
+    ctx.docs_proc, ctx.docs_log = charalts.spawn(ctx.var_ttf)
+    print(f"   \U0001f9ec character alternatives regenerating in pid {ctx.docs_proc.pid} "
+          f"\u2192 {config.CHARALTS_MD}")
+    print(f"   \U0001f4c4 log: {ctx.docs_log}")
+
+
 def stage_compile_flex(ctx):
     """Cal Sans Flex = the HOI morphing build (Flex-family only). Re-prep a fresh font (so the
     base build's ctx.font stays untouched), inject the HOI braces + strip morphed conditionset
@@ -137,6 +155,7 @@ STAGES = [
     ("prepare",          stage_prepare,          "Pre-processing for fontmake"),
     ("save_ready_sources", stage_save_ready_sources, "Saving variable/static-ready sources"),
     ("compile_variable", stage_compile_variable, "Compiling variable font (fontmake)"),
+    ("docs",             stage_docs,             "Documenting character alternatives (background)"),
     ("compile_flex",     stage_compile_flex,     "Compiling HOI (Flex) variable font"),
     ("instance_statics", stage_instance_statics, "Instancing static styles"),
     ("compress",         stage_compress,         "Compressing to WOFF2"),
@@ -144,15 +163,17 @@ STAGES = [
 ]
 
 # A run that stops here produces just the variable font — no statics/packaging.
-VARIABLE_ONLY_STAGES = ("metrics", "load", "validate", "prepare", "save_ready_sources", "compile_variable")
+VARIABLE_ONLY_STAGES = ("metrics", "load", "validate", "prepare", "save_ready_sources",
+                        "compile_variable", "docs")
 
 
-def run(only=None, build_italic=None, verbose=False, flex=True):
+def run(only=None, build_italic=None, verbose=False, flex=True, docs=True):
     """Run the named subset of STAGES in order (default: all of them).
 
     build_italic, if given, overrides config.BUILD_ITALIC for this run.
     verbose enables full glyph/instance name listings in the prepare stage.
     flex=False skips the HOI (Cal Sans Flex) compile.
+    docs=False skips regenerating the character-alternative doc.
     """
     stages = [s for s in STAGES if only is None or s[0] in only]
 
@@ -166,10 +187,16 @@ def run(only=None, build_italic=None, verbose=False, flex=True):
     _STEP["n"] = 0
     _STEP["total"] = len(stages)
     ctx = _Ctx(build_italic=BUILD_ITALIC if build_italic is None else build_italic,
-               verbose=verbose, flex=flex)
+               verbose=verbose, flex=flex, docs=docs)
     for _, fn, label in stages:
         with step(label):
             fn(ctx)
+
+    # The fonts are done and reported. Only now is it worth mentioning the docs,
+    # and only if they somehow outlived the whole rest of the build.
+    if ctx.docs_proc and ctx.docs_proc.poll() is None:
+        print(f"\n   \U0001f9ec character-alternative doc still writing (pid "
+              f"{ctx.docs_proc.pid}) \u2014 see {ctx.docs_log}")
 
 
 def _parse_args(argv=None):
@@ -196,6 +223,11 @@ def _parse_args(argv=None):
         help="Skip the HOI / Cal Sans Flex compile (the morphing variable build). "
              "Flex is built by default.",
     )
+    parser.add_argument(
+        "--no-docs", dest="docs", action="store_false",
+        help="Do NOT regenerate docs/character-alternatives.md or its SVG cells. "
+             "The doc is rebuilt on every build by default, in its own process.",
+    )
     return parser.parse_args(argv)
 
 
@@ -204,7 +236,8 @@ def main(argv=None):
     only = VARIABLE_ONLY_STAGES if args.variable_only else None
     # Italics are the default (config.BUILD_ITALIC=True); --roman opts out.
     build_italic = False if args.roman else None
-    run(only=only, build_italic=build_italic, verbose=args.verbose, flex=args.flex)
+    run(only=only, build_italic=build_italic, verbose=args.verbose, flex=args.flex,
+        docs=args.docs)
 
 if __name__ == "__main__":
     main()

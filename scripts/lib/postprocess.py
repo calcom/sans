@@ -2,6 +2,7 @@
 build and the Flex build: merge the overlapping GEOM FeatureVariations into non-overlapping bands,
 pin the shipping axis defaults, and rebuild the STAT table + fvar instance names."""
 from fontTools.ttLib import TTFont, newTable
+from fontTools.ttLib.tables.ttProgram import Program
 from fontTools.ttLib.tables import otTables
 
 from scripts import config
@@ -251,6 +252,20 @@ def ensure_gasp(ttf_path: str):
     gasp.version = config.GASP_VERSION
     gasp.gaspRange = dict(config.GASP_RANGES)
     font["gasp"] = gasp
+    font.save(ttf_path)
+
+
+def ensure_smart_dropout(ttf_path: str):
+    """Write the `prep` program that turns on smart dropout control (config.
+    SMART_DROPOUT_PREP). Like gasp, this runs on the compiled variable fonts so every
+    static instanced from them inherits it, and like gasp there is no way to author it
+    in a Glyphs source. Without it fontbakery FAILs opentype/smart_dropout and thin
+    stems can drop out entirely at small ppem on greyscale rasterisers."""
+    font = TTFont(ttf_path)
+    prep = newTable("prep")
+    prep.program = Program()
+    prep.program.fromBytecode(config.SMART_DROPOUT_PREP)
+    font["prep"] = prep
     font.save(ttf_path)
 
 

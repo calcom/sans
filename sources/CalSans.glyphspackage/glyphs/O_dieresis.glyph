@@ -101,7 +101,7 @@ shapes = (
 ref = O;
 },
 {
-pos = (407,0);
+pos = (406,0);
 ref = dieresiscomb.case;
 }
 );

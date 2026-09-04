@@ -10,7 +10,7 @@ shapes = (
 ref = c.rcltGeo;
 },
 {
-pos = (318,0);
+pos = (319,0);
 ref = dotaccentcomb;
 }
 );
@@ -23,7 +23,7 @@ shapes = (
 ref = c.rcltGeo;
 },
 {
-pos = (298,1);
+pos = (321,0);
 ref = dotaccentcomb;
 }
 );
@@ -36,7 +36,7 @@ shapes = (
 ref = c.rcltGeo;
 },
 {
-pos = (293,0);
+pos = (300,0);
 ref = dotaccentcomb;
 }
 );
@@ -49,7 +49,7 @@ shapes = (
 ref = c.rcltGeo;
 },
 {
-pos = (270,1);
+pos = (283,0);
 ref = dotaccentcomb;
 }
 );
@@ -62,7 +62,7 @@ shapes = (
 ref = c.rcltGeo;
 },
 {
-pos = (293,0);
+pos = (295,0);
 ref = dotaccentcomb;
 }
 );
@@ -75,7 +75,7 @@ shapes = (
 ref = c.rcltGeo;
 },
 {
-pos = (270,1);
+pos = (270,0);
 ref = dotaccentcomb;
 }
 );
@@ -101,7 +101,7 @@ shapes = (
 ref = c.rcltGeo;
 },
 {
-pos = (298,1);
+pos = (301,0);
 ref = dotaccentcomb;
 }
 );

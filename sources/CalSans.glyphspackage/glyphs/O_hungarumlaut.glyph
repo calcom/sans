@@ -101,7 +101,7 @@ shapes = (
 ref = O;
 },
 {
-pos = (405,-14);
+pos = (404,-14);
 ref = hungarumlautcomb.case;
 }
 );

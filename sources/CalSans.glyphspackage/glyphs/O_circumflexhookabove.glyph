@@ -10,7 +10,7 @@ shapes = (
 ref = O;
 },
 {
-pos = (420,-14);
+pos = (411,-14);
 ref = circumflexcomb_hookabovecomb.case;
 }
 );
@@ -23,7 +23,7 @@ shapes = (
 ref = O;
 },
 {
-pos = (419,-14);
+pos = (408,0);
 ref = circumflexcomb_hookabovecomb.case;
 }
 );
@@ -49,7 +49,7 @@ shapes = (
 ref = O;
 },
 {
-pos = (410,0);
+pos = (411,0);
 ref = circumflexcomb_hookabovecomb.case;
 }
 );
@@ -75,7 +75,7 @@ shapes = (
 ref = O;
 },
 {
-pos = (410,0);
+pos = (411,0);
 ref = circumflexcomb_hookabovecomb.case;
 }
 );
@@ -88,7 +88,7 @@ shapes = (
 ref = O;
 },
 {
-pos = (417,-14);
+pos = (408,-14);
 ref = circumflexcomb_hookabovecomb.case;
 }
 );
@@ -101,7 +101,7 @@ shapes = (
 ref = O;
 },
 {
-pos = (416,-14);
+pos = (407,0);
 ref = circumflexcomb_hookabovecomb.case;
 }
 );

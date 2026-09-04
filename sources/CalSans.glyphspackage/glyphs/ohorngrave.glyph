@@ -75,7 +75,7 @@ shapes = (
 ref = ohorn;
 },
 {
-pos = (288,1);
+pos = (288,0);
 ref = gravecomb;
 }
 );
@@ -92,7 +92,7 @@ pos = (331,0);
 ref = gravecomb;
 }
 );
-width = 652;
+width = 653;
 },
 {
 layerId = "33BF50A0-DEC8-4619-95BB-DD23FBD7FB0B";
@@ -101,7 +101,7 @@ shapes = (
 ref = ohorn;
 },
 {
-pos = (306,0);
+pos = (306,-1);
 ref = gravecomb;
 }
 );

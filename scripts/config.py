@@ -142,18 +142,94 @@ GF_HIDDEN_AXES = ["YTAS"]
 GASP_VERSION = 1
 GASP_RANGES  = {65535: 15}
 
-# gf vertical metrics. Three GF conformance fixes, applied to every GF deliverable:
-#  1. fsSelection bit 7 (USE_TYPO_METRICS). Without it Windows apps lay out from win
-#     (1024/245) while everyone else uses typo (900/245) — one font, two line heights.
-#     This is the only vertical-metrics FAIL in the GF check set.
-#  2. hhea mirrors win (1024 / -245). It currently copies typo, so mac and Windows
-#     disagree for the same reason. win is NOT lowered to meet hhea: YTAS pushes accents
-#     to 800, so the 1024 headroom has to stay or tall accents clip.
-#  3. sTypoLineGap 55. typo sums to 900 + 245 + 0 = 1145/1000 = 1.145 em; GF's house
-#     default is ~1.2, and 55 lands exactly on 1200 without moving a drawn outline.
-GF_USE_TYPO_METRICS = True
-GF_TYPO_LINE_GAP    = 55
-GF_HHEA_MIRRORS_WIN = True
+# gf vertical metrics. GF ships its own house scheme, which is NOT the one the main
+# build uses. The main build follows Stephen Nixon's cap-centred scheme (hhea drives
+# layout, bit 7 off, ~1.145 em); GF wants hhea/typo/win in agreement with bit 7 on and
+# ~1.3 em. Both are internally consistent; they are simply different specs for different
+# audiences, which is the entire reason the GF folders are cut separately.
+#
+# These exact values come from Emma Marichal's review (calcom/sans#36) and are the ones
+# ALREADY LIVE on Google Fonts for Cal Sans — Text UI is a promotion of instances that
+# shipped in 1.9, so changing them would reflow existing users' layouts. They are not
+# negotiable on GF's side, and they clear all of the font's ink: 1029 covers the tallest
+# stacked Vietnamese case accent (uni03060309.case) and 283 covers the deepest comma
+# accent (-275), so the GF cut clips nothing.
+GF_USE_TYPO_METRICS = True          # fsSelection bit 7
+
+# Per-family presets. Cal Sans Text UI is its own family and draws to its own extremes,
+# so it gets its own clipping box. The typographic and hhea values are Emma's for both
+# families; only the win box differs, because only the win box describes outlines.
+#
+# Both extremes come from Bold and Bold Italic, and the two families differ for two
+# unrelated reasons. The ASCENT differs because YTAS is baked at 760 in Text UI against
+# 720 in the main family (1074 vs 1073 — one unit; the axis moves accents far less than
+# it looks). The DESCENT differs because the families cover different design space, not
+# because of any ascender: the main family spans the full GEOM and opsz ranges, while
+# Text UI has both baked, so its Bold Italic never reaches as deep (-322 vs -342).
+#
+# These are measured across every file each family SHIPS, variable and static together.
+# Emma's review quotes 1029/283 for Text UI, which is the variable font's default
+# instance only — a variable font's stored bounds do not describe the extremes of its
+# design space, and the static Bold in the workspace folder exceeds them.
+#
+# win_* is a FLOOR, not the final value: _unify_family_win_metrics measures the ink of
+# every style actually shipped in a family and raises the pair to cover it, so a future
+# design change cannot silently start clipping. The two families are resolved separately
+# even where they share a delivery folder — they are separate families on GF.
+GF_METRICS_DEFAULT = {
+    "typo_ascender": 1000, "typo_descender": -300, "typo_line_gap": 0,
+    "hhea_ascent":   1000, "hhea_descent":   -300, "hhea_line_gap": 0,
+    "win_ascent":    1073, "win_descent":     342,
+}
+GF_METRICS_BY_FAMILY = {
+    GF_TEXTUI_FAMILY: {"win_ascent": 1074, "win_descent": 322},
+}
+
+
+def gf_metrics_for(family: str) -> dict:
+    """Vertical-metric preset for a family name, defaults filled in.
+
+    Matched by longest prefix so a style-bearing name ("Cal Sans Text UI SemiBold",
+    which is what a non-RIBBI static carries in nameID 1) resolves to its family, and
+    "Cal Sans Text UI" wins over "Cal Sans" rather than the other way round."""
+    preset = dict(GF_METRICS_DEFAULT)
+    best = ""
+    for known in GF_METRICS_BY_FAMILY:
+        if family and family.startswith(known) and len(known) > len(best):
+            best = known
+    if best:
+        preset.update(GF_METRICS_BY_FAMILY[best])
+    return preset
+
+
+# gf underline. GF requires ONE underlineThickness across a family, but Cal Sans
+# interpolates it with weight (Regular/Italic 78, Medium 84, SemiBold 94, Bold 100) —
+# which is the right design call and the wrong thing for their check. The GF cuts are
+# pinned to the Medium values, the middle of that range, so no weight is badly served.
+# This is a GF-only override: every other package keeps the interpolated value.
+GF_UNDERLINE_THICKNESS = 84
+GF_UNDERLINE_POSITION  = -77
+
+# gf name-table shape. nameIDs 16/17 (typographic family/subfamily) are redundant when
+# the variable font's origin is the Regular instance — fontbakery's googlefonts/font_names
+# FAILs on their presence.
+GF_DROP_TYPOGRAPHIC_NAMES = True
+
+# gf STAT. Optical-size axis values must never be elidable (a reader has to be able to
+# see which optical size they are looking at), and every VF needs an 'ital' axis record.
+GF_OPSZ_NEVER_ELIDABLE = True
+GF_ENSURE_ITAL_STAT    = True
+
+# gf meta table. ScriptLangTags declaring what the font is designed and supported for.
+GF_META_DESIGN_LANGS   = ["Latn"]
+GF_META_SUPPORT_LANGS  = ["Latn"]
+
+# smart dropout control. Applied to EVERY font, not just GF, exactly like gasp: the
+# `prep` program below is the standard SCANCTRL/SCANTYPE pair that turns on smart
+# dropout at all sizes. fontbakery FAILs its absence (opentype/smart_dropout) and there
+# is no way to author it in a Glyphs source.
+#   PUSHW[] 511 / SCANCTRL[] / PUSHB[] 4 / SCANTYPE[]
+SMART_DROPOUT_PREP = b"\xb8\x01\xff\x85\xb0\x04\x8d"
 
 # gf-api version string (name/version_format): GF requires the "Version X.YYY" prefix.
 # Base version = head.fontRevision (the Glyphs Version field). A short git hash is
@@ -255,3 +331,14 @@ YTAS_ACCENT_ASCEND_DY = 80   # 1:1 with the 80u ascender extent (YTAS 720→800)
 ITALIC_SLANT_DEGREES = 9.5  # used to derive the italic horizontal compensation (dx = dy·tan(angle))
 
 
+
+
+# ── Character-alternative documentation ───────────────────────────────────────
+# Every cvXX/ssXX feature, one row per feature, each glyph the feature PRODUCES
+# drawn as its own cell. Regenerated from the compiled VF on every build — in a
+# separate python process, so a 900-file SVG write never delays the font build's
+# own success report. --no-docs (or BUILD_CHARVARIANTS=False) skips the regen and
+# leaves whatever is already on disk untouched.
+BUILD_CHARALTS   = True
+CHARALTS_MD      = "docs/character-alternatives.md"
+CHARALTS_SVG_DIR = "docs/images/character-alternatives"

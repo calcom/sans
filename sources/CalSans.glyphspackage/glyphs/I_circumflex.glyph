@@ -23,7 +23,7 @@ shapes = (
 ref = I;
 },
 {
-pos = (139,-14);
+pos = (136,0);
 ref = circumflexcomb.case;
 }
 );
@@ -101,7 +101,7 @@ shapes = (
 ref = I;
 },
 {
-pos = (136,-14);
+pos = (136,0);
 ref = circumflexcomb.case;
 }
 );

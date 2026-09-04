@@ -62,7 +62,7 @@ shapes = (
 ref = o;
 },
 {
-pos = (276,0);
+pos = (261,1);
 ref = horncomb;
 }
 );
@@ -75,7 +75,7 @@ shapes = (
 ref = o;
 },
 {
-pos = (262,0);
+pos = (249,2);
 ref = horncomb;
 }
 );
@@ -88,11 +88,11 @@ shapes = (
 ref = o;
 },
 {
-pos = (309,0);
+pos = (281,-1);
 ref = horncomb;
 }
 );
-width = 652;
+width = 653;
 },
 {
 layerId = "33BF50A0-DEC8-4619-95BB-DD23FBD7FB0B";
@@ -101,7 +101,7 @@ shapes = (
 ref = o;
 },
 {
-pos = (288,0);
+pos = (263,-1);
 ref = horncomb;
 }
 );

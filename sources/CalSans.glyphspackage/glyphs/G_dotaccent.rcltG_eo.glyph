@@ -10,7 +10,7 @@ shapes = (
 ref = G.rcltGeo;
 },
 {
-pos = (420,-14);
+pos = (414,0);
 ref = dotaccentcomb.case;
 }
 );
@@ -23,7 +23,7 @@ shapes = (
 ref = G.rcltGeo;
 },
 {
-pos = (417,-14);
+pos = (414,0);
 ref = dotaccentcomb.case;
 }
 );

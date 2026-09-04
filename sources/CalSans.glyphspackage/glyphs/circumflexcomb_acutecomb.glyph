@@ -34,7 +34,7 @@ ref = circumflexcomb;
 },
 {
 alignment = -1;
-pos = (-150,108);
+pos = (-157,108);
 ref = acutecomb;
 }
 );
@@ -48,7 +48,7 @@ ref = circumflexcomb;
 },
 {
 alignment = -1;
-pos = (-141,147);
+pos = (-131,147);
 ref = acutecomb;
 }
 );
@@ -77,7 +77,7 @@ ref = circumflexcomb;
 },
 {
 alignment = -1;
-pos = (-141,147);
+pos = (-121,147);
 ref = acutecomb;
 }
 );
@@ -116,7 +116,7 @@ ref = circumflexcomb;
 },
 {
 alignment = -1;
-pos = (-188,121);
+pos = (-174,121);
 ref = acutecomb;
 }
 );
@@ -131,7 +131,7 @@ ref = circumflexcomb;
 },
 {
 alignment = -1;
-pos = (-150,108);
+pos = (-138,108);
 ref = acutecomb;
 }
 );

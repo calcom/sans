@@ -197,7 +197,7 @@ italify.stemId = (
 );
 }
 );
-width = 560;
+width = 580;
 },
 {
 hints = (
@@ -263,7 +263,7 @@ italify.stemId = (
 );
 }
 );
-width = 557;
+width = 601;
 },
 {
 hints = (
@@ -461,7 +461,7 @@ italify.stemId = (
 );
 }
 );
-width = 561;
+width = 581;
 },
 {
 hints = (
@@ -527,7 +527,7 @@ italify.stemId = (
 );
 }
 );
-width = 557;
+width = 601;
 }
 );
 metricWidth = plus;

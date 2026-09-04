@@ -1885,7 +1885,7 @@ width = 468;
 anchors = (
 {
 name = bottom;
-pos = (288,0);
+pos = (238,0);
 },
 {
 name = ogonek;
@@ -1893,7 +1893,7 @@ pos = (516,0);
 },
 {
 name = top;
-pos = (376,529);
+pos = (326,529);
 }
 );
 background = {
@@ -2176,7 +2176,7 @@ width = 558;
 anchors = (
 {
 name = bottom;
-pos = (257,0);
+pos = (247,0);
 },
 {
 name = ogonek;
@@ -2184,7 +2184,7 @@ pos = (485,0);
 },
 {
 name = top;
-pos = (345,529);
+pos = (335,529);
 }
 );
 associatedMasterId = "FA9346B6-A16F-4CF3-996A-4A8FD0AD301D";

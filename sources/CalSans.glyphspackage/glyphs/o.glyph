@@ -519,7 +519,7 @@ pos = (349,535);
 },
 {
 name = topright;
-pos = (519,535);
+pos = (504,536);
 }
 );
 background = {
@@ -693,11 +693,11 @@ pos = (253,0);
 },
 {
 name = top;
-pos = (332,521);
+pos = (332,520);
 },
 {
 name = topright;
-pos = (504,521);
+pos = (491,523);
 }
 );
 background = {
@@ -875,7 +875,7 @@ pos = (370,529);
 },
 {
 name = topright;
-pos = (544,529);
+pos = (516,528);
 }
 );
 background = {
@@ -1027,7 +1027,7 @@ nodes = (
 );
 }
 );
-width = 652;
+width = 653;
 },
 {
 anchors = (
@@ -1049,11 +1049,11 @@ pos = (273,0);
 },
 {
 name = top;
-pos = (348,515);
+pos = (348,514);
 },
 {
 name = topright;
-pos = (524,515);
+pos = (499,514);
 }
 );
 background = {

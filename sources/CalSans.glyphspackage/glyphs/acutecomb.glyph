@@ -94,7 +94,7 @@ shapes = (
 {
 closed = 1;
 nodes = (
-(147,731,l),
+(122,731,l),
 (-15,731,l),
 (-40,582,l),
 (36,582,l)
@@ -180,7 +180,7 @@ shapes = (
 {
 closed = 1;
 nodes = (
-(229,731,l,{
+(196,731,l,{
 italify.stemCorner = (
 "5C84FC7F-D78F-4CA0-8240-46A51FC92AAF"
 );

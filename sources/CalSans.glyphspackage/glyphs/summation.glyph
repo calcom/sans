@@ -778,7 +778,7 @@ italify.stemId = (
 "F3BA5DCC-2DF4-43E7-B376-18C82EAAF779"
 );
 }),
-(258,615,c,{
+(262,615,c,{
 italify.stemCorner = (
 "F3BA5DCC-2DF4-43E7-B376-18C82EAAF779"
 );
@@ -840,7 +840,7 @@ italify.noCurveCorrection = 1;
 (134,-117,c,{
 italify.noCurveCorrection = 1;
 }),
-(136,-112,l,{
+(131,-112,l,{
 italify.stemCorner = (
 "9C9DA482-CA43-4B00-959C-FE560BF6EB1B"
 );
@@ -848,7 +848,7 @@ italify.stemId = (
 "9C9DA482-CA43-4B00-959C-FE560BF6EB1B"
 );
 }),
-(148,-105,o,{
+(143,-105,o,{
 italify.stemId = (
 "9C9DA482-CA43-4B00-959C-FE560BF6EB1B"
 );

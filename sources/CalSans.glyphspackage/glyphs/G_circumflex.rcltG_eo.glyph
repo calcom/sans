@@ -23,7 +23,7 @@ shapes = (
 ref = G.rcltGeo;
 },
 {
-pos = (417,-14);
+pos = (414,0);
 ref = circumflexcomb.case;
 }
 );
@@ -101,7 +101,7 @@ shapes = (
 ref = G.rcltGeo;
 },
 {
-pos = (414,-14);
+pos = (414,0);
 ref = circumflexcomb.case;
 }
 );

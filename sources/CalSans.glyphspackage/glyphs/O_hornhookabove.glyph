@@ -101,7 +101,7 @@ shapes = (
 ref = Ohorn;
 },
 {
-pos = (407,-14);
+pos = (406,-14);
 ref = hookabovecomb.case;
 }
 );

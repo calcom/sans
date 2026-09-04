@@ -101,7 +101,7 @@ shapes = (
 ref = a.alt;
 },
 {
-pos = (286,7);
+pos = (279,7);
 ref = circumflexcomb_gravecomb;
 }
 );

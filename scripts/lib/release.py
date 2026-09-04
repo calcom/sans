@@ -8,7 +8,8 @@ from pathlib import Path
 
 from tqdm import tqdm
 from fontTools import subset
-from fontTools.ttLib import TTFont
+from fontTools.ttLib import TTFont, newTable
+from fontTools.ttLib.tables import otTables
 from fontTools.ttLib.tables._f_v_a_r import NamedInstance
 from scripts.lib.manifest import all_styles, style_name_to_filename
 from scripts.lib.build_flex import build_flex
@@ -72,9 +73,29 @@ def _subset_ss_cv(font: TTFont):
     options.recalc_bounds = True
     options.recalc_timestamp = False
 
+    # The subsetter drops name records it no longer sees referenced. For ss/cv UI names
+    # that is exactly right — the features are gone. But it takes nameIDs 16/17 with them,
+    # and a non-RIBBI static (Medium, SemiBold) needs those to style-link into its family
+    # at all: without them Word and Docs list "Cal Sans Medium" as its own one-style family
+    # instead of a weight of Cal Sans. Bold/Italic are unaffected, being genuine RIBBI.
+    # _set_style_names already rebuilds them for the variable cuts; the statics had nothing
+    # putting them back, so preserve them across the subset here for every caller.
+    typographic = [n for n in font["name"].names if n.nameID in (16, 17)]
+
     subsetter = subset.Subsetter(options=options)
     subsetter.populate(unicodes=font.getBestCmap().keys())
     subsetter.subset(font)
+
+    name = font["name"]
+    for rec in typographic:
+        # Only for platforms the subsetter kept. It prunes the Mac (platform 1) copies of
+        # IDs 1/2 outright, so restoring a Mac 16/17 there would leave an orphan pair with
+        # no legacy record to override.
+        if name.getName(1, rec.platformID, rec.platEncID, rec.langID) is None:
+            continue
+        if name.getName(rec.nameID, rec.platformID, rec.platEncID, rec.langID) is None:
+            name.names.append(rec)
+    name.names.sort(key=lambda n: (n.platformID, n.platEncID, n.langID, n.nameID))
 
 
 def _relabel_opsz_max(font: TTFont, new_max: float):
@@ -114,7 +135,7 @@ def _strip_ss_cv(src_ttf: Path, dest_dir: Path, woff2: bool = True, opsz_max: fl
     if opsz_max is not None:
         _relabel_opsz_max(font, opsz_max)
     if gf_metrics:
-        _set_gf_vertical_metrics(font)
+        _apply_gf_conformance(font)
 
     dest_ttf = dest_dir / src_ttf.name
     font.save(str(dest_ttf))
@@ -165,12 +186,27 @@ def _trim_gf_instances(font: TTFont, ps_suffix: str = ""):
         coords = dict(coords0); coords["wght"] = wght
         ps_style = (("Italic" if style == "Regular" else style.replace(" ", "") + "Italic")
                     if ital else style.replace(" ", ""))
+        # The SUBFAMILY has to carry the slope too, not just the PostScript name: an
+        # italic file whose instances read "Regular/Medium/SemiBold/Bold" claims to be
+        # the roman. RIBBI elision applies — the 400 instance is "Italic", never
+        # "Regular Italic".
+        sub_style = (("Italic" if style == "Regular" else f"{style} Italic")
+                     if ital else style)
         inst = NamedInstance()
         inst.coordinates      = {t: coords[t] for t in axis_tags}
-        inst.subfamilyNameID  = name.addName(style)
+        inst.subfamilyNameID  = name.addName(sub_style)
         inst.postscriptNameID = name.addName(f"{family_ps}-{ps_style}")
         instances.append(inst)
     fvar.instances = instances
+    # Guard the exact regression this function shipped once: an italic cut whose named
+    # instances read Regular/Medium/SemiBold/Bold, claiming to be the roman. Cheap, and
+    # it fires at the point of generation rather than in a QA run weeks later.
+    if ital:
+        missing = [name.getDebugName(i.subfamilyNameID) for i in instances
+                   if "Italic" not in (name.getDebugName(i.subfamilyNameID) or "")]
+        if missing:
+            raise AssertionError(
+                f"italic fvar instances without a slope in the name: {missing}")
 
 
 def _hide_gf_parametric_axes(font: TTFont):
@@ -181,19 +217,226 @@ def _hide_gf_parametric_axes(font: TTFont):
             a.flags |= 0x0001  # HIDDEN_AXIS
 
 
+# What the underline override did in the package currently being written, so the build
+# log can say so once per folder instead of once per file.
+_UNDERLINE_NOTICE = {"count": 0, "was": set()}
+
+
+def _set_gf_underline(font: TTFont):
+    """Pin underline thickness/position to the Medium values across every GF style.
+
+    Cal Sans interpolates underline thickness with weight; GF requires one value for the
+    whole family (opentype/family/underline_thickness). Medium is the midpoint of the
+    78-100 range the family spans."""
+    post = font["post"]
+    if post.underlineThickness != config.GF_UNDERLINE_THICKNESS:
+        _UNDERLINE_NOTICE["was"].add(post.underlineThickness)
+        _UNDERLINE_NOTICE["count"] += 1
+    post.underlineThickness = config.GF_UNDERLINE_THICKNESS
+    post.underlinePosition  = config.GF_UNDERLINE_POSITION
+
+
+def _family_name(font: TTFont) -> str:
+    """The family a font belongs to, for preset lookup. nameID 16 is authoritative where
+    it exists; nameID 1 carries the style for non-RIBBI names ("Cal Sans Text UI
+    SemiBold"), which gf_metrics_for resolves by prefix."""
+    name = font["name"]
+    return name.getDebugName(16) or name.getDebugName(1) or ""
+
+
 def _set_gf_vertical_metrics(font: TTFont):
     """GF vertical-metrics conformance — see the GF_* notes in config.
 
-    Only the three table values change; no outline, and no change to usWin*, which has to
-    keep its 1024 headroom for YTAS-extended accents."""
+    Every value is set explicitly rather than derived from what the source happened to
+    carry: GF's scheme wants hhea, typo and win in agreement, which is a different shape
+    from the main build's cap-centred one, so deriving any of them from the other would
+    quietly reintroduce the main build's numbers."""
     os2, hhea = font["OS/2"], font["hhea"]
+    m = config.gf_metrics_for(_family_name(font))
     if config.GF_USE_TYPO_METRICS:
         os2.fsSelection |= 1 << 7                  # USE_TYPO_METRICS
-    os2.sTypoLineGap = config.GF_TYPO_LINE_GAP
-    if config.GF_HHEA_MIRRORS_WIN:
-        hhea.ascent  =  os2.usWinAscent
-        hhea.descent = -os2.usWinDescent
-        hhea.lineGap = 0
+    os2.sTypoAscender  = m["typo_ascender"]
+    os2.sTypoDescender = m["typo_descender"]
+    os2.sTypoLineGap   = m["typo_line_gap"]
+    hhea.ascent  = m["hhea_ascent"]
+    hhea.descent = m["hhea_descent"]
+    hhea.lineGap = m["hhea_line_gap"]
+    # win is the clipping box. Emma's 1029/283 fits the Text UI VF exactly, but a cut at
+    # a wider GEOM/YTAS position reaches further, so her numbers are a FLOOR rather than
+    # the value — and GF checks win at FAMILY level, requiring one shared pair covering
+    # every style's ink. _unify_family_win_metrics does that once the folder is written;
+    # this only guarantees the floor for a font examined on its own.
+    head = font["head"]
+    os2.usWinAscent  = max(m["win_ascent"],  head.yMax)
+    os2.usWinDescent = max(m["win_descent"], -head.yMin)
+
+
+def _set_variations_ps_prefix(font: TTFont):
+    """nameID 25 — the prefix apps build a PostScript name from for an arbitrary point in
+    the design space (not just the named instances). GF requires it on an italic variable
+    font, ending in "Italic", so a synthesised name cannot come out claiming the roman.
+
+    Derived from nameID 6 with the hyphen and any style dropped, since ID 6 is already the
+    family's own PostScript spelling."""
+    if "fvar" not in font:
+        return
+    name = font["name"]
+    ps = name.getDebugName(6) or ""
+    prefix = ps.split("-")[0]
+    if not prefix:
+        return
+    if font["OS/2"].fsSelection & 0x0001:
+        prefix += "Italic"
+    for pid, eid, lid in ((3, 1, 0x409), (1, 0, 0)):
+        name.setName(prefix, 25, pid, eid, lid)
+
+
+def _drop_typographic_names(font: TTFont):
+    """Remove nameIDs 16/17 wherever they say nothing IDs 1/2 don't already.
+
+    Variable: always. With the VF origin at Regular the two pairs are necessarily the
+    same, which is why Emma's review cites this one against the VFs.
+
+    Static: only when redundant. "Cal Sans"/"Bold" duplicates IDs 1/2 exactly and GF
+    reports it as an error (expected "N/A"); "Cal Sans"/"Medium" does NOT, because a
+    non-RIBBI style has to pose as "Cal Sans Medium"/"Regular" in IDs 1/2 and would
+    otherwise show up in Word and Docs as its own one-style family."""
+    if not config.GF_DROP_TYPOGRAPHIC_NAMES:
+        return
+    name = font["name"]
+    if "fvar" in font:
+        name.names = [n for n in name.names if n.nameID not in (16, 17)]
+        return
+    keep = []
+    for rec in name.names:
+        if rec.nameID in (16, 17):
+            # getDebugName falls back across platforms: a record whose same-platform
+            # counterpart was pruned is still redundant if the name exists at all.
+            plain = name.getName(rec.nameID - 15, rec.platformID, rec.platEncID, rec.langID)
+            plain = str(plain) if plain is not None else name.getDebugName(rec.nameID - 15)
+            if plain is not None and plain == str(rec):
+                continue
+        keep.append(rec)
+    name.names = keep
+
+
+def _fix_gf_stat(font: TTFont):
+    """Un-elide the opsz axis values and make sure an 'ital' axis record exists.
+
+    An elided axis value is one a UI is allowed to omit from the style name; that is
+    wrong for optical size, where the reader has to be able to tell 8pt from 45pt. The
+    ital record is what tells a browser the roman and italic VFs are one family."""
+    if "STAT" not in font:
+        return
+    stat = font["STAT"].table
+    axes = [a.AxisTag for a in stat.DesignAxisRecord.Axis]
+
+    if config.GF_OPSZ_NEVER_ELIDABLE and "opsz" in axes:
+        opsz_i = axes.index("opsz")
+        for axv in getattr(stat.AxisValueArray, "AxisValue", []) or []:
+            if getattr(axv, "AxisIndex", None) == opsz_i:
+                axv.Flags &= ~0x0002                 # ELIDABLE_AXIS_VALUE_NAME
+
+    if not config.GF_ENSURE_ITAL_STAT:
+        return
+    is_italic = bool(font["OS/2"].fsSelection & 0x0001)
+    if "ital" in axes:
+        ital_i = axes.index("ital")
+    else:
+        rec = otTables.AxisRecord()
+        rec.AxisTag, rec.AxisOrdering = "ital", len(axes)
+        rec.AxisNameID = font["name"].addName("Italic")
+        stat.DesignAxisRecord.Axis.append(rec)
+        stat.DesignAxisCount = len(stat.DesignAxisRecord.Axis)
+        ital_i = len(axes)
+
+    values = getattr(stat.AxisValueArray, "AxisValue", None) or []
+    if is_italic:
+        # An italic cut instanced out of the combined VF inherits the ROMAN's ital
+        # records — both the elidable 0.0 and the style-link 1.0. fontbakery reads the
+        # first it finds and sees an italic font asserting ital=0, so the italic must
+        # carry exactly one record: 1.0, not elidable.
+        values = [a for a in values if getattr(a, "AxisIndex", None) != ital_i]
+        av = otTables.AxisValue()
+        av.Format, av.AxisIndex, av.Value, av.Flags = 1, ital_i, 1.0, 0x0000
+        av.ValueNameID = font["name"].addName("Italic")
+        values.append(av)
+        stat.AxisValueArray.AxisValue = values
+        stat.AxisValueCount = len(values)
+        return
+
+    # Roman: leave an existing record set alone — it carries the style link to the
+    # italic file, which is not ours to rebuild. Only add one if there is none at all.
+    if any(getattr(a, "AxisIndex", None) == ital_i for a in values):
+        return
+    av = otTables.AxisValue()
+    av.Format, av.AxisIndex, av.Value = 1, ital_i, 0.0
+    av.Flags = 0x0002                                   # ELIDABLE — "Cal Sans", not "Cal Sans Roman"
+    av.ValueNameID = font["name"].addName("Roman")
+    values.append(av)
+    stat.AxisValueArray.AxisValue = values
+    stat.AxisValueCount = len(values)
+
+
+def _add_meta(font: TTFont):
+    """ScriptLangTags — what the font is designed for (dlng) and supports (slng)."""
+    meta = font["meta"] if "meta" in font else newTable("meta")
+    meta.data["dlng"] = ", ".join(config.GF_META_DESIGN_LANGS)
+    meta.data["slng"] = ", ".join(config.GF_META_SUPPORT_LANGS)
+    font["meta"] = meta
+
+
+def _apply_gf_conformance(font: TTFont):
+    """Every GF-only table fix, in one call so the four GF builders cannot drift apart."""
+    _set_gf_name_overrides(font)
+    _set_gf_underline(font)
+    _set_gf_vertical_metrics(font)
+    _set_variations_ps_prefix(font)
+    _drop_typographic_names(font)
+    _fix_gf_stat(font)
+    _add_meta(font)
+
+
+def _unify_family_win_metrics(pkg_dir: Path):
+    """Give every style in a FAMILY one usWin pair, covering that family's own ink.
+
+    Cal Sans and Cal Sans Text UI are separate families with separate design spaces, and
+    they are onboarded to GF separately, so each gets the box its own outlines need rather
+    than a shared one sized for whichever draws furthest. They happen to be delivered in
+    the same workspace folder; that is a packaging detail, not a family relationship.
+
+    Consequence worth knowing: fontbakery treats every font handed to it in one run as one
+    family, so pointing family/win_ascent_and_descent at the whole workspace folder will
+    report a mismatch between the two. Check each family separately —
+    `fontbakery check-googlefonts <pkg>/CalSans-*.ttf` and then `<pkg>/CalSansTextUI-*.ttf`
+    — which is how GF will look at them anyway.
+
+    The per-family preset is the floor; measured ink can only raise it, never lower it."""
+    families = {}
+    for path in sorted(pkg_dir.glob("*.ttf")):
+        font = TTFont(str(path), lazy=True)
+        fam = _family_name(font) or path.name
+        head = font["head"]
+        families.setdefault(fam, []).append((path, head.yMax, -head.yMin))
+        font.close()
+
+    for fam, entries in sorted(families.items()):
+        m = config.gf_metrics_for(fam)
+        asc  = max([m["win_ascent"]]  + [e[1] for e in entries])
+        desc = max([m["win_descent"]] + [e[2] for e in entries])
+        for path, _, _ in entries:
+            font = TTFont(str(path))
+            os2 = font["OS/2"]
+            if (os2.usWinAscent, os2.usWinDescent) == (asc, desc):
+                font.close()
+                continue
+            os2.usWinAscent, os2.usWinDescent = asc, desc
+            font.save(str(path))
+            woff2 = path.with_suffix(".woff2")
+            if woff2.exists():
+                font.flavor = "woff2"
+                font.save(str(woff2))
+        print(f"   \U0001f4d0 {fam}: usWin {asc}/{desc} across {len(entries)} file(s)")
 
 
 def _distribution_sha() -> str:
@@ -234,8 +477,12 @@ def _set_gf_version(font: TTFont):
 
 
 def _set_gf_name_overrides(font: TTFont):
-    """gf-api-only: Designer (nameID 9, GF-mandatory) + Copyright (nameID 0, GF canonical
-    pattern). Every other build keeps the source's own Designer/Copyright values."""
+    """Every GF deliverable: Designer (nameID 9, GF-mandatory) + Copyright (nameID 0, GF
+    canonical pattern). Non-GF builds keep the source's own Designer/Copyright values.
+
+    Called from _apply_gf_conformance rather than the individual builders — it used to be
+    wired into the two API paths only, so the workspace statics shipped the source string
+    ("Copyright © 2026 by Designer Mark Davis DBA Wordmark") and failed font_copyright."""
     name = font["name"]
     for val, nid in ((config.GF_DESIGNER, 9), (config.GF_COPYRIGHT, 0)):
         name.setName(val, nid, 3, 1, 0x0409)  # Windows, English (US)
@@ -269,8 +516,7 @@ def _build_gf_api(src_ttf: Path, dest_dir: Path):
             _trim_gf_instances(font, ps_suffix=suffix)
         _hide_gf_parametric_axes(font)   # parametric_axes_hidden
         _set_gf_version(font)            # name/version_format ("Version X.YYY"[; sha])
-        _set_gf_name_overrides(font)     # GF Designer (nameID 9) + Copyright (nameID 0)
-        _set_gf_vertical_metrics(font)   # bit 7 + hhea=win + typo line gap
+        _apply_gf_conformance(font)      # names, v-metrics, STAT, meta
         dest_ttf = dest_dir / f"{family_ps}{suffix}[{bracket}].ttf"
         font.save(str(dest_ttf))
         font.flavor = "woff2"
@@ -456,8 +702,7 @@ def _build_gf_textui(src_ttf: Path, dest_dir: Path):
         if config.GF_TRIM_INSTANCES:
             _trim_gf_instances(font, ps_suffix=suffix)
         _set_gf_version(font)            # name/version_format ("Version X.YYY"[; sha])
-        _set_gf_name_overrides(font)     # GF Designer (nameID 9) + Copyright (nameID 0)
-        _set_gf_vertical_metrics(font)   # bit 7 + hhea=win + typo line gap
+        _apply_gf_conformance(font)      # names, v-metrics, STAT, meta
         _save_with_curved_l_names(font, dest_dir / f"{family_ps}{suffix}[wght].ttf")
 
 
@@ -479,7 +724,7 @@ def _build_gf_workspace_textui(var_ttf: Path, dest_dir: Path, build_italic: bool
             font = _instance_textui(var_ttf, dict(config.GF_TEXTUI_PINNED,
                                                   wght=wght, ital=ital_value))
             _apply_static_names(font, style)
-            _set_gf_vertical_metrics(font)
+            _apply_gf_conformance(font)
             _save_with_curved_l_names(font, dest_dir / style_name_to_filename(style),
                                       woff2=False)
 
@@ -509,9 +754,36 @@ def _build_cossui(src_ttf: Path, dest_dir: Path):
         font.save(str(dest_ttf.with_suffix(".woff2")))
 
 
+def _audit_italic_instances(pkg_dir: Path) -> list:
+    """Every italic variable font in a package whose named instances forget the slope.
+
+    A package-level net for the same bug, catching any path that builds instances without
+    going through _trim_gf_instances (cossui keeps the source's own, for instance)."""
+    bad = []
+    for path in sorted(pkg_dir.rglob("*.ttf")):
+        font = TTFont(str(path), lazy=True)
+        if "fvar" in font and font["OS/2"].fsSelection & 0x0001:
+            name = font["name"]
+            names = [name.getDebugName(i.subfamilyNameID) for i in font["fvar"].instances]
+            if any("Italic" not in (s or "") for s in names):
+                bad.append((path.name, names))
+        font.close()
+    return bad
+
+
 def _report(pkg_dir: Path, label: str):
     count = sum(1 for p in pkg_dir.rglob("*") if p.is_file()) if pkg_dir.exists() else 0
     print(f"   ✅ {label} ({count} files)")
+    if _UNDERLINE_NOTICE["count"]:
+        was = ", ".join(str(v) for v in sorted(_UNDERLINE_NOTICE["was"]))
+        print(f"   \u270f\ufe0f  underline pinned to Medium "
+              f"({config.GF_UNDERLINE_THICKNESS}/{config.GF_UNDERLINE_POSITION}) on "
+              f"{_UNDERLINE_NOTICE['count']} file(s) — was {was} — GF requires one "
+              f"thickness family-wide")
+        _UNDERLINE_NOTICE["count"] = 0
+        _UNDERLINE_NOTICE["was"] = set()
+    for fname, names in _audit_italic_instances(pkg_dir):
+        print(f"   ❌ {fname}: italic instances missing the slope → {names}")
 
 
 # ── Public API ────────────────────────────────────────────────────────────────
@@ -586,6 +858,7 @@ def build_release_folders(build_dir: str, output_dir: str, build_italic: bool = 
               "gf-api-textui instead).")
     for ttf in sorted(var_dir.glob("*.ttf")):
         _build_gf_api(ttf, pkg)
+    _unify_family_win_metrics(pkg)
     _report(pkg, f"{_PFX}-gf-api")
 
     # gf-api-textui: the second GF delivery folder (google/fonts#9970) — "Cal Sans
@@ -594,6 +867,7 @@ def build_release_folders(build_dir: str, output_dir: str, build_italic: bool = 
     pkg = out_path / f"{_PFX}-gf-api-textui"
     for ttf in sorted(var_dir.glob("*.ttf")):
         _build_gf_textui(ttf, pkg)
+    _unify_family_win_metrics(pkg)
     _report(pkg, f"{_PFX}-gf-api-textui")
 
     # ── Static packages ───────────────────────────────────────────────────────
@@ -653,6 +927,7 @@ def build_release_folders(build_dir: str, output_dir: str, build_italic: bool = 
     workspace_var = next((t for t in sorted(var_dir.glob("*.ttf"))), None)
     if workspace_var:
         _build_gf_workspace_textui(workspace_var, pkg, build_italic)
+    _unify_family_win_metrics(pkg)
     _report(pkg, f"{_PFX}-gf-workspace")
 
     if not build_italic:

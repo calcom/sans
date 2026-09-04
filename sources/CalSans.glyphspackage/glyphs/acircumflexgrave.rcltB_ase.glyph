@@ -101,7 +101,7 @@ shapes = (
 ref = a.rcltBase;
 },
 {
-pos = (321,8);
+pos = (314,8);
 ref = circumflexcomb_gravecomb;
 }
 );

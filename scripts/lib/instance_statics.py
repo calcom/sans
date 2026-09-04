@@ -24,15 +24,24 @@ def _apply_static_names(font, style_name):
         name.setName(val, nid, 1, 0, 0)        # Mac, Roman
     if "OS/2" in font:
         os2 = font["OS/2"]
+        fs = os2.fsSelection & ~(0x0001 | 0x0020 | 0x0040)   # clear ITALIC, BOLD, REGULAR
         if r["italic"]:
-            os2.fsSelection = (os2.fsSelection & ~0x0040) | 0x0001  # clear REGULAR, set ITALIC
-        else:
-            os2.fsSelection = (os2.fsSelection & ~0x0001) | 0x0040  # clear ITALIC, set REGULAR
+            fs |= 0x0001
+        if r["bold"]:
+            fs |= 0x0020
+        # REGULAR is the "neither" flag: it may only be set when the font is in the plain
+        # RIBBI slot. Setting it alongside BOLD or ITALIC is what fontbakery reports as
+        # bad-REGULAR, and it made every Bold announce itself as the Regular.
+        if not (r["italic"] or r["bold"]):
+            fs |= 0x0040
+        os2.fsSelection = fs
     if "head" in font:
+        mac = font["head"].macStyle & ~(0x0001 | 0x0002)     # bit 0 bold, bit 1 italic
+        if r["bold"]:
+            mac |= 0x0001
         if r["italic"]:
-            font["head"].macStyle |= 0x0002
-        else:
-            font["head"].macStyle &= ~0x0002
+            mac |= 0x0002
+        font["head"].macStyle = mac
     if "post" in font:
         font["post"].italicAngle = config.ITALIC_ANGLE if r["italic"] else 0.0
 

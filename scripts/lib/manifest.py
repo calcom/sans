@@ -75,6 +75,11 @@ def style_name_records(style_name: str) -> dict:
         "records": {1: legacy_family, 2: legacy_subfamily, 4: full, 6: ps,
                     16: typo_family, 17: typo_subfamily},
         "italic": italic,
+        # Bold in the RIBBI sense, which is what fsSelection and macStyle describe — the
+        # legacy slot, not the weight. Medium and SemiBold fold their weight into the
+        # legacy FAMILY and sit in the Regular slot, so they are not "bold" here even
+        # though they are heavier than Regular.
+        "bold": legacy_subfamily in ("Bold", "Bold Italic"),
     }
 
 

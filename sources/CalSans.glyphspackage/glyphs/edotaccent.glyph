@@ -92,7 +92,7 @@ pos = (317,0);
 ref = dotaccentcomb;
 }
 );
-width = 620;
+width = 621;
 },
 {
 layerId = "33BF50A0-DEC8-4619-95BB-DD23FBD7FB0B";
@@ -101,7 +101,7 @@ shapes = (
 ref = e;
 },
 {
-pos = (304,1);
+pos = (294,1);
 ref = dotaccentcomb;
 }
 );

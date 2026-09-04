@@ -75,7 +75,7 @@ shapes = (
 ref = o;
 },
 {
-pos = (286,0);
+pos = (286,-1);
 ref = hungarumlautcomb;
 }
 );
@@ -92,7 +92,7 @@ pos = (330,0);
 ref = hungarumlautcomb;
 }
 );
-width = 652;
+width = 653;
 },
 {
 layerId = "33BF50A0-DEC8-4619-95BB-DD23FBD7FB0B";
@@ -101,7 +101,7 @@ shapes = (
 ref = o;
 },
 {
-pos = (305,0);
+pos = (305,-1);
 ref = hungarumlautcomb;
 }
 );

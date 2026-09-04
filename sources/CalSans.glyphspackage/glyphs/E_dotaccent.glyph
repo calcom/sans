@@ -10,7 +10,7 @@ shapes = (
 ref = E;
 },
 {
-pos = (319,-14);
+pos = (313,0);
 ref = dotaccentcomb.case;
 }
 );
@@ -23,7 +23,7 @@ shapes = (
 ref = E;
 },
 {
-pos = (310,-14);
+pos = (307,0);
 ref = dotaccentcomb.case;
 }
 );

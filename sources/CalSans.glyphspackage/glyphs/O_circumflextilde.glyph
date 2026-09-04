@@ -23,7 +23,7 @@ shapes = (
 ref = O;
 },
 {
-pos = (419,-14);
+pos = (416,0);
 ref = circumflexcomb_tildecomb.case;
 }
 );
@@ -101,7 +101,7 @@ shapes = (
 ref = O;
 },
 {
-pos = (416,-14);
+pos = (415,0);
 ref = circumflexcomb_tildecomb.case;
 }
 );

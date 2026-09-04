@@ -5,18 +5,18 @@ layers = (
 anchors = (
 {
 name = _top;
-pos = (-6,734);
+pos = (0,720);
 },
 {
 name = top;
-pos = (-5,925);
+pos = (0,911);
 }
 );
 layerId = m006;
 shapes = (
 {
 alignment = -1;
-pos = (-149,202);
+pos = (-151,188);
 ref = tittle;
 }
 );
@@ -26,18 +26,18 @@ width = 319;
 anchors = (
 {
 name = _top;
-pos = (-3,734);
+pos = (0,720);
 },
 {
 name = top;
-pos = (-3,862);
+pos = (0,848);
 }
 );
 layerId = "0B84D982-BA46-4CB9-89EB-4BEFB54BBE92";
 shapes = (
 {
 alignment = -1;
-pos = (-123,157);
+pos = (-128,143);
 ref = tittle;
 }
 );

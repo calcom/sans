@@ -10,7 +10,7 @@ shapes = (
 ref = I.rcltA11y;
 },
 {
-pos = (249,-14);
+pos = (246,0);
 ref = circumflexcomb.case;
 }
 );
@@ -101,7 +101,7 @@ shapes = (
 ref = I.rcltA11y;
 },
 {
-pos = (246,-14);
+pos = (246,0);
 ref = circumflexcomb.case;
 }
 );

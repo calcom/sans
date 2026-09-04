@@ -3038,7 +3038,7 @@ pos = (520,0);
 },
 {
 name = top;
-pos = (446,720);
+pos = (444,720);
 },
 {
 name = top_ring;
@@ -3416,7 +3416,7 @@ pos = (516,0);
 },
 {
 name = top;
-pos = (432,720);
+pos = (431,720);
 },
 {
 name = top_ring;

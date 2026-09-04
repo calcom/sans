@@ -26,7 +26,7 @@ shapes = (
 ref = six.tf;
 }
 );
-width = 560;
+width = 580;
 },
 {
 layerId = "1B5AC656-48C3-4864-953F-2CD31E7BA751";
@@ -35,7 +35,7 @@ shapes = (
 ref = six.tf;
 }
 );
-width = 558;
+width = 601;
 },
 {
 layerId = "33BF50A0-DEC8-4619-95BB-DD23FBD7FB0B";
@@ -62,7 +62,7 @@ shapes = (
 ref = six.tf;
 }
 );
-width = 560;
+width = 581;
 },
 {
 layerId = "0DDD66F2-BE4C-471A-8E86-2163424A6CF0";
@@ -71,7 +71,7 @@ shapes = (
 ref = six.tf;
 }
 );
-width = 558;
+width = 601;
 }
 );
 metricLeft = six.tf;
