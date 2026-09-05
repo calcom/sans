@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg height="160" viewBox="0 0 128 160" width="128" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<path d="M54 230Q36 230 16 230Q-3 230 -22 230V151Q-3 151 16 151Q36 151 54 151Q68 151 74 146Q79 140 79 126V-515H167V126Q167 176 138 203Q109 230 54 230ZM-17 -580 98 -748H153L264 -580H184L126 -680H124L65 -580Z" id="path1"/>
+</defs>
+<g>
+<g data-glyph="jcircumflex.ss08" fill="#dee4e3" transform="translate(52.19200 104.99201) rotate(0) scale(0.096)">
+<use href="#path1"/>
+</g>
+</g>
+</svg>

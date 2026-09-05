@@ -67,7 +67,7 @@ Four typefaces in one axis. In the standard build, compatible letterforms switch
   <img alt="a (U+0061) interpolating from *wght* 400–700 *opsz* 10" src="documentation/images/svg/VariableMorph.svg">
 </picture>
 
-Set the weight, 400 to 700. Raise the ascenders with `YTAS` for taller, airier headlines. Sharpen the corners with `SHRP` for display work. Lean into the real italics, drawn at 9.5°, not slanted by the browser.
+Set the weight, 400 to 700. Raise the ascenders with `YTAS` for taller, airier headlines. Sharpen the corners with `SHRP` for display work. Lean into the real italics, drawn at 9.5° and powered by [Sebastian Carewe's Italify](https://www.sebastiancarewe.com/italify), not slanted by the browser.
 
 The named instances cover one optical size and the four weights per family. Every other axis is a tweak from there. That's deliberate: instances are the starting points, the axes are the range.
 
@@ -89,6 +89,8 @@ Cal Sans began as a font that had to operate in two worlds, mild-mannered UI and
 ### №2 OpenType features: stylistic sets and character variants.
 **Availability**: *Modern browsers, font feature-rich applications like Framer, Figma, Photoshop/InDesign/Illustrator/AfterEffects, Affinity.*
 Available via NPM and Adobe Fonts hosting. Not available when served from Google Fonts API.
+
+Look through every transformation yourself: **[the character-alternative catalogue](documentation/character-alternatives.md)** — every set and variant, every letter it reshapes, drawn straight out of the finished font.
 
 ### №3 Your custom fork: ReCal Sans website
 Choose new defaults, axes configurations, lining and freeze opentype features into something new online, no command line or font software needed.

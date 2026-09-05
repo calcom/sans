@@ -340,5 +340,5 @@ ITALIC_SLANT_DEGREES = 9.5  # used to derive the italic horizontal compensation 
 # own success report. --no-docs (or BUILD_CHARVARIANTS=False) skips the regen and
 # leaves whatever is already on disk untouched.
 BUILD_CHARALTS   = True
-CHARALTS_MD      = "docs/character-alternatives.md"
-CHARALTS_SVG_DIR = "docs/images/character-alternatives"
+CHARALTS_MD      = "documentation/character-alternatives.md"
+CHARALTS_SVG_DIR = "documentation/images/character-alternatives"

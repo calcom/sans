@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg height="160" viewBox="0 0 128 160" width="128" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<path d="M201 -1V-360V-719H290V-1ZM59 0V-78H426V0ZM59 -642V-720H426V-642ZM163 -765Q138 -765 122 -782Q105 -798 105 -821Q105 -844 122 -860Q138 -877 163 -877Q187 -877 203 -860Q219 -844 219 -821Q219 -798 203 -782Q187 -765 163 -765ZM325 -765Q300 -765 284 -782Q267 -798 267 -821Q267 -844 284 -860Q300 -877 325 -877Q349 -877 365 -860Q381 -844 381 -821Q381 -798 365 -782Q349 -765 325 -765Z" id="path1"/>
+</defs>
+<g>
+<g data-glyph="Idieresis.ss18" fill="#20242e" transform="translate(40.72000 104.99201) rotate(0) scale(0.096)">
+<use href="#path1"/>
+</g>
+</g>
+</svg>

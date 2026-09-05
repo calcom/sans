@@ -33,7 +33,7 @@ pip install -r requirements.txt
   packer, which is needed to correctly resolve GPOS table overflow during
   compilation (without it, fontTools falls back to a legacy packer that
   crashes on this font's large `@All`-class GPOS table)
-- **brotli** — required by fontTools to write `.woff2` files (step 9/10
+- **brotli** — required by fontTools to write `.woff2` files (step 10/11
   compresses the variable font and all static instances to WOFF2)
 
 ## Run the build
@@ -43,7 +43,7 @@ python3 -m scripts
 ```
 
 This runs the entire pipeline end-to-end — source → packaged release folders —
-printing a numbered, timed `[n/10]` header for each step (`[n/9]` with `--no-flex`). Expect it to take a
+printing a numbered, timed `[n/11]` header for each step. Expect it to take a
 while: `glyphsLib.load` alone takes ~45s, and the instancing/compiling steps
 are CPU-heavy (the full run can take well over ten minutes).
 
@@ -55,9 +55,13 @@ Useful flags:
   shift, STAT + instance names), so it's a fast way to test variable-font output.
 - `--roman` — build roman styles only (192), skipping the italic statics.
   Italics are built by default (384 styles).
-- `--no-flex` — skip the **Cal Sans Flex** build (step 7, the HOI
+- `--no-flex` — skip the **Cal Sans Flex** build (step 8, the HOI
   variable-morph font). Flex is built **by default** on every full run; this
   opts out for a faster build when you only need the base/static families.
+- `--no-docs` — skip regenerating the character-alternatives documentation
+  (step 7). The doc is rebuilt on **every** run by default. Use this when you
+  only want fonts: it leaves `documentation/character-alternatives.md` and its ~880 SVG
+  cells exactly as committed, and shaves the ~1,760 file writes off the run.
 - `--verbose` — show full glyph/instance name lists in the pre-processing
   stage (step 4); by default only counts and the first few names are printed.
 
@@ -72,17 +76,25 @@ Useful flags:
    intermediates that fontmake compiles from.
 6. **Compile the variable font** — runs `fontmake`, then post-processes the
    result (merges overlapping GEOM feature variations, shifts axis defaults).
-7. **Compile Cal Sans Flex** — re-preps a fresh copy of the source, injects the
+7. **Document character alternatives** — regenerates `documentation/character-alternatives.md`
+   from the freshly compiled variable font: every `ssXX`/`cvXX` feature, one row
+   each, with every glyph the feature *produces* drawn as its own SVG cell in
+   `documentation/images/character-alternatives/`. Runs in a **separate Python process
+   that nothing waits on**, so ~1,760 SVG writes never delay the font build's
+   success report and a failure in the docs can never fail the fonts. The build
+   prints the child's pid and a log path (`scripts/temp/character-alternatives.log`)
+   and moves straight on. Skip with `--no-docs`.
+8. **Compile Cal Sans Flex** — re-preps a fresh copy of the source, injects the
    HOI variable-morph braces and strips the morphed glyphs from the conditionset
    (so GEOM glyphs *interpolate* instead of hard-swapping), compiles a **second**
    variable font from that disposable `_FLEX` package, then applies avar2 + hides
    the YTAS axis + renames it to **Cal Sans Flex**. Flex-family only; the base
    build keeps the discrete swaps. Skip with `--no-flex`.
-8. **Instance statics** — generates all static styles (384 with italics by
+9. **Instance statics** — generates all static styles (384 with italics by
    default, or 192 roman-only with `--roman`) into `scripts/temp/static/`, baking
    the correct GEOM substitutions into each.
-9. **Compress** — generates `.woff2` siblings for the variable font and statics.
-10. **Package releases** — sorts the finished exports into the `fonts/` release
+10. **Compress** — generates `.woff2` siblings for the variable font and statics.
+11. **Package releases** — sorts the finished exports into the `fonts/` release
     folders (e.g. `calsans-var-full`, `calsans-var-flex`, `calsans-static-essentials`,
     `calsans-gf-workspace`, etc.)
 
@@ -99,6 +111,9 @@ A few constants in `scripts/config.py` control the run:
 - `STATIC_*_TOKENS` / `STATIC_AXIS_VALUES` — the per-axis style-name tokens
   and instancer coordinates that `scripts/lib/manifest.py` combines into the
   full static-style catalog.
+- `BUILD_CHARALTS` — `True` (default) regenerates the character-alternatives
+  doc on every run; `False` is the permanent form of `--no-docs`.
+  `CHARALTS_MD` / `CHARALTS_SVG_DIR` set where the markdown and its cells land.
 
 ## Output
 
@@ -109,13 +124,13 @@ There are two output locations, serving different purposes:
   - `scripts/temp/variable/` — compiled variable font(s)
   - `scripts/temp/static/` — all instanced static styles (TTF + WOFF2)
 - **`fonts/`** — the final, curated, ready-to-ship release packages, sorted
-  from `scripts/temp/`'s output by step 10/10. **This directory is wiped and
+  from `scripts/temp/`'s output by step 11/11. **This directory is wiped and
   regenerated from scratch on every run.** The packages are:
 
   | Package | Contents |
   |---------|----------|
   | `calsans-var-full` | The full variable font, all axes exposed |
-  | `calsans-var-flex` | **Cal Sans Flex** — the HOI variable-morph build: GEOM glyphs interpolate instead of hard-swapping, plus avar2 (YTAS hidden, follows `opsz`). Built by default (step 7); skip with `--no-flex`. |
+  | `calsans-var-flex` | **Cal Sans Flex** — the HOI variable-morph build: GEOM glyphs interpolate instead of hard-swapping, plus avar2 (YTAS hidden, follows `opsz`). Built by default (step 8); skip with `--no-flex`. |
   | `calsans-cossui` | Variable font with `ss*`/`cv*`/`aalt` features and their alternate glyphs subset out |
   | `calsans-gf-api` | Same subsetting as `cossui`, packaged for the Google Fonts API |
   | `calsans-gf-api-textui` | **Cal Sans Text UI** — second GF family ([google/fonts#9970](https://github.com/google/fonts/issues/9970)): `wght`-only (400–700) VF pair, `opsz` 10 / `GEOM` 25 / `YTAS` 760 baked, curved l (`l.rcltA11y`) as default |
@@ -127,11 +142,11 @@ There are two output locations, serving different purposes:
 ## Troubleshooting
 
 - **`fontmake: Error: ... Generating fonts from Designspace failed`** during
-  step 6/10, with a `GPOS` `OTLOffsetOverflowError` in the log — make sure
+  step 6/11, with a `GPOS` `OTLOffsetOverflowError` in the log — make sure
   `uharfbuzz` is installed (`pip install uharfbuzz` or re-run
   `pip install -r requirements.txt`). Without it, fontTools uses a legacy
   table packer that can crash on this font's large GPOS table.
-- **`ImportError: No module named brotli`** during step 9/10 (WOFF2
+- **`ImportError: No module named brotli`** during step 10/11 (WOFF2
   compression) — install `brotli` (`pip install brotli` or re-run
   `pip install -r requirements.txt`).
 - **`command not found: fontmake`** — the `fontmake` console script may have

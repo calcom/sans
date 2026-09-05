@@ -97,7 +97,7 @@ def stage_compile_variable(ctx):
 
 
 def stage_docs(ctx):
-    """Regenerate docs/character-alternatives.md + its ~900 SVG cells from the freshly
+    """Regenerate documentation/character-alternatives.md + its ~900 SVG cells from the freshly
     compiled VF — in a SEPARATE python process that we do not wait on. The font
     build owns the terminal; the docs just have to be finished by the time anyone
     reads them. Skipped by --no-docs, which leaves the committed doc untouched."""
@@ -225,7 +225,7 @@ def _parse_args(argv=None):
     )
     parser.add_argument(
         "--no-docs", dest="docs", action="store_false",
-        help="Do NOT regenerate docs/character-alternatives.md or its SVG cells. "
+        help="Do NOT regenerate documentation/character-alternatives.md or its SVG cells. "
              "The doc is rebuilt on every build by default, in its own process.",
     )
     return parser.parse_args(argv)

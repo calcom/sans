@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg height="160" viewBox="0 0 128 160" width="128" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<path d="M201 -1V-360V-719H290V-1ZM59 0V-78H426V0ZM59 -642V-720H426V-642ZM262 231Q224 231 195 218Q166 204 150 180Q135 155 135 123Q135 93 153 60Q171 28 210 0L234 -18L277 -6L293 0Q276 6 256 19Q237 32 223 52Q209 73 209 104Q209 135 228 148Q247 161 279 161Q291 161 302 160Q313 158 323 154L340 219Q318 226 299 228Q280 231 262 231Z" id="path1"/>
+</defs>
+<g>
+<g data-glyph="Iogonek.ss18" fill="#20242e" transform="translate(40.72000 104.99201) rotate(0) scale(0.096)">
+<use href="#path1"/>
+</g>
+</g>
+</svg>

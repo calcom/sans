@@ -7,7 +7,7 @@ glyphs each one PRODUCES, draws each distinct produced glyph as a light and a
 dark SVG, and writes a single markdown table — one row per feature.
 
     python3 -m scripts.lib.charalts fonts/calsans-var-full/CalSansVF.ttf \
-        -o docs/character-alternatives.md
+        -o documentation/character-alternatives.md
 
 Layout follows Iosevka's character-variants.md: a 128x160 cell, the outline
 pre-negated in a <defs> path, and the fill baked in (rather than a CSS media
