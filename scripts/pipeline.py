@@ -167,13 +167,16 @@ VARIABLE_ONLY_STAGES = ("metrics", "load", "validate", "prepare", "save_ready_so
                         "compile_variable", "docs")
 
 
-def run(only=None, build_italic=None, verbose=False, flex=True, docs=True):
+def run(only=None, build_italic=None, verbose=False, flex=True, docs=True,
+        extra_steps=0):
     """Run the named subset of STAGES in order (default: all of them).
 
     build_italic, if given, overrides config.BUILD_ITALIC for this run.
     verbose enables full glyph/instance name listings in the prepare stage.
     flex=False skips the HOI (Cal Sans Flex) compile.
     docs=False skips regenerating the character-alternative doc.
+    extra_steps counts phases main() runs AFTER this function — --bump is one — so
+    the step headers read [n/12] throughout instead of counting past the end.
     """
     stages = [s for s in STAGES if only is None or s[0] in only]
 
@@ -185,7 +188,7 @@ def run(only=None, build_italic=None, verbose=False, flex=True, docs=True):
         sys.exit(1)
 
     _STEP["n"] = 0
-    _STEP["total"] = len(stages)
+    _STEP["total"] = len(stages) + extra_steps
     ctx = _Ctx(build_italic=BUILD_ITALIC if build_italic is None else build_italic,
                verbose=verbose, flex=flex, docs=docs)
     for _, fn, label in stages:
@@ -224,6 +227,21 @@ def _parse_args(argv=None):
              "Flex is built by default.",
     )
     parser.add_argument(
+        "--bump", dest="bump_primitives", nargs="?", const=config.PRIMITIVES_PATH,
+        metavar="PATH",
+        help="Mark Davis' own shortcut when he builds locally, and no use to anyone "
+             "else: publish this build into WORDMARK's shared primitives instead of "
+             "hand-copying it. Copies the four variable house faces (CalSansVF and "
+             "CalSansFlexVF, .ttf and .woff2) "
+             "into a wm-primitives checkout and pushes, which fires notify.yml and "
+             "redeploys font-proofer, ReCal and opsz-proofer — though today only "
+             "opsz-proofer actually renders from there, so the other two redeploy with "
+             "their own bundled copy unchanged (calbuild#55). Needs that checkout, which "
+             f"ships with none of this — defaults to {config.PRIMITIVES_PATH}, override with "
+             "a PATH. Refuses if FeatureVariations did not survive the build, or if the "
+             "checkout is dirty or off main.",
+    )
+    parser.add_argument(
         "--no-docs", dest="docs", action="store_false",
         help="Do NOT regenerate documentation/character-alternatives.md or its SVG cells. "
              "The doc is rebuilt on every build by default, in its own process.",
@@ -237,7 +255,17 @@ def main(argv=None):
     # Italics are the default (config.BUILD_ITALIC=True); --roman opts out.
     build_italic = False if args.roman else None
     run(only=only, build_italic=build_italic, verbose=args.verbose, flex=args.flex,
-        docs=args.docs)
+        docs=args.docs, extra_steps=1 if args.bump_primitives else 0)
+
+    if args.bump_primitives:
+        from scripts.lib.bump_primitives import bump_primitives
+        # --varonly stops before the statics, so CalSans-Bold.woff2 on disk is from an
+        # earlier run. The gate catches a DAMAGED file, not a stale one, so say it here.
+        if args.variable_only:
+            print("\n   ! --varonly: CalSans-Bold.woff2 is from an earlier build and will "
+                  "be published as-is")
+        with step("Hidden track: publishing to WORDMARK"):
+            bump_primitives(args.bump_primitives)
 
 if __name__ == "__main__":
     main()

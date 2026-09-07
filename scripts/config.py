@@ -8,6 +8,11 @@ OUTPUT_PATH_STATIC = "sources/CalSans_READY_static.glyphspackage"
 OUTPUT_PATH_FLEX   = "sources/CalSans_FLEX.glyphspackage"   # disposable HOI brace-injected source
 BUILD_DIR    = "scripts/temp"
 RELEASE_DIR  = "fonts"
+
+# Where the built house faces are published, so every app reads one copy instead of
+# keeping its own. A sibling checkout by default; override per-run with
+# `--bump PATH`.
+PRIMITIVES_PATH = "../wm-primitives"
 BUILD_ITALIC = True  # True → 384 styles (roman + italic); False → 192 roman. Default builds italics; CLI --roman opts out.
 
 
