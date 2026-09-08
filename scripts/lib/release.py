@@ -821,6 +821,30 @@ def _build_cossui(src_ttf: Path, dest_dir: Path):
         font.save(str(dest_ttf.with_suffix(".woff2")))
 
 
+def _build_adobe_vf(src_ttf: Path, dest_dir: Path):
+    """adobe-vf: var-full, split into roman + italic variable fonts and nothing else.
+
+    Same split as cossui and gf-api, for the same reason — a host that only knows
+    "italic" cannot activate an `ital` axis and fakes an oblique instead — but this is
+    the FULL font: ss/cv features stay in, opsz keeps the source's 8–45, no GF
+    conformance pass. The only difference from var-full is that ital is instanced out
+    of fvar and survives as the STAT style-link record."""
+    from fontTools.varLib.instancer import instantiateVariableFont
+    dest_dir.mkdir(parents=True, exist_ok=True)
+
+    has_ital = any(a.axisTag == "ital" for a in TTFont(str(src_ttf))["fvar"].axes)
+    targets = [(0, "", "Regular")] + ([(1, "-Italic", "Italic")] if has_ital else [])
+    for ital_value, suffix, subfamily in targets:
+        font = TTFont(str(src_ttf))
+        if has_ital:
+            instantiateVariableFont(font, {"ital": ital_value}, inplace=True, updateFontNames=False)
+        _set_style_names(font, subfamily)   # also injects post.italicAngle on the italic
+        dest_ttf = dest_dir / f"{src_ttf.stem}{suffix}.ttf"
+        font.save(str(dest_ttf))
+        font.flavor = "woff2"
+        font.save(str(dest_ttf.with_suffix(".woff2")))
+
+
 def _audit_italic_instances(pkg_dir: Path) -> list:
     """Every italic variable font in a package whose named instances forget the slope.
 
@@ -898,6 +922,13 @@ def build_release_folders(build_dir: str, output_dir: str, build_italic: bool = 
     for ttf in sorted(var_dir.glob("*.ttf")):
         _copy_pair(var_dir, ttf.name, pkg)
     _report(pkg, f"{_PFX}-var-full")
+
+    # adobe-vf: var-full split into roman + italic VFs for Adobe Fonts. Full feature set,
+    # full opsz range — the split is the only difference from var-full.
+    pkg = out_path / f"{_PFX}-adobe-vf"
+    for ttf in sorted(var_dir.glob("*.ttf")):
+        _build_adobe_vf(ttf, pkg)
+    _report(pkg, f"{_PFX}-adobe-vf")
 
     # var-flex: the HOI morphing build (Flex-family only) → avar2, YTAS hidden/slaved to opsz.
     # Uses the HOI variable TTF when the flex stage produced one; else falls back to the base VF.
