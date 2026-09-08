@@ -256,7 +256,7 @@ value = WORD;
 },
 {
 name = versionString;
-value = "Version 2.000; git-1b2e7c1-release";
+value = "Version 2.001; git-1b2e7c1-release";
 },
 {
 name = "Use Typo Metrics";
@@ -33591,7 +33591,6 @@ zero = -10;
 "@MMK_R_T" = -20;
 "@MMK_R_V" = 0;
 "@MMK_R_hbar" = 135;
-"@MMK_R_i" = 120;
 integral = -60;
 slash = -30;
 };
@@ -47919,5 +47918,5 @@ m006 = (
 };
 };
 versionMajor = 2;
-versionMinor = 0;
+versionMinor = 1;
 }
