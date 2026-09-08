@@ -1,4 +1,4 @@
-# Cal Sans Variable and Static Fonts, v1.999
+# Cal Sans Variable and Static Fonts, v2.001
 
 > “This Font Software is licensed under the SIL Open Font License, Version 1.1.”
 
@@ -18,7 +18,7 @@ If you’re not sure, take **`calsans-var-full/`** — it’s the complete varia
 | **`calsans-var-full`** | `CalSansVF` | The complete variable font — all six axes exposed (`opsz`, `GEOM`, `wght`, `YTAS`, `SHRP`, `ital`). The default choice for most uses. See [Variable axes](#variable-axes). |
 | **`calsans-var-flex`** | `CalSansFlex` | **Cal Sans Flex** — the morphing, cutting-edge build. Along the `GEOM` axis compatible letterforms *blend* between forms instead of flipping, and `avar2` lengthens tall ascenders to small optical sizes. (`YTAS` is hidden as it follows `opsz` automatically.) |
 | **`calsans-cossui`** | `CalSansVF` + `CalSansVF-Italic` | The full variable font after removing stylistic-set / character-variant features (`ssXX`/`cvXX`/`aalt` glyphs) via subset — the lean [cal.com](http://refer.cal.com/davis), Framer-friendly, and [COSS UI](https://coss.com/ui) build. Delivered as two variable fonts (upright + italic) like `gf-api`, so `font-style: italic` style-links to the real italic instead of a browser-faked slant. The `opsz` axis also peaks at 32pt instead of 45, giving punchier, functional headlines at smaller sizes. Same 8–14pt performance. |
-| **`calsans-gf-api`** | `CalSans` + `CalSans-Italic` | The full variable font delivered as two variable fonts (upright + italic) packaged to the Google Fonts spec after removing stylistic-set / character-variant features (`ssXX`/`cvXX`/`aalt` glyphs) via subset out. Same subsetting as `cossui`. |
+| **`calsans-gf-api`** | `CalSans` + `CalSans-Italic` | The full variable font delivered as two variable fonts (upright + italic) packaged to the Google Fonts spec after removing stylistic-set / character-variant features (`ssXX`/`cvXX`/`aalt` glyphs) via subset out. Same subsetting as `cossui`. The `opsz` axis is relabeled to peak at **48** instead of 45 — the same display drawing, answering to a rounder number. |
 | **`calsans-gf-api-textui`** | `CalSansTextUI` + `CalSansTextUI-Italic` | **Cal Sans Text UI** — the second Google Fonts family ([google/fonts#9970](https://github.com/google/fonts/issues/9970)): a small-optical-size variable font with `wght` (400–700) as its only live axis, upright + italic. Baked in: `opsz` 10, `GEOM` 25 (UI), `YTAS` raised to 760, and the curved l (`l.rcltA11y` + its accented family) as the default for I/l differentiation. Same subsetting as `gf-api`. |
 
 ### Static instances (one file per style)
@@ -33,13 +33,14 @@ Each `GEOM` family ships in three optical tiers, all with italics: **Cal Sans** 
 | **`calsans-static-ui`** | 24 | The **UI** static families — the refined UI face. In the variable font, this UI family is the default, at `GEOM` (25).|
 | **`calsans-static-geo`** | 24 | The **Geo** static families — fully geometric, always clean, unmistakable. Respectfully reverent glyphs to Bauhaus design history in character. In the variable font, the Geo family is instanced at `GEOM` (100).|
 | **`calsans-static-essentials`** | 16 | A curated minimal set in two families: 32pt-ready **Cal Sans**, along with 10pt-ready **Cal Sans Text UI**, all with their italics. TTF-only. |
+| **`calsans-gf-api-static`** | 96 | The whole static matrix renamed for Google Fonts, where optical size is a **point-size suffix on the family** rather than the internal Text/Micro word: `Cal Sans A11y 10pt`, `Cal Sans 8pt`, and so on, filed as `CalSansA11y_10pt-Regular.ttf` in the SourceSerif4 manner. Twelve families — four `GEOM` families × three optical tiers (the largest is unsuffixed) — at base `YTAS`/`SHRP`, four weights, upright + italic. Same subsetting as `gf-api`, TTF-only. Nothing is re-instanced; these are the `static-*` files under new names. |
 | **`calsans-gf-workspace`** | 16 | The same two families as `static-essentials`, deployed without `opsz`-axis awareness for the Google Fonts workspace, TTF-only — but the **Cal Sans Text UI** half is instanced at the `gf-api-textui` position (`YTAS` 760, curved l default) rather than copied from the static matrix. |
 
 ## Variable Axes
 
 | Axis | Tag | Range | Default | Description |
 |------|-----|-------|---------|-------------|
-| Optical Size | `opsz` | 8 – 45 | 14 | Adapts the design from small UI reading sizes to large display. (`calsans-cossui` relabels this axis to peak at 32 — see its row above.) |
+| Optical Size | `opsz` | 8 – 45 | 14 | Adapts the design from small UI reading sizes to large display. (`calsans-cossui` relabels this axis to peak at 32 and `calsans-gf-api` at 48 — see their rows above.) |
 | Geometric Form | `GEOM` | 0 – 100 | 25 | How geometric the letterforms are, from Humanist and Neo Grotesque glyphs to the fully Geometric:<br/> A11y (0) → UI (25) → Base (50) → Geo (100). |
 | Weight | `wght` | 400 – 700 | 400 | Regular, Medium, SemiBold, Bold. |
 | Ascender Height | `YTAS` | 720 – 800 | 720 | Ascender and lowercase marks’ height. |
@@ -54,7 +55,7 @@ The static families combine four `GEOM` zones — **A11y** (0), **UI** (25),
 **Text** ≈ 10, **Micro** ≈ 8), and upright + italic.
 ## Full Static Instance List
 
-All **384** named static instances (v1.999) — four `GEOM` families × four weights × three optical tiers (Display ≈ 45, Text ≈ 10, Micro ≈ 8) × upright + italic, across the base, Tall, Sharp, and Tall Sharp variants. Each cell lists the Display / Text / Micro tier.
+All **384** named static instances (v2.001) — four `GEOM` families × four weights × three optical tiers (Display ≈ 45, Text ≈ 10, Micro ≈ 8) × upright + italic, across the base, Tall, Sharp, and Tall Sharp variants. Each cell lists the Display / Text / Micro tier.
 
 ### Default — optical sizes only
 

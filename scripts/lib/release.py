@@ -99,16 +99,21 @@ def _subset_ss_cv(font: TTFont):
 
 
 def _relabel_opsz_max(font: TTFont, new_max: float):
-    """Relabel the opsz axis maximum down to new_max WITHOUT resampling outlines: gvar
+    """Relabel the opsz axis maximum to new_max WITHOUT resampling outlines: gvar
     deltas live in normalized space and the large-optical master sits at normalized +1.0,
-    so after lowering fvar maxValue, input=new_max still maps to that master design. This
+    so after moving fvar maxValue, input=new_max still maps to that master design. This
     is a pure relabel (fvar/STAT/instance metadata) — not an instancer range-limit, which
-    would interpolate a milder design at new_max. Used so cossui presents opsz 8–new_max
-    while shipping the same display drawing the full build labels at the source max."""
+    would interpolate a milder design at new_max. Used so cossui presents opsz 8–32 and
+    gf-api 8–48 while both ship the same display drawing the full build labels at 45.
+
+    Works in both directions. Lowering (cossui 45→32) and raising (gf-api 45→48) are the
+    same operation on the same metadata; what moves is only the number the extreme design
+    answers to. Raising does mean an input of 45 now lands short of the master and gets an
+    interpolated, slightly milder design — correct, since 45 is no longer the extreme."""
     fvar = font["fvar"]
     axis = axis_by_tag(fvar.axes, "opsz")
     old_max = axis.maxValue
-    if new_max >= old_max:
+    if new_max == old_max:
         return
     axis.maxValue = new_max
     for inst in fvar.instances:
@@ -509,6 +514,7 @@ def _build_gf_api(src_ttf: Path, dest_dir: Path):
     for ital_value, suffix, subfamily in targets:
         font = TTFont(str(src_ttf))
         _subset_ss_cv(font)
+        _relabel_opsz_max(font, config.GF_API_OPSZ_MAX)
         if has_ital:
             instantiateVariableFont(font, {"ital": ital_value}, inplace=True, updateFontNames=False)
         _set_style_names(font, subfamily)
@@ -521,6 +527,67 @@ def _build_gf_api(src_ttf: Path, dest_dir: Path):
         font.save(str(dest_ttf))
         font.flavor = "woff2"
         font.save(str(dest_ttf.with_suffix(".woff2")))
+
+
+def _gf_static_names(style: dict) -> tuple:
+    """gf-api-static naming for a style-matrix entry: the opsz word moves out of the
+    middle of the family and becomes a point-size suffix on it.
+
+        Cal Sans Text A11y Medium Italic  →  Cal Sans A11y 10pt Medium Italic
+        Cal Sans Micro SemiBold           →  Cal Sans 8pt SemiBold
+        Cal Sans Geo Bold                 →  Cal Sans Geo Bold        (display, unsuffixed)
+
+    Returns (style_name, ps_name). The two spell the tier differently on purpose: the
+    READABLE name separates with a space like the rest of the family, while the
+    PostScript name and filename use the underscore — SourceSerif4_48pt-Regular.ttf is
+    named "Source Serif 4 48pt", the underscore being a filename device and not part of
+    what a font menu shows. Composed from the style's own token ids rather than by
+    rewriting the existing name, so 'base' GEOM keeps contributing nothing
+    (STATIC_GEOM_TOKENS maps it to "")."""
+    geom = dict(config.STATIC_GEOM_TOKENS)[style["geom"]]
+    wght = dict(config.STATIC_WGHT_TOKENS)[style["wght"]]
+    ital = dict(config.STATIC_ITAL_TOKENS)[style["ital"]]
+    tier = config.GF_STATIC_OPSZ_SUFFIX[style["opsz"]]          # "", "_10pt", "_8pt"
+    stem = " ".join(t for t in ("Cal Sans", geom) if t)
+    family = stem + tier.replace("_", " ")
+    # RIBBI elision, as everywhere else: the 400 italic is "Italic", never "Regular Italic".
+    subfamily = " ".join(t for t in (("" if wght == "Regular" and ital else wght), ital) if t)
+    ps = f"{stem.replace(' ', '')}{tier}-{subfamily.replace(' ', '')}"
+    return f"{family} {subfamily}".strip(), ps
+
+
+def _build_gf_api_static(styles: list, static_dir: Path, dest_dir: Path) -> int:
+    """gf-api-static: the whole static matrix (all four GEOM families × three optical
+    tiers), renamed to the point-size convention and GF-conformed. TTF-only, ss/cv
+    subset out like every other GF folder.
+
+    Nothing here instances anything — each file is a static the matrix already produced,
+    re-read under a new name. Returns the count of styles it could not find.
+
+    Scope note: this ships 12 GF families (4 GEOM × 3 opsz). google/fonts#9970 settled
+    that GEOM-named families stay OUT of GF, with the UI/Text position going as the
+    separate 'Cal Sans Text UI'; Mark reopened that deliberately on 2026-09-08. The
+    gf-api-textui folder is unaffected and still ships that agreed family."""
+    from scripts.lib.manifest import style_name_records
+    dest_dir.mkdir(parents=True, exist_ok=True)
+    missing = 0
+    for s in styles:
+        src = static_dir / s["filename"]
+        if not src.exists():
+            missing += 1
+            continue
+        gf_name, ps = _gf_static_names(s)
+        font = TTFont(str(src))
+        _subset_ss_cv(font)
+        r = style_name_records(gf_name)
+        r["records"][6] = ps      # underscore tier: PostScript name matches the filename
+        name = font["name"]
+        for nid, val in r["records"].items():
+            name.setName(val, nid, 3, 1, 0x0409)  # Windows, English (US)
+            name.setName(val, nid, 1, 0, 0)        # Mac, Roman
+        _apply_gf_conformance(font)
+        font.save(str(dest_dir / f"{ps}.ttf"))
+    return missing
 
 
 def _make_curved_l_default(font: TTFont):
@@ -895,6 +962,17 @@ def build_release_folders(build_dir: str, output_dir: str, build_italic: bool = 
         pkg = out_path / f"{_PFX}-static-{geom_id}"
         copy_styles(subset, pkg)
         _report(pkg, f"{_PFX}-static-{geom_id}")
+
+    # gf-api-static: every GEOM family × every optical tier, base YTAS/SHRP, renamed to
+    # the point-size convention (Cal Sans_10pt, Cal Sans A11y_8pt, …). Copied from the
+    # static matrix — nothing re-instanced.
+    pkg = out_path / f"{_PFX}-gf-api-static"
+    gf_static_styles = [s for s in styles if s["ytas"] == "base" and s["shrp"] == "base"]
+    print("   ⚠️  gf-api-static ships 12 GF families (4 GEOM × 3 opsz) — reopens the "
+          "google/fonts#9970 agreement that GEOM families stay out of GF.")
+    missing += _build_gf_api_static(gf_static_styles, static_dir, pkg)
+    _unify_family_win_metrics(pkg)
+    _report(pkg, f"{_PFX}-gf-api-static")
 
     # Cal Sans (Display/Base) + Cal Sans UI Text, base YTAS/SHRP, all 4 weights,
     # roman + italic → 8 roman / 16 with italic. Shared by essentials + gf-workspace.

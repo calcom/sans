@@ -91,6 +91,17 @@ SHIPPING_DEFAULTS = {"opsz": 14, "GEOM": 25}
 # the same drawing cossui labels 32. var-full / gf-api / var-flex keep 8–45.
 COSSUI_OPSZ_MAX = 32
 
+# gf-api presents the same display drawing as opsz 8–48 rather than 8–45 (also a pure
+# relabel — release._relabel_opsz_max). var-full / var-flex keep the source's 8–45.
+GF_API_OPSZ_MAX = 48
+
+# gf-api-static: the static matrix renamed for GF, where optical size is a FAMILY suffix
+# in points rather than the internal "Text"/"Micro" word — the SourceSerif4 convention
+# (SourceSerif4_48pt-Regular beside SourceSerif4-Regular). The largest tier is the
+# unsuffixed default, so "Cal Sans Text A11y Medium" becomes "Cal Sans A11y_10pt Medium".
+# Nothing is re-instanced; these are the static-matrix files under new names.
+GF_STATIC_OPSZ_SUFFIX = {"display": "", "text": "_10pt", "micro": "_8pt"}
+
 # post.italicAngle for italic outputs. The source carries 9.5° on all four italic
 # masters, and that reaches hhea's caret slope (rise 1000 / run 167), but varLib has
 # no MVAR 'itlc' entry — italic angle cannot ride an axis into the variable font, so
