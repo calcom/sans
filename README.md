@@ -30,6 +30,8 @@ font-optical-sizing: auto;
 
 That's the whole integration. The font handles the rest.
 
+Using a bundler like Next.js? See [Using Cal Sans with the Next.js App Router](documentation/nextjs.md) for a `next/font/local` + Tailwind setup.
+
 Commissioned by Peer Richelsen for [Cal.com](https://cal.com). Drawn, engineered, and shipped by [WORDMARK](https://wordmark.nyc). Free for commercial and personal use, thanks to the [SIL Open Font License, Version 1.1](#license).
 
 ## Made for humans.
