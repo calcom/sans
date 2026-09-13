@@ -27,7 +27,7 @@ from fontTools.pens.transformPen import TransformPen
 from scripts import config
 
 CELL_W, CELL_H = 128, 160
-SCALE = 0.096
+SCALE = 0.048
 BASELINE_Y = 104.99201
 FILL_LIGHT = "#20242e"
 FILL_DARK = "#dee4e3"

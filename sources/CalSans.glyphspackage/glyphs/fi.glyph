@@ -7,7 +7,7 @@ layers = (
 anchors = (
 {
 name = caret_1;
-pos = (410,0);
+pos = (820,0);
 }
 );
 background = {
@@ -28,29 +28,29 @@ ref = fpart.comb;
 piece = {
 width = 541.58093;
 };
-pos = (-5,0);
+pos = (-10,0);
 ref = _part.stroke;
 },
 {
 alignment = -1;
-pos = (395,0);
+pos = (790,0);
 ref = i;
 }
 );
-width = 697;
+width = 1394;
 },
 {
 anchors = (
 {
 name = caret_1;
-pos = (394,0);
+pos = (788,0);
 }
 );
 background = {
 anchors = (
 {
 name = caret_1;
-pos = (394,0);
+pos = (788,0);
 }
 );
 shapes = (
@@ -81,28 +81,28 @@ alignment = -1;
 piece = {
 width = 516;
 };
-pos = (-5,0);
+pos = (-10,0);
 ref = _part.stroke;
 },
 {
-pos = (389,0);
+pos = (778,0);
 ref = i;
 }
 );
-width = 645;
+width = 1290;
 },
 {
 anchors = (
 {
 name = caret_1;
-pos = (318,0);
+pos = (636,0);
 }
 );
 background = {
 anchors = (
 {
 name = caret_1;
-pos = (318,0);
+pos = (636,0);
 }
 );
 shapes = (
@@ -135,24 +135,24 @@ ref = _part.stroke;
 },
 {
 alignment = -1;
-pos = (318,0);
+pos = (636,0);
 ref = i;
 }
 );
-width = 537;
+width = 1074;
 },
 {
 anchors = (
 {
 name = caret_1;
-pos = (294,0);
+pos = (588,0);
 }
 );
 background = {
 anchors = (
 {
 name = caret_1;
-pos = (294,0);
+pos = (588,0);
 }
 );
 shapes = (
@@ -185,24 +185,24 @@ ref = _part.stroke;
 },
 {
 alignment = -1;
-pos = (306,0);
+pos = (612,0);
 ref = i;
 }
 );
-width = 476;
+width = 952;
 },
 {
 anchors = (
 {
 name = caret_1;
-pos = (273,0);
+pos = (546,0);
 }
 );
 background = {
 anchors = (
 {
 name = caret_1;
-pos = (318,0);
+pos = (636,0);
 }
 );
 shapes = (
@@ -235,24 +235,24 @@ ref = _part.stroke;
 },
 {
 alignment = -1;
-pos = (318,0);
+pos = (636,0);
 ref = i;
 }
 );
-width = 537;
+width = 1074;
 },
 {
 anchors = (
 {
 name = caret_1;
-pos = (250,0);
+pos = (500,0);
 }
 );
 background = {
 anchors = (
 {
 name = caret_1;
-pos = (294,0);
+pos = (588,0);
 }
 );
 shapes = (
@@ -285,17 +285,17 @@ ref = _part.stroke;
 },
 {
 alignment = -1;
-pos = (306,0);
+pos = (612,0);
 ref = i;
 }
 );
-width = 476;
+width = 952;
 },
 {
 anchors = (
 {
 name = caret_1;
-pos = (366,0);
+pos = (732,0);
 }
 );
 background = {
@@ -316,29 +316,29 @@ ref = fpart.comb;
 piece = {
 width = 541.58093;
 };
-pos = (-5,0);
+pos = (-10,0);
 ref = _part.stroke;
 },
 {
 alignment = -1;
-pos = (395,0);
+pos = (790,0);
 ref = i;
 }
 );
-width = 697;
+width = 1394;
 },
 {
 anchors = (
 {
 name = caret_1;
-pos = (351,0);
+pos = (702,0);
 }
 );
 background = {
 anchors = (
 {
 name = caret_1;
-pos = (394,0);
+pos = (788,0);
 }
 );
 shapes = (
@@ -369,15 +369,15 @@ alignment = -1;
 piece = {
 width = 516;
 };
-pos = (-5,0);
+pos = (-10,0);
 ref = _part.stroke;
 },
 {
-pos = (389,0);
+pos = (778,0);
 ref = i;
 }
 );
-width = 645;
+width = 1290;
 }
 );
 metricLeft = f;

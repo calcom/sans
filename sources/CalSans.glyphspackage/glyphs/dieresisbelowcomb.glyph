@@ -5,41 +5,41 @@ layers = (
 anchors = (
 {
 name = _bottom;
-pos = (-12,0);
+pos = (-24,0);
 },
 {
 name = bottom;
-pos = (-12,-218);
+pos = (-24,-436);
 }
 );
 layerId = m006;
 shapes = (
 {
-pos = (-10,-815);
+pos = (-20,-1630);
 ref = dieresiscomb;
 }
 );
-width = 308;
+width = 616;
 },
 {
 anchors = (
 {
 name = _bottom;
-pos = (-7,0);
+pos = (-14,0);
 },
 {
 name = bottom;
-pos = (-7,-211);
+pos = (-14,-422);
 }
 );
 layerId = "0B84D982-BA46-4CB9-89EB-4BEFB54BBE92";
 shapes = (
 {
-pos = (-7,-815);
+pos = (-14,-1630);
 ref = dieresiscomb;
 }
 );
-width = 318;
+width = 636;
 },
 {
 anchors = (
@@ -48,117 +48,117 @@ name = _bottom;
 },
 {
 name = bottom;
-pos = (0,-206);
+pos = (0,-412);
 }
 );
 layerId = "1B5AC656-48C3-4864-953F-2CD31E7BA751";
 shapes = (
 {
-pos = (0,-799);
+pos = (0,-1598);
 ref = dieresiscomb;
 }
 );
-width = 308;
+width = 616;
 },
 {
 anchors = (
 {
 name = _bottom;
-pos = (3,0);
+pos = (6,0);
 },
 {
 name = bottom;
-pos = (3,-199);
+pos = (6,-398);
 }
 );
 layerId = "F32A93D6-BEB9-4F11-B510-2860D42C0CD2";
 shapes = (
 {
-pos = (3,-799);
+pos = (6,-1598);
 ref = dieresiscomb;
 }
 );
-width = 314;
+width = 628;
 },
 {
 anchors = (
 {
 name = _bottom;
-pos = (-45,0);
+pos = (-90,0);
 },
 {
 name = bottom;
-pos = (-79,-206);
+pos = (-158,-412);
 }
 );
 layerId = "0DDD66F2-BE4C-471A-8E86-2163424A6CF0";
 shapes = (
 {
-pos = (-133,-799);
+pos = (-266,-1598);
 ref = dieresiscomb;
 }
 );
-width = 308;
+width = 616;
 },
 {
 anchors = (
 {
 name = _bottom;
-pos = (-44,0);
+pos = (-88,0);
 },
 {
 name = bottom;
-pos = (-77,-199);
+pos = (-154,-398);
 }
 );
 layerId = "CC8ADC1C-440E-49BA-9C42-2F7F780CE9BF";
 shapes = (
 {
-pos = (-132,-799);
+pos = (-264,-1598);
 ref = dieresiscomb;
 }
 );
-width = 314;
+width = 628;
 },
 {
 anchors = (
 {
 name = _bottom;
-pos = (-44,0);
+pos = (-88,0);
 },
 {
 name = bottom;
-pos = (-81,-218);
+pos = (-162,-436);
 }
 );
 layerId = "FA9346B6-A16F-4CF3-996A-4A8FD0AD301D";
 shapes = (
 {
-pos = (-135,-815);
+pos = (-270,-1630);
 ref = dieresiscomb;
 }
 );
-width = 308;
+width = 616;
 },
 {
 anchors = (
 {
 name = _bottom;
-pos = (-50,0);
+pos = (-100,0);
 },
 {
 name = bottom;
-pos = (-85,-211);
+pos = (-170,-422);
 }
 );
 layerId = "33BF50A0-DEC8-4619-95BB-DD23FBD7FB0B";
 shapes = (
 {
-pos = (-139,-815);
+pos = (-278,-1630);
 ref = dieresiscomb;
 }
 );
-width = 318;
+width = 636;
 }
 );
 unicode = 804;

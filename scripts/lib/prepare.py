@@ -188,7 +188,7 @@ def _is_target_stylistic_set(glyph_name):
     """The .ssNN alternates are component-references to .rclt forms; after fontmake
     flattens components they lose the YTAS variation they'd otherwise inherit, so
     they need their own brace (a plain clone — the ascend re-resolves through the
-    flattened .rclt component at YTAS=800). Target sets, per design: ss01–04 and
+    flattened .rclt component at YTAS=1600). Target sets, per design: ss01–04 and
     ss07 (all members), plus ss10/ss14 LOWERCASE only — those two sets also carry
     uppercase alternates, whose accents don't move."""
     suffixes = glyph_name.split(".")[1:]
@@ -218,7 +218,7 @@ def _is_top_mark(name):
 
 
 def inject_ytas_ascend_braces(font, verbose=False):
-    """Add a YTAS=800 brace (intermediate) layer to every targeted glyph and, on
+    """Add a YTAS=1600 brace (intermediate) layer to every targeted glyph and, on
     that brace, move the `top` anchor and any above-base mark components up by
     config.YTAS_ACCENT_ASCEND_DY (with a calculated italic dx = dy·tan(angle)).
 

@@ -8,27 +8,27 @@ layers = (
 anchors = (
 {
 name = bottom;
-pos = (151,0);
+pos = (302,0);
 },
 {
 name = cedilla;
-pos = (145,0);
+pos = (290,0);
 },
 {
 name = center;
-pos = (151,413);
+pos = (302,826);
 },
 {
 name = ogonek;
-pos = (221,0);
+pos = (442,0);
 },
 {
 name = top;
-pos = (152,720);
+pos = (304,1440);
 },
 {
 name = topright;
-pos = (275,720);
+pos = (550,1440);
 }
 );
 hints = (
@@ -50,41 +50,41 @@ shapes = (
 {
 closed = 1;
 nodes = (
-(222,0,l),
-(222,720,l),
-(80,720,l),
-(80,117,l),
-(80,0,l)
+(444,0,l),
+(444,1440,l),
+(160,1440,l),
+(160,234,l),
+(160,0,l)
 );
 }
 );
-width = 302;
+width = 604;
 },
 {
 anchors = (
 {
 name = bottom;
-pos = (128,0);
+pos = (256,0);
 },
 {
 name = cedilla;
-pos = (125,0);
+pos = (250,0);
 },
 {
 name = center;
-pos = (128,413);
+pos = (256,826);
 },
 {
 name = ogonek;
-pos = (172,0);
+pos = (344,0);
 },
 {
 name = top;
-pos = (128,720);
+pos = (256,1440);
 },
 {
 name = topright;
-pos = (224,720);
+pos = (448,1440);
 }
 );
 hints = (
@@ -123,41 +123,41 @@ shapes = (
 {
 closed = 1;
 nodes = (
-(172,0,l),
-(172,720,l),
-(84,720,l),
-(84,146,l),
-(84,0,l)
+(344,0,l),
+(344,1440,l),
+(168,1440,l),
+(168,292,l),
+(168,0,l)
 );
 }
 );
-width = 256;
+width = 512;
 },
 {
 anchors = (
 {
 name = bottom;
-pos = (112,0);
+pos = (224,0);
 },
 {
 name = cedilla;
-pos = (121,0);
+pos = (242,0);
 },
 {
 name = center;
-pos = (104,404);
+pos = (208,808);
 },
 {
 name = ogonek;
-pos = (179,0);
+pos = (358,0);
 },
 {
 name = top;
-pos = (105,720);
+pos = (210,1440);
 },
 {
 name = topright;
-pos = (217,720);
+pos = (434,1440);
 }
 );
 hints = (
@@ -184,41 +184,41 @@ shapes = (
 {
 closed = 1;
 nodes = (
-(179,0,l),
-(179,720,l),
-(40,720,l),
-(40,140,l),
-(40,0,l)
+(358,0,l),
+(358,1440,l),
+(80,1440,l),
+(80,280,l),
+(80,0,l)
 );
 }
 );
-width = 219;
+width = 438;
 },
 {
 anchors = (
 {
 name = bottom;
-pos = (128,0);
+pos = (256,0);
 },
 {
 name = cedilla;
-pos = (125,0);
+pos = (250,0);
 },
 {
 name = center;
-pos = (128,433);
+pos = (256,866);
 },
 {
 name = ogonek;
-pos = (172,0);
+pos = (344,0);
 },
 {
 name = top;
-pos = (128,800);
+pos = (256,1600);
 },
 {
 name = topright;
-pos = (224,800);
+pos = (448,1600);
 }
 );
 associatedMasterId = "0B84D982-BA46-4CB9-89EB-4BEFB54BBE92";
@@ -227,7 +227,7 @@ coordinates = (
 10,
 25,
 400,
-800,
+1600,
 0,
 0
 );
@@ -269,41 +269,41 @@ shapes = (
 {
 closed = 1;
 nodes = (
-(172,0,l),
-(172,800,l),
-(84,800,l),
-(84,146,l),
-(84,0,l)
+(344,0,l),
+(344,1600,l),
+(168,1600,l),
+(168,292,l),
+(168,0,l)
 );
 }
 );
-width = 256;
+width = 512;
 },
 {
 anchors = (
 {
 name = bottom;
-pos = (151,0);
+pos = (302,0);
 },
 {
 name = cedilla;
-pos = (145,0);
+pos = (290,0);
 },
 {
 name = center;
-pos = (151,433);
+pos = (302,866);
 },
 {
 name = ogonek;
-pos = (221,0);
+pos = (442,0);
 },
 {
 name = top;
-pos = (152,800);
+pos = (304,1600);
 },
 {
 name = topright;
-pos = (275,800);
+pos = (550,1600);
 }
 );
 associatedMasterId = m006;
@@ -312,7 +312,7 @@ coordinates = (
 10,
 25,
 700,
-800,
+1600,
 0,
 0
 );
@@ -337,41 +337,41 @@ shapes = (
 {
 closed = 1;
 nodes = (
-(222,0,l),
-(222,800,l),
-(80,800,l),
-(80,117,l),
-(80,0,l)
+(444,0,l),
+(444,1600,l),
+(160,1600,l),
+(160,234,l),
+(160,0,l)
 );
 }
 );
-width = 302;
+width = 604;
 },
 {
 anchors = (
 {
 name = bottom;
-pos = (112,0);
+pos = (224,0);
 },
 {
 name = cedilla;
-pos = (121,0);
+pos = (242,0);
 },
 {
 name = center;
-pos = (104,424);
+pos = (208,848);
 },
 {
 name = ogonek;
-pos = (179,0);
+pos = (358,0);
 },
 {
 name = top;
-pos = (105,800);
+pos = (210,1600);
 },
 {
 name = topright;
-pos = (227,800);
+pos = (454,1600);
 }
 );
 associatedMasterId = "1B5AC656-48C3-4864-953F-2CD31E7BA751";
@@ -380,7 +380,7 @@ coordinates = (
 45,
 25,
 700,
-800,
+1600,
 0,
 0
 );
@@ -391,41 +391,41 @@ shapes = (
 {
 closed = 1;
 nodes = (
-(179,0,l),
-(179,800,l),
-(40,800,l),
-(40,140,l),
-(40,0,l)
+(358,0,l),
+(358,1600,l),
+(80,1600,l),
+(80,280,l),
+(80,0,l)
 );
 }
 );
-width = 219;
+width = 438;
 },
 {
 anchors = (
 {
 name = bottom;
-pos = (85,0);
+pos = (170,0);
 },
 {
 name = cedilla;
-pos = (102,0);
+pos = (204,0);
 },
 {
 name = center;
-pos = (79,413);
+pos = (158,826);
 },
 {
 name = ogonek;
-pos = (128,0);
+pos = (256,0);
 },
 {
 name = top;
-pos = (85,720);
+pos = (170,1440);
 },
 {
 name = topright;
-pos = (174,720);
+pos = (348,1440);
 }
 );
 hints = (
@@ -464,41 +464,41 @@ shapes = (
 {
 closed = 1;
 nodes = (
-(132,0,l),
-(132,720,l),
-(42,720,l),
-(42,169,l),
-(42,0,l)
+(264,0,l),
+(264,1440,l),
+(84,1440,l),
+(84,338,l),
+(84,0,l)
 );
 }
 );
-width = 174;
+width = 348;
 },
 {
 anchors = (
 {
 name = bottom;
-pos = (87,0);
+pos = (174,0);
 },
 {
 name = cedilla;
-pos = (102,0);
+pos = (204,0);
 },
 {
 name = center;
-pos = (79,413);
+pos = (158,826);
 },
 {
 name = ogonek;
-pos = (128,0);
+pos = (256,0);
 },
 {
 name = top;
-pos = (79,800);
+pos = (158,1600);
 },
 {
 name = topright;
-pos = (174,800);
+pos = (348,1600);
 }
 );
 associatedMasterId = "F32A93D6-BEB9-4F11-B510-2860D42C0CD2";
@@ -507,7 +507,7 @@ coordinates = (
 45,
 25,
 400,
-800,
+1600,
 0,
 0
 );
@@ -549,68 +549,68 @@ shapes = (
 {
 closed = 1;
 nodes = (
-(132,0,l),
-(132,800,l),
-(42,800,l),
-(42,169,l),
-(42,0,l)
+(264,0,l),
+(264,1600,l),
+(84,1600,l),
+(84,338,l),
+(84,0,l)
 );
 }
 );
-width = 174;
+width = 348;
 },
 {
 anchors = (
 {
 name = bottom;
-pos = (67,0);
-},
-{
-name = cedilla;
-pos = (76,0);
-},
-{
-name = center;
-pos = (127,404);
-},
-{
-name = ogonek;
 pos = (134,0);
 },
 {
+name = cedilla;
+pos = (152,0);
+},
+{
+name = center;
+pos = (254,808);
+},
+{
+name = ogonek;
+pos = (268,0);
+},
+{
 name = top;
-pos = (181,720);
+pos = (362,1440);
 },
 {
 name = topright;
-pos = (293,720);
+pos = (586,1440);
 }
 );
 background = {
 anchors = (
 {
 name = bottom;
-pos = (67,0);
-},
-{
-name = cedilla;
-pos = (76,0);
-},
-{
-name = center;
-pos = (127,404);
-},
-{
-name = ogonek;
 pos = (134,0);
 },
 {
+name = cedilla;
+pos = (152,0);
+},
+{
+name = center;
+pos = (254,808);
+},
+{
+name = ogonek;
+pos = (268,0);
+},
+{
 name = top;
-pos = (181,720);
+pos = (362,1440);
 },
 {
 name = topright;
-pos = (293,720);
+pos = (586,1440);
 }
 );
 hints = (
@@ -636,11 +636,11 @@ shapes = (
 {
 closed = 1;
 nodes = (
-(134,0,l),
-(255,720,l),
-(116,720,l),
-(19,140,l),
-(-5,0,l)
+(268,0,l),
+(510,1440,l),
+(232,1440,l),
+(38,280,l),
+(-10,0,l)
 );
 }
 );
@@ -669,41 +669,41 @@ shapes = (
 {
 closed = 1;
 nodes = (
-(134,0,l),
-(255,720,l),
-(116,720,l),
-(19,140,l),
-(-5,0,l)
+(268,0,l),
+(510,1440,l),
+(232,1440,l),
+(38,280,l),
+(-10,0,l)
 );
 }
 );
-width = 219;
+width = 438;
 },
 {
 anchors = (
 {
 name = bottom;
-pos = (67,0);
-},
-{
-name = cedilla;
-pos = (76,0);
-},
-{
-name = center;
-pos = (130,424);
-},
-{
-name = ogonek;
 pos = (134,0);
 },
 {
+name = cedilla;
+pos = (152,0);
+},
+{
+name = center;
+pos = (260,848);
+},
+{
+name = ogonek;
+pos = (268,0);
+},
+{
 name = top;
-pos = (194,800);
+pos = (388,1600);
 },
 {
 name = topright;
-pos = (316,800);
+pos = (632,1600);
 }
 );
 associatedMasterId = "0DDD66F2-BE4C-471A-8E86-2163424A6CF0";
@@ -712,7 +712,7 @@ coordinates = (
 45,
 25,
 700,
-800,
+1600,
 0,
 1
 );
@@ -723,68 +723,68 @@ shapes = (
 {
 closed = 1;
 nodes = (
-(134,0,l),
-(268,800,l),
-(129,800,l),
-(19,140,l),
-(-5,0,l)
+(268,0,l),
+(536,1600,l),
+(258,1600,l),
+(38,280,l),
+(-10,0,l)
 );
 }
 );
-width = 219;
+width = 438;
 },
 {
 anchors = (
 {
 name = bottom;
-pos = (41,0);
+pos = (82,0);
 },
 {
 name = cedilla;
-pos = (58,0);
+pos = (116,0);
 },
 {
 name = center;
-pos = (105,413);
+pos = (210,826);
 },
 {
 name = ogonek;
-pos = (84,0);
+pos = (168,0);
 },
 {
 name = top;
-pos = (162,720);
+pos = (324,1440);
 },
 {
 name = topright;
-pos = (251,720);
+pos = (502,1440);
 }
 );
 background = {
 anchors = (
 {
 name = bottom;
-pos = (41,0);
+pos = (82,0);
 },
 {
 name = cedilla;
-pos = (58,0);
+pos = (116,0);
 },
 {
 name = center;
-pos = (105,413);
+pos = (210,826);
 },
 {
 name = ogonek;
-pos = (84,0);
+pos = (168,0);
 },
 {
 name = top;
-pos = (162,720);
+pos = (324,1440);
 },
 {
 name = topright;
-pos = (251,720);
+pos = (502,1440);
 }
 );
 hints = (
@@ -822,11 +822,11 @@ shapes = (
 {
 closed = 1;
 nodes = (
-(88,0,l),
-(209,720,l),
-(119,720,l),
-(27,169,l),
-(-2,0,l)
+(176,0,l),
+(418,1440,l),
+(238,1440,l),
+(54,338,l),
+(-4,0,l)
 );
 }
 );
@@ -867,41 +867,41 @@ shapes = (
 {
 closed = 1;
 nodes = (
-(88,0,l),
-(209,720,l),
-(119,720,l),
-(27,169,l),
-(-2,0,l)
+(176,0,l),
+(418,1440,l),
+(238,1440,l),
+(54,338,l),
+(-4,0,l)
 );
 }
 );
-width = 174;
+width = 348;
 },
 {
 anchors = (
 {
 name = bottom;
-pos = (43,0);
+pos = (86,0);
 },
 {
 name = cedilla;
-pos = (58,0);
+pos = (116,0);
 },
 {
 name = center;
-pos = (105,413);
+pos = (210,826);
 },
 {
 name = ogonek;
-pos = (84,0);
+pos = (168,0);
 },
 {
 name = top;
-pos = (169,800);
+pos = (338,1600);
 },
 {
 name = topright;
-pos = (264,800);
+pos = (528,1600);
 }
 );
 associatedMasterId = "CC8ADC1C-440E-49BA-9C42-2F7F780CE9BF";
@@ -910,7 +910,7 @@ coordinates = (
 45,
 25,
 400,
-800,
+1600,
 0,
 1
 );
@@ -952,68 +952,68 @@ shapes = (
 {
 closed = 1;
 nodes = (
-(88,0,l),
-(222,800,l),
-(132,800,l),
-(27,169,l),
-(-2,0,l)
+(176,0,l),
+(444,1600,l),
+(264,1600,l),
+(54,338,l),
+(-4,0,l)
 );
 }
 );
-width = 174;
+width = 348;
 },
 {
 anchors = (
 {
 name = bottom;
-pos = (107,0);
+pos = (214,0);
 },
 {
 name = cedilla;
-pos = (101,0);
+pos = (202,0);
 },
 {
 name = center;
-pos = (176,413);
+pos = (352,826);
 },
 {
 name = ogonek;
-pos = (177,0);
+pos = (354,0);
 },
 {
 name = top;
-pos = (228,720);
+pos = (456,1440);
 },
 {
 name = topright;
-pos = (351,720);
+pos = (702,1440);
 }
 );
 background = {
 anchors = (
 {
 name = bottom;
-pos = (107,0);
+pos = (214,0);
 },
 {
 name = cedilla;
-pos = (101,0);
+pos = (202,0);
 },
 {
 name = center;
-pos = (176,413);
+pos = (352,826);
 },
 {
 name = ogonek;
-pos = (177,0);
+pos = (354,0);
 },
 {
 name = top;
-pos = (228,720);
+pos = (456,1440);
 },
 {
 name = topright;
-pos = (351,720);
+pos = (702,1440);
 }
 );
 hints = (
@@ -1034,11 +1034,11 @@ shapes = (
 {
 closed = 1;
 nodes = (
-(178,0,l),
-(298,720,l),
-(156,720,l),
-(55,117,l),
-(36,0,l)
+(356,0,l),
+(596,1440,l),
+(312,1440,l),
+(110,234,l),
+(72,0,l)
 );
 }
 );
@@ -1062,41 +1062,41 @@ shapes = (
 {
 closed = 1;
 nodes = (
-(178,0,l),
-(298,720,l),
-(156,720,l),
-(55,117,l),
-(36,0,l)
+(356,0,l),
+(596,1440,l),
+(312,1440,l),
+(110,234,l),
+(72,0,l)
 );
 }
 );
-width = 302;
+width = 604;
 },
 {
 anchors = (
 {
 name = bottom;
-pos = (107,0);
+pos = (214,0);
 },
 {
 name = cedilla;
-pos = (101,0);
+pos = (202,0);
 },
 {
 name = center;
-pos = (179,433);
+pos = (358,866);
 },
 {
 name = ogonek;
-pos = (177,0);
+pos = (354,0);
 },
 {
 name = top;
-pos = (242,800);
+pos = (484,1600);
 },
 {
 name = topright;
-pos = (365,800);
+pos = (730,1600);
 }
 );
 associatedMasterId = "FA9346B6-A16F-4CF3-996A-4A8FD0AD301D";
@@ -1105,7 +1105,7 @@ coordinates = (
 10,
 25,
 700,
-800,
+1600,
 0,
 1
 );
@@ -1130,68 +1130,68 @@ shapes = (
 {
 closed = 1;
 nodes = (
-(178,0,l),
-(312,800,l),
-(170,800,l),
-(55,117,l),
-(36,0,l)
+(356,0,l),
+(624,1600,l),
+(340,1600,l),
+(110,234,l),
+(72,0,l)
 );
 }
 );
-width = 302;
+width = 604;
 },
 {
 anchors = (
 {
 name = bottom;
-pos = (85,0);
+pos = (170,0);
 },
 {
 name = cedilla;
-pos = (82,0);
+pos = (164,0);
 },
 {
 name = center;
-pos = (154,413);
+pos = (308,826);
 },
 {
 name = ogonek;
-pos = (129,0);
+pos = (258,0);
 },
 {
 name = top;
-pos = (205,720);
+pos = (410,1440);
 },
 {
 name = topright;
-pos = (301,720);
+pos = (602,1440);
 }
 );
 background = {
 anchors = (
 {
 name = bottom;
-pos = (85,0);
+pos = (170,0);
 },
 {
 name = cedilla;
-pos = (82,0);
+pos = (164,0);
 },
 {
 name = center;
-pos = (154,413);
+pos = (308,826);
 },
 {
 name = ogonek;
-pos = (129,0);
+pos = (258,0);
 },
 {
 name = top;
-pos = (205,720);
+pos = (410,1440);
 },
 {
 name = topright;
-pos = (301,720);
+pos = (602,1440);
 }
 );
 hints = (
@@ -1229,11 +1229,11 @@ shapes = (
 {
 closed = 1;
 nodes = (
-(129,0,l),
-(249,720,l),
-(161,720,l),
-(65,146,l),
-(41,0,l)
+(258,0,l),
+(498,1440,l),
+(322,1440,l),
+(130,292,l),
+(82,0,l)
 );
 }
 );
@@ -1274,41 +1274,41 @@ shapes = (
 {
 closed = 1;
 nodes = (
-(129,0,l),
-(249,720,l),
-(161,720,l),
-(65,146,l),
-(41,0,l)
+(258,0,l),
+(498,1440,l),
+(322,1440,l),
+(130,292,l),
+(82,0,l)
 );
 }
 );
-width = 256;
+width = 512;
 },
 {
 anchors = (
 {
 name = bottom;
-pos = (85,0);
+pos = (170,0);
 },
 {
 name = cedilla;
-pos = (82,0);
+pos = (164,0);
 },
 {
 name = center;
-pos = (157,433);
+pos = (314,866);
 },
 {
 name = ogonek;
-pos = (129,0);
+pos = (258,0);
 },
 {
 name = top;
-pos = (219,800);
+pos = (438,1600);
 },
 {
 name = topright;
-pos = (315,800);
+pos = (630,1600);
 }
 );
 associatedMasterId = "33BF50A0-DEC8-4619-95BB-DD23FBD7FB0B";
@@ -1317,7 +1317,7 @@ coordinates = (
 10,
 25,
 400,
-800,
+1600,
 0,
 1
 );
@@ -1359,15 +1359,15 @@ shapes = (
 {
 closed = 1;
 nodes = (
-(129,0,l),
-(263,800,l),
-(175,800,l),
-(65,146,l),
-(41,0,l)
+(258,0,l),
+(526,1600,l),
+(350,1600,l),
+(130,292,l),
+(82,0,l)
 );
 }
 );
-width = 256;
+width = 512;
 }
 );
 metricRight = "=|";
