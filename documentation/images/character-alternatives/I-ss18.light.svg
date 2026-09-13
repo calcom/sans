@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg height="160" viewBox="0 0 128 160" width="128" xmlns="http://www.w3.org/2000/svg">
 <defs>
-<path d="M201 -1V-360V-719H290V-1ZM59 0V-78H426V0ZM59 -642V-720H426V-642Z" id="path1"/>
+<path d="M403 -2V-720V-1438H581V-2ZM118 0V-156H852V0ZM118 -1284V-1440H852V-1284Z" id="path1"/>
 </defs>
 <g>
-<g data-glyph="I.ss18" fill="#20242e" transform="translate(40.72000 104.99201) rotate(0) scale(0.096)">
+<g data-glyph="I.ss18" fill="#20242e" transform="translate(40.74400 104.99201) rotate(0) scale(0.048)">
 <use href="#path1"/>
 </g>
 </g>

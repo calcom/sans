@@ -21,7 +21,7 @@ shapes = (
 {
 closed = 1;
 nodes = (
-(133,216,l,{
+(266,432,l,{
 italify.anchorEdge = (
 "D4B4DD42-EF23-478B-AD68-D24DC29E3E40"
 );
@@ -32,7 +32,7 @@ italify.stemId = (
 "D4B4DD42-EF23-478B-AD68-D24DC29E3E40"
 );
 }),
-(357,710,l,{
+(714,1420,l,{
 italify.anchorEdge = (
 "D4B4DD42-EF23-478B-AD68-D24DC29E3E40"
 );
@@ -43,10 +43,10 @@ italify.stemId = (
 "D4B4DD42-EF23-478B-AD68-D24DC29E3E40"
 );
 }),
-(357,720,l),
-(15,720,l),
-(15,638,l),
-(242,638,l,{
+(714,1440,l),
+(30,1440,l),
+(30,1276,l),
+(484,1276,l,{
 italify.stemCorner = (
 "D4B4DD42-EF23-478B-AD68-D24DC29E3E40"
 );
@@ -54,7 +54,7 @@ italify.stemId = (
 "D4B4DD42-EF23-478B-AD68-D24DC29E3E40"
 );
 }),
-(42,216,l,{
+(84,432,l,{
 italify.stemCorner = (
 "D4B4DD42-EF23-478B-AD68-D24DC29E3E40"
 );
@@ -65,7 +65,7 @@ italify.stemId = (
 );
 }
 );
-width = 331;
+width = 662;
 },
 {
 hints = (
@@ -87,7 +87,7 @@ shapes = (
 {
 closed = 1;
 nodes = (
-(171,216,l,{
+(342,432,l,{
 italify.anchorEdge = (
 "D4B4DD42-EF23-478B-AD68-D24DC29E3E40"
 );
@@ -98,7 +98,7 @@ italify.stemId = (
 "D4B4DD42-EF23-478B-AD68-D24DC29E3E40"
 );
 }),
-(375,710,l,{
+(750,1420,l,{
 italify.anchorEdge = (
 "D4B4DD42-EF23-478B-AD68-D24DC29E3E40"
 );
@@ -109,10 +109,10 @@ italify.stemId = (
 "D4B4DD42-EF23-478B-AD68-D24DC29E3E40"
 );
 }),
-(375,720,l),
-(14,720,l),
-(14,606,l),
-(221,606,l,{
+(750,1440,l),
+(28,1440,l),
+(28,1212,l),
+(442,1212,l,{
 italify.stemCorner = (
 "D4B4DD42-EF23-478B-AD68-D24DC29E3E40"
 );
@@ -120,7 +120,7 @@ italify.stemId = (
 "D4B4DD42-EF23-478B-AD68-D24DC29E3E40"
 );
 }),
-(45,216,l,{
+(90,432,l,{
 italify.stemCorner = (
 "D4B4DD42-EF23-478B-AD68-D24DC29E3E40"
 );
@@ -131,7 +131,7 @@ italify.stemId = (
 );
 }
 );
-width = 337;
+width = 674;
 },
 {
 hints = (
@@ -153,7 +153,7 @@ shapes = (
 {
 closed = 1;
 nodes = (
-(130,216,l,{
+(260,432,l,{
 italify.anchorEdge = (
 "D4B4DD42-EF23-478B-AD68-D24DC29E3E40"
 );
@@ -164,7 +164,7 @@ italify.stemId = (
 "D4B4DD42-EF23-478B-AD68-D24DC29E3E40"
 );
 }),
-(358,720,l,{
+(716,1440,l,{
 italify.anchorEdge = (
 "D4B4DD42-EF23-478B-AD68-D24DC29E3E40"
 );
@@ -175,10 +175,10 @@ italify.stemId = (
 "D4B4DD42-EF23-478B-AD68-D24DC29E3E40"
 );
 }),
-(358,720,l),
-(10,720,l),
-(10,638,l),
-(239,638,l,{
+(716,1440,l),
+(20,1440,l),
+(20,1276,l),
+(478,1276,l,{
 italify.stemCorner = (
 "D4B4DD42-EF23-478B-AD68-D24DC29E3E40"
 );
@@ -186,7 +186,7 @@ italify.stemId = (
 "D4B4DD42-EF23-478B-AD68-D24DC29E3E40"
 );
 }),
-(40,216,l,{
+(80,432,l,{
 italify.stemCorner = (
 "D4B4DD42-EF23-478B-AD68-D24DC29E3E40"
 );
@@ -197,7 +197,7 @@ italify.stemId = (
 );
 }
 );
-width = 310;
+width = 620;
 },
 {
 hints = (
@@ -219,7 +219,7 @@ shapes = (
 {
 closed = 1;
 nodes = (
-(169,216,l,{
+(338,432,l,{
 italify.anchorEdge = (
 "D4B4DD42-EF23-478B-AD68-D24DC29E3E40"
 );
@@ -230,7 +230,7 @@ italify.stemId = (
 "D4B4DD42-EF23-478B-AD68-D24DC29E3E40"
 );
 }),
-(380,720,l,{
+(760,1440,l,{
 italify.anchorEdge = (
 "D4B4DD42-EF23-478B-AD68-D24DC29E3E40"
 );
@@ -241,10 +241,10 @@ italify.stemId = (
 "D4B4DD42-EF23-478B-AD68-D24DC29E3E40"
 );
 }),
-(380,720,l),
-(11,720,l),
-(11,606,l),
-(220,606,l,{
+(760,1440,l),
+(22,1440,l),
+(22,1212,l),
+(440,1212,l,{
 italify.stemCorner = (
 "D4B4DD42-EF23-478B-AD68-D24DC29E3E40"
 );
@@ -252,7 +252,7 @@ italify.stemId = (
 "D4B4DD42-EF23-478B-AD68-D24DC29E3E40"
 );
 }),
-(43,216,l,{
+(86,432,l,{
 italify.stemCorner = (
 "D4B4DD42-EF23-478B-AD68-D24DC29E3E40"
 );
@@ -263,7 +263,7 @@ italify.stemId = (
 );
 }
 );
-width = 324;
+width = 648;
 },
 {
 hints = (
@@ -285,7 +285,7 @@ shapes = (
 {
 closed = 1;
 nodes = (
-(129,216,l,{
+(258,432,l,{
 italify.anchorEdge = (
 "D4B4DD42-EF23-478B-AD68-D24DC29E3E40"
 );
@@ -296,7 +296,7 @@ italify.stemId = (
 "D4B4DD42-EF23-478B-AD68-D24DC29E3E40"
 );
 }),
-(434,710,l,{
+(868,1420,l,{
 italify.anchorEdge = (
 "D4B4DD42-EF23-478B-AD68-D24DC29E3E40"
 );
@@ -307,10 +307,10 @@ italify.stemId = (
 "D4B4DD42-EF23-478B-AD68-D24DC29E3E40"
 );
 }),
-(435,720,l),
-(93,720,l),
-(79,638,l),
-(303,638,l,{
+(870,1440,l),
+(186,1440,l),
+(158,1276,l),
+(606,1276,l,{
 italify.stemCorner = (
 "D4B4DD42-EF23-478B-AD68-D24DC29E3E40"
 );
@@ -318,7 +318,7 @@ italify.stemId = (
 "D4B4DD42-EF23-478B-AD68-D24DC29E3E40"
 );
 }),
-(34,216,l,{
+(68,432,l,{
 italify.stemCorner = (
 "D4B4DD42-EF23-478B-AD68-D24DC29E3E40"
 );
@@ -329,7 +329,7 @@ italify.stemId = (
 );
 }
 );
-width = 332;
+width = 664;
 },
 {
 hints = (
@@ -351,7 +351,7 @@ shapes = (
 {
 closed = 1;
 nodes = (
-(166,216,l,{
+(332,432,l,{
 italify.anchorEdge = (
 "D4B4DD42-EF23-478B-AD68-D24DC29E3E40"
 );
@@ -362,7 +362,7 @@ italify.stemId = (
 "D4B4DD42-EF23-478B-AD68-D24DC29E3E40"
 );
 }),
-(450,710,l,{
+(900,1420,l,{
 italify.anchorEdge = (
 "D4B4DD42-EF23-478B-AD68-D24DC29E3E40"
 );
@@ -373,10 +373,10 @@ italify.stemId = (
 "D4B4DD42-EF23-478B-AD68-D24DC29E3E40"
 );
 }),
-(452,720,l),
-(90,720,l),
-(72,606,l),
-(273,606,l,{
+(904,1440,l),
+(180,1440,l),
+(144,1212,l),
+(546,1212,l,{
 italify.stemCorner = (
 "D4B4DD42-EF23-478B-AD68-D24DC29E3E40"
 );
@@ -384,7 +384,7 @@ italify.stemId = (
 "D4B4DD42-EF23-478B-AD68-D24DC29E3E40"
 );
 }),
-(33,216,l,{
+(66,432,l,{
 italify.stemCorner = (
 "D4B4DD42-EF23-478B-AD68-D24DC29E3E40"
 );
@@ -395,7 +395,7 @@ italify.stemId = (
 );
 }
 );
-width = 338;
+width = 676;
 },
 {
 hints = (
@@ -417,7 +417,7 @@ shapes = (
 {
 closed = 1;
 nodes = (
-(125,216,l,{
+(250,432,l,{
 italify.anchorEdge = (
 "D4B4DD42-EF23-478B-AD68-D24DC29E3E40"
 );
@@ -428,7 +428,7 @@ italify.stemId = (
 "D4B4DD42-EF23-478B-AD68-D24DC29E3E40"
 );
 }),
-(435,720,l,{
+(870,1440,l,{
 italify.anchorEdge = (
 "D4B4DD42-EF23-478B-AD68-D24DC29E3E40"
 );
@@ -439,10 +439,10 @@ italify.stemId = (
 "D4B4DD42-EF23-478B-AD68-D24DC29E3E40"
 );
 }),
-(435,720,l),
-(87,720,l),
-(73,638,l),
-(298,638,l,{
+(870,1440,l),
+(174,1440,l),
+(146,1276,l),
+(596,1276,l,{
 italify.stemCorner = (
 "D4B4DD42-EF23-478B-AD68-D24DC29E3E40"
 );
@@ -450,7 +450,7 @@ italify.stemId = (
 "D4B4DD42-EF23-478B-AD68-D24DC29E3E40"
 );
 }),
-(29,216,l,{
+(58,432,l,{
 italify.stemCorner = (
 "D4B4DD42-EF23-478B-AD68-D24DC29E3E40"
 );
@@ -461,7 +461,7 @@ italify.stemId = (
 );
 }
 );
-width = 317;
+width = 634;
 },
 {
 hints = (
@@ -483,7 +483,7 @@ shapes = (
 {
 closed = 1;
 nodes = (
-(163,216,l,{
+(326,432,l,{
 italify.anchorEdge = (
 "D4B4DD42-EF23-478B-AD68-D24DC29E3E40"
 );
@@ -494,7 +494,7 @@ italify.stemId = (
 "D4B4DD42-EF23-478B-AD68-D24DC29E3E40"
 );
 }),
-(456,720,l,{
+(912,1440,l,{
 italify.anchorEdge = (
 "D4B4DD42-EF23-478B-AD68-D24DC29E3E40"
 );
@@ -505,10 +505,10 @@ italify.stemId = (
 "D4B4DD42-EF23-478B-AD68-D24DC29E3E40"
 );
 }),
-(456,720,l),
-(87,720,l),
-(68,606,l),
-(271,606,l,{
+(912,1440,l),
+(174,1440,l),
+(136,1212,l),
+(542,1212,l,{
 italify.stemCorner = (
 "D4B4DD42-EF23-478B-AD68-D24DC29E3E40"
 );
@@ -516,7 +516,7 @@ italify.stemId = (
 "D4B4DD42-EF23-478B-AD68-D24DC29E3E40"
 );
 }),
-(30,216,l,{
+(60,432,l,{
 italify.stemCorner = (
 "D4B4DD42-EF23-478B-AD68-D24DC29E3E40"
 );
@@ -527,7 +527,7 @@ italify.stemId = (
 );
 }
 );
-width = 326;
+width = 652;
 }
 );
 }

@@ -9,10 +9,10 @@ shapes = (
 {
 closed = 1;
 nodes = (
-(387,304,l),
-(387,427,l),
-(17,427,l),
-(17,304,l)
+(774,608,l),
+(774,854,l),
+(34,854,l),
+(34,608,l)
 );
 }
 );
@@ -20,11 +20,11 @@ nodes = (
 hints = (
 {
 horizontal = 1;
-place = (304,123);
+place = (608,246);
 type = Stem;
 },
 {
-place = (10,370);
+place = (20,740);
 type = Stem;
 }
 );
@@ -37,11 +37,11 @@ ref = D;
 piece = {
 Left = 59;
 };
-pos = (158,0);
+pos = (316,0);
 ref = _part.strokeshort;
 }
 );
-width = 764;
+width = 1528;
 },
 {
 background = {
@@ -49,10 +49,10 @@ shapes = (
 {
 closed = 1;
 nodes = (
-(338,334,l),
-(338,407,l),
-(-26,407,l),
-(-26,334,l)
+(676,668,l),
+(676,814,l),
+(-52,814,l),
+(-52,668,l)
 );
 }
 );
@@ -60,7 +60,7 @@ nodes = (
 hints = (
 {
 horizontal = 1;
-place = (334,73);
+place = (668,146);
 type = Stem;
 }
 );
@@ -73,11 +73,11 @@ ref = D;
 piece = {
 Left = 83.45703;
 };
-pos = (136,0);
+pos = (272,0);
 ref = _part.strokeshort;
 }
 );
-width = 747;
+width = 1494;
 },
 {
 layerId = "1B5AC656-48C3-4864-953F-2CD31E7BA751";
@@ -89,11 +89,11 @@ ref = D;
 piece = {
 Left = 83.45703;
 };
-pos = (122,8);
+pos = (244,16);
 ref = _part.strokeshort;
 }
 );
-width = 698;
+width = 1396;
 },
 {
 background = {
@@ -107,7 +107,7 @@ ref = H;
 hints = (
 {
 horizontal = 1;
-place = (30,-50);
+place = (60,-100);
 type = Stem;
 }
 );
@@ -120,11 +120,11 @@ ref = D;
 piece = {
 Left = 83.45703;
 };
-pos = (98,8);
+pos = (196,16);
 ref = _part.strokeshort;
 }
 );
-width = 677;
+width = 1354;
 },
 {
 layerId = "0DDD66F2-BE4C-471A-8E86-2163424A6CF0";
@@ -136,11 +136,11 @@ ref = D;
 piece = {
 Left = 83.45703;
 };
-pos = (125,8);
+pos = (250,16);
 ref = _part.strokeshort;
 }
 );
-width = 698;
+width = 1396;
 },
 {
 background = {
@@ -154,7 +154,7 @@ ref = H;
 hints = (
 {
 horizontal = 1;
-place = (30,-50);
+place = (60,-100);
 type = Stem;
 }
 );
@@ -167,11 +167,11 @@ ref = D;
 piece = {
 Left = 83.45703;
 };
-pos = (98,8);
+pos = (196,16);
 ref = _part.strokeshort;
 }
 );
-width = 677;
+width = 1354;
 },
 {
 background = {
@@ -179,10 +179,10 @@ shapes = (
 {
 closed = 1;
 nodes = (
-(387,304,l),
-(387,427,l),
-(17,427,l),
-(17,304,l)
+(774,608,l),
+(774,854,l),
+(34,854,l),
+(34,608,l)
 );
 }
 );
@@ -190,11 +190,11 @@ nodes = (
 hints = (
 {
 horizontal = 1;
-place = (304,123);
+place = (608,246);
 type = Stem;
 },
 {
-place = (10,370);
+place = (20,740);
 type = Stem;
 }
 );
@@ -207,11 +207,11 @@ ref = D;
 piece = {
 Left = 59;
 };
-pos = (160,0);
+pos = (320,0);
 ref = _part.strokeshort;
 }
 );
-width = 764;
+width = 1528;
 },
 {
 background = {
@@ -219,10 +219,10 @@ shapes = (
 {
 closed = 1;
 nodes = (
-(338,334,l),
-(338,407,l),
-(-26,407,l),
-(-26,334,l)
+(676,668,l),
+(676,814,l),
+(-52,814,l),
+(-52,668,l)
 );
 }
 );
@@ -230,7 +230,7 @@ nodes = (
 hints = (
 {
 horizontal = 1;
-place = (334,73);
+place = (668,146);
 type = Stem;
 }
 );
@@ -243,11 +243,11 @@ ref = D;
 piece = {
 Left = 83.45703;
 };
-pos = (134,0);
+pos = (268,0);
 ref = _part.strokeshort;
 }
 );
-width = 747;
+width = 1494;
 }
 );
 metricLeft = "=H*.1";

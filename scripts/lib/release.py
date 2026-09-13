@@ -775,8 +775,8 @@ def _build_gf_textui(src_ttf: Path, dest_dir: Path):
 
 def _build_gf_workspace_textui(var_ttf: Path, dest_dir: Path, build_italic: bool):
     """Workspace statics for the Text UI half: instanced fresh from the VF at the
-    gf-api-textui position (YTAS=760, curved l default — google/fonts#9970) instead of
-    copied from the static matrix, which pins YTAS=720 with the straight l. Same
+    gf-api-textui position (YTAS=1520, curved l default — google/fonts#9970) instead of
+    copied from the static matrix, which pins YTAS=1440 with the straight l. Same
     filenames as the matrix statics they replace; ss/cv subset out; TTF-only."""
     from scripts.lib.instance_statics import _apply_static_names
     dest_dir.mkdir(parents=True, exist_ok=True)
@@ -1023,8 +1023,8 @@ def build_release_folders(build_dir: str, output_dir: str, build_italic: bool = 
     # gf-workspace: same family for Google Fonts onboarding, but ss/cv (+ aalt and
     # their alternate glyphs) stripped like cossui/gf-api; TTF-only. The Display/Base
     # half copies from the static matrix; the Text UI half is instanced fresh at the
-    # gf-api-textui position (YTAS=760, curved l — google/fonts#9970), which the
-    # matrix statics (YTAS=720, straight l) no longer represent.
+    # gf-api-textui position (YTAS=1520, curved l — google/fonts#9970), which the
+    # matrix statics (YTAS=1440, straight l) no longer represent.
     pkg = out_path / f"{_PFX}-gf-workspace"
     pkg.mkdir(parents=True, exist_ok=True)
     for s in [s for s in text_family_styles if s["geom"] == "base"]:

@@ -7,11 +7,11 @@ layers = (
 anchors = (
 {
 name = caret_1;
-pos = (405,0);
+pos = (810,0);
 },
 {
 name = caret_2;
-pos = (748,0);
+pos = (1496,0);
 }
 );
 background = {
@@ -31,30 +31,30 @@ ref = fpartrcltBase.comb;
 piece = {
 width = 825;
 };
-pos = (-5,0);
+pos = (-10,0);
 ref = _part.stroke;
 },
 {
 alignment = -1;
-pos = (327,0);
+pos = (654,0);
 ref = fpartrcltBase.comb;
 },
 {
-pos = (702,0);
+pos = (1404,0);
 ref = l;
 }
 );
-width = 1004;
+width = 2008;
 },
 {
 anchors = (
 {
 name = caret_1;
-pos = (382,0);
+pos = (764,0);
 },
 {
 name = caret_2;
-pos = (713,0);
+pos = (1426,0);
 }
 );
 background = {
@@ -80,30 +80,30 @@ ref = fpartrcltBase.comb;
 piece = {
 width = 825;
 };
-pos = (-5,-1);
+pos = (-10,-2);
 ref = _part.stroke;
 },
 {
 alignment = -1;
-pos = (325,0);
+pos = (650,0);
 ref = fpartrcltBase.comb;
 },
 {
-pos = (696,0);
+pos = (1392,0);
 ref = l;
 }
 );
-width = 952;
+width = 1904;
 },
 {
 anchors = (
 {
 name = caret_1;
-pos = (311,0);
+pos = (622,0);
 },
 {
 name = caret_2;
-pos = (595,0);
+pos = (1190,0);
 }
 );
 background = {
@@ -127,25 +127,25 @@ ref = _part.stroke;
 },
 {
 alignment = -1;
-pos = (283,0);
+pos = (566,0);
 ref = fpartrcltBase.comb;
 },
 {
-pos = (602,0);
+pos = (1204,0);
 ref = l;
 }
 );
-width = 821;
+width = 1642;
 },
 {
 anchors = (
 {
 name = caret_1;
-pos = (298,0);
+pos = (596,0);
 },
 {
 name = caret_2;
-pos = (542,0);
+pos = (1084,0);
 }
 );
 background = {
@@ -169,25 +169,25 @@ ref = _part.stroke;
 },
 {
 alignment = -1;
-pos = (260,0);
+pos = (520,0);
 ref = fpartrcltBase.comb;
 },
 {
-pos = (571,0);
+pos = (1142,0);
 ref = l;
 }
 );
-width = 745;
+width = 1490;
 },
 {
 anchors = (
 {
 name = caret_1;
-pos = (266,0);
+pos = (532,0);
 },
 {
 name = caret_2;
-pos = (550,0);
+pos = (1100,0);
 }
 );
 background = {
@@ -211,25 +211,25 @@ ref = _part.stroke;
 },
 {
 alignment = -1;
-pos = (283,0);
+pos = (566,0);
 ref = fpartrcltBase.comb;
 },
 {
-pos = (602,0);
+pos = (1204,0);
 ref = l;
 }
 );
-width = 821;
+width = 1642;
 },
 {
 anchors = (
 {
 name = caret_1;
-pos = (254,0);
+pos = (508,0);
 },
 {
 name = caret_2;
-pos = (498,0);
+pos = (996,0);
 }
 );
 background = {
@@ -253,25 +253,25 @@ ref = _part.stroke;
 },
 {
 alignment = -1;
-pos = (260,0);
+pos = (520,0);
 ref = fpartrcltBase.comb;
 },
 {
-pos = (571,0);
+pos = (1142,0);
 ref = l;
 }
 );
-width = 745;
+width = 1490;
 },
 {
 anchors = (
 {
 name = caret_1;
-pos = (361,0);
+pos = (722,0);
 },
 {
 name = caret_2;
-pos = (704,0);
+pos = (1408,0);
 }
 );
 background = {
@@ -291,30 +291,30 @@ ref = fpartrcltBase.comb;
 piece = {
 width = 825;
 };
-pos = (-5,0);
+pos = (-10,0);
 ref = _part.stroke;
 },
 {
 alignment = -1;
-pos = (327,0);
+pos = (654,0);
 ref = fpartrcltBase.comb;
 },
 {
-pos = (702,0);
+pos = (1404,0);
 ref = l;
 }
 );
-width = 1004;
+width = 2008;
 },
 {
 anchors = (
 {
 name = caret_1;
-pos = (339,0);
+pos = (678,0);
 },
 {
 name = caret_2;
-pos = (670,0);
+pos = (1340,0);
 }
 );
 background = {
@@ -340,20 +340,20 @@ ref = fpartrcltBase.comb;
 piece = {
 width = 825;
 };
-pos = (-6,-1);
+pos = (-12,-2);
 ref = _part.stroke;
 },
 {
 alignment = -1;
-pos = (325,0);
+pos = (650,0);
 ref = fpartrcltBase.comb;
 },
 {
-pos = (696,0);
+pos = (1392,0);
 ref = l;
 }
 );
-width = 952;
+width = 1904;
 }
 );
 metricLeft = f;

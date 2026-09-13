@@ -8,15 +8,15 @@ shapes = (
 ref = five.numr.rcltGeo;
 },
 {
-pos = (373,0);
+pos = (776,0);
 ref = fraction;
 },
 {
-pos = (610,0);
+pos = (1290,0);
 ref = eight.dnom;
 }
 );
-width = 1037;
+width = 2144;
 },
 {
 layerId = m006;
@@ -25,15 +25,15 @@ shapes = (
 ref = five.numr.rcltGeo;
 },
 {
-pos = (383,0);
+pos = (796,0);
 ref = fraction;
 },
 {
-pos = (642,0);
+pos = (1354,0);
 ref = eight.dnom;
 }
 );
-width = 1094;
+width = 2258;
 },
 {
 layerId = "F32A93D6-BEB9-4F11-B510-2860D42C0CD2";
@@ -42,15 +42,15 @@ shapes = (
 ref = five.numr.rcltGeo;
 },
 {
-pos = (324,0);
+pos = (678,0);
 ref = fraction;
 },
 {
-pos = (506,0);
+pos = (1057,0);
 ref = eight.dnom;
 }
 );
-width = 860;
+width = 1765;
 },
 {
 layerId = "1B5AC656-48C3-4864-953F-2CD31E7BA751";
@@ -59,15 +59,15 @@ shapes = (
 ref = five.numr.rcltGeo;
 },
 {
-pos = (327,0);
+pos = (684,0);
 ref = fraction;
 },
 {
-pos = (516,0);
+pos = (1092,0);
 ref = eight.dnom;
 }
 );
-width = 893;
+width = 1846;
 },
 {
 layerId = "33BF50A0-DEC8-4619-95BB-DD23FBD7FB0B";
@@ -76,15 +76,15 @@ shapes = (
 ref = five.numr.rcltGeo;
 },
 {
-pos = (375,0);
+pos = (780,0);
 ref = fraction;
 },
 {
-pos = (612,0);
+pos = (1294,0);
 ref = eight.dnom;
 }
 );
-width = 1040;
+width = 2150;
 },
 {
 layerId = "FA9346B6-A16F-4CF3-996A-4A8FD0AD301D";
@@ -93,15 +93,15 @@ shapes = (
 ref = five.numr.rcltGeo;
 },
 {
-pos = (385,0);
+pos = (800,0);
 ref = fraction;
 },
 {
-pos = (644,0);
+pos = (1358,0);
 ref = eight.dnom;
 }
 );
-width = 1097;
+width = 2264;
 },
 {
 layerId = "CC8ADC1C-440E-49BA-9C42-2F7F780CE9BF";
@@ -110,15 +110,15 @@ shapes = (
 ref = five.numr.rcltGeo;
 },
 {
-pos = (323,0);
+pos = (676,0);
 ref = fraction;
 },
 {
-pos = (499,0);
+pos = (1048,0);
 ref = eight.dnom;
 }
 );
-width = 854;
+width = 1758;
 },
 {
 layerId = "0DDD66F2-BE4C-471A-8E86-2163424A6CF0";
@@ -127,15 +127,15 @@ shapes = (
 ref = five.numr.rcltGeo;
 },
 {
-pos = (326,0);
+pos = (682,0);
 ref = fraction;
 },
 {
-pos = (524,0);
+pos = (1098,0);
 ref = eight.dnom;
 }
 );
-width = 901;
+width = 1852;
 }
 );
 metricLeft = five.numr;

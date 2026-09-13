@@ -32,7 +32,7 @@ STATIC_AXIS_VALUES = {
     # the source relabel — pinning 45 keeps the Display statics identical in appearance.
     "opsz":  {"display": 45, "text": 10, "micro": 8},
     "wght":  {"regular": 400, "medium": 500, "semibold": 600, "bold": 700},
-    "ytas":  {"base": 720, "tall": 800},
+    "ytas":  {"base": 1440, "tall": 1600},
     "shrp":  {"base": 0,   "sharp": 100},
     # The font's italic axis is `ital` (0–1), NOT a slnt degree axis. Roman=0, Italic=1.
     "ital":  {"roman": 0,  "italic": 1},
@@ -49,14 +49,14 @@ PER_GEOM_PACKAGE_IDS = ("a11y", "ui", "base", "geo")
 # width (LSB unchanged → outlines/anchors don't move, so no accent/component drift;
 # zero-advance combining marks are skipped). Looser spacing for the smallest size
 # without editing source sidebearings.
-MICRO_TRACKING_ADVANCE = 10
+MICRO_TRACKING_ADVANCE = 20
 
 
 # ── Flex build / avar2 ───────
 FLEX_FAMILY_NAME = "Cal Sans Flex"
 FLEX_STYLE_NAME  = "Regular"
 # (input opsz, output YTAS) calibration points for the avar2 axis mapping
-FLEX_OPSZ_TO_YTAS = [(16.0, 720.0), (10.0, 750.0), (8.0, 800.0)]
+FLEX_OPSZ_TO_YTAS = [(16.0, 1440.0), (10.0, 1500.0), (8.0, 1600.0)]
 
 
 # ── Expected source shape (pre-flight validation) ────────────────────────
@@ -122,9 +122,9 @@ GF_WEIGHT_INSTANCES = [(400, "Regular"), (500, "Medium"), (600, "SemiBold"), (70
 # gf-api-textui: the second GF deliverable agreed in google/fonts#9970 — "Cal Sans
 # Text UI", a small-optical-size variable font with ONE active axis (wght 400–700),
 # shipped Roman + Italic like gf-api. Every other axis is baked at the Text UI
-# position, except YTAS which is raised 720→760 for this family:
+# position, except YTAS which is raised 1440→1520 for this family:
 GF_TEXTUI_FAMILY = "Cal Sans Text UI"
-GF_TEXTUI_PINNED = {"opsz": 10, "GEOM": 25, "YTAS": 760, "SHRP": 0}
+GF_TEXTUI_PINNED = {"opsz": 10, "GEOM": 25, "YTAS": 1520, "SHRP": 0}
 # The curved l (l.rcltA11y) becomes the DEFAULT l for I/l differentiation — as a
 # glyph-identity change, not a feature: release.py retargets cmap at the curved
 # glyphs, renames them to the canonical names (l, lacute, …) on the final binary,
@@ -167,9 +167,9 @@ GASP_RANGES  = {65535: 15}
 # These exact values come from Emma Marichal's review (calcom/sans#36) and are the ones
 # ALREADY LIVE on Google Fonts for Cal Sans — Text UI is a promotion of instances that
 # shipped in 1.9, so changing them would reflow existing users' layouts. They are not
-# negotiable on GF's side, and they clear all of the font's ink: 1029 covers the tallest
-# stacked Vietnamese case accent (uni03060309.case) and 283 covers the deepest comma
-# accent (-275), so the GF cut clips nothing.
+# negotiable on GF's side, and they clear all of the font's ink: 2058 covers the tallest
+# stacked Vietnamese case accent (uni03060309.case) and 566 covers the deepest comma
+# accent (-550), so the GF cut clips nothing.
 GF_USE_TYPO_METRICS = True          # fsSelection bit 7
 
 # Per-family presets. Cal Sans Text UI is its own family and draws to its own extremes,
@@ -177,14 +177,14 @@ GF_USE_TYPO_METRICS = True          # fsSelection bit 7
 # families; only the win box differs, because only the win box describes outlines.
 #
 # Both extremes come from Bold and Bold Italic, and the two families differ for two
-# unrelated reasons. The ASCENT differs because YTAS is baked at 760 in Text UI against
-# 720 in the main family (1074 vs 1073 — one unit; the axis moves accents far less than
+# unrelated reasons. The ASCENT differs because YTAS is baked at 1520 in Text UI against
+# 1440 in the main family (2148 vs 2146 — two units; the axis moves accents far less than
 # it looks). The DESCENT differs because the families cover different design space, not
 # because of any ascender: the main family spans the full GEOM and opsz ranges, while
-# Text UI has both baked, so its Bold Italic never reaches as deep (-322 vs -342).
+# Text UI has both baked, so its Bold Italic never reaches as deep (-644 vs -684).
 #
 # These are measured across every file each family SHIPS, variable and static together.
-# Emma's review quotes 1029/283 for Text UI, which is the variable font's default
+# Emma's review quotes 2058/566 for Text UI, which is the variable font's default
 # instance only — a variable font's stored bounds do not describe the extremes of its
 # design space, and the static Bold in the workspace folder exceeds them.
 #
@@ -193,12 +193,12 @@ GF_USE_TYPO_METRICS = True          # fsSelection bit 7
 # design change cannot silently start clipping. The two families are resolved separately
 # even where they share a delivery folder — they are separate families on GF.
 GF_METRICS_DEFAULT = {
-    "typo_ascender": 1000, "typo_descender": -300, "typo_line_gap": 0,
-    "hhea_ascent":   1000, "hhea_descent":   -300, "hhea_line_gap": 0,
-    "win_ascent":    1073, "win_descent":     342,
+    "typo_ascender": 2000, "typo_descender": -600, "typo_line_gap": 0,
+    "hhea_ascent":   2000, "hhea_descent":   -600, "hhea_line_gap": 0,
+    "win_ascent":    2146, "win_descent":     684,
 }
 GF_METRICS_BY_FAMILY = {
-    GF_TEXTUI_FAMILY: {"win_ascent": 1074, "win_descent": 322},
+    GF_TEXTUI_FAMILY: {"win_ascent": 2148, "win_descent": 644},
 }
 
 
@@ -219,12 +219,12 @@ def gf_metrics_for(family: str) -> dict:
 
 
 # gf underline. GF requires ONE underlineThickness across a family, but Cal Sans
-# interpolates it with weight (Regular/Italic 78, Medium 84, SemiBold 94, Bold 100) —
+# interpolates it with weight (Regular/Italic 156, Medium 168, SemiBold 188, Bold 200) —
 # which is the right design call and the wrong thing for their check. The GF cuts are
 # pinned to the Medium values, the middle of that range, so no weight is badly served.
 # This is a GF-only override: every other package keeps the interpolated value.
-GF_UNDERLINE_THICKNESS = 84
-GF_UNDERLINE_POSITION  = -77
+GF_UNDERLINE_THICKNESS = 168
+GF_UNDERLINE_POSITION  = -154
 
 # gf name-table shape. nameIDs 16/17 (typographic family/subfamily) are redundant when
 # the variable font's origin is the Regular instance — fontbakery's googlefonts/font_names
@@ -297,8 +297,8 @@ STAT_AXES = [
         {"value": 700, "name": "Bold"},
     ]},
     {"tag": "YTAS", "name": "Ascender Height", "values": [
-        {"value": 720, "name": "Default", "flags": STAT_ELIDABLE},
-        {"value": 800, "name": "Tall"},
+        {"value": 1440, "name": "Default", "flags": STAT_ELIDABLE},
+        {"value": 1600, "name": "Tall"},
     ]},
     {"tag": "SHRP", "name": "Sharp", "values": [
         {"value": 0,   "name": "Default", "flags": STAT_ELIDABLE},
@@ -343,7 +343,7 @@ YTAS_ACCENT_ASCEND_BASES = (
     "jdotless", "jdotless.rcltBase", "jdotless.rcltGeo", "w", "y", "y.rcltBase", "y.rcltGeo", "z",
     "b", "d", "h", "k", "l",  # ascenders — see note above (issue #49)
 )
-YTAS_ACCENT_ASCEND_DY = 80   # 1:1 with the 80u ascender extent (YTAS 720→800); issue #49
+YTAS_ACCENT_ASCEND_DY = 160  # 1:1 with the 160u ascender extent (YTAS 1440→1600); issue #49
 ITALIC_SLANT_DEGREES = 9.5  # used to derive the italic horizontal compensation (dx = dy·tan(angle))
 
 

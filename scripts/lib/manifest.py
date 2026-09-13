@@ -6,7 +6,7 @@ Axes for static instances:
   GEOM : a11y (0-10), ui (15-30), base (40-60), geo (80-100)
   opsz : display (32pt), text (10pt), micro (8pt)
   wght : Regular, Medium, SemiBold, Bold
-  YTAS : base (720), tall (800)
+  YTAS : base (1440), tall (1600)
   SHRP : base (0), sharp (100)
   ital : roman, italic
 

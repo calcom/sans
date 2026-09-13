@@ -8,7 +8,7 @@ layers = (
 anchors = (
 {
 name = caret_1;
-pos = (384,0);
+pos = (768,0);
 }
 );
 background = {
@@ -26,10 +26,10 @@ scale = (1.7211,1);
 {
 closed = 1;
 nodes = (
-(540,0,l),
-(540,651,l),
-(451,651,l),
-(451,0,l)
+(1080,0,l),
+(1080,1302,l),
+(902,1302,l),
+(902,0,l)
 );
 }
 );
@@ -44,21 +44,21 @@ ref = fpart.comb;
 piece = {
 width = 635;
 };
-pos = (-5,0);
+pos = (-10,0);
 ref = _part.stroke;
 },
 {
-pos = (324,0);
+pos = (648,0);
 ref = tpartcrltGeo.comb;
 }
 );
-width = 671;
+width = 1342;
 },
 {
 anchors = (
 {
 name = caret_1;
-pos = (414,0);
+pos = (828,0);
 }
 );
 background = {
@@ -76,10 +76,10 @@ scale = (1.8293,1);
 {
 closed = 1;
 nodes = (
-(604,0,l),
-(604,658,l),
-(462,658,l),
-(462,0,l)
+(1208,0,l),
+(1208,1316,l),
+(924,1316,l),
+(924,0,l)
 );
 }
 );
@@ -94,21 +94,21 @@ ref = fpart.comb;
 piece = {
 width = 671;
 };
-pos = (-5,0);
+pos = (-10,0);
 ref = _part.stroke;
 },
 {
-pos = (336,0);
+pos = (672,0);
 ref = tpartcrltGeo.comb;
 }
 );
-width = 707;
+width = 1414;
 },
 {
 anchors = (
 {
 name = caret_1;
-pos = (318,0);
+pos = (636,0);
 }
 );
 background = {
@@ -126,10 +126,10 @@ scale = (1.8293,1);
 {
 closed = 1;
 nodes = (
-(501,0,l),
-(501,658,l),
-(362,658,l),
-(362,0,l)
+(1002,0,l),
+(1002,1316,l),
+(724,1316,l),
+(724,0,l)
 );
 }
 );
@@ -147,17 +147,17 @@ ref = _part.stroke;
 },
 {
 alignment = -1;
-pos = (272,0);
+pos = (544,0);
 ref = tpartcrltGeo.comb;
 }
 );
-width = 608;
+width = 1216;
 },
 {
 anchors = (
 {
 name = caret_1;
-pos = (286,0);
+pos = (572,0);
 }
 );
 background = {
@@ -175,10 +175,10 @@ scale = (1.9817,1);
 {
 closed = 1;
 nodes = (
-(440,0,l),
-(440,643,l),
-(354,643,l),
-(354,0,l)
+(880,0,l),
+(880,1286,l),
+(708,1286,l),
+(708,0,l)
 );
 }
 );
@@ -196,17 +196,17 @@ width = 540;
 ref = _part.stroke;
 },
 {
-pos = (262,0);
+pos = (524,0);
 ref = tpartcrltGeo.comb;
 }
 );
-width = 550;
+width = 1100;
 },
 {
 anchors = (
 {
 name = caret_1;
-pos = (273,0);
+pos = (546,0);
 }
 );
 background = {
@@ -224,10 +224,10 @@ scale = (1.8293,1);
 {
 closed = 1;
 nodes = (
-(456,0,l),
-(566,658,l),
-(427,658,l),
-(317,0,l)
+(912,0,l),
+(1132,1316,l),
+(854,1316,l),
+(634,0,l)
 );
 },
 {
@@ -248,17 +248,17 @@ ref = _part.stroke;
 },
 {
 alignment = -1;
-pos = (271,0);
+pos = (542,0);
 ref = tpartcrltGeo.comb;
 }
 );
-width = 608;
+width = 1216;
 },
 {
 anchors = (
 {
 name = caret_1;
-pos = (242,0);
+pos = (484,0);
 }
 );
 background = {
@@ -276,19 +276,19 @@ scale = (1.9817,1);
 {
 closed = 1;
 nodes = (
-(440,0,l),
-(440,643,l),
-(354,643,l),
-(354,0,l)
+(880,0,l),
+(880,1286,l),
+(708,1286,l),
+(708,0,l)
 );
 },
 {
 closed = 1;
 nodes = (
-(396,0,l),
-(504,643,l),
-(418,643,l),
-(310,0,l)
+(792,0,l),
+(1008,1286,l),
+(836,1286,l),
+(620,0,l)
 );
 }
 );
@@ -306,17 +306,17 @@ width = 541;
 ref = _part.stroke;
 },
 {
-pos = (262,0);
+pos = (524,0);
 ref = tpartcrltGeo.comb;
 }
 );
-width = 551;
+width = 1102;
 },
 {
 anchors = (
 {
 name = caret_1;
-pos = (370,0);
+pos = (740,0);
 }
 );
 background = {
@@ -334,10 +334,10 @@ scale = (1.8293,1);
 {
 closed = 1;
 nodes = (
-(560,0,l),
-(670,658,l),
-(528,658,l),
-(418,0,l)
+(1120,0,l),
+(1340,1316,l),
+(1056,1316,l),
+(836,0,l)
 );
 }
 );
@@ -352,21 +352,21 @@ ref = fpart.comb;
 piece = {
 width = 707;
 };
-pos = (-5,0);
+pos = (-10,0);
 ref = _part.stroke;
 },
 {
-pos = (336,0);
+pos = (672,0);
 ref = tpartcrltGeo.comb;
 }
 );
-width = 743;
+width = 1486;
 },
 {
 anchors = (
 {
 name = caret_1;
-pos = (341,0);
+pos = (682,0);
 }
 );
 background = {
@@ -384,10 +384,10 @@ scale = (1.7211,1);
 {
 closed = 1;
 nodes = (
-(497,0,l),
-(606,651,l),
-(517,651,l),
-(408,0,l)
+(994,0,l),
+(1212,1302,l),
+(1034,1302,l),
+(816,0,l)
 );
 }
 );
@@ -402,15 +402,15 @@ ref = fpart.comb;
 piece = {
 width = 635;
 };
-pos = (-5,0);
+pos = (-10,0);
 ref = _part.stroke;
 },
 {
-pos = (324,0);
+pos = (648,0);
 ref = tpartcrltGeo.comb;
 }
 );
-width = 671;
+width = 1342;
 }
 );
 metricLeft = f;
