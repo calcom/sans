@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg height="160" viewBox="0 0 128 160" width="128" xmlns="http://www.w3.org/2000/svg">
 <defs>
-<path d="M201 -1V-360V-719H290V-1ZM59 0V-78H426V0ZM59 -642V-720H426V-642ZM100 -765Q100 -805 118 -833Q136 -861 168 -876Q201 -892 243 -892Q285 -892 317 -876Q349 -861 368 -833Q386 -805 386 -765H318Q320 -794 300 -814Q281 -834 243 -834Q203 -834 185 -814Q167 -794 168 -765Z" id="path1"/>
+<path d="M403 -2V-720V-1438H581V-2ZM118 0V-156H852V0ZM118 -1284V-1440H852V-1284ZM200 -1530Q200 -1609 236 -1666Q272 -1723 336 -1754Q401 -1784 486 -1784Q570 -1784 634 -1754Q699 -1723 736 -1666Q772 -1609 772 -1530H636Q639 -1587 601 -1628Q563 -1668 486 -1668Q405 -1668 369 -1628Q333 -1587 336 -1530Z" id="path1"/>
 </defs>
 <g>
-<g data-glyph="uni020A.ss18" fill="#dee4e3" transform="translate(40.72000 104.99201) rotate(0) scale(0.096)">
+<g data-glyph="uni020A.ss18" fill="#dee4e3" transform="translate(40.74400 104.99201) rotate(0) scale(0.048)">
 <use href="#path1"/>
 </g>
 </g>

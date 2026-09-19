@@ -7,7 +7,7 @@ layers = (
 anchors = (
 {
 name = caret_1;
-pos = (397,0);
+pos = (794,0);
 }
 );
 background = {
@@ -29,21 +29,21 @@ ref = fpartrcltBase.comb;
 piece = {
 width = 514;
 };
-pos = (-5,0);
+pos = (-10,0);
 ref = _part.stroke;
 },
 {
-pos = (373,0);
+pos = (746,0);
 ref = l;
 }
 );
-width = 675;
+width = 1350;
 },
 {
 anchors = (
 {
 name = caret_1;
-pos = (385,0);
+pos = (770,0);
 }
 );
 background = {
@@ -65,21 +65,21 @@ ref = fpartrcltBase.comb;
 piece = {
 width = 485;
 };
-pos = (-5,-1);
+pos = (-10,-2);
 ref = _part.stroke;
 },
 {
-pos = (377,0);
+pos = (754,0);
 ref = l;
 }
 );
-width = 633;
+width = 1266;
 },
 {
 anchors = (
 {
 name = caret_1;
-pos = (312,0);
+pos = (624,0);
 }
 );
 background = {
@@ -103,17 +103,17 @@ width = 430;
 ref = _part.stroke;
 },
 {
-pos = (317,0);
+pos = (634,0);
 ref = l;
 }
 );
-width = 536;
+width = 1072;
 },
 {
 anchors = (
 {
 name = caret_1;
-pos = (300,0);
+pos = (600,0);
 }
 );
 layerId = "F32A93D6-BEB9-4F11-B510-2860D42C0CD2";
@@ -129,17 +129,17 @@ width = 385;
 ref = _part.stroke;
 },
 {
-pos = (294,0);
+pos = (588,0);
 ref = l;
 }
 );
-width = 468;
+width = 936;
 },
 {
 anchors = (
 {
 name = caret_1;
-pos = (267,0);
+pos = (534,0);
 }
 );
 background = {
@@ -163,17 +163,17 @@ width = 430;
 ref = _part.stroke;
 },
 {
-pos = (317,0);
+pos = (634,0);
 ref = l;
 }
 );
-width = 536;
+width = 1072;
 },
 {
 anchors = (
 {
 name = caret_1;
-pos = (256,0);
+pos = (512,0);
 }
 );
 layerId = "CC8ADC1C-440E-49BA-9C42-2F7F780CE9BF";
@@ -189,17 +189,17 @@ width = 385;
 ref = _part.stroke;
 },
 {
-pos = (294,0);
+pos = (588,0);
 ref = l;
 }
 );
-width = 468;
+width = 936;
 },
 {
 anchors = (
 {
 name = caret_1;
-pos = (353,0);
+pos = (706,0);
 }
 );
 background = {
@@ -221,21 +221,21 @@ ref = fpartrcltBase.comb;
 piece = {
 width = 514;
 };
-pos = (-5,0);
+pos = (-10,0);
 ref = _part.stroke;
 },
 {
-pos = (373,0);
+pos = (746,0);
 ref = l;
 }
 );
-width = 675;
+width = 1350;
 },
 {
 anchors = (
 {
 name = caret_1;
-pos = (342,0);
+pos = (684,0);
 }
 );
 background = {
@@ -257,15 +257,15 @@ ref = fpartrcltBase.comb;
 piece = {
 width = 485;
 };
-pos = (-6,-1);
+pos = (-12,-2);
 ref = _part.stroke;
 },
 {
-pos = (377,0);
+pos = (754,0);
 ref = l;
 }
 );
-width = 633;
+width = 1266;
 }
 );
 metricLeft = f;
