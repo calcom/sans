@@ -13,12 +13,12 @@ Cal Sans is an open-source variable font built for product design and brand in t
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="documentation/images/svg/VariableMorph2-dark.svg">
-  <img alt="Optical adjustments from 45px to 10px" src="documentation/images/svg/VariableMorph2.svg">
+  <img alt="Optical adjustments from 45 pt to 10 pt" src="documentation/images/svg/VariableMorph2.svg">
 </picture>
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="documentation/images/svg/OpticalSize-dark.svg">
-  <img alt="Another optical size demonstration with “Scheduling infastructure”" src="documentation/images/svg/OpticalSize.svg">
+  <img alt="Another optical size demonstration with “Scheduling infrastructure”" src="documentation/images/svg/OpticalSize.svg">
 </picture>
 
 Write it once:
@@ -33,12 +33,23 @@ That's the whole integration. The font handles the rest.
 Commissioned by Peer Richelsen for [Cal.com](https://cal.com). Drawn, engineered, and shipped by [WORDMARK](https://wordmark.nyc). Free for commercial and personal use, thanks to the [SIL Open Font License, Version 1.1](#license).
 
 ## Made for humans.
-Like its namesake product, Cal Sans UI, Cal Sans Text, and Cal Sans Geo are easy to use. Every vector placed to automatically balance geometry or flow just right for you.
+Like its namesake product, Cal Sans UI, Cal Sans Text, and Cal Sans Geo are easy to use. Every vector is placed to balance the geometry and flow just right for you.
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="documentation/images/svg/CalLines-dark.svg">
   <img alt="Cal Sans A11y, Cal Sans UI, Cal Sans, and Cal Sans Geo in every weight." src="documentation/images/svg/CalLines.svg">
 </picture>
+
+## Geometrically perfect. In every size.
+
+If Inter is Univers and Geist is Helvetica, Cal Sans is Futura.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="documentation/images/svg/geometry-mach-5-dark.svg">
+  <img alt="Mach 5 set across GEOM, SHRP, and optical sizes, normalized to one cap height" src="documentation/images/svg/geometry-mach-5.svg">
+</picture>
+
+Not the hundredth revival of the shapes; a return of the system. Bauer cut the original in metal size by size, down to 6 pt, and that discipline is what the digital revivals flattened into one drawing, scaled. Cal Sans brings it back. The 45 pt and the 10 pt styles are separate drawings: corners blunt as sizes fall, overshoots ease, spacing is cut per size and keeps widening through OpenType below 10 pt, and at 8 pt the a grows a tail for the hardest settings. The geometry is Renner's ideal. The sizes are how it reads.
 
 ## Shift the geometry.
 
@@ -75,7 +86,7 @@ Full axis documentation lives in [fonts/README](fonts/README.md).
 
 ## Your words, your way. Customize in 3 toolless ways.
 
-As a Variable font, static font, or custom build, Cal Sans v2 is one of the most adapable typographic systems available.
+As a variable font, static font, or custom build, Cal Sans v2 is one of the most adaptable typographic systems available.
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="documentation/images/svg/CalThreeWays-dark.svg">
@@ -83,18 +94,19 @@ As a Variable font, static font, or custom build, Cal Sans v2 is one of the most
 </picture>
 
 ### №1 Variable stylistic control: the GEOM axis.
-**Availablity**: *Modern browsers, font feature-rich applications like Framer, Figma, Photoshop/InDesign/Illustrator/AfterEffects, Affinity.*
-Cal Sans began as a font that had to operate in two worlds, mild-mannered UI and braggadocious marketing. It grew: highbrow design Geo set that would make Ed Benguiat and Paul Renner proud and into even more accessible differentiation combinations, all are addressible using a variable slider.
+**Availability**: *Modern browsers and font feature-rich applications like Framer, Figma, Photoshop/InDesign/Illustrator/AfterEffects, and Affinity.*
+
+Cal Sans began as a font that had to operate in two worlds: mild-mannered UI and braggadocious marketing. It grew into four, adding a highbrow Geo set that would make Ed Benguiat and Paul Renner proud, and an A11y set drawn for even easier reading. Every one of them lives on a single variable slider.
 
 ### №2 OpenType features: stylistic sets and character variants.
-**Availability**: *Modern browsers, font feature-rich applications like Framer, Figma, Photoshop/InDesign/Illustrator/AfterEffects, Affinity.*
-Available via NPM and Adobe Fonts hosting. Not available when served from Google Fonts API.
+**Availability**: *Modern browsers and font feature-rich applications like Framer, Figma, Photoshop/InDesign/Illustrator/AfterEffects, and Affinity, served via NPM or Adobe Fonts. Not available from the Google Fonts API.*
 
-Look through every transformation yourself: **[the character-alternative catalogue](documentation/character-alternatives.md)** — every set and variant, every letter it reshapes, drawn straight out of the finished font.
+Twenty stylistic sets and forty-two character variants, ready to toggle wherever features are exposed. See [OpenType features](#opentype-features) below for the full catalog.
 
-### №3 Your custom fork: ReCal Sans website
-Choose new defaults, axes configurations, lining and freeze opentype features into something new online, no command line or font software needed.
-**Availability**: *[ReCal Sans Font Builder](https://wordmark.nyc/recalsans/), to create a font with new default settings to work anywhere you can upload fonts, like PowerPoint or Canva, no exposed OpenType features necessary. Hosting for custom builds also available.*
+### №3 Your custom fork: the ReCal Sans website.
+**Availability**: *[ReCal Sans Font Builder](https://wordmark.nyc/recalsans/); the result works anywhere you can upload a font, like PowerPoint or Canva.*
+
+Choose new defaults and axis configurations, and freeze tabular figures and other OpenType features into something new, online, no command line or font software needed. Your favorite settings become the font's only settings. Hosting for custom builds is available too.
 
 ## Pick your cut.
 
@@ -113,6 +125,10 @@ Every release is a different cut of the same source, sorted and ready in [`fonts
 </picture>
 
 The full catalog (384 static styles, per-family subsets, Google Fonts packages) is in [fonts/README](fonts/README.md).
+
+## OpenType features.
+
+Start with **[the character-alternative catalog](documentation/character-alternatives.md)**: every set and variant, every letter it reshapes, drawn straight out of the finished font. Twenty stylistic sets and forty-two character variants ride in the full cuts; the lean `cossui` and Google Fonts builds subset them out to stay light.
 
 ## Build it yourself.
 
