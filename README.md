@@ -30,7 +30,7 @@ font-optical-sizing: auto;
 
 That's the whole integration. The font handles the rest.
 
-Commissioned by Peer Richelsen for [Cal.com](https://cal.com). Drawn, engineered, and shipped by [WORDMARK](https://wordmark.nyc). Free for commercial and personal use, thanks to the [SIL Open Font License, Version 1.1](#license).
+Commissioned by Peer Richelsen for [Cal.com](https://cal.com). Drawn, engineered, and shipped by [WORDMARK](https://wordmark.nyc). Free for commercial and personal use, thanks to the [SIL Open Font License, Version 1.1](#license). Available now via NPM, coming to Google Fonts, and with your help could come to [Adobe Fonts via UserVoice request](https://adobefonts.uservoice.com/forums/940222-adobe-fonts-feature-requests-and-feedback/suggestions/51720489-cal-sans-sil-ofl-one-or-two-variable-files-gi).
 
 ## Made for humans.
 Like its namesake product, Cal Sans UI, Cal Sans Text, and Cal Sans Geo are easy to use. Every vector is placed to balance the geometry and flow just right for you.
@@ -99,7 +99,7 @@ As a variable font, static font, or custom build, Cal Sans v2 is one of the most
 Cal Sans began as a font that had to operate in two worlds: mild-mannered UI and braggadocious marketing. It grew into four, adding a highbrow Geo set that would make Ed Benguiat and Paul Renner proud, and an A11y set drawn for even easier reading. Every one of them lives on a single variable slider.
 
 ### №2 OpenType features: stylistic sets and character variants.
-**Availability**: *Modern browsers and font feature-rich applications like Framer, Figma, Photoshop/InDesign/Illustrator/AfterEffects, and Affinity, served via NPM or Adobe Fonts. Not available from the Google Fonts API.*
+**Availability**: *Modern browsers and font feature-rich applications like Framer, Figma, Photoshop/InDesign/Illustrator/AfterEffects, and Affinity, served via NPM. Not available from the Google Fonts API.*
 
 Twenty stylistic sets and forty-two character variants, ready to toggle wherever features are exposed. See [OpenType features](#opentype-features) below for the full catalog.
 
