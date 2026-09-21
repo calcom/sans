@@ -1,5 +1,5 @@
 {
-.appVersion = "3436";
+.appVersion = "3532";
 .formatVersion = 3;
 axes = (
 {
@@ -256,7 +256,7 @@ value = WORD;
 },
 {
 name = versionString;
-value = "Version 2.001; git-1b2e7c1-release";
+value = "Version 2.003; git-1b2e7c1-release";
 },
 {
 name = "Use Typo Metrics";
@@ -5117,7 +5117,7 @@ value = "Cal Sans";
 },
 {
 key = uniqueID;
-value = "2000-CalSansWORD-2026-07-31";
+value = "2003-CalSansWORD-2026-09-19";
 },
 {
 key = variationsPostScriptNamePrefix;
@@ -47918,5 +47918,5 @@ m006 = (
 };
 };
 versionMajor = 2;
-versionMinor = 1;
+versionMinor = 3;
 }

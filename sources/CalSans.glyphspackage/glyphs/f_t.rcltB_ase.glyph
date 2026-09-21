@@ -285,7 +285,7 @@ ref = fpartrcltBase.comb;
 piece = {
 width = 786;
 };
-pos = (-10,0);
+pos = (-11,0);
 ref = _part.stroke;
 },
 {
@@ -294,7 +294,7 @@ pos = (762,0);
 ref = tpartrcltBase.comb;
 }
 );
-width = 1644;
+width = 1643;
 },
 {
 anchors = (
@@ -330,7 +330,7 @@ ref = fpartrcltBase.comb;
 piece = {
 width = 704;
 };
-pos = (-12,-2);
+pos = (-13,-2);
 ref = _part.stroke;
 },
 {

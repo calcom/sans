@@ -10,7 +10,7 @@ shapes = (
 ref = Mcommaaccent.loclMAH.rcltGeo;
 }
 );
-width = 1846;
+width = 1844;
 },
 {
 layerId = m006;
@@ -73,7 +73,7 @@ shapes = (
 ref = Mcommaaccent.loclMAH.rcltGeo;
 }
 );
-width = 1846;
+width = 1844;
 }
 );
 }

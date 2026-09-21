@@ -103,7 +103,7 @@ pos = (476,2);
 ref = brevecomb;
 }
 );
-width = 990;
+width = 991;
 },
 {
 layerId = "FA9346B6-A16F-4CF3-996A-4A8FD0AD301D";
@@ -137,7 +137,7 @@ pos = (556,0);
 ref = brevecomb;
 }
 );
-width = 1138;
+width = 1139;
 }
 );
 unicode = 7863;

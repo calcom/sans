@@ -133,7 +133,7 @@ width = 307;
 ref = _part.stroke;
 }
 );
-width = 634;
+width = 635;
 },
 {
 layerId = "CC8ADC1C-440E-49BA-9C42-2F7F780CE9BF";
@@ -148,7 +148,7 @@ width = 295;
 ref = _part.stroke;
 }
 );
-width = 610;
+width = 609;
 },
 {
 background = {

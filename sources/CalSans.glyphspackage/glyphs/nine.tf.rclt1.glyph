@@ -50,7 +50,7 @@ layerId = "0DDD66F2-BE4C-471A-8E86-2163424A6CF0";
 shapes = (
 {
 alignment = -1;
-pos = (10,0);
+pos = (-23,0);
 ref = nine.rclt1;
 }
 );
@@ -61,7 +61,7 @@ layerId = "CC8ADC1C-440E-49BA-9C42-2F7F780CE9BF";
 shapes = (
 {
 alignment = -1;
-pos = (8,0);
+pos = (19,0);
 ref = nine.rclt1;
 }
 );
@@ -72,7 +72,7 @@ layerId = "FA9346B6-A16F-4CF3-996A-4A8FD0AD301D";
 shapes = (
 {
 alignment = -1;
-pos = (-42,0);
+pos = (-37,0);
 ref = nine.rclt1;
 }
 );
@@ -83,12 +83,14 @@ layerId = "33BF50A0-DEC8-4619-95BB-DD23FBD7FB0B";
 shapes = (
 {
 alignment = -1;
-pos = (8,0);
+pos = (-3,0);
 ref = nine.rclt1;
 }
 );
 width = 1286;
 }
 );
+metricLeft = "=|six.tf.rclt1";
+metricRight = "=|six.tf.rclt1";
 metricWidth = plus;
 }

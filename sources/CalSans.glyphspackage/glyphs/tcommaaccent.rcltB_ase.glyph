@@ -62,7 +62,7 @@ shapes = (
 ref = t.rcltBase;
 },
 {
-pos = (406,0);
+pos = (405,0);
 ref = commaaccentcomb;
 }
 );
@@ -75,11 +75,11 @@ shapes = (
 ref = t.rcltBase;
 },
 {
-pos = (338,0);
+pos = (337,0);
 ref = commaaccentcomb;
 }
 );
-width = 564;
+width = 563;
 },
 {
 layerId = "FA9346B6-A16F-4CF3-996A-4A8FD0AD301D";
@@ -105,7 +105,7 @@ pos = (522,0);
 ref = commaaccentcomb;
 }
 );
-width = 822;
+width = 821;
 }
 );
 }

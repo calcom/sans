@@ -126,7 +126,7 @@ shapes = (
 ref = u.rcltGeo;
 },
 {
-pos = (602,46);
+pos = (601,46);
 ref = ogonekcomb;
 scale = (1,1.1);
 }
@@ -144,7 +144,7 @@ pos = (634,0);
 ref = ogonekcomb;
 }
 );
-width = 1278;
+width = 1277;
 },
 {
 layerId = "33BF50A0-DEC8-4619-95BB-DD23FBD7FB0B";

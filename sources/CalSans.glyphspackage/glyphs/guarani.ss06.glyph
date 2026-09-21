@@ -71,7 +71,7 @@ alignment = 1;
 ref = guarani.rcltGeo;
 }
 );
-width = 1442;
+width = 1440;
 },
 {
 layerId = "0DDD66F2-BE4C-471A-8E86-2163424A6CF0";

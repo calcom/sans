@@ -51,7 +51,7 @@ alignment = 1;
 ref = eight;
 }
 );
-width = 1094;
+width = 1092;
 },
 {
 layerId = "CC8ADC1C-440E-49BA-9C42-2F7F780CE9BF";
@@ -61,7 +61,7 @@ alignment = 1;
 ref = eight;
 }
 );
-width = 1008;
+width = 1007;
 },
 {
 layerId = "FA9346B6-A16F-4CF3-996A-4A8FD0AD301D";
@@ -81,7 +81,7 @@ alignment = 1;
 ref = eight;
 }
 );
-width = 1232;
+width = 1233;
 }
 );
 }

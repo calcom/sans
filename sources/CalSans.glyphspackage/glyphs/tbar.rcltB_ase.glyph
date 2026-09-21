@@ -82,7 +82,7 @@ piece = {
 Left = 74;
 Right = 83;
 };
-pos = (304,-98);
+pos = (303,-98);
 ref = _part.strokeshort;
 }
 );
@@ -99,11 +99,11 @@ piece = {
 Left = 71;
 Right = 96.52702;
 };
-pos = (236,-24);
+pos = (235,-24);
 ref = _part.strokeshort;
 }
 );
-width = 564;
+width = 563;
 },
 {
 layerId = "FA9346B6-A16F-4CF3-996A-4A8FD0AD301D";
@@ -137,7 +137,7 @@ pos = (310,-48);
 ref = _part.strokeshort;
 }
 );
-width = 822;
+width = 821;
 }
 );
 metricLeft = t;

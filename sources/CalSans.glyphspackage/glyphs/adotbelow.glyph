@@ -79,7 +79,7 @@ pos = (476,0);
 ref = dotbelowcomb;
 }
 );
-width = 990;
+width = 991;
 },
 {
 layerId = "FA9346B6-A16F-4CF3-996A-4A8FD0AD301D";
@@ -105,7 +105,7 @@ pos = (542,0);
 ref = dotbelowcomb;
 }
 );
-width = 1138;
+width = 1139;
 }
 );
 unicode = 7841;

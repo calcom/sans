@@ -46,7 +46,7 @@ shapes = (
 ref = gmacron;
 }
 );
-width = 1344;
+width = 1343;
 },
 {
 layerId = "FA9346B6-A16F-4CF3-996A-4A8FD0AD301D";
@@ -55,7 +55,7 @@ shapes = (
 ref = gmacron;
 }
 );
-width = 1392;
+width = 1391;
 },
 {
 layerId = "CC8ADC1C-440E-49BA-9C42-2F7F780CE9BF";
@@ -64,7 +64,7 @@ shapes = (
 ref = gmacron;
 }
 );
-width = 1176;
+width = 1178;
 },
 {
 layerId = "0DDD66F2-BE4C-471A-8E86-2163424A6CF0";

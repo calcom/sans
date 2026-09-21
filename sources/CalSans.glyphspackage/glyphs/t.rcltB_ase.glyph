@@ -96,6 +96,7 @@ ref = tpartrcltBase.comb;
 piece = {
 width = 327;
 };
+pos = (-1,0);
 ref = _part.stroke;
 }
 );
@@ -118,10 +119,11 @@ ref = tpartrcltBase.comb;
 piece = {
 width = 272;
 };
+pos = (-1,0);
 ref = _part.stroke;
 }
 );
-width = 564;
+width = 563;
 },
 {
 layerId = "FA9346B6-A16F-4CF3-996A-4A8FD0AD301D";
@@ -153,7 +155,7 @@ pos = (-10,0);
 ref = _part.stroke;
 }
 );
-width = 822;
+width = 821;
 }
 );
 metricLeft = t;

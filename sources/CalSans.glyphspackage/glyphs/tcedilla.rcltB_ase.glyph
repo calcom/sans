@@ -62,7 +62,7 @@ shapes = (
 ref = t.rcltBase;
 },
 {
-pos = (506,0);
+pos = (505,0);
 ref = cedillacomb;
 }
 );
@@ -75,11 +75,11 @@ shapes = (
 ref = t.rcltBase;
 },
 {
-pos = (422,0);
+pos = (421,0);
 ref = cedillacomb;
 }
 );
-width = 564;
+width = 563;
 },
 {
 layerId = "FA9346B6-A16F-4CF3-996A-4A8FD0AD301D";
@@ -105,7 +105,7 @@ pos = (530,-12);
 ref = cedillacomb;
 }
 );
-width = 822;
+width = 821;
 }
 );
 }

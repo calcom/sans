@@ -95,15 +95,15 @@ shapes = (
 ref = E;
 },
 {
-pos = (538,0);
+pos = (539,0);
 ref = dotbelowcomb;
 },
 {
-pos = (514,0);
+pos = (515,0);
 ref = circumflexcomb.case;
 }
 );
-width = 1008;
+width = 1009;
 },
 {
 layerId = "FA9346B6-A16F-4CF3-996A-4A8FD0AD301D";
@@ -129,15 +129,15 @@ shapes = (
 ref = E;
 },
 {
-pos = (634,0);
+pos = (635,0);
 ref = dotbelowcomb;
 },
 {
-pos = (614,0);
+pos = (615,0);
 ref = circumflexcomb.case;
 }
 );
-width = 1158;
+width = 1159;
 }
 );
 unicode = 7878;

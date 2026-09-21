@@ -232,7 +232,7 @@ italify.stemId = (
 );
 }
 );
-width = 1198;
+width = 1197;
 },
 {
 layerId = "CC8ADC1C-440E-49BA-9C42-2F7F780CE9BF";
@@ -278,7 +278,7 @@ italify.stemId = (
 );
 }
 );
-width = 1128;
+width = 1129;
 },
 {
 layerId = "FA9346B6-A16F-4CF3-996A-4A8FD0AD301D";
@@ -324,7 +324,7 @@ italify.stemId = (
 );
 }
 );
-width = 1362;
+width = 1361;
 },
 {
 layerId = "33BF50A0-DEC8-4619-95BB-DD23FBD7FB0B";
@@ -370,7 +370,7 @@ italify.stemId = (
 );
 }
 );
-width = 1296;
+width = 1297;
 }
 );
 metricLeft = zero.rcltGeo;

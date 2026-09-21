@@ -10,11 +10,11 @@ shapes = (
 ref = M.rcltGeo;
 },
 {
-pos = (928,0);
+pos = (927,0);
 ref = commaaccentcomb;
 }
 );
-width = 1846;
+width = 1844;
 },
 {
 layerId = m006;
@@ -75,7 +75,7 @@ shapes = (
 ref = M.rcltGeo;
 },
 {
-pos = (852,0);
+pos = (853,0);
 ref = commaaccentcomb;
 }
 );
@@ -88,7 +88,7 @@ shapes = (
 ref = M.rcltGeo;
 },
 {
-pos = (936,0);
+pos = (935,0);
 ref = commaaccentcomb;
 }
 );
@@ -101,11 +101,11 @@ shapes = (
 ref = M.rcltGeo;
 },
 {
-pos = (928,0);
+pos = (927,0);
 ref = commaaccentcomb;
 }
 );
-width = 1846;
+width = 1844;
 }
 );
 }

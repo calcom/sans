@@ -163,11 +163,11 @@ width = 430;
 ref = _part.stroke;
 },
 {
-pos = (634,0);
+pos = (635,0);
 ref = l;
 }
 );
-width = 1072;
+width = 1073;
 },
 {
 anchors = (
@@ -221,7 +221,7 @@ ref = fpartrcltBase.comb;
 piece = {
 width = 514;
 };
-pos = (-10,0);
+pos = (-11,0);
 ref = _part.stroke;
 },
 {
@@ -229,7 +229,7 @@ pos = (746,0);
 ref = l;
 }
 );
-width = 1350;
+width = 1352;
 },
 {
 anchors = (
@@ -257,7 +257,7 @@ ref = fpartrcltBase.comb;
 piece = {
 width = 485;
 };
-pos = (-12,-2);
+pos = (-13,-2);
 ref = _part.stroke;
 },
 {
@@ -265,7 +265,7 @@ pos = (754,0);
 ref = l;
 }
 );
-width = 1266;
+width = 1267;
 }
 );
 metricLeft = f;

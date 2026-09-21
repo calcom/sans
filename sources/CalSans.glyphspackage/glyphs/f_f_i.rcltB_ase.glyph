@@ -287,7 +287,7 @@ ref = fpartrcltBase.comb;
 piece = {
 width = 837;
 };
-pos = (-10,0);
+pos = (-11,0);
 ref = _part.stroke;
 },
 {
@@ -306,18 +306,18 @@ width = 2006;
 anchors = (
 {
 name = caret_1;
-pos = (690,0);
+pos = (712,0);
 },
 {
 name = caret_2;
-pos = (1336,0);
+pos = (1358,0);
 }
 );
 background = {
 shapes = (
 {
 alignment = -1;
-pos = (-30,0);
+pos = (-8,0);
 ref = partstroke.comb;
 scale = (2.22,1);
 }
@@ -332,20 +332,20 @@ ref = fpartrcltBase.comb;
 piece = {
 width = 819;
 };
-pos = (-12,-2);
+pos = (-13,-2);
 ref = _part.stroke;
 },
 {
 alignment = -1;
-pos = (644,0);
+pos = (666,0);
 ref = fpartrcltBase.comb;
 },
 {
-pos = (1386,0);
+pos = (1408,0);
 ref = i;
 }
 );
-width = 1898;
+width = 1920;
 }
 );
 metricLeft = f;

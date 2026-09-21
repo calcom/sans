@@ -49,7 +49,7 @@ shapes = (
 ref = A;
 },
 {
-pos = (654,-28);
+pos = (655,-28);
 ref = tildecomb.case;
 }
 );
@@ -75,7 +75,7 @@ shapes = (
 ref = A;
 },
 {
-pos = (676,-28);
+pos = (677,-28);
 ref = tildecomb.case;
 }
 );
@@ -88,7 +88,7 @@ shapes = (
 ref = A;
 },
 {
-pos = (742,-28);
+pos = (741,-28);
 ref = tildecomb.case;
 }
 );

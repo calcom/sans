@@ -139,7 +139,7 @@ pos = (168,398);
 ref = breve;
 }
 );
-width = 1424;
+width = 1425;
 },
 {
 hints = (
@@ -207,11 +207,11 @@ shapes = (
 ref = G;
 },
 {
-pos = (182,370);
+pos = (181,370);
 ref = breve;
 }
 );
-width = 1430;
+width = 1429;
 },
 {
 hints = (
@@ -250,7 +250,7 @@ pos = (142,400);
 ref = breve;
 }
 );
-width = 1424;
+width = 1425;
 },
 {
 hints = (
@@ -302,7 +302,7 @@ pos = (188,382);
 ref = breve;
 }
 );
-width = 1540;
+width = 1541;
 },
 {
 hints = (
@@ -341,11 +341,11 @@ shapes = (
 ref = G;
 },
 {
-pos = (162,410);
+pos = (163,410);
 ref = breve;
 }
 );
-width = 1530;
+width = 1531;
 }
 );
 unicode = 286;

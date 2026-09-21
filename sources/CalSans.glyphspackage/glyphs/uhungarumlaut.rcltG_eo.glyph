@@ -75,7 +75,7 @@ shapes = (
 ref = u.rcltGeo;
 },
 {
-pos = (490,0);
+pos = (489,0);
 ref = hungarumlautcomb;
 }
 );
@@ -92,7 +92,7 @@ pos = (656,0);
 ref = hungarumlautcomb;
 }
 );
-width = 1278;
+width = 1277;
 },
 {
 layerId = "33BF50A0-DEC8-4619-95BB-DD23FBD7FB0B";

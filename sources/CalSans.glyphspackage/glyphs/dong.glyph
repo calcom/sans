@@ -530,7 +530,7 @@ nodes = (
 );
 }
 );
-width = 1172;
+width = 1171;
 },
 {
 background = {
@@ -730,7 +730,7 @@ nodes = (
 );
 }
 );
-width = 1208;
+width = 1207;
 },
 {
 background = {
@@ -994,7 +994,7 @@ nodes = (
 );
 }
 );
-width = 1172;
+width = 1171;
 },
 {
 background = {
@@ -1228,7 +1228,7 @@ nodes = (
 );
 }
 );
-width = 1262;
+width = 1261;
 },
 {
 background = {
@@ -1492,7 +1492,7 @@ nodes = (
 );
 }
 );
-width = 1264;
+width = 1265;
 }
 );
 metricRight = "=l*.3";

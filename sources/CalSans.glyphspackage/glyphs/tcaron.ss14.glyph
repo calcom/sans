@@ -73,7 +73,7 @@ shapes = (
 ref = tcaron.rcltBase;
 }
 );
-width = 822;
+width = 821;
 }
 );
 }

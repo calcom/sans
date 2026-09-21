@@ -138,7 +138,7 @@ width = 306;
 ref = _part.stroke;
 }
 );
-width = 634;
+width = 635;
 },
 {
 layerId = "CC8ADC1C-440E-49BA-9C42-2F7F780CE9BF";
@@ -153,7 +153,7 @@ width = 295;
 ref = _part.stroke;
 }
 );
-width = 610;
+width = 609;
 },
 {
 layerId = "FA9346B6-A16F-4CF3-996A-4A8FD0AD301D";
@@ -165,11 +165,11 @@ ref = fpartrcltBase.comb;
 piece = {
 width = 391;
 };
-pos = (-10,0);
+pos = (-11,0);
 ref = _part.stroke;
 }
 );
-width = 854;
+width = 853;
 },
 {
 layerId = "33BF50A0-DEC8-4619-95BB-DD23FBD7FB0B";
@@ -181,11 +181,11 @@ ref = fpartrcltBase.comb;
 piece = {
 width = 369;
 };
-pos = (-12,-2);
+pos = (-13,-2);
 ref = _part.stroke;
 }
 );
-width = 814;
+width = 813;
 }
 );
 }

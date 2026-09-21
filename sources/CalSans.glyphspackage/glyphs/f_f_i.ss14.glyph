@@ -73,7 +73,7 @@ shapes = (
 ref = f_f_i.rcltBase;
 }
 );
-width = 1898;
+width = 1920;
 }
 );
 metricLeft = f_f_i.ss14;

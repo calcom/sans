@@ -93,11 +93,11 @@ ref = h;
 piece = {
 Left = 59;
 };
-pos = (252,498);
+pos = (253,498);
 ref = _part.strokeshort;
 }
 );
-width = 1072;
+width = 1073;
 },
 {
 layerId = "FA9346B6-A16F-4CF3-996A-4A8FD0AD301D";
@@ -125,11 +125,11 @@ ref = h;
 piece = {
 Left = 78;
 };
-pos = (336,482);
+pos = (337,482);
 ref = _part.strokeshort;
 }
 );
-width = 1210;
+width = 1211;
 }
 );
 unicode = 295;

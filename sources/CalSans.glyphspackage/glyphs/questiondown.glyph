@@ -23,7 +23,7 @@ pos = (1096,1028);
 ref = question;
 }
 );
-width = 1064;
+width = 1065;
 },
 {
 layerId = "1B5AC656-48C3-4864-953F-2CD31E7BA751";
@@ -52,33 +52,33 @@ layerId = "0DDD66F2-BE4C-471A-8E86-2163424A6CF0";
 shapes = (
 {
 angle = 180;
-pos = (1006,1074);
+pos = (1009,1074);
 ref = question;
 }
 );
-width = 986;
+width = 989;
 },
 {
 layerId = "CC8ADC1C-440E-49BA-9C42-2F7F780CE9BF";
 shapes = (
 {
 angle = 540;
-pos = (970,1044);
+pos = (971,1044);
 ref = question;
 }
 );
-width = 952;
+width = 953;
 },
 {
 layerId = "FA9346B6-A16F-4CF3-996A-4A8FD0AD301D";
 shapes = (
 {
 angle = 180;
-pos = (1126,1058);
+pos = (1127,1058);
 ref = question;
 }
 );
-width = 1094;
+width = 1095;
 },
 {
 layerId = "33BF50A0-DEC8-4619-95BB-DD23FBD7FB0B";
@@ -89,7 +89,7 @@ pos = (1096,1028);
 ref = question;
 }
 );
-width = 1064;
+width = 1065;
 }
 );
 metricLeft = "=|P";

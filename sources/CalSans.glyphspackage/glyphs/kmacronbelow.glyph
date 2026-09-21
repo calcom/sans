@@ -75,11 +75,11 @@ shapes = (
 ref = k;
 },
 {
-pos = (510,0);
+pos = (511,0);
 ref = macronbelowcomb;
 }
 );
-width = 1036;
+width = 1037;
 },
 {
 layerId = "FA9346B6-A16F-4CF3-996A-4A8FD0AD301D";
@@ -101,11 +101,11 @@ shapes = (
 ref = k;
 },
 {
-pos = (564,0);
+pos = (565,0);
 ref = macronbelowcomb;
 }
 );
-width = 1076;
+width = 1077;
 }
 );
 unicode = 7733;

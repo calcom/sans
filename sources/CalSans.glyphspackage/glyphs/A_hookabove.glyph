@@ -49,7 +49,7 @@ shapes = (
 ref = A;
 },
 {
-pos = (656,-28);
+pos = (657,-28);
 ref = hookabovecomb.case;
 }
 );
@@ -75,7 +75,7 @@ shapes = (
 ref = A;
 },
 {
-pos = (678,-28);
+pos = (679,-28);
 ref = hookabovecomb.case;
 }
 );
@@ -88,7 +88,7 @@ shapes = (
 ref = A;
 },
 {
-pos = (736,-28);
+pos = (735,-28);
 ref = hookabovecomb.case;
 }
 );

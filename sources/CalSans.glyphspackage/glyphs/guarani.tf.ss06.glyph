@@ -74,7 +74,7 @@ shapes = (
 ref = guarani.tf.rcltGeo;
 }
 );
-width = 1116;
+width = 1202;
 }
 );
 metricWidth = plus;

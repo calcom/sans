@@ -46,7 +46,7 @@ shapes = (
 ref = O;
 }
 );
-width = 1600;
+width = 1599;
 },
 {
 layerId = "CC8ADC1C-440E-49BA-9C42-2F7F780CE9BF";
@@ -73,7 +73,7 @@ shapes = (
 ref = O;
 }
 );
-width = 1632;
+width = 1631;
 }
 );
 }

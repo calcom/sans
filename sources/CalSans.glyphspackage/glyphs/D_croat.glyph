@@ -140,7 +140,7 @@ pos = (250,16);
 ref = _part.strokeshort;
 }
 );
-width = 1396;
+width = 1395;
 },
 {
 background = {
@@ -167,11 +167,11 @@ ref = D;
 piece = {
 Left = 83.45703;
 };
-pos = (196,16);
+pos = (197,16);
 ref = _part.strokeshort;
 }
 );
-width = 1354;
+width = 1356;
 },
 {
 background = {
@@ -243,11 +243,11 @@ ref = D;
 piece = {
 Left = 83.45703;
 };
-pos = (268,0);
+pos = (269,0);
 ref = _part.strokeshort;
 }
 );
-width = 1494;
+width = 1495;
 }
 );
 metricLeft = "=H*.1";

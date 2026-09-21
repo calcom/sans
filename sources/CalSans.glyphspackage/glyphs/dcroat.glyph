@@ -109,7 +109,7 @@ ref = d;
 piece = {
 Right = 55;
 };
-pos = (1174,506);
+pos = (1173,506);
 ref = _part.strokeshort;
 }
 );
@@ -125,11 +125,11 @@ ref = d;
 piece = {
 Right = 77;
 };
-pos = (1140,482);
+pos = (1141,482);
 ref = _part.strokeshort;
 }
 );
-width = 1314;
+width = 1315;
 }
 );
 unicode = 273;

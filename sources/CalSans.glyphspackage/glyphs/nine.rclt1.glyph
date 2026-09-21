@@ -51,8 +51,9 @@ width = 1220;
 layerId = "0DDD66F2-BE4C-471A-8E86-2163424A6CF0";
 shapes = (
 {
+alignment = -1;
 angle = 180;
-pos = (1372,1442);
+pos = (1315,1442);
 ref = six.rclt1;
 }
 );
@@ -62,8 +63,9 @@ width = 1220;
 layerId = "CC8ADC1C-440E-49BA-9C42-2F7F780CE9BF";
 shapes = (
 {
+alignment = -1;
 angle = 180;
-pos = (1293,1444);
+pos = (1197,1444);
 ref = six.rclt1;
 }
 );
@@ -73,8 +75,9 @@ width = 1138;
 layerId = "FA9346B6-A16F-4CF3-996A-4A8FD0AD301D";
 shapes = (
 {
+alignment = -1;
 angle = 180;
-pos = (1496,1452);
+pos = (1403,1452);
 ref = six.rclt1;
 }
 );
@@ -84,8 +87,9 @@ width = 1342;
 layerId = "33BF50A0-DEC8-4619-95BB-DD23FBD7FB0B";
 shapes = (
 {
+alignment = -1;
 angle = 180;
-pos = (1388,1444);
+pos = (1313,1444);
 ref = six.rclt1;
 }
 );

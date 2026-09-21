@@ -75,7 +75,7 @@ shapes = (
 ref = Ohorn;
 },
 {
-pos = (824,0);
+pos = (823,0);
 ref = dotbelowcomb;
 }
 );
@@ -105,7 +105,7 @@ pos = (816,0);
 ref = dotbelowcomb;
 }
 );
-width = 1632;
+width = 1631;
 }
 );
 unicode = 7906;

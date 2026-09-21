@@ -75,7 +75,7 @@ shapes = (
 ref = u.rcltGeo;
 },
 {
-pos = (496,16);
+pos = (495,16);
 ref = circumflexcomb;
 }
 );
@@ -92,7 +92,7 @@ pos = (660,0);
 ref = circumflexcomb;
 }
 );
-width = 1278;
+width = 1277;
 },
 {
 layerId = "33BF50A0-DEC8-4619-95BB-DD23FBD7FB0B";

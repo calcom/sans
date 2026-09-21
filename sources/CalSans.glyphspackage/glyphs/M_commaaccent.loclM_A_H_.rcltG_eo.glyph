@@ -10,11 +10,11 @@ shapes = (
 ref = M.rcltGeo;
 },
 {
-pos = (864,-12);
+pos = (863,-12);
 ref = cedillacomb;
 }
 );
-width = 1846;
+width = 1844;
 },
 {
 layerId = m006;
@@ -75,7 +75,7 @@ shapes = (
 ref = M.rcltGeo;
 },
 {
-pos = (860,0);
+pos = (861,0);
 ref = cedillacomb;
 }
 );
@@ -88,7 +88,7 @@ shapes = (
 ref = M.rcltGeo;
 },
 {
-pos = (900,0);
+pos = (899,0);
 ref = cedillacomb;
 }
 );
@@ -101,11 +101,11 @@ shapes = (
 ref = M.rcltGeo;
 },
 {
-pos = (862,-12);
+pos = (861,-12);
 ref = cedillacomb;
 }
 );
-width = 1846;
+width = 1844;
 }
 );
 }

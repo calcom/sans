@@ -75,11 +75,11 @@ shapes = (
 ref = R;
 },
 {
-pos = (508,0);
+pos = (509,0);
 ref = breveinvertedcomb.case;
 }
 );
-width = 1090;
+width = 1091;
 },
 {
 layerId = "FA9346B6-A16F-4CF3-996A-4A8FD0AD301D";
@@ -101,11 +101,11 @@ shapes = (
 ref = R;
 },
 {
-pos = (562,-28);
+pos = (563,-28);
 ref = breveinvertedcomb.case;
 }
 );
-width = 1260;
+width = 1261;
 }
 );
 unicode = 530;

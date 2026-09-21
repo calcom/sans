@@ -79,7 +79,7 @@ pos = (742,0);
 ref = ogonekcomb;
 }
 );
-width = 990;
+width = 991;
 },
 {
 layerId = "FA9346B6-A16F-4CF3-996A-4A8FD0AD301D";
@@ -105,7 +105,7 @@ pos = (812,0);
 ref = ogonekcomb;
 }
 );
-width = 1138;
+width = 1139;
 }
 );
 unicode = 261;

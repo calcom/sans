@@ -45,41 +45,41 @@ width = 1096;
 layerId = "0DDD66F2-BE4C-471A-8E86-2163424A6CF0";
 shapes = (
 {
-pos = (516,0);
+pos = (530,0);
 ref = gravecomb;
 }
 );
-width = 1090;
+width = 1098;
 },
 {
 layerId = "CC8ADC1C-440E-49BA-9C42-2F7F780CE9BF";
 shapes = (
 {
-pos = (606,0);
+pos = (599,0);
 ref = gravecomb;
 }
 );
-width = 1096;
+width = 1084;
 },
 {
 layerId = "FA9346B6-A16F-4CF3-996A-4A8FD0AD301D";
 shapes = (
 {
-pos = (654,0);
+pos = (638,0);
 ref = gravecomb;
 }
 );
-width = 1296;
+width = 1276;
 },
 {
 layerId = "33BF50A0-DEC8-4619-95BB-DD23FBD7FB0B";
 shapes = (
 {
-pos = (748,0);
+pos = (742,0);
 ref = gravecomb;
 }
 );
-width = 1310;
+width = 1300;
 }
 );
 metricLeft = "=|acute";
