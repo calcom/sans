@@ -2,6 +2,24 @@
   font-family: "Cal Sans";
   font-style: normal;
   font-display: swap;
+  font-weight: 200;
+  src: url("./fonts/calsans-static-light/CalSans-ExtraLight.woff2") format("woff2"),
+    url("./fonts/calsans-static-light/CalSans-ExtraLight.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Cal Sans";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 300;
+  src: url("./fonts/calsans-static-light/CalSans-Light.woff2") format("woff2"),
+    url("./fonts/calsans-static-light/CalSans-Light.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Cal Sans";
+  font-style: normal;
+  font-display: swap;
   font-weight: 400 700;
   src: url("./fonts/calsans-var-full/CalSansVF.woff2") format("woff2"),
     url("./fonts/calsans-var-full/CalSansVF.ttf") format("truetype");

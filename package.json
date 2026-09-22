@@ -9,6 +9,8 @@
   "files": [
     "fonts/calsans-var-full/*.woff2",
     "fonts/calsans-var-full/*.ttf",
+    "fonts/calsans-static-light/*.woff2",
+    "fonts/calsans-static-light/*.ttf",
     "index.css",
     "OFL.txt"
   ],
