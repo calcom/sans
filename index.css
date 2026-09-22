@@ -12,6 +12,7 @@
   font-style: italic;
   font-display: swap;
   font-weight: 400 700;
-  src: url("./fonts/calsans-gf-api/CalSans-Italic[GEOM,SHRP,YTAS,opsz,wght].woff2") format("woff2"),
-  url("./fonts/calsans-gf-api/CalSans-Italic[GEOM,SHRP,YTAS,opsz,wght].ttf") format("truetype");
+  src: url("./fonts/calsans-var-full/CalSansVF.woff2") format("woff2"),
+    url("./fonts/calsans-var-full/CalSansVF.ttf") format("truetype");
+  font-variation-settings: "ital" 1;
 }
