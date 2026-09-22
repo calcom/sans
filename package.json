@@ -1,7 +1,7 @@
 {
   "name": "cal-sans",
   "description": "Geometric sans-serif typeface to adorn the headlines and interfaces of Cal.com",
-  "version": "1.0.0",
+  "version": "2.0.3",
   "author": "Mark Davis <Mark@DesignerMarkDavis.com>",
   "homepage": "https://github.com/calcom/sans",
   "repository": "https://github.com/calcom/sans.git",
@@ -11,7 +11,8 @@
     "fonts/calsans-var-full/*.ttf",
     "fonts/calsans-gf-api/*.woff2",
     "fonts/calsans-gf-api/*.ttf",
-    "index.css"
+    "index.css",
+    "OFL.txt"
   ],
   "main": "index.css",
   "sideEffects": false,
