@@ -133,11 +133,11 @@ There are two output locations, serving different purposes:
   | `calsans-var-flex` | **Cal Sans Flex** — the HOI variable-morph build: GEOM glyphs interpolate instead of hard-swapping, plus avar2 (YTAS hidden, follows `opsz`). Built by default (step 8); skip with `--no-flex`. |
   | `calsans-cossui` | Variable font with `ss*`/`cv*`/`aalt` features and their alternate glyphs subset out |
   | `calsans-gf-api` | Same subsetting as `cossui`, packaged for the Google Fonts API |
-  | `calsans-gf-api-textui` | **Cal Sans Text UI** — second GF family ([google/fonts#9970](https://github.com/google/fonts/issues/9970)): `wght`-only (400–700) VF pair, `opsz` 10 / `GEOM` 25 / `YTAS` 760 baked, curved l (`l.rcltA11y`) as default |
+  | `calsans-gf-api-textui` | **Cal Sans Text UI** — second GF family ([google/fonts#9970](https://github.com/google/fonts/issues/9970)): `wght`-only (400–700) VF pair, `opsz` 10 / `GEOM` 25 / `YTAS` 1520 baked, curved l (`l.rcltA11y`) as default |
   | `calsans-static-full` | All static instances (384 with italics by default, or 192 roman-only with `--roman`) |
   | `calsans-static-{a11y,ui,base,geo}` | Per-GEOM-family static subsets (base YTAS/SHRP only) |
   | `calsans-static-essentials` | Curated minimal set: Text+UI (roman) and Display+Base (incl. italics), TTF-only |
-  | `calsans-gf-workspace` | Same two families as `static-essentials`, without `opsz`-axis awareness; the Text UI half is instanced fresh at the `gf-api-textui` position (`YTAS` 760, curved l) |
+  | `calsans-gf-workspace` | Same two families as `static-essentials`, without `opsz`-axis awareness; the Text UI half is instanced fresh at the `gf-api-textui` position (`YTAS` 1520, curved l) |
 
 ## Troubleshooting
 
