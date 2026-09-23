@@ -33,7 +33,7 @@ def _compress_dir(dir_path: Path):
     ttfs = [str(p) for p in sorted(dir_path.glob("*.ttf"))]
     if not ttfs:
         return
-    workers = min(os.cpu_count() or 4, len(ttfs))
+    workers = min(int(os.environ.get("CALCANS_WORKERS", min(os.cpu_count() or 4, 24))), len(ttfs))
     with Pool(processes=workers) as pool:
         for _ in tqdm(pool.imap_unordered(_compress_one, ttfs), total=len(ttfs),
                       desc=f"   ↳ WOFF2 {dir_path.name}", leave=False):
@@ -209,10 +209,7 @@ def _trim_gf_instances(font: TTFont, ps_suffix: str = ""):
     if ital:
         missing = [name.getDebugName(i.subfamilyNameID) for i in instances
                    if "Italic" not in (name.getDebugName(i.subfamilyNameID) or "")]
-        skipped = sorted(config.README_UNDOCUMENTED & {d.name for d in dirs})
-    if skipped:
-        print(f"   🔒 {len(skipped)} package(s) built but deliberately undocumented: {', '.join(skipped)}")
-    if missing:
+        if missing:
             raise AssertionError(
                 f"italic fvar instances without a slope in the name: {missing}")
 

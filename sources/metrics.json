@@ -219,6 +219,222 @@
                 "LC_Target_H": 259.0,
                 "LC_Target_V": 276.3
             }
+        },
+        "8D572F33-529D-4152-B4D4-6C96CF3BFDBB": {
+            "name": "10 ExtraLight",
+            "metrics": {
+                "metric_1904": 1904,
+                "metric_1440": 1440,
+                "metric_1028": 1028,
+                "metric_-460": -460,
+                "metric_0": 0,
+                "capHeight": 1028,
+                "xHeight": 1028,
+                "ascender": 1904,
+                "descender": 0
+            },
+            "stems": {
+                "H": 176,
+                "n": 168,
+                "E": 160,
+                "t": 150,
+                "e": 144
+            },
+            "optical_targets": {
+                "UC_Target_H": 87.0,
+                "UC_Target_V": 106.0,
+                "LC_Target_H": 101.5,
+                "LC_Target_V": 104.5
+            }
+        },
+        "927C7330-EB4E-4601-85C5-BC0A5EBACC09": {
+            "name": "10 Light",
+            "metrics": {
+                "metric_1904": 1904,
+                "metric_1440": 1440,
+                "metric_1028": 1028,
+                "metric_-460": -460,
+                "metric_0": 0,
+                "capHeight": 1028,
+                "xHeight": 1028,
+                "ascender": 1904,
+                "descender": 0
+            },
+            "stems": {
+                "H": 176,
+                "n": 168,
+                "E": 160,
+                "t": 150,
+                "e": 144
+            },
+            "optical_targets": {
+                "UC_Target_H": 127.0,
+                "UC_Target_V": 144.0,
+                "LC_Target_H": 132.5,
+                "LC_Target_V": 140.5
+            }
+        },
+        "E118234F-2E32-46A4-B68B-C72AAFD22BDE": {
+            "name": "10 ExtraLight Italic",
+            "metrics": {
+                "metric_1904": 1904,
+                "metric_1440": 1440,
+                "metric_1028": 1028,
+                "metric_-460": -460,
+                "metric_9.5": 9.5,
+                "capHeight": 1028,
+                "xHeight": 1028,
+                "ascender": 1904,
+                "descender": 9.5
+            },
+            "stems": {
+                "H": 176,
+                "n": 168,
+                "E": 160,
+                "t": 150,
+                "e": 144
+            },
+            "optical_targets": {
+                "UC_Target_H": 87.0,
+                "UC_Target_V": 101.99,
+                "LC_Target_H": 101.5,
+                "LC_Target_V": 104.93
+            }
+        },
+        "EE85501C-F400-42AA-AD22-94F4333E9745": {
+            "name": "10 Light Italic",
+            "metrics": {
+                "metric_1904": 1904,
+                "metric_1440": 1440,
+                "metric_1028": 1028,
+                "metric_-460": -460,
+                "metric_9.5": 9.5,
+                "capHeight": 1028,
+                "xHeight": 1028,
+                "ascender": 1904,
+                "descender": 9.5
+            },
+            "stems": {
+                "H": 176,
+                "n": 168,
+                "E": 160,
+                "t": 150,
+                "e": 144
+            },
+            "optical_targets": {
+                "UC_Target_H": 127.0,
+                "UC_Target_V": 140.64,
+                "LC_Target_H": 132.5,
+                "LC_Target_V": 140.79
+            }
+        },
+        "A84FAD38-043F-4584-8706-9E3347B411B4": {
+            "name": "45 ExtraLight",
+            "metrics": {
+                "metric_1904": 1904,
+                "metric_1440": 1440,
+                "metric_1040": 1040,
+                "metric_-460": -460,
+                "metric_0": 0,
+                "capHeight": 1040,
+                "xHeight": 1040,
+                "ascender": 1904,
+                "descender": 0
+            },
+            "stems": {
+                "H": 176,
+                "n": 168,
+                "E": 160,
+                "t": 150,
+                "e": 144
+            },
+            "optical_targets": {
+                "UC_Target_H": 104.0,
+                "UC_Target_V": 108.0,
+                "LC_Target_H": 94.0,
+                "LC_Target_V": 102.0
+            }
+        },
+        "D6D02815-4437-48BA-9BDD-90D5CF139596": {
+            "name": "45 Light",
+            "metrics": {
+                "metric_1904": 1904,
+                "metric_1440": 1440,
+                "metric_1040": 1040,
+                "metric_-460": -460,
+                "metric_0": 0,
+                "capHeight": 1040,
+                "xHeight": 1040,
+                "ascender": 1904,
+                "descender": 0
+            },
+            "stems": {
+                "H": 176,
+                "n": 168,
+                "E": 160,
+                "t": 150,
+                "e": 144
+            },
+            "optical_targets": {
+                "UC_Target_H": 140.0,
+                "UC_Target_V": 146.0,
+                "LC_Target_H": 127.0,
+                "LC_Target_V": 137.0
+            }
+        },
+        "419108D5-5E13-4278-975E-C72DCDE4FC4B": {
+            "name": "45 ExtraLight Italic",
+            "metrics": {
+                "metric_1904": 1904,
+                "metric_1440": 1440,
+                "metric_1040": 1040,
+                "metric_-460": -460,
+                "metric_9.5": 9.5,
+                "capHeight": 1040,
+                "xHeight": 1040,
+                "ascender": 1904,
+                "descender": 9.5
+            },
+            "stems": {
+                "H": 176,
+                "n": 168,
+                "E": 160,
+                "t": 150,
+                "e": 144
+            },
+            "optical_targets": {
+                "UC_Target_H": 104.0,
+                "UC_Target_V": 104.34,
+                "LC_Target_H": 94.0,
+                "LC_Target_V": 103.15
+            }
+        },
+        "A3C5E818-7E2F-424E-ACA2-D0A38F36778E": {
+            "name": "45 Light Italic",
+            "metrics": {
+                "metric_1904": 1904,
+                "metric_1440": 1440,
+                "metric_1040": 1040,
+                "metric_-460": -460,
+                "metric_9.5": 9.5,
+                "capHeight": 1040,
+                "xHeight": 1040,
+                "ascender": 1904,
+                "descender": 9.5
+            },
+            "stems": {
+                "H": 176,
+                "n": 168,
+                "E": 160,
+                "t": 150,
+                "e": 144
+            },
+            "optical_targets": {
+                "UC_Target_H": 140.0,
+                "UC_Target_V": 142.84,
+                "LC_Target_H": 127.0,
+                "LC_Target_V": 137.62
+            }
         }
     },
     "kerning": {

@@ -25,7 +25,7 @@ _ITAL = config.STATIC_ITAL_TOKENS
 # Axis user-space coordinates for fontTools instancer
 AXIS_VALUES = config.STATIC_AXIS_VALUES
 
-_WEIGHT_TOKENS = {"Regular", "Medium", "SemiBold", "Bold"}
+_WEIGHT_TOKENS = {"ExtraLight", "Light", "Regular", "Medium", "SemiBold", "Bold"}
 # Family/style split anchors: a weight word, or "Italic" (for the Regular-Italic
 # case where "Regular" is elided so there's no weight word before "Italic").
 _STYLE_TOKENS = _WEIGHT_TOKENS | {"Italic"}

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg height="160" viewBox="0 0 128 160" width="128" xmlns="http://www.w3.org/2000/svg">
 <defs>
-<path d="M103 0V-28L629 -764Q659 -805 678 -830Q697 -854 714 -870V-873H127V-1029H1011V-1003L483 -252Q457 -216 440 -194Q424 -173 407 -160V-156H1001V0ZM597 -1147H496L552 -1477H747Z" id="path1"/>
+<path d="M95 0V-27L846 -1149Q872 -1186 890 -1210Q907 -1234 922 -1250Q937 -1265 952 -1278L953 -1276H137V-1440H1237V-1413L476 -290Q449 -251 430 -228Q412 -204 398 -188Q383 -173 369 -161L367 -164H1233V0ZM613 -1524 707 -1762H915L725 -1524Z" id="path1"/>
 </defs>
 <g>
-<g data-glyph="zacute.ss20" fill="#dee4e3" transform="translate(38.32000 104.99201) rotate(0) scale(0.048)">
+<g data-glyph="Zacute.ss20" fill="#dee4e3" transform="translate(32.32000 104.99201) rotate(0) scale(0.048)">
 <use href="#path1"/>
 </g>
 </g>

@@ -92,7 +92,9 @@ def run_instancer_statics(var_ttf: str, build_dir: str, build_italic: bool = Fal
         font_bytes = f.read()
     tasks = [(dict(s["axes"]), os.path.join(static_dir, s["filename"]), s["opsz"] == "micro", s["style_name"])
              for s in styles]
-    workers = os.cpu_count() or 4
+    # Default to a bounded worker count: 96-core hosts OOM when every worker
+    # decompiles the full variable font at once. Cap at 24 unless overridden.
+    workers = int(os.environ.get("CALCANS_WORKERS", min(os.cpu_count() or 4, 24)))
 
     print(f"🔨 Instancing {len(styles)} static styles from {os.path.basename(var_ttf)} "
           f"across {workers} workers...")
