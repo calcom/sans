@@ -20,7 +20,7 @@ BUILD_ITALIC = True  # True → 384 styles (roman + italic); False → 192 roman
 # (id, name-label) tokens for each axis, in the order they combine into style names.
 STATIC_GEOM_TOKENS = [("a11y", "A11y"), ("ui", "UI"), ("base", ""), ("geo", "Geo")]
 STATIC_OPSZ_TOKENS = [("display", ""), ("text", "Text"), ("micro", "Micro")]
-STATIC_WGHT_TOKENS = [("regular", "Regular"), ("medium", "Medium"), ("semibold", "SemiBold"), ("bold", "Bold")]
+STATIC_WGHT_TOKENS = [("extralight", "ExtraLight"), ("light", "Light"), ("regular", "Regular"), ("medium", "Medium"), ("semibold", "SemiBold"), ("bold", "Bold")]
 STATIC_YTAS_TOKENS = [("base", ""), ("tall", "Tall")]
 STATIC_SHRP_TOKENS = [("base", ""), ("sharp", "Sharp")]
 STATIC_ITAL_TOKENS = [("roman", ""), ("italic", "Italic")]
@@ -31,7 +31,7 @@ STATIC_AXIS_VALUES = {
     # display pins the large-optical master, which now sits at opsz=45 (was 32) after
     # the source relabel — pinning 45 keeps the Display statics identical in appearance.
     "opsz":  {"display": 45, "text": 10, "micro": 8},
-    "wght":  {"regular": 400, "medium": 500, "semibold": 600, "bold": 700},
+    "wght":  {"extralight": 200, "light": 300, "regular": 400, "medium": 500, "semibold": 600, "bold": 700},
     "ytas":  {"base": 1440, "tall": 1600},
     "shrp":  {"base": 0,   "sharp": 100},
     # The font's italic axis is `ital` (0–1), NOT a slnt degree axis. Roman=0, Italic=1.
@@ -68,7 +68,7 @@ FLEX_OPSZ_TO_YTAS = [(16.0, 1440.0), (10.0, 1500.0), (8.0, 1600.0)]
 
 # ── Expected source shape (pre-flight validation) ────────────────────────
 EXPECTED_AXES         = ["opsz", "GEOM", "wght", "YTAS", "SHRP", "ital"]
-EXPECTED_MASTER_COUNT = 8
+EXPECTED_MASTER_COUNT = 16
 EXPECTED_OPSZ_VALUES  = [10, 45]
 
 
@@ -124,7 +124,7 @@ ITALIC_ANGLE = -9.5
 # Settled with Dave (google/fonts#9970): GEOM-named instances stay out of GF — the
 # UI/Text position ships as its own second family instead (gf-api-textui below).
 GF_TRIM_INSTANCES = True
-GF_WEIGHT_INSTANCES = [(400, "Regular"), (500, "Medium"), (600, "SemiBold"), (700, "Bold")]
+GF_WEIGHT_INSTANCES = [(200, "ExtraLight"), (300, "Light"), (400, "Regular"), (500, "Medium"), (600, "SemiBold"), (700, "Bold")]
 
 # gf-api-textui: the second GF deliverable agreed in google/fonts#9970 — "Cal Sans
 # Text UI", a small-optical-size variable font with ONE active axis (wght 400–700),
@@ -298,6 +298,8 @@ STAT_AXES = [
         {"value": 100, "name": "Geo"},
     ]},
     {"tag": "wght", "name": "Weight", "values": [
+        {"value": 200, "name": "ExtraLight"},
+        {"value": 300, "name": "Light"},
         {"value": 400, "name": "Regular", "flags": STAT_ELIDABLE, "linkedValue": 700},
         {"value": 500, "name": "Medium"},
         {"value": 600, "name": "SemiBold"},
