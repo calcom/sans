@@ -611,7 +611,7 @@ place = (1436,36);
 type = Stem;
 },
 {
-place = (82,-1);
+place = (82,20);
 target = (0,22);
 type = Stem;
 },

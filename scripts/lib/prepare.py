@@ -232,9 +232,22 @@ def inject_ytas_ascend_braces(font, verbose=False):
     ytas_i, ital_i = axes.index("YTAS"), axes.index("ital")
     ytas_top = config.STATIC_AXIS_VALUES["ytas"]["tall"]
     ytas_extent = ytas_top - config.STATIC_AXIS_VALUES["ytas"]["base"]
-    dy = config.YTAS_ACCENT_ASCEND_DY
-    ital_dx = round(dy * math.tan(math.radians(config.ITALIC_SLANT_DEGREES)))
+    dy_asc = config.YTAS_ACCENT_ASCEND_DY                 # accents on ascenders: full travel
+    dy_xht = config.YTAS_ACCENT_ASCEND_DY_XHEIGHT         # accents on x-height bases: half
+    tan_ital = math.tan(math.radians(config.ITALIC_SLANT_DEGREES))
     bases = set(config.YTAS_ACCENT_ASCEND_BASES)
+    asc_bases = set(config.YTAS_ACCENT_ASCEND_BASES_ASCENDER)
+
+    def travel_for(glyph):
+        """An accent rides its BASE: full travel on an ascender that extends with YTAS, half on
+        an x-height letter whose outline does not move. Composites are judged by their first
+        component (lacute -> l -> ascender)."""
+        if glyph.name in asc_bases:
+            return dy_asc
+        for layer in (glyph.layers[m.id] for m in font.masters):
+            if layer and layer.components and layer.components[0].name in asc_bases:
+                return dy_asc
+        return dy_xht
 
     def in_scope(glyph):
         if glyph.name in bases:
@@ -259,7 +272,8 @@ def inject_ytas_ascend_braces(font, verbose=False):
                    and layer.associatedMasterId == m.id
                    for layer in glyph.layers):
                 continue
-            dx = ital_dx if round(m.axes[ital_i]) == 1 else 0
+            dy = travel_for(glyph)
+            dx = round(dy * tan_ital) if round(m.axes[ital_i]) == 1 else 0
             br = _clone_layer(ml)
             br.layerId = str(uuid.uuid4()).upper()
             br.associatedMasterId = m.id
@@ -277,4 +291,5 @@ def inject_ytas_ascend_braces(font, verbose=False):
                     c.position = Point(c.position.x + dx, c.position.y + dy)
             glyph.layers.append(br)
 
-    print(f"   ✅ coordinated {anchors} top anchors so attached marks ascend {dy}u as ascenders extend {ytas_extent}u")
+    print(f"   ✅ coordinated {anchors} top anchors — ascender bases ascend {dy_asc}u (1:1), "
+          f"x-height bases {dy_xht}u (2:1), as ascenders extend {ytas_extent}u")

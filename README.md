@@ -51,6 +51,14 @@ If Inter is Univers and Geist is Helvetica, Cal Sans is Futura.
 
 Not the hundredth revival of the shapes; a return of the system. Bauer cut the original in metal size by size, down to 6 pt, and that discipline is what the digital revivals flattened into one drawing, scaled. Cal Sans brings it back. The 45 pt and the 10 pt styles are separate drawings: corners blunt as sizes fall, overshoots ease, spacing is cut per size and keeps widening through OpenType below 10 pt, and at 8 pt the a grows a tail for the hardest settings. The geometry is Renner's ideal. The sizes are how it reads.
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="documentation/images/svg/Geometry-dark.svg">
+  <img alt="The word acted going soft under blur, with its apertures marked" src="documentation/images/svg/Geometry.svg">
+</picture>
+
+The acid test for legibility is to simulate the inevitable bad conditions. This separates the beautiful type designs from the dryly functional. I recommend blurring it. This simulates quickly-moving eyes, poor light, a far screen, or degenerative optical conditions.
+
+
 ## Shift the geometry.
 
 <picture>

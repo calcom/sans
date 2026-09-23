@@ -12,11 +12,11 @@ pos = (326,690);
 },
 {
 name = bottom;
-pos = (462,0);
+pos = (344,0);
 },
 {
 name = cedilla;
-pos = (476,0);
+pos = (376,0);
 },
 {
 name = center;
@@ -122,11 +122,11 @@ pos = (386,616);
 },
 {
 name = bottom;
-pos = (482,0);
+pos = (442,0);
 },
 {
 name = cedilla;
-pos = (508,0);
+pos = (408,0);
 },
 {
 name = center;
@@ -192,13 +192,19 @@ nodes = (
 hints = (
 {
 horizontal = 1;
-origin = (0,3);
-target = (0,6);
+origin = (0,11);
+target = (0,2);
 type = Stem;
 },
 {
-origin = (0,11);
-target = (0,10);
+horizontal = 1;
+origin = (0,7);
+target = down;
+type = TopGhost;
+},
+{
+origin = (0,6);
+target = (0,8);
 type = Stem;
 }
 );
@@ -232,11 +238,11 @@ pos = (142,698);
 },
 {
 name = bottom;
-pos = (270,0);
+pos = (256,0);
 },
 {
 name = cedilla;
-pos = (356,0);
+pos = (296,0);
 },
 {
 name = center;
@@ -362,19 +368,19 @@ nodes = (
 hints = (
 {
 horizontal = 1;
-origin = (0,3);
-target = (0,6);
+origin = (0,11);
+target = (0,2);
 type = Stem;
 },
 {
 horizontal = 1;
-origin = (0,11);
+origin = (0,7);
 target = down;
 type = TopGhost;
 },
 {
-origin = (0,10);
-target = (0,0);
+origin = (0,6);
+target = (0,8);
 type = Stem;
 }
 );
@@ -408,11 +414,11 @@ pos = (238,624);
 },
 {
 name = bottom;
-pos = (326,0);
+pos = (306,0);
 },
 {
 name = cedilla;
-pos = (424,0);
+pos = (340,0);
 },
 {
 name = center;
@@ -495,19 +501,19 @@ nodes = (
 hints = (
 {
 horizontal = 1;
-origin = (0,3);
-target = (0,6);
+origin = (0,11);
+target = (0,2);
 type = Stem;
 },
 {
 horizontal = 1;
-origin = (0,11);
+origin = (0,7);
 target = down;
 type = TopGhost;
 },
 {
-origin = (0,10);
-target = (0,0);
+origin = (0,6);
+target = (0,8);
 type = Stem;
 }
 );
@@ -541,11 +547,11 @@ pos = (326,690);
 },
 {
 name = bottom;
-pos = (462,0);
+pos = (344,0);
 },
 {
 name = cedilla;
-pos = (476,0);
+pos = (376,0);
 },
 {
 name = center;
@@ -663,11 +669,11 @@ pos = (386,616);
 },
 {
 name = bottom;
-pos = (482,0);
+pos = (442,0);
 },
 {
 name = cedilla;
-pos = (508,0);
+pos = (408,0);
 },
 {
 name = center;
@@ -744,13 +750,19 @@ nodes = (
 hints = (
 {
 horizontal = 1;
-origin = (0,3);
-target = (0,6);
+origin = (0,11);
+target = (0,2);
 type = Stem;
 },
 {
-origin = (0,11);
-target = (0,10);
+horizontal = 1;
+origin = (0,7);
+target = down;
+type = TopGhost;
+},
+{
+origin = (0,6);
+target = (0,8);
 type = Stem;
 }
 );
@@ -785,11 +797,11 @@ pos = (142,698);
 },
 {
 name = bottom;
-pos = (270,0);
+pos = (256,0);
 },
 {
 name = cedilla;
-pos = (356,0);
+pos = (296,0);
 },
 {
 name = center;
@@ -926,19 +938,19 @@ nodes = (
 hints = (
 {
 horizontal = 1;
-origin = (0,3);
-target = (0,6);
+origin = (0,11);
+target = (0,2);
 type = Stem;
 },
 {
 horizontal = 1;
-origin = (0,11);
+origin = (0,7);
 target = down;
 type = TopGhost;
 },
 {
-origin = (0,10);
-target = (0,0);
+origin = (0,6);
+target = (0,8);
 type = Stem;
 }
 );
@@ -973,11 +985,11 @@ pos = (238,624);
 },
 {
 name = bottom;
-pos = (326,0);
+pos = (306,0);
 },
 {
 name = cedilla;
-pos = (424,0);
+pos = (340,0);
 },
 {
 name = center;
@@ -1053,17 +1065,19 @@ ref = l.rcltA11y;
 hints = (
 {
 horizontal = 1;
-place = (238,1362);
+origin = (0,11);
+target = (0,2);
 type = Stem;
 },
 {
 horizontal = 1;
-place = (0,-20);
+origin = (0,7);
 target = down;
 type = TopGhost;
 },
 {
-place = (216,368);
+origin = (0,6);
+target = (0,8);
 type = Stem;
 }
 );
@@ -1098,11 +1112,11 @@ pos = (251,624);
 },
 {
 name = bottom;
-pos = (235,0);
+pos = (217,0);
 },
 {
 name = cedilla;
-pos = (333,0);
+pos = (251,0);
 },
 {
 name = center;
@@ -1198,19 +1212,18 @@ nodes = (
 hints = (
 {
 horizontal = 1;
-origin = (0,2);
-target = (0,6);
+origin = (0,11);
+target = (0,2);
 type = Stem;
 },
 {
 horizontal = 1;
-origin = (0,11);
+origin = (0,7);
 target = down;
 type = TopGhost;
 },
 {
-origin = (0,8);
-target = (0,1);
+place = (38,284);
 type = Stem;
 }
 );
@@ -1244,11 +1257,11 @@ pos = (252,624);
 },
 {
 name = bottom;
-pos = (236,0);
+pos = (217,0);
 },
 {
 name = cedilla;
-pos = (334,0);
+pos = (251,0);
 },
 {
 name = center;
@@ -1324,17 +1337,18 @@ ref = l.rcltA11y;
 hints = (
 {
 horizontal = 1;
-place = (238,1362);
+origin = (0,11);
+target = (0,2);
 type = Stem;
 },
 {
 horizontal = 1;
-place = (0,-20);
+origin = (0,7);
 target = down;
 type = TopGhost;
 },
 {
-place = (144,350);
+place = (39,284);
 type = Stem;
 }
 );
@@ -1348,7 +1362,7 @@ nodes = (
 (462,238,l),
 (396,238,ls),
 (342,238,o),
-(312,254,o),
+(313,255,o),
 (326,336,cs),
 (536,1600,l),
 (258,1600,l),
@@ -1369,11 +1383,11 @@ pos = (172,698);
 },
 {
 name = bottom;
-pos = (182,0);
+pos = (168,0);
 },
 {
 name = cedilla;
-pos = (268,0);
+pos = (208,0);
 },
 {
 name = center;
@@ -1469,19 +1483,18 @@ nodes = (
 hints = (
 {
 horizontal = 1;
-origin = (0,3);
-target = (0,6);
+origin = (0,11);
+target = (0,2);
 type = Stem;
 },
 {
 horizontal = 1;
-origin = (0,11);
+origin = (0,7);
 target = down;
 type = TopGhost;
 },
 {
-origin = (0,10);
-target = (0,0);
+place = (34,376);
 type = Stem;
 }
 );
@@ -1515,11 +1528,11 @@ pos = (173,698);
 },
 {
 name = bottom;
-pos = (183,0);
+pos = (168,0);
 },
 {
 name = cedilla;
-pos = (269,0);
+pos = (208,0);
 },
 {
 name = center;
@@ -1656,19 +1669,18 @@ nodes = (
 hints = (
 {
 horizontal = 1;
-origin = (0,3);
-target = (0,6);
+origin = (0,11);
+target = (0,2);
 type = Stem;
 },
 {
 horizontal = 1;
-origin = (0,11);
+origin = (0,7);
 target = down;
 type = TopGhost;
 },
 {
-origin = (0,10);
-target = (0,0);
+place = (35,375);
 type = Stem;
 }
 );
@@ -1682,12 +1694,12 @@ nodes = (
 (361,158,l),
 (311,158,ls),
 (237,158,o),
-(199,176,o),
+(200,176,o),
 (211,248,cs),
-(437,1600,l),
-(265,1600,l),
+(424,1600,l),
+(252,1600,l),
 (41,254,ls),
-(13,86,o),
+(15,86,o),
 (87,0,o),
 (259,0,cs)
 );
@@ -1703,11 +1715,11 @@ pos = (400,616);
 },
 {
 name = bottom;
-pos = (394,0);
+pos = (354,0);
 },
 {
 name = cedilla;
-pos = (420,0);
+pos = (320,0);
 },
 {
 name = center;
@@ -1797,13 +1809,18 @@ nodes = (
 hints = (
 {
 horizontal = 1;
-origin = (0,3);
-target = (0,6);
+origin = (0,11);
+target = (0,2);
 type = Stem;
 },
 {
-origin = (0,11);
-target = (0,10);
+horizontal = 1;
+origin = (0,7);
+target = down;
+type = TopGhost;
+},
+{
+place = (121,473);
 type = Stem;
 }
 );
@@ -1837,11 +1854,11 @@ pos = (400,616);
 },
 {
 name = bottom;
-pos = (394,0);
+pos = (354,0);
 },
 {
 name = cedilla;
-pos = (420,0);
+pos = (320,0);
 },
 {
 name = center;
@@ -1918,13 +1935,18 @@ nodes = (
 hints = (
 {
 horizontal = 1;
-origin = (0,3);
-target = (0,6);
+origin = (0,11);
+target = (0,2);
 type = Stem;
 },
 {
-origin = (0,11);
-target = (0,10);
+horizontal = 1;
+origin = (0,7);
+target = down;
+type = TopGhost;
+},
+{
+place = (122,473);
 type = Stem;
 }
 );
@@ -1943,7 +1965,7 @@ nodes = (
 (622,1600,l),
 (340,1600,l),
 (132,362,ls),
-(88,96,o),
+(87,96,o),
 (194,0,o),
 (416,0,cs)
 );
@@ -1959,11 +1981,11 @@ pos = (357,690);
 },
 {
 name = bottom;
-pos = (377,0);
+pos = (259,0);
 },
 {
 name = cedilla;
-pos = (391,0);
+pos = (291,0);
 },
 {
 name = center;
@@ -2053,8 +2075,18 @@ nodes = (
 hints = (
 {
 horizontal = 1;
-origin = (0,3);
-target = (0,6);
+origin = (0,11);
+target = (0,2);
+type = Stem;
+},
+{
+horizontal = 1;
+origin = (0,7);
+target = down;
+type = TopGhost;
+},
+{
+place = (125,176);
 type = Stem;
 }
 );
@@ -2088,11 +2120,11 @@ pos = (357,690);
 },
 {
 name = bottom;
-pos = (377,0);
+pos = (259,0);
 },
 {
 name = cedilla;
-pos = (391,0);
+pos = (291,0);
 },
 {
 name = center;
@@ -2169,13 +2201,18 @@ nodes = (
 hints = (
 {
 horizontal = 1;
-origin = (0,3);
-target = (0,6);
+origin = (0,11);
+target = (0,2);
 type = Stem;
 },
 {
-origin = (0,0);
-target = (0,10);
+horizontal = 1;
+origin = (0,7);
+target = down;
+type = TopGhost;
+},
+{
+place = (122,180);
 type = Stem;
 }
 );
@@ -2189,12 +2226,12 @@ nodes = (
 (467,156,l),
 (399,156,ls),
 (321,156,o),
-(291,194,o),
+(292,194,o),
 (305,272,cs),
-(527,1600,l),
-(351,1600,l),
+(532,1600,l),
+(356,1600,l),
 (131,290,ls),
-(99,92,o),
+(97,92,o),
 (159,0,o),
 (373,0,cs)
 );
