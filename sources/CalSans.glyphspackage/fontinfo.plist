@@ -256,7 +256,7 @@ value = WORD;
 },
 {
 name = versionString;
-value = "Version 2.003; git-1b2e7c1-release";
+value = "Version 2.007; git-1b2e7c1-release";
 },
 {
 name = "Use Typo Metrics";
@@ -268,7 +268,7 @@ value = (
 );
 }
 );
-date = "2026-07-31 22:13:58 +0000";
+date = "2026-09-23 06:08:47 +0000";
 familyName = "Cal Sans";
 featurePrefixes = (
 {
@@ -5117,7 +5117,7 @@ value = "Cal Sans";
 },
 {
 key = uniqueID;
-value = "2003-CalSansWORD-2026-09-19";
+value = "2007-CalSansWORD-2026-09-23";
 },
 {
 key = variationsPostScriptNamePrefix;
@@ -47918,5 +47918,5 @@ m006 = (
 };
 };
 versionMajor = 2;
-versionMinor = 3;
+versionMinor = 7;
 }

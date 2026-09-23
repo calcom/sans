@@ -341,9 +341,19 @@ YTAS_ACCENT_ASCEND_BASES = (
     "a", "a.alt", "a.rcltA11y", "a.rcltBase", "ae", "ae.rcltBase", "c", "c.rcltGeo", "idotless", "e",
     "g", "g.rcltA11y", "m", "n", "o", "oe", "p", "r", "s", "u", "u.rcltGeo", "uhorn", "uhorn.rcltGeo",
     "jdotless", "jdotless.rcltBase", "jdotless.rcltGeo", "w", "y", "y.rcltBase", "y.rcltGeo", "z",
-    "b", "d", "h", "k", "l",  # ascenders — see note above (issue #49)
 )
-YTAS_ACCENT_ASCEND_DY = 160  # 1:1 with the 160u ascender extent (YTAS 1440→1600); issue #49
+# Ascender bases. Listed so their PRECOMPOSED composites (lacute, ldotbelowmacron, hcircumflex…)
+# come into scope — the bases themselves already ship drawn YTAS braces and the injector's
+# double-brace guard skips them. These take the full travel, not the x-height half.
+YTAS_ACCENT_ASCEND_BASES_ASCENDER = ("b", "d", "h", "k", "l")
+YTAS_ACCENT_ASCEND_BASES = YTAS_ACCENT_ASCEND_BASES + YTAS_ACCENT_ASCEND_BASES_ASCENDER
+# TWO groups, two travels. An accent on an ASCENDER (b d h k l) must rise the full 160u the
+# ascender itself extends, or it detaches from the letter it sits on. An accent on an X-HEIGHT
+# base (a c e o …) sits on an outline that does not move with YTAS at all, so the same 160u
+# floats it away — it takes half. One shared constant gave both 1:1, measurable in 1.999, 2.000
+# and 2.003 alike (GPOS top anchor: a 1030→1190 and b 1440→1600, both ratio 1.00).
+YTAS_ACCENT_ASCEND_DY          = 160  # ascender bases: 1:1 with the ascender extent
+YTAS_ACCENT_ASCEND_DY_XHEIGHT  = 80   # x-height bases: 2:1, half the axis travel
 ITALIC_SLANT_DEGREES = 9.5  # used to derive the italic horizontal compensation (dx = dy·tan(angle))
 
 

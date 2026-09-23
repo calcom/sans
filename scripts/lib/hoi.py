@@ -31,6 +31,37 @@ Y_TWIST = -9.5            # y mid-swing: rotate left foot edge (22-23) about foo
 Y_FOOT_NUDGE = {22: (-1.0, -3.9), 23: (8.6, 1.5)}  # mid-swing node nudges (font units; dialed on 10 Regular)
 HOI_SWEEP = {"tpart.comb": 1.2,   # t  (opposite swing)
              "jdotless":   0.8}   # j  (swing out)   — f stays fully linear (not listed)
+# Nodes held OUT of the sweep, by leaf, in SOURCE node order (the order _sweep_path matches
+# form-to-form; not the compiled glyf point numbers, which cu2qu renumbers). The sweep is for
+# terminals that travel — t's foot retracts 429–562 units into the stem — and a stem has no
+# business being swung perpendicular to itself: tpart's 9–12 are the stem's own corners
+# (484/202 x, 352→1360 y), so they interpolate straight while the foot still swings.
+HOI_SWEEP_SKIP = {"tpart.comb": frozenset({9, 10, 11, 12})}
+
+# ── A11y morph (GEOM 0-11/13 forms) ───────────────────────────────────────────
+# The A11y drawings (curved-tail l, spurred a) are substituted at the BOTTOM of GEOM and swap
+# out by 11 (13 for a). Morph them across this window instead of hard-swapping. Unlike
+# handle_I, the braces go on the DEFAULT glyph: its masters all sit at GEOM 25 holding the
+# default outline, which is what is wanted there, so nothing competes and no rename is needed.
+A11Y_WIN = (5, 8)                  # default morph window
+# Per-LEAF window override. a and l are staggered rather than sharing one: a goes first, at the
+# point six begins its own morph, and l follows once a has landed, so the two are never mid-swing
+# together in a word like "all".
+# ldot is listed separately because it is its own leaf: lacute/lslash/ldotbelow all resolve
+# down to `l` and inherit its window, but ldot draws the stem itself, so without an entry it
+# falls through to A11Y_WIN and morphs at 5-8 while l waits until 13.
+A11Y_WINDOW = {"a": (10, 13), "l": (13, 15), "ldot": (13, 15)}
+A11Y_SKIP_BASES = {"I"}            # I is role-flipped by handle_I; leave it alone
+# Per-leaf model for the A11y leg. "stroke" pairs the outer contour against the inner one and
+# swings the CENTRELINE, holding the drawn stroke weight (a per-node morph thins it to a sliver);
+# hinge_k > 1 keeps the stem junction low for longer. "sweep" is the plain perpendicular bulge.
+A11Y_MODEL = {
+    "l": dict(kind="stroke",
+              pairs=[(12, 9), (13, 8), (14, 7), (15, 6), (0, 5), (1, 4), (2, 3)],
+              hinge=(12, 9), hinge_k=2.4),
+    "a": dict(kind="sweep", sweep=1.1,
+              skip=frozenset(set(range(46)) - {5, 6, 7, 8})),
+}
 
 HOI_BASES = {"y"}
 HOI_NAMES = {"six", "nine"}
@@ -63,16 +94,20 @@ def group_of(name):
 
 
 def parse_variations(code):
-    """glyph → (Base target, lo, hi), glyph → (Geo target, lo, hi). A finite Base window
-    (f: 39–76) means return-to-default; open (…32767) means stay."""
+    """glyph → (target, lo, hi) for the Base, Geo and A11y substitutions. A finite Base window
+    (f: 39–76) means return-to-default; open (…32767) means stay. A11y windows sit at the bottom
+    of the axis (l: 0–11, a: 0–13) and are morphed by _inject_a11y_braces, not timeline_for."""
     conds = {n: (int(lo), int(hi)) for n, lo, hi in
              re.findall(r"conditionset\s+(\w+)\s*\{\s*GEOM\s+(-?\d+)\s+(-?\d+)\s*;\s*\}", code)}
-    base, geo = {}, {}
+    base, geo, a11y = {}, {}, {}
     for cond, body in re.findall(r"variation\s+rclt\s+(\w+)\s*\{(.*?)\}\s*rclt\s*;", code, re.DOTALL):
         lo, hi = conds.get(cond, (0, OPEN))
         for source, target in re.findall(r"sub\s+(\S+)\s+by\s+(\S+)\s*;", body):
-            (base if target.endswith(".rcltBase") else geo if target.endswith(".rcltGeo") else {})[source] = (target, lo, hi)
-    return base, geo
+            bucket = (base if target.endswith(".rcltBase") else
+                      geo if target.endswith(".rcltGeo") else
+                      a11y if target.endswith(".rcltA11y") else {})
+            bucket[source] = (target, lo, hi)
+    return base, geo, a11y
 
 
 def timeline_for(default_form, base_entry, geo_entry):
@@ -139,6 +174,45 @@ def _sweep(p0, p1, t, sweep):
     return (lx + nx * off, ly + ny * off)
 
 
+def _stroke_path(p0, p1, t, pairs, hinge, hinge_k, types, smooth, contours):
+    """Constant-weight stroke morph: pair the outer contour against the inner one, swing the
+    CENTRELINE about the hinge and re-offset both edges by the interpolated thickness.
+
+    A per-node morph collapses a stroke that is retracting into a stem — the two edges sit at
+    different radii from any pivot, so rotating them converges the gap and the foot becomes a
+    sliver. Pairing them keeps the drawn weight: l's thickness is 158-203 in the A11y form and
+    176-201 in the target, so it should never thin at all, and the centreline is what actually
+    turns (-35 deg to -90 deg over the window). hinge_k > 1 holds the stem junction low longer.
+
+    Nodes not named in `pairs` interpolate linearly. Endpoints are exact at t=0 and t=1.
+    """
+    out = [((1 - t) * q0[0] + t * q1[0], (1 - t) * q0[1] + t * q1[1]) for q0, q1 in zip(p0, p1)]
+    hi_a = ((p0[hinge[0]][0] + p0[hinge[1]][0]) / 2, (p0[hinge[0]][1] + p0[hinge[1]][1]) / 2)
+    hi_b = ((p1[hinge[0]][0] + p1[hinge[1]][0]) / 2, (p1[hinge[0]][1] + p1[hinge[1]][1]) / 2)
+    ht = t ** hinge_k
+    H = (hi_a[0] + (hi_b[0] - hi_a[0]) * ht, hi_a[1] + (hi_b[1] - hi_a[1]) * ht)
+    for o, i in pairs:
+        ca = ((p0[o][0] + p0[i][0]) / 2, (p0[o][1] + p0[i][1]) / 2)
+        cb = ((p1[o][0] + p1[i][0]) / 2, (p1[o][1] + p1[i][1]) / 2)
+        va = (ca[0] - hi_a[0], ca[1] - hi_a[1])
+        vb = (cb[0] - hi_b[0], cb[1] - hi_b[1])
+        ra, rb = math.hypot(*va), math.hypot(*vb)
+        tha, thb = math.atan2(va[1], va[0]), math.atan2(vb[1], vb[0])
+        dth = (thb - tha + math.pi) % (2 * math.pi) - math.pi
+        th, r = tha + dth * t, ra + (rb - ra) * t
+        C = (H[0] + r * math.cos(th), H[1] + r * math.sin(th))
+        ua = (p0[o][0] - p0[i][0], p0[o][1] - p0[i][1])
+        ub = (p1[o][0] - p1[i][0], p1[o][1] - p1[i][1])
+        ta, tb = math.hypot(*ua), math.hypot(*ub)
+        pa_, pb_ = math.atan2(ua[1], ua[0]), math.atan2(ub[1], ub[0])
+        dp = (pb_ - pa_ + math.pi) % (2 * math.pi) - math.pi
+        ph, T = pa_ + dp * t, ta + (tb - ta) * t
+        ox, oy = math.cos(ph) * T / 2, math.sin(ph) * T / 2
+        out[o] = (C[0] + ox, C[1] + oy)
+        out[i] = (C[0] - ox, C[1] - oy)
+    return _enforce_g1(out, types, smooth, contours)
+
+
 def _enforce_g1(pts, types, smooth, contours):
     """G1 continuity enforcer. Linear interpolation of handle *positions* doesn't preserve the
     tangent *angle*, so a node the designer marked SMOOTH can develop a kink mid-sweep. For each
@@ -182,7 +256,7 @@ def _enforce_g1(pts, types, smooth, contours):
     return out
 
 
-def _sweep_path(p0, p1, types, smooth, contours, t, sweep):
+def _sweep_path(p0, p1, types, smooth, contours, t, sweep, skip=()):
     """Sweep a whole node list, computing the perpendicular swing (see _sweep) on ON-CURVE nodes
     ONLY. Each OFF-CURVE handle does NOT swing on its own chord — it borrows the exact (dx, dy)
     shift of the on-curve node it belongs to (the adjacent on-curve node within its contour:
@@ -200,7 +274,9 @@ def _sweep_path(p0, p1, types, smooth, contours, t, sweep):
         shift = {}
         for i in idx:
             if on[i]:
-                bx, by = _sweep(p0[i], p1[i], t, sweep)
+                # A skipped node interpolates straight; its handles inherit the zero shift below,
+                # so the segments it owns travel linearly with it.
+                bx, by = lin(i) if i in skip else _sweep(p0[i], p1[i], t, sweep)
                 lx, ly = lin(i)
                 shift[i] = (bx - lx, by - ly)
         for k, i in enumerate(idx):
@@ -268,7 +344,7 @@ def _add_brace_layer(glyph, base_layer, master, geom_i, geom, pts, width,
     glyph.layers.append(br)
 
 
-def _inject_morph_braces(font, leaf, timeline, geom_i, sweep=1.0):
+def _inject_morph_braces(font, leaf, timeline, geom_i, sweep=1.0, skip=()):
     """Inject GEOM brace layers on a path glyph (`leaf`), copying each timeline form's outline AND
     advance width. A composite that swaps one component inherits via its component reference.
     sweep != 1.0 curves the Geo-window transition via _sweep (Base herald stays linear).
@@ -305,8 +381,100 @@ def _inject_morph_braces(font, leaf, timeline, geom_i, sweep=1.0):
                     w0, w1 = lyr(pform).width, lyr(form).width
                     for k in (0.25, 0.5, 0.75):
                         add(pgeom + k * (geom - pgeom),
-                            _sweep_path(p0, p1, types, smooth, contours, k, sweep), w0 + (w1 - w0) * k)
+                            _sweep_path(p0, p1, types, smooth, contours, k, sweep, skip),
+                            w0 + (w1 - w0) * k)
                 add(geom, pos(form), lyr(form).width)
+
+
+def _match_contour_from(font, target, donor, idx=0):
+    """Give `target`'s contour `idx` the node structure of `donor`'s only contour, on EVERY layer.
+
+    ldot draws its stem as a 5-node rectangle while ldot.rcltA11y carries the 16-node curved l,
+    so collect() vetoes the pair and it keeps hard-swapping. The two are the same shape — bbox
+    identical in every master — so lifting l's contour over is lossless and makes the counts
+    agree (17 -> 28).
+
+    Every layer has to be covered, masters AND the SHRP=100 braces: fixing only the masters
+    leaves eight brace layers at the old count and fontmake rejects the glyph outright. Layers
+    are matched by id, then by associatedMasterId. Bounding boxes are checked before each copy
+    and the whole repair is abandoned if any pair disagrees, so a mismatched map cannot silently
+    reshape the glyph. Flex-only: this mutates the disposable _FLEX font, not the source.
+    """
+    import copy
+    gt, gd = font.glyphs[target], font.glyphs[donor]
+    if gt is None or gd is None:
+        return False
+    by_id = {l.layerId: l for l in gd.layers}
+    by_assoc = {}
+    for l in gd.layers:
+        am = getattr(l, "associatedMasterId", None)
+        if am and am != l.layerId:
+            by_assoc.setdefault(am, l)
+
+    def bbox(path):
+        xs = [n.position.x for n in path.nodes]
+        ys = [n.position.y for n in path.nodes]
+        return (min(xs), min(ys), max(xs), max(ys))
+
+    plan = []
+    for lt in gt.layers:
+        if idx >= len(lt.paths):
+            continue
+        src = by_id.get(lt.layerId) or by_assoc.get(getattr(lt, "associatedMasterId", None))
+        if src is None or len(src.paths) != 1:
+            return False
+        if max(abs(a - b) for a, b in zip(bbox(lt.paths[idx]), bbox(src.paths[0]))) > 1.0:
+            return False                      # not the same shape — leave the glyph alone
+        plan.append((lt, src))
+    for lt, src in plan:
+        lt.paths[idx] = copy.deepcopy(src.paths[0])
+    return bool(plan)
+
+
+def _inject_a11y_braces(font, leaf, a11y_form, geom_i):
+    """Morph `leaf` from its A11y drawing up to itself across A11Y_WIN.
+
+    Braces go on the DEFAULT glyph, not on the .rcltA11y one: every master sits at GEOM 25
+    holding the default outline, which is exactly what belongs there, so unlike handle_I there is
+    no competing gvar source to neutralise and no rename. Knots are A11y at 0 and at the window
+    start, the model's samples across the window, then the default at the window end (8→25 is
+    flat because both ends are the same drawing).
+    """
+    model = A11Y_MODEL.get(leaf, dict(kind="linear"))
+    g, ga = font.glyphs[leaf], font.glyphs[a11y_form]
+    si = axis_index(font.axes, "SHRP")
+    shrps = [0, 100] if _shrp100_compatible(font, (g, ga), si) else [0]
+    lo, hi = A11Y_WINDOW.get(leaf, A11Y_WIN)
+    for m in font.masters:
+        base_layer = g.layers[m.id]
+        types = [n.type for n in _nodes(base_layer)]
+        smooth = [bool(n.smooth) for n in _nodes(base_layer)]
+        contours = [len(pth.nodes) for pth in base_layer.paths]
+        for shrp in shrps:
+            la, ld = _shrp_layer(ga, m, shrp, si), _shrp_layer(g, m, shrp, si)
+            pa = [(n.position.x, n.position.y) for n in _nodes(la)]
+            pd = [(n.position.x, n.position.y) for n in _nodes(ld)]
+            wa, wd = la.width, ld.width
+
+            def add(geom, pts, width, shrp=shrp):
+                _add_brace_layer(g, base_layer, m, geom_i, geom, pts, width,
+                                 types, smooth, contours, shrp, si)
+
+            add(0, pa, wa)
+            add(lo, pa, wa)
+            for k in (0.25, 0.5, 0.75):
+                if model["kind"] == "stroke":
+                    frame = _stroke_path(pa, pd, k, model["pairs"], model["hinge"],
+                                         model["hinge_k"], types, smooth, contours)
+                elif model["kind"] == "sweep":
+                    frame = _sweep_path(pa, pd, types, smooth, contours, k,
+                                        model["sweep"], model.get("skip", ()))
+                else:
+                    frame = [((1 - k) * q0[0] + k * q1[0], (1 - k) * q0[1] + k * q1[1])
+                             for q0, q1 in zip(pa, pd)]
+                add(lo + k * (hi - lo), frame, wa + (wd - wa) * k)
+            add(hi, pd, wd)
+    return True
 
 
 def _twist_y_foot(P, types, w):
@@ -519,8 +687,13 @@ def inject_hoi(font, geom_i, verbose=False):
     """Morph the chosen conditionset glyphs in place: inject GEOM brace layers (linear leaf-morphs +
     y/6/9 HOI + curated C/I) and strip those glyphs' subs from the VARIATIONS prefix. Incompatible
     forms stay discrete and are reported. Returns the per-group counts dict."""
+    # Repair first: this rewrites master outlines, so it has to happen before ANY brace is
+    # injected, or the Base/Geo pass bakes braces at the old node count and fontmake rejects
+    # the glyph as incompatible.
+    _match_contour_from(font, "ldot", "l")      # 5-node stem -> l's 16, so ldot can morph too
+
     prefix = next(p for p in font.featurePrefixes if p.name == "VARIATIONS")
-    base_map, geo_map = parse_variations(prefix.code)
+    base_map, geo_map, a11y_map = parse_variations(prefix.code)
     candidates = sorted(set(base_map) | set(geo_map))
 
     linear, discrete, hoi, skipped, swept, leaves = [], [], [], [], [], {}
@@ -554,7 +727,8 @@ def inject_hoi(font, geom_i, verbose=False):
             swept.append(digit)
 
     for leaf, tl in leaves.items():
-        _inject_morph_braces(font, leaf, tl, geom_i, sweep=HOI_SWEEP.get(leaf, 1.0))
+        _inject_morph_braces(font, leaf, tl, geom_i, sweep=HOI_SWEEP.get(leaf, 1.0),
+                             skip=HOI_SWEEP_SKIP.get(leaf, ()))
 
     remove = set()
     for a in linear:                                # linear → drop all its subs
@@ -578,12 +752,31 @@ def inject_hoi(font, geom_i, verbose=False):
         remove |= set(re.findall(r"sub\s+(I\w*)\s+by\s+(\S+\.rcltA11y)\s*;", prefix.code))
         curated.append("I")
 
+    # A11y leg (GEOM 0-11/13). Independent of the Base/Geo timelines above: a's Base form is
+    # point-incompatible (46 vs 31 nodes) and would veto the whole glyph if they shared a
+    # timeline, but its A11y form matches exactly, so that half can still morph.
+    a11y_done, a11y_seen = [], set()
+    for src, (form, _lo, _hi) in sorted(a11y_map.items()):
+        if base_of(src) in A11Y_SKIP_BASES or font.glyphs[src] is None or font.glyphs[form] is None:
+            continue
+        found = {}
+        if not collect(font, src, [(0, form), (A11Y_WIN[0], form),
+                                   (A11Y_WIN[1], src), (AXIS_MAX, src)], found):
+            continue                      # point-incompatible → keep the discrete swap
+        # Many sources share a leaf (lacute/lslash/ldotbelow all resolve to `l`); inject once.
+        for lf, tl in found.items():
+            if lf not in a11y_seen:
+                _inject_a11y_braces(font, lf, tl[0][1], geom_i)
+                a11y_seen.add(lf)
+        remove.add((src, form))
+        a11y_done.append(src)
+
     prefix.code = strip_subs(prefix.code, remove)
 
-    counts = {"linear": len(linear), "swept": len(swept),
+    counts = {"a11y": len(a11y_done), "linear": len(linear), "swept": len(swept),
               "discrete": len(discrete), "deferred": len(hoi), "incompatible": len(skipped),
               "leaves": len(leaves), "curated": curated}
-    print(f"   ✅ HOI injected — linear:{counts['linear']} y/6/9:{counts['swept']} "
+    print(f"   ✅ HOI injected — a11y:{counts['a11y']} linear:{counts['linear']} y/6/9:{counts['swept']} "
           f"leaves:{counts['leaves']} curated:{curated} discrete(upper):{counts['discrete']} "
           f"incompatible:{counts['incompatible']}")
     if skipped and verbose:
