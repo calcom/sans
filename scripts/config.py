@@ -43,6 +43,13 @@ STATIC_AXIS_VALUES = {
 RELEASE_PACKAGE_PREFIX = "calsans"
 PER_GEOM_PACKAGE_IDS = ("a11y", "ui", "base", "geo")
 
+# Packages that ship in fonts/ but are deliberately NOT described in fonts/README.md, so the
+# post-packaging coverage check does not report them as forgotten. adobe-vf is a submission
+# candidate Adobe has not seen; gf-api-static ships twelve GEOM-named GF families, which cuts
+# against what google/fonts#9970 settled. Neither is something a reader of the public repo can
+# act on yet.
+README_UNDOCUMENTED = {"calsans-adobe-vf", "calsans-gf-api-static"}
+
 
 # ── Micro optical-size tracking (instance_statics) ───────────────────────
 # The Micro (opsz=8) statics get +N units added to every spacing glyph's advance

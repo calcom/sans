@@ -209,7 +209,10 @@ def _trim_gf_instances(font: TTFont, ps_suffix: str = ""):
     if ital:
         missing = [name.getDebugName(i.subfamilyNameID) for i in instances
                    if "Italic" not in (name.getDebugName(i.subfamilyNameID) or "")]
-        if missing:
+        skipped = sorted(config.README_UNDOCUMENTED & {d.name for d in dirs})
+    if skipped:
+        print(f"   🔒 {len(skipped)} package(s) built but deliberately undocumented: {', '.join(skipped)}")
+    if missing:
             raise AssertionError(
                 f"italic fvar instances without a slope in the name: {missing}")
 
@@ -862,6 +865,60 @@ def _audit_italic_instances(pkg_dir: Path) -> list:
     return bad
 
 
+def _check_readme_covers_packages(out_path: Path):
+    """Warn if a package folder just built is not mentioned in fonts/README.md.
+
+    The version stamps itself now, but the prose does not: calsans-adobe-vf and
+    calsans-gf-api-static both shipped before anyone wrote them into the table. Rather than a
+    reminder nobody reads, compare what is on disk against what the README names.
+    """
+    readme = out_path / "README.md"
+    if not readme.exists():
+        return
+    text = readme.read_text()
+    dirs = [d for d in out_path.iterdir() if d.is_dir() and d.name.startswith(_PFX)]
+    # "calsans-var-full 2" and friends: empty numbered copies a sync client leaves behind when
+    # it races the rmtree above. Not packages — report them, but do not count them as missing.
+    dupes = sorted(d.name for d in dirs if re.search(r" \d+$", d.name))
+    built = sorted(d.name for d in dirs if not re.search(r" \d+$", d.name)
+                   and d.name not in config.README_UNDOCUMENTED)
+    if dupes:
+        print(f"   🧹 {len(dupes)} empty duplicate folder(s) in {out_path}/ "
+              f"(sync-client copies, e.g. {dupes[0]!r}) — safe to delete")
+    missing = [name for name in built if name not in text]
+    if missing:
+        print(f"   📝 fonts/README.md does not mention: {', '.join(missing)}")
+        print(f"      → describe them in scripts/lib/fonts_README.md (the template), not in fonts/")
+    else:
+        print(f"   ✅ fonts/README.md covers all {len(built)} packages")
+
+
+def _emit_fonts_readme(src: Path, dest: Path, var_dir: Path):
+    """Copy the fonts/ README template, rewriting every vX.YYY to the version actually built.
+
+    The number is read from the compiled variable font's name ID 5, the same source
+    bump_primitives._sync_readme uses for wm-primitives, so the two can never disagree. If no
+    font is there to read, the template is copied through untouched and the run says so.
+    """
+    text = src.read_text()
+    ttf = next((t for t in sorted(var_dir.glob("*.ttf"))), None)
+    version = None
+    if ttf is not None:
+        name5 = TTFont(str(ttf))["name"].getDebugName(5) or ""
+        m = re.search(r"Version\s+([\d.]+)", name5)
+        if m:
+            version = m.group(1)
+    if version is None:
+        shutil.copy2(src, dest)
+        print(f"   ⚠️  fonts/README.md: no version readable from {var_dir}/ — template copied as-is")
+        return
+    # Matches the vX.XXX placeholder AND a real version, so re-stamping an already-stamped
+    # copy works and the template's placeholder is not silently skipped.
+    text, n = re.subn(r"v(?:X\.XXX|\d+\.\d+)", f"v{version}", text)
+    dest.write_text(text)
+    print(f"   ✅ fonts/README.md stamped v{version} ({n} mention{'s' if n != 1 else ''})")
+
+
 def _report(pkg_dir: Path, label: str):
     count = sum(1 for p in pkg_dir.rglob("*") if p.is_file()) if pkg_dir.exists() else 0
     print(f"   ✅ {label} ({count} files)")
@@ -902,10 +959,12 @@ def build_release_folders(build_dir: str, output_dir: str, build_italic: bool = 
         shutil.rmtree(out_path)
     out_path.mkdir()
 
-    # fonts/ is wiped above, so re-emit its README each run from the source copy.
+    # fonts/ is wiped above, so re-emit its README each run from the source copy, STAMPING the
+    # version as it goes. The template's version is a placeholder; hand-typing it meant the file
+    # said v1.999 beside a 2.000 binary, then v2.001 through both 2.003 and 2.007.
     readme_src = Path(__file__).parent / "fonts_README.md"
     if readme_src.exists():
-        shutil.copy2(readme_src, out_path / "README.md")
+        _emit_fonts_readme(readme_src, out_path / "README.md", var_dir)
 
     print("📦 Building release folders...")
     missing = 0
@@ -1047,4 +1106,5 @@ def build_release_folders(build_dir: str, output_dir: str, build_italic: bool = 
         print(f"\n⚠️  {missing} expected static files not found in {static_dir}/")
         print(f"   Run fontmake first, or check style_name_to_filename() in scripts/manifest.py")
 
+    _check_readme_covers_packages(out_path)
     print(f"\n✅ Release folders written to {output_dir}/")
