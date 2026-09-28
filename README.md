@@ -91,6 +91,18 @@ The named instances cover one optical size and the four weights per family. Ever
 
 Full axis documentation lives in [fonts/README](fonts/README.md).
 
+
+## Built for buttons.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="documentation/images/svg/Interoperable-dark.svg">
+  <img alt="Cal Sans UI Text cap height and x-height against other UI typefaces at 14px" src="documentation/images/svg/Interoperable.svg">
+</picture>
+
+Two measurements decide whether a font behaves in a component: how tall the lowercase runs against the caps, and how far the line box sits off cap-center.
+Cal Sans UI Text holds its x-height at 71.5% of cap height, the classic UI proportion, not the taller lowercase of Inter and SF Pro. Descenders get 23% of the em, so mixed-case labels still read as mixed case at 14px.
+And the line box is cap-centred to within 0.02 em: the space above the capitals matches the space below the baseline, so a label sits in the optical middle of a button, badge or input. No nudging, no one-pixel padding hack.
+
 ## Your words, your way. Customize in 3 toolless ways.
 
 As a variable font, static font, or custom build, Cal Sans v2 is one of the most adaptable typographic systems available.
