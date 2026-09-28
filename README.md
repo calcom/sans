@@ -91,17 +91,6 @@ The named instances cover one optical size and the four weights per family. Ever
 
 Full axis documentation lives in [fonts/README](fonts/README.md).
 
-##Built for buttons.
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="documentation/images/svg/Interoperable-dark.svg">
-  <img alt="Cal Sans UI Text cap height and x-height against other UI typefaces at 14px" src="documentation/images/svg/Interoperable.svg">
-</picture>
-
-Two measurements decide whether a font behaves in a component: how tall the lowercase runs against the caps, and how far the line box sits off cap-center.
-Cal Sans UI Text holds its x-height at 71.5% of cap height, the classic UI proportion, not the taller lowercase of Inter and SF Pro. Descenders get 23% of the em, so mixed-case labels still read as mixed case at 14px.
-And the line box is cap-centred to within 0.02 em: the space above the capitals matches the space below the baseline, so a label sits in the optical middle of a button, badge or input. No nudging, no one-pixel padding hack.
-
 ## Your words, your way. Customize in 3 toolless ways.
 
 As a variable font, static font, or custom build, Cal Sans v2 is one of the most adaptable typographic systems available.
@@ -126,6 +115,42 @@ Twenty stylistic sets and forty-two character variants, ready to toggle wherever
 
 Choose new defaults and axis configurations, and freeze tabular figures and other OpenType features into something new, online, no command line or font software needed. Your favorite settings become the font's only settings. Hosting for custom builds is available too.
 
+## Built for buttons.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="documentation/images/svg/Interoperable-dark.svg">
+  <img alt="Cal Sans cap height and x-height against Segoe UI, TikTok Sans, Helvetica, SF Pro, Inter, Roboto and Google Sans Flex at 14px" src="documentation/images/svg/Interoperable.svg">
+</picture>
+
+Swapping a UI font shouldn’t mean re-tuning every button, badge and input. At text sizes, Cal Sans is drawn to fit the components you already have: the same space as the fonts they were tuned for, with labels that hold their shape and sit centered.
+
+### A drop-in for the UI fonts you already use.
+
+Cal Sans is drawn to the same vertical proportions as the system and open-source faces interfaces already ship with, so at the same `font-size` it sits in the same space.
+
+Above, each face is set at an equal size and stacked on one baseline. Cal Sans is the solid shape; the others are outlines. Every one of them has capitals within 3% of Cal Sans’s, and Cal Sans holds its x-height at 71.5% of cap height, inside the band those faces span. Measured at the Text UI instance (`opsz` 10, `GEOM` 25).
+
+| Typeface | Cap height | x-height |
+|---|---|---|
+| **Cal Sans Text UI** | **100.0%** | **71.5%** |
+| Segoe UI | 97.2% | 69.4% |
+| TikTok Sans | 97.9% | 73.0% |
+| Helvetica | 99.7% | 72.6% |
+| SF Pro Text | 97.9% | 73.1% |
+| Inter | 101.0% | 75.8% |
+| Roboto | 98.7% | 73.4% |
+| Google Sans Flex | 99.4% | 72.4% |
+
+*Each face at the same `font-size`, measured from its own H and x, as a percentage of Cal Sans’s cap height.*
+
+### Centered in the component.
+
+Two numbers decide how a label sits once the font is in: how deep the descenders reach, and how far the line box sits off cap-center.
+
+Descenders reach 31.9% of cap height below the baseline, so mixed-case labels still read as mixed case at 12px. And the line box is cap-centered to within 0.02 em: the space above the capitals matches the space below the baseline, so a label sits in the optical middle of a button, badge or input. No nudging, no one-pixel padding hack.
+
+An open-source alternative to Inter, Roboto and SF Pro for product UI: same space, no resizing, free under the [SIL Open Font License](#license).
+
 ## Pick your cut.
 
 Every release is a different cut of the same source, sorted and ready in [`fonts/`](fonts/):
@@ -136,6 +161,7 @@ Every release is a different cut of the same source, sorted and ready in [`fonts
 | **calsans-var-flex** | Cal Sans, morphing. Letterforms blend along `GEOM` instead of switching. The first finished family to ship HOI in the open. |
 | **calsans-cossui** | The lean product build. Alternates subset out, italics style-linked, and `opsz` re-tuned to peak at 32 pt so headlines hit harder, sooner. Made for Cal.com, ready for Framer. |
 | **calsans-static-essentials** | Two families, sixteen fonts, zero decisions. Start here. |
+| **[@calcom/cal-sans-ui](https://www.npmjs.com/package/@calcom/cal-sans-ui)** | The interface cut, shipped on npm rather than in `fonts/`. `opsz` pinned at the 10 pt drawing, every other axis live. A drop-in beside Inter, SF Pro and the system stack: same space, no resizing. `npm i @calcom/cal-sans-ui` |
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="documentation/images/svg/CalStatics-dark.svg">
