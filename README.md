@@ -91,7 +91,7 @@ The named instances cover one optical size and the four weights per family. Ever
 
 Full axis documentation lives in [fonts/README](fonts/README.md).
 
-##Built for buttons.
+## Built for buttons.
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="documentation/images/svg/Interoperable-dark.svg">
