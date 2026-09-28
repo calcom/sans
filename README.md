@@ -58,7 +58,6 @@ Not the hundredth revival of the shapes; a return of the system. Bauer cut the o
 
 The acid test for legibility is to simulate the inevitable bad conditions. This separates the beautiful type designs from the dryly functional. I recommend blurring it. This simulates quickly-moving eyes, poor light, a far screen, or degenerative optical conditions.
 
-
 ## Shift the geometry.
 
 <picture>
@@ -91,6 +90,17 @@ Set the weight, 400 to 700. Raise the ascenders with `YTAS` for taller, airier h
 The named instances cover one optical size and the four weights per family. Every other axis is a tweak from there. That's deliberate: instances are the starting points, the axes are the range.
 
 Full axis documentation lives in [fonts/README](fonts/README.md).
+
+##Built for buttons.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="documentation/images/svg/Interoperable-dark.svg">
+  <img alt="Cal Sans UI Text cap height and x-height against other UI typefaces at 14px" src="documentation/images/svg/Interoperable.svg">
+</picture>
+
+Two measurements decide whether a font behaves in a component: how tall the lowercase runs against the caps, and how far the line box sits off cap-center.
+Cal Sans UI Text holds its x-height at 71.5% of cap height, the classic UI proportion, not the taller lowercase of Inter and SF Pro. Descenders get 23% of the em, so mixed-case labels still read as mixed case at 14px.
+And the line box is cap-centred to within 0.02 em: the space above the capitals matches the space below the baseline, so a label sits in the optical middle of a button, badge or input. No nudging, no one-pixel padding hack.
 
 ## Your words, your way. Customize in 3 toolless ways.
 
