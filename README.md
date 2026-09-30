@@ -131,7 +131,7 @@ Choose new defaults and axis configurations, and freeze tabular figures and othe
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="documentation/images/svg/Interoperable-dark.svg">
-  <img alt="Cal Sans cap height and x-height against Segoe UI, TikTok Sans, Helvetica, SF Pro, Inter, Roboto and Google Sans Flex at 14px" src="documentation/images/svg/Interoperable.svg">
+  <img alt="Cal Sans cap height and x-height against Segoe UI, TikTok Sans, Helvetica, SF Pro, Inter, Geist, Roboto and Google Sans Flex at 14px" src="documentation/images/svg/Interoperable.svg">
 </picture>
 
 Swapping a UI font shouldn’t mean re-tuning every button, badge and input. At text sizes, Cal Sans is drawn to fit the components you already have: the same space as the fonts they were tuned for, with labels that hold their shape and sit centered.
