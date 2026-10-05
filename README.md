@@ -170,7 +170,7 @@ Every release is a different cut of the same source, sorted and ready in [`fonts
 | Cut | What it is |
 |-----|------------|
 | **calsans-var-full** | Every axis. One file. The default choice. |
-| **calsans-var-flex** | Cal Sans, morphing. Letterforms blend along `GEOM` instead of switching. The first finished family to ship HOI in the open. |
+| **calsans-var-flex** | Cal Sans, morphing. Letterforms blend along `GEOM` instead of switching. The first finished family to ship HOI in the open. Needs a renderer with `avar2`; without it you get every drawn form, switching cleanly. Both files in the folder are listed in [`fonts/README.md`](fonts/README.md). |
 | **calsans-cossui** | The lean product build. Alternates subset out, italics style-linked, and `opsz` re-tuned to peak at 32 pt so headlines hit harder, sooner. Made for Cal.com, ready for Framer. |
 | **calsans-static-essentials** | Two families, sixteen fonts, zero decisions. Start here. |
 | **[@calcom/cal-sans-ui](https://www.npmjs.com/package/@calcom/cal-sans-ui)** | The interface cut, shipped on npm rather than in `fonts/`. `opsz` pinned at the 10 pt drawing, every other axis live. A drop-in beside Inter, SF Pro and the system stack: same space, no resizing. `npm i @calcom/cal-sans-ui` |
@@ -196,7 +196,7 @@ One command runs **calBuild**, a compiler built for this typeface alone. Using C
 
 **Cal Sans VF.** The complete variable font, interpolated from the master drawings. calBuild starts by measuring the drawings themselves, taking true stem readings from the letters before a single style is compiled, then lifts the lowercase accents into the room taller ascenders create.
 
-**Cal Sans Flex.** The morphing build. Powered by avar2, the axes coordinate on their own: shrink the size and the ascenders rise to meet it, for fine print that reads like it was set by hand. And a new HOI interpolation engine moves every point along curves instead of straight lines, so letterforms bend through the geometry as if redrawn, never recalculated.
+**Cal Sans Flex.** The morphing build. Powered by avar2, the axes coordinate on their own: shrink the size and the ascenders rise to meet it, for fine print that reads like it was set by hand. And a new HOI interpolation engine moves every point along curves instead of straight lines, so letterforms bend through the geometry as if redrawn, never recalculated. HOI fonts require multiple hidden avar2 axes: three helpers that `GEOM` drives, whose products make the curves.
 
 **Cal Sans Statics.** All 384, cut from the variable font with the right letterforms already inside, ready for every platform that has never heard of an axis.
 
