@@ -157,6 +157,100 @@ def prepare_for_fontmake(font, verbose=False):
         font.featurePrefixes = lang + rest
         print(f"   ✅ Moved {len(lang)} languagesystem prefix(es) before variation blocks")
 
+    align_composite_braces(font)
+
+
+def align_composite_braces(font):
+    """Give auto-aligned composites the brace layers their components have, as Glyphs does live.
+
+    In Glyphs an auto-aligned composite takes its advance from its base and seats its marks on the
+    base's anchors at EVERY location, braces included. glyphsLib only reads the composite's own
+    layers, so where only the base has a brace the composite keeps the master's advance and mark
+    positions: y narrows to 1080 at SHRP 100 (opsz 10) while ý stays 1098, ź is 108u off z, Á 113u
+    off A. Here each missing brace is added: bases keep their order and push what follows by their
+    own advance change, a mark rides the anchor it attaches to on the last base carrying it.
+    Composites with any alignment-disabled component (.tf figures, fractions) hold their own width
+    and are left alone. YTAS braces are skipped: inject_ytas_ascend_braces owns them."""
+    axes = [a.axisTag for a in font.axes]
+    ytas_i = axes.index("YTAS")
+    masters = {m.id: m for m in font.masters}
+
+    def braces(glyph, mid):
+        """{coords: layer} — the non-YTAS braces of `glyph` on master `mid`."""
+        out, m = {}, masters[mid]
+        for L in glyph.layers:
+            c = (getattr(L, "attributes", {}) or {}).get("coordinates")
+            if not c or L.associatedMasterId != mid or L.layerId == mid:
+                continue
+            moved = [i for i, (a, b) in enumerate(zip(c, m.axes)) if float(a) != float(b)]
+            if moved and ytas_i not in moved:
+                out[tuple(float(v) for v in c)] = L
+        return out
+
+    def anchors(layer):
+        return {a.name: (a.position.x, a.position.y) for a in layer.anchors}
+
+    done, added, glyphs_touched = set(), 0, set()
+
+    def visit(glyph):
+        nonlocal added
+        if glyph.name in done:
+            return
+        done.add(glyph.name)
+        for mid in masters:
+            ml = glyph.layers[mid]
+            if ml is None or not ml.components:
+                continue
+            parts = [font.glyphs[c.name] for c in ml.components]
+            if any(p is None for p in parts) or any(c.alignment == -1 for c in ml.components):
+                return
+            for p in parts:
+                visit(p)                                  # nested composites first
+            mine = braces(glyph, mid)
+            wanted = set().union(*(braces(p, mid) for p in parts)) - set(mine)
+            for coords in sorted(wanted):
+                br, run, bases, moved = _clone_layer(ml), 0.0, [], False
+                for c, p in zip(br.components, parts):
+                    pm, pb = p.layers[mid], braces(p, mid).get(coords)
+                    pb = pb or pm
+                    da = {n: (pb_xy[0] - pm_xy[0], pb_xy[1] - pm_xy[1])
+                          for n, pm_xy in anchors(pm).items()
+                          for pb_xy in [anchors(pb).get(n, pm_xy)]}
+                    attach = {n[1:] for n in anchors(pm) if n.startswith("_")}
+                    host = next((b for b in reversed(bases) if attach & set(b[1])), None)
+                    if attach and host is not None:
+                        n = sorted(attach & set(host[1]))[0]
+                        dx = host[0] + host[1][n][0] - da.get("_" + n, (0, 0))[0]
+                        dy = host[1][n][1] - da.get("_" + n, (0, 0))[1]
+                    else:
+                        dx, dy = run, 0.0
+                        if not attach:
+                            bases.append((run, da))
+                            run += pb.width - pm.width
+                    if abs(dx) > 0.5 or abs(dy) > 0.5:
+                        c.position = Point(c.position.x + dx, c.position.y + dy)
+                        moved = True
+                for a in br.anchors:                     # own anchors ride the base carrying them
+                    host = next((b for b in reversed(bases) if a.name in b[1]), None)
+                    if host is not None:
+                        a.position = Point(a.position.x + host[0] + host[1][a.name][0],
+                                           a.position.y + host[1][a.name][1])
+                br.width = ml.width + run
+                if not moved and abs(run) <= 0.5:
+                    continue
+                br.layerId = str(uuid.uuid4()).upper()
+                br.associatedMasterId = mid
+                br.attributes["coordinates"] = list(coords)
+                br.name = "{" + ", ".join(f"{v:g}" for v in coords) + "}"
+                glyph.layers.append(br)
+                added += 1
+                glyphs_touched.add(glyph.name)
+
+    for g in list(font.glyphs):
+        visit(g)
+    print(f"   ✅ Aligned composite braces: {added} brace layer(s) on {len(glyphs_touched)} composite(s) "
+          f"follow their components' advance and anchors")
+
 
 def _clone_layer(layer):
     """deepcopy a GSLayer without dragging the whole font. A layer reaches the

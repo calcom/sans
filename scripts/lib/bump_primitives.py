@@ -41,13 +41,12 @@ from scripts import config
 FACES = [
     ("fonts/calsans-var-full/CalSansVF.ttf",               "CalSansVF.ttf",        15),
     ("fonts/calsans-var-full/CalSansVF.woff2",             "CalSansVF.woff2",      15),
-    # Flex carries FEWER records than the base build on purpose: every glyph the HOI pass
-    # morphs has its conditional substitution stripped, so the count falls as more glyphs
-    # interpolate. It dropped 15 -> 9 when the A11y forms (l, a and their families) started
-    # morphing instead of swapping. The check still catches the failure it was written for —
-    # a subsetter dropping FeatureVariations entirely reads 0, not 9.
-    ("fonts/calsans-var-flex/CalSansFlexVF.ttf",           "CalSansFlexVF.ttf",     9),
-    ("fonts/calsans-var-flex/CalSansFlexVF.woff2",         "CalSansFlexVF.woff2",   9),
+    # Flex (true HOI) carries MORE records than the base build on purpose: it keeps every stock
+    # swap (they are its no-avar2 fallback) and adds Flex-only ones (the six family's bands, λ
+    # with y), which split the GEOM ranges further: 25. A subsetter dropping FeatureVariations
+    # entirely still reads 0.
+    ("fonts/calsans-var-flex/CalSansFlexVF.ttf",           "CalSansFlexVF.ttf",    25),
+    ("fonts/calsans-var-flex/CalSansFlexVF.woff2",         "CalSansFlexVF.woff2",  25),
 ]
 
 # NOT published, and deliberately absent from FACES: wm-primitives/fonts/CalSans-Bold.woff2
