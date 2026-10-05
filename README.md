@@ -5,20 +5,20 @@
 [![npm](https://badgen.net/npm/v/cal-sans)](https://www.npmjs.com/package/cal-sans)
 [![packagephobia/install](https://badgen.net/packagephobia/install/cal-sans)](https://www.npmjs.com/package/cal-sans)
 [![packagephobia/publish](https://badgen.net/packagephobia/publish/cal-sans)](https://www.npmjs.com/package/cal-sans)
-[![interactive showcase](documentation/images/isite.svg)](https://cal.com/font)
+[![interactive showcase](https://raw.githubusercontent.com/calcom/sans/main/documentation/images/isite.svg)](https://cal.com/font)
 
 ### Every size. Every surface. One file.
 
 Cal Sans is an open-source variable font built for product design and brand in the same breath. One file spans fine-print UI at 8 pt through hero display at 45, adapting its proportions, spacing, and geometry continuously along the way.
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="documentation/images/svg/VariableMorph2-dark.svg">
-  <img alt="Optical adjustments from 45 pt to 10 pt" src="documentation/images/svg/VariableMorph2.svg">
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/calcom/sans/main/documentation/images/svg/VariableMorph2-dark.svg">
+  <img alt="Optical adjustments from 45 pt to 10 pt" src="https://raw.githubusercontent.com/calcom/sans/main/documentation/images/svg/VariableMorph2.svg">
 </picture>
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="documentation/images/svg/OpticalSize-dark.svg">
-  <img alt="Another optical size demonstration with “Scheduling infrastructure”" src="documentation/images/svg/OpticalSize.svg">
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/calcom/sans/main/documentation/images/svg/OpticalSize-dark.svg">
+  <img alt="Another optical size demonstration with “Scheduling infrastructure”" src="https://raw.githubusercontent.com/calcom/sans/main/documentation/images/svg/OpticalSize.svg">
 </picture>
 
 Write it once:
@@ -36,8 +36,8 @@ Commissioned by Peer Richelsen for [Cal.com](https://cal.com). Drawn, engineered
 Like its namesake product, Cal Sans UI, Cal Sans Text, and Cal Sans Geo are easy to use. Every vector is placed to balance the geometry and flow just right for you.
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="documentation/images/svg/CalLines-dark.svg">
-  <img alt="Cal Sans A11y, Cal Sans UI, Cal Sans, and Cal Sans Geo in every weight." src="documentation/images/svg/CalLines.svg">
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/calcom/sans/main/documentation/images/svg/CalLines-dark.svg">
+  <img alt="Cal Sans A11y, Cal Sans UI, Cal Sans, and Cal Sans Geo in every weight." src="https://raw.githubusercontent.com/calcom/sans/main/documentation/images/svg/CalLines.svg">
 </picture>
 
 ## Geometrically perfect. In every size.
@@ -45,15 +45,15 @@ Like its namesake product, Cal Sans UI, Cal Sans Text, and Cal Sans Geo are easy
 If Inter is Univers and Geist is Helvetica, Cal Sans is Futura.
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="documentation/images/svg/geometry-mach-5-dark.svg">
-  <img alt="Mach 5 set across GEOM, SHRP, and optical sizes, normalized to one cap height" src="documentation/images/svg/geometry-mach-5.svg">
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/calcom/sans/main/documentation/images/svg/geometry-mach-5-dark.svg">
+  <img alt="Mach 5 set across GEOM, SHRP, and optical sizes, normalized to one cap height" src="https://raw.githubusercontent.com/calcom/sans/main/documentation/images/svg/geometry-mach-5.svg">
 </picture>
 
 Not the hundredth revival of the shapes; a return of the system. Bauer cut the original in metal size by size, down to 6 pt, and that discipline is what the digital revivals flattened into one drawing, scaled. Cal Sans brings it back. The 45 pt and the 10 pt styles are separate drawings: corners blunt as sizes fall, overshoots ease, spacing is cut per size and keeps widening through OpenType below 10 pt, and at 8 pt the a grows a tail for the hardest settings. The geometry is Renner's ideal. The sizes are how it reads.
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="documentation/images/svg/Geometry-dark.svg">
-  <img alt="The word acted going soft under blur, with its apertures marked" src="documentation/images/svg/Geometry.svg">
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/calcom/sans/main/documentation/images/svg/Geometry-dark.svg">
+  <img alt="The word acted going soft under blur, with its apertures marked" src="https://raw.githubusercontent.com/calcom/sans/main/documentation/images/svg/Geometry.svg">
 </picture>
 
 The acid test for legibility is to simulate the inevitable bad conditions. This separates the beautiful type designs from the dryly functional. I recommend blurring it. This simulates quickly-moving eyes, poor light, a far screen, or degenerative optical conditions.
@@ -61,8 +61,8 @@ The acid test for legibility is to simulate the inevitable bad conditions. This 
 ## Shift the geometry.
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="documentation/images/svg/CalGraphics-top-dark.svg">
-  <img alt="GEOM axis demo" src="documentation/images/svg/CalGraphics-top.svg">
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/calcom/sans/main/documentation/images/svg/CalGraphics-top-dark.svg">
+  <img alt="GEOM axis demo" src="https://raw.githubusercontent.com/calcom/sans/main/documentation/images/svg/CalGraphics-top.svg">
 </picture>
 
 `GEOM` is the axis the others orbit. Slide it and the letterforms travel from accessibility-first neutrality to full geometry, landing on four named families as they go:
@@ -72,8 +72,8 @@ The acid test for legibility is to simulate the inevitable bad conditions. This 
 </div>
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="documentation/images/svg/GeomAxis-dark.svg">
-  <img alt="GEOM axis demo" src="documentation/images/svg/GeomAxis.svg">
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/calcom/sans/main/documentation/images/svg/GeomAxis-dark.svg">
+  <img alt="GEOM axis demo" src="https://raw.githubusercontent.com/calcom/sans/main/documentation/images/svg/GeomAxis.svg">
 </picture>
 
 Four typefaces in one axis. In the standard build, compatible letterforms switch cleanly at the boundaries. In **Cal Sans Flex**, they even morph between each other, humanist flowing into geometric mid-slide.
@@ -81,8 +81,8 @@ Four typefaces in one axis. In the standard build, compatible letterforms switch
 ## Tune the rest.
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="documentation/images/svg/VariableMorph-dark.svg">
-  <img alt="a (U+0061) interpolating from *wght* 400–700 *opsz* 10" src="documentation/images/svg/VariableMorph.svg">
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/calcom/sans/main/documentation/images/svg/VariableMorph-dark.svg">
+  <img alt="a (U+0061) interpolating from *wght* 400–700 *opsz* 10" src="https://raw.githubusercontent.com/calcom/sans/main/documentation/images/svg/VariableMorph.svg">
 </picture>
 
 Set the weight, 400 to 700. Raise the ascenders with `YTAS` for taller, airier headlines. Sharpen the corners with `SHRP` for display work. Lean into the real italics, drawn at 9.5° and powered by [Sebastian Carewe's Italify](https://www.sebastiancarewe.com/italify), not slanted by the browser.
@@ -95,8 +95,8 @@ Full axis documentation lives in [fonts/README](fonts/README.md).
 ## Built for buttons.
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="documentation/images/svg/Interoperable-dark.svg">
-  <img alt="Cal Sans UI Text cap height and x-height against other UI typefaces at 14px" src="documentation/images/svg/Interoperable.svg">
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/calcom/sans/main/documentation/images/svg/Interoperable-dark.svg">
+  <img alt="Cal Sans UI Text cap height and x-height against other UI typefaces at 14px" src="https://raw.githubusercontent.com/calcom/sans/main/documentation/images/svg/Interoperable.svg">
 </picture>
 
 Two measurements decide whether a font behaves in a component: how tall the lowercase runs against the caps, and how far the line box sits off cap-center.
@@ -108,8 +108,8 @@ And the line box is cap-centred to within 0.02 em: the space above the capitals 
 As a variable font, static font, or custom build, Cal Sans v2 is one of the most adaptable typographic systems available.
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="documentation/images/svg/CalThreeWays-dark.svg">
-  <img alt="Sticker Code" src="documentation/images/svg/CalThreeWays.svg">
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/calcom/sans/main/documentation/images/svg/CalThreeWays-dark.svg">
+  <img alt="Sticker Code" src="https://raw.githubusercontent.com/calcom/sans/main/documentation/images/svg/CalThreeWays.svg">
 </picture>
 
 ### №1 Variable stylistic control: the GEOM axis.
@@ -130,8 +130,8 @@ Choose new defaults and axis configurations, and freeze tabular figures and othe
 ## Built for buttons.
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="documentation/images/svg/Interoperable-dark.svg">
-  <img alt="Cal Sans cap height and x-height against Segoe UI, TikTok Sans, Helvetica, SF Pro, Inter, Geist, Roboto and Google Sans Flex at 14px" src="documentation/images/svg/Interoperable.svg">
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/calcom/sans/main/documentation/images/svg/Interoperable-dark.svg">
+  <img alt="Cal Sans cap height and x-height against Segoe UI, TikTok Sans, Helvetica, SF Pro, Inter, Geist, Roboto and Google Sans Flex at 14px" src="https://raw.githubusercontent.com/calcom/sans/main/documentation/images/svg/Interoperable.svg">
 </picture>
 
 Swapping a UI font shouldn’t mean re-tuning every button, badge and input. At text sizes, Cal Sans is drawn to fit the components you already have: the same space as the fonts they were tuned for, with labels that hold their shape and sit centered.
@@ -176,15 +176,15 @@ Every release is a different cut of the same source, sorted and ready in [`fonts
 | **[@calcom/cal-sans-ui](https://www.npmjs.com/package/@calcom/cal-sans-ui)** | The interface cut, shipped on npm rather than in `fonts/`. `opsz` pinned at the 10 pt drawing, every other axis live. A drop-in beside Inter, SF Pro and the system stack: same space, no resizing. `npm i @calcom/cal-sans-ui` |
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="documentation/images/svg/CalStatics-dark.svg">
-  <img alt="Cal Sans A11y, Cal Sans UI, Cal Sans, and Cal Sans Geo in every style and optical size." src="documentation/images/svg/CalStatics.svg">
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/calcom/sans/main/documentation/images/svg/CalStatics-dark.svg">
+  <img alt="Cal Sans A11y, Cal Sans UI, Cal Sans, and Cal Sans Geo in every style and optical size." src="https://raw.githubusercontent.com/calcom/sans/main/documentation/images/svg/CalStatics.svg">
 </picture>
 
 The full catalog (384 static styles, per-family subsets, Google Fonts packages) is in [fonts/README](fonts/README.md).
 
 ## OpenType features.
 
-Start with **[the character-alternative catalog](documentation/character-alternatives.md)**: every set and variant, every letter it reshapes, drawn straight out of the finished font. Twenty stylistic sets and forty-two character variants ride in the full cuts; the lean `cossui` and Google Fonts builds subset them out to stay light.
+Start with **[the character-alternative catalog](https://github.com/calcom/sans/blob/main/documentation/character-alternatives.md)**: every set and variant, every letter it reshapes, drawn straight out of the finished font. Twenty stylistic sets and forty-two character variants ride in the full cuts; the lean `cossui` and Google Fonts builds subset them out to stay light.
 
 ## Build it yourself.
 
