@@ -4206,7 +4206,6 @@ value = "Horizontal Sharps";
 tag = ss20;
 },
 {
-automatic = 1;
 code = "lookup ccmp_DFLT_1 {
 	@CombiningTopAccents = [acutecomb brevecomb breveinvertedcomb caroncomb circumflexcomb commaturnedabovecomb dblgravecomb dieresiscomb dotaccentcomb gravecomb hookabovecomb hungarumlautcomb macroncomb ringcomb tildecomb];
 	lookupflag UseMarkFilteringSet @CombiningTopAccents;
@@ -4237,6 +4236,12 @@ lookup ccmp_Other_1 {
 	sub @Markscomb @Markscomb' by @MarkscombCase;
 	sub @Uppercase @Markscomb' by @MarkscombCase;
 } ccmp_Other_1;
+
+lookup ccmp_ascender {
+	# accents on an ascender take the case forms, as the precomposed ones do (lacute, hcircumflex)
+	lookupflag UseMarkFilteringSet [dieresiscomb dotaccentcomb gravecomb gravecomb_macroncomb acutecomb acutecomb_macroncomb hungarumlautcomb circumflexcomb circumflexcomb_gravecomb circumflexcomb_acutecomb circumflexcomb_tildecomb circumflexcomb_hookabovecomb caroncomb brevecomb brevecomb_gravecomb brevecomb_acutecomb brevecomb_tildecomb brevecomb_hookabovecomb tildecomb macroncomb macroncomb_gravecomb macroncomb_acutecomb hookabovecomb breveinvertedcomb dieresiscomb.case dotaccentcomb.case gravecomb.case gravecomb_macroncomb.case acutecomb.case acutecomb_macroncomb.case hungarumlautcomb.case circumflexcomb.case circumflexcomb_gravecomb.case circumflexcomb_acutecomb.case circumflexcomb_tildecomb.case circumflexcomb_hookabovecomb.case caroncomb.case brevecomb.case brevecomb_gravecomb.case brevecomb_acutecomb.case brevecomb_tildecomb.case brevecomb_hookabovecomb.case tildecomb.case macroncomb.case macroncomb_gravecomb.case macroncomb_acutecomb.case hookabovecomb.case breveinvertedcomb.case];
+	sub [b d h k l] [dieresiscomb dotaccentcomb gravecomb gravecomb_macroncomb acutecomb acutecomb_macroncomb hungarumlautcomb circumflexcomb circumflexcomb_gravecomb circumflexcomb_acutecomb circumflexcomb_tildecomb circumflexcomb_hookabovecomb caroncomb brevecomb brevecomb_gravecomb brevecomb_acutecomb brevecomb_tildecomb brevecomb_hookabovecomb tildecomb macroncomb macroncomb_gravecomb macroncomb_acutecomb hookabovecomb breveinvertedcomb]' by [dieresiscomb.case dotaccentcomb.case gravecomb.case gravecomb_macroncomb.case acutecomb.case acutecomb_macroncomb.case hungarumlautcomb.case circumflexcomb.case circumflexcomb_gravecomb.case circumflexcomb_acutecomb.case circumflexcomb_tildecomb.case circumflexcomb_hookabovecomb.case caroncomb.case brevecomb.case brevecomb_gravecomb.case brevecomb_acutecomb.case brevecomb_tildecomb.case brevecomb_hookabovecomb.case tildecomb.case macroncomb.case macroncomb_gravecomb.case macroncomb_acutecomb.case hookabovecomb.case breveinvertedcomb.case];
+} ccmp_ascender;
 
 lookup ccmp_Other_2 {
 	lookupflag 0;

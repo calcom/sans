@@ -178,17 +178,19 @@ Outlined text, no webfonts: they render the same in every browser. Every sheet
 is written twice, `name.svg` and `name-dark.svg`, with the palette baked in,
 because Safari ignores `prefers-color-scheme` inside an SVG loaded through
 `<img>`; the README picks one with `<picture>`. They sit on the page with no
-background or margin, like the character-alternative cells, and are 1520 wide
-so every sheet shows type at the same scale.
+background or margin, like the character-alternative cells. Each is a table:
+the label is README text on the left, the SVG holds only the specimen, and every
+row of one table shares a scale (the waterfall's rows are drawn at real pixels).
 
 | Sheet | Shows | Built by the build |
 |-------|-------|--------------------|
-| `tiers` | "Cal v2" in UI Display, Text and Micro at one size, each letter's advance marked, units a letter in 1000-UPM units | yes |
-| `waterfall` | 8px to 192px at **real pixels** (880 wide, drawn 1:1), each size in its tier: Micro below 10px, Text 10–20px, Display from 24px | yes |
-| `families` | "2160 just Groovy, I’ll Magic" in A11y, UI, Base and Geo | yes |
-| `textui-l` | Cal Sans A11y Text against Cal Sans Text UI: where the Text UI's curved l comes from | yes |
-| `cuts-{default,tall,sharp,tall-sharp}` | The four weights, roman over italic, above each static table | yes |
-| `metrics` | **Animated.** "Hx" in every tier, Regular and Bold: only x-height moves, the small tiers set wider. Keeps a card, shown at 800 | **no** — by hand |
+| `tiers-{display,text,micro}` | Rows of a table: "Cal v2" in UI Display, Text and Micro at one size, each letter's advance marked. The text label says the opsz and how much wider each sets than Display | yes |
+| `waterfall-{08…192}` | One row per size, 8px to 192px, each at **real pixels** (640 wide, drawn 1:1, `<img>` given explicit width and height), in its tier: Micro below 10px, Text 10–20px, Display from 24px. The longest of "Scheduling Infrastructure", "Sched Infra" and "Infra" that fits one line. The label (`8px`, tier) is text | yes |
+| `families-{a11y,ui,base,geo}` | Rows of a table: "2160 just Groovy, I’ll Magic" in A11y, UI, Base and Geo, the family and its `GEOM` as a text label | yes |
+| `textui-l-{a11y,ui}` | Two rows: Cal Sans A11y Text against Cal Sans Text UI (the static cut), how I, l and 1 are told apart; the text label spells out which I and l each draws | yes |
+| `cuts-{default,tall,sharp,tall-sharp}` | A one-row table per static table: the four weights, roman over italic; the text label gives the name and its `YTAS`, `SHRP` and `opsz` | yes |
+| `header` | **Animated.** The README's banner: this page's specimens at one scale, drifting right to left in three lanes, looping seamlessly, feathered at both edges | **no** — by hand |
+| `metrics` | **Animated.** "Hax" in every tier, Regular and Bold: only x-height moves, the small tiers set wider. Keeps a card, full width | **no** — by hand |
 
 Animated sheets are judged by eye before they ship, so a build never redraws
 them (`ANIMATED` in `docsheets.py`). Redraw any sheet by hand, from the repo

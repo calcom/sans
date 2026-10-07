@@ -10,17 +10,29 @@ on GitHub in every browser. Each one is written twice with its palette baked in
 does not honour prefers-color-scheme inside an SVG loaded through <img>; the
 README picks the file with <picture>. Same reasoning as charalts.py.
 
-Sheets:
-    tiers          Display / Text / Micro at one size: the tiers differ in spacing,
-                   not in height
-    waterfall      8px upward at real pixels, each size in the tier made for it
-    families       A11y / UI / Base / Geo on the letters that tell them apart
-    metrics        animated: cap height, x-height and width of each tier, overlaid
-    textui-l       the curved l Cal Sans Text UI ships as its default
-    cuts-<variant> the four weights, roman over italic, before each static table
+Each sheet is drawn as specimen only — no label, no background, no margin, ink
+starting at x=0 — because the README sets every one in a table row beside a text
+label (real, searchable text, never scaled). The rows of one table share a size and
+a viewBox width, so they compare honestly.
+
+Sheets (one file pair per row, plus the README table that holds them):
+    tiers-<tier>        display, text, micro: "Cal v2" at one size, each letter's
+                        advance marked; the tiers differ in spacing, not in height
+    waterfall-<px>      one file per size, 08 to 192, at real pixels (the viewBox is
+                        the displayed size), each in the tier made for it
+    families-<family>   a11y, ui, base, geo on the letters that tell them apart
+    textui-l-<family>   a11y, ui: Cal Sans A11y Text against Cal Sans Text UI, how
+                        I, l and 1 are told apart
+    cuts-<variant>      default, tall, sharp, tall-sharp: the four weights, roman
+                        over italic, a figure with a margin under each static heading
+    header              animated: the README banner, this page's specimens drifting
+                        right to left in three lanes, feathered at the edges
+    metrics             animated: cap height, x-height and width of each tier,
+                        overlaid. The only sheet that keeps a label and a card.
 """
 import argparse
 import gzip
+import math
 import os
 import subprocess
 import sys
@@ -34,7 +46,6 @@ from fontTools.pens.transformPen import TransformPen
 from fontTools.ttLib import TTFont
 
 STATIC = Path("fonts/calsans-static-full/ttf")
-TEXTUI = Path("fonts/calsans-gf-api-textui/CalSansTextUI[wght].ttf")
 OUT = Path("documentation/images/fonts-readme")
 
 # No background and no margin, like the character-alternative cells and CalLines:
@@ -44,13 +55,11 @@ PALETTE = {
     "dark":  {"ink": "#e6edf3", "dim": "#777777", "card": "#151515"},
 }
 # metrics alone keeps the svgshow card, as the Interoperable card it is a turn on:
-# inset 3.04% of the artboard, corner 7.208% of the card's own width, shown at 800.
+# inset 3.04% of the artboard, corner 7.208% of the card's own width, shown at full README width.
 CARD_INSET, CARD_R, CARD_PAD = 0.030397, 0.072084, 64.0
 
-W = 1520.0            # artboard and displayed width of the scaled sheets, as CalLines
-REAL = 880            # the waterfall's, drawn 1:1 so 8px is 8px
-LAB = 44.0            # label size
-TOP = LAB * 0.8       # first label's baseline: its cap height and overshoot, so ink starts at y=0
+CUT_MARGIN = 0.031    # the cuts figures' margin, a share of W (CalLines' inset)
+W = 1520.0            # viewBox width of the scaled sheets (the README shows them at 640) and of the metrics artboard
 
 TIERS = [("", "Display", 45), ("Text", "Text", 10), ("Micro", "Micro", 8)]
 FAMILIES = [("A11y", "Cal Sans A11y", 0), ("UI", "Cal Sans UI", 25),
@@ -111,6 +120,21 @@ class Face:
             pen += adv
         return "".join(d)
 
+    def bounds(self, text):
+        """The shaped text's real ink box (xMin, yMin, xMax, yMax) in em, origin at
+        the first pen position, y up. Not the advance: an italic's last stroke leans
+        out of its box, and the tallest letter sets the top."""
+        pen, box = 0, [None] * 4
+        for name, adv, xo, yo in self.shape(text):
+            bp = BoundsPen(self.gs)
+            self.gs[name].draw(bp)
+            if bp.bounds:
+                x0, y0, x1, y1 = bp.bounds
+                new = (pen + xo + x0, yo + y0, pen + xo + x1, yo + y1)
+                box = [n if o is None else (min if k < 2 else max)(o, n) for k, (o, n) in enumerate(zip(box, new))]
+            pen += adv
+        return tuple(v / self.upm for v in box)
+
     def height(self, ch):
         b = BoundsPen(self.gs)
         self.gs[self.tt.getBestCmap()[ord(ch)]].draw(b)
@@ -122,17 +146,7 @@ def face(path, wght=None):
     return Face(path, {"wght": wght} if wght else None)
 
 
-LABEL = lambda: face(static("Text", "UI", "", "Medium"))
-VALUE = lambda: face(static("Text", "UI"))
-
-
-def label(x, y, name, value, size, fill_name="ink"):
-    """'Cal Sans UI  opsz 45' — the name in ink, its coordinates dimmed after it."""
-    out = [f'<path fill="{{{fill_name}}}" d="{LABEL().outline(name, size, x, y)}"/>']
-    if value:
-        vx = x + LABEL().advance(name, size) + size * 0.5
-        out.append(f'<path fill="{{dim}}" d="{VALUE().outline(value, size, vx, y)}"/>')
-    return "".join(out)
+VALUE = lambda: face(static("Text", "UI"))   # the metrics sheet's captions
 
 
 # ---------------------------------------------------------------- document
@@ -149,7 +163,7 @@ def document(name, w, h, body, aria, style="", card=False):
         body = (f'<rect x="{i:.2f}" y="{i:.2f}" width="{cw:.2f}" height="{h - 2 * i:.2f}" '
                 f'rx="{cw * CARD_R:.2f}" fill="{{card}}"/>\n'
                 f'<g transform="translate(0 {dy:.2f})">{body}</g>')
-        shown = 800
+        shown = w   # full README width, like GeomAxis and geometry-mach-5
     svg = (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w:.0f} {h:.0f}" '
            f'width="{shown:.0f}" height="{shown * h / w:.0f}" role="img" aria-label="{aria}">\n'
            f'{style}{body}\n</svg>\n')
@@ -163,35 +177,57 @@ def document(name, w, h, body, aria, style="", card=False):
 
 
 # ---------------------------------------------------------------- sheets
+#
+# Every sheet is a set of specimen-only SVGs: no label, no background, no margin,
+# ink starting at x=0. The README sets each one in a table row, with the label as
+# real text in the left cell. The rows of one table share one size and one viewBox
+# width (and, where the text is the same, one height, so baselines line up), so they
+# compare honestly. Extents come from the glyphs' real ink bounds, never advances.
+
+CELL = 640            # the waterfall's width: drawn 1:1, so it is also the README cell
+TICK = 3.0            # advance-tick stroke width
+PAD_EM = 0.2          # breathing room on every side, in em of the specimen, like the
+                      # character-alternative cells (their glyph sits ~0.17 em in)
+
+
+def rows_sheet(rows, text, ticks=False):
+    """rows: [(file slug, Face, aria-label)], all setting `text` at one shared size.
+    The viewBox is the union of the rows' ink (and, with ticks, of their advance
+    marks), so every file has the same width and height and the same baseline."""
+    tick = TICK / 2 if ticks else 0.0
+    bs = [f.bounds(text) for _, f, _ in rows]
+    x0, x1 = min(b[0] for b in bs), max(b[2] for b in bs)
+    y0, y1 = min(b[1] for b in bs), max(b[3] for b in bs)
+    if ticks:   # the marks run from the origin to the end of the advance, and below the baseline
+        x0, x1 = min(x0, 0), max(x1, max(f.advance(text, 1) for _, f, _ in rows))
+        y0 = min(y0, -0.12)
+    size = (W - 2 * tick) / (x1 - x0 + 2 * PAD_EM)
+    pad = tick + PAD_EM * size
+    w, h = W, math.ceil((y1 - y0) * size + 2 * pad)
+    ox, base = pad - x0 * size, pad + y1 * size
+    for slug, f, aria in rows:
+        body = [f'<path fill="{{ink}}" d="{f.outline(text, size, ox, base)}"/>']
+        if ticks:
+            x, marks = 0.0, []
+            for _, adv, _, _ in [(None, 0, 0, 0)] + f.shape(text):
+                x += adv * size / f.upm
+                marks.append(f"M{ox + x:.1f},{pad:.1f}V{base - y0 * size:.1f}")
+            body.append(f'<path d="{"".join(marks)}" stroke="{{dim}}" stroke-width="{TICK:g}"/>')
+        document(slug, w, h, "\n".join(body), aria)
+
 
 def tiers():
     """One word in Display, Text and Micro at one size, left-aligned, with every
     letter's advance marked as in a font editor — the small tiers give each letter
-    more room, not more height. Deltas are per letter in 1000-UPM units (the
-    sources' units; the fonts ship at 2000)."""
+    more room, not more height. The README label says how much wider each sets."""
     word = "Cal v2"
-    fs = [(face(static(t, "UI")), f"Cal Sans UI {n}".replace(" Display", ""),
-           f"opsz {o}") for t, n, o in TIERS]
-    size = W / fs[-1][0].advance(word, 1)
-    # nominal advances (hmtx), not shaped ones: kerning is not spacing
-    per = lambda f: [f.tt['hmtx'][n][0] * 1000 / f.upm for n, _, _, _ in f.shape(word)]
-    y, body, prev = TOP, [], None
-    for k, (f, name, value) in enumerate(fs):
-        body.append(label(0, y, name, value, LAB))
-        if prev:
-            d = sum(a - b for a, b in zip(per(f), per(prev[0]))) / len(per(f))
-            body.append(f'<path fill="{{dim}}" d="{VALUE().outline(f"+{d:.0f} units a letter on {prev[1]}", LAB, W, y, "end")}"/>')
-        y += 0.72 * size + 34
-        body.append(f'<path fill="{{ink}}" d="{f.outline(word, size, 0, y)}"/>')
-        x, ticks = 0.0, []
-        for _, adv, _, _ in [(None, 0, 0, 0)] + f.shape(word):
-            x += adv * size / f.upm
-            ticks.append(f"M{min(max(x, 1), W - 1):.1f},{y - 0.72 * size - 12:.1f}V{y + 0.12 * size:.1f}")
-        body.append(f'<path d="{"".join(ticks)}" stroke="{{dim}}" stroke-width="2.5"/>')
-        y += 0.12 * size + (TOP + 40 if k < len(fs) - 1 else 0)
-        prev = (f, name.replace("Cal Sans UI", "").strip() or "Display")
-    document("tiers", W, y, "\n".join(body),
-             "Cal v2 in Cal Sans UI, UI Text and UI Micro at one size, each letter's advance marked")
+    rows = [(f"tiers-{n.lower()}", face(static(t, "UI")),
+             f"Cal v2 in Cal Sans UI {n}, each letter's advance marked")
+            for t, n, _ in TIERS]
+    rows_sheet(rows, word, ticks=True)
+    wide = {n: face(static(t, "UI")).advance(word, 1) for t, n, _ in TIERS}
+    print("   label widths:", ", ".join(f"{n} opsz {o} +{(wide[n] / wide['Display'] - 1) * 100:.0f}%"
+                                         for _, n, o in TIERS))
 
 
 WATERFALL_SIZES = [8, 9, 10, 11, 12, 13, 14, 16, 18, 20, 24, 32, 40, 48, 64, 96, 128, 192]
@@ -205,85 +241,77 @@ def tier_for(px):
 
 
 def waterfall():
-    """Real pixels: the viewBox IS the displayed width, so 8px is 8px on the page.
-    Each size takes the longest copy that fits: the full phrase on one line, then
-    on two, then Sched Infra, then Infra alone."""
-    w, col = float(REAL), 112.0
-    room = w - col
-    y, body = 0.0, []
-    for n, px in enumerate(WATERFALL_SIZES):
+    """One file per size at real pixels: the viewBox IS the displayed size, so 8px
+    is 8px on the page. Each takes the longest copy whose ink fits the 640px cell
+    on one line, set in the tier made for it."""
+    for px in WATERFALL_SIZES:
         t, tname, _ = tier_for(px)
         f = face(static(t, "UI"))
-        full = WATERFALL_TEXT[0]
-        options = [[full], full.split(" ", 1)] + [[s] for s in WATERFALL_TEXT[1:]]
-        lines = next(o for o in options if all(f.advance(s, px) <= room for s in o))
-        lead = px * 1.2
-        y += 0.85 * max(px, 12) if n == 0 else max(lead, 22)
-        body.append(label(0, y, f"{px}px", tname, 12))
-        for k, s in enumerate(lines):
-            body.append(f'<path fill="{{ink}}" d="{f.outline(s, px, col, y + k * lead)}"/>')
-        y += (len(lines) - 1) * lead + max(px * 0.3, 12)
-    document("waterfall", w, y - max(px * 0.3, 12) + px * 0.25, "\n".join(body),
-             "Cal Sans UI from 8px to 192px, each size in its optical tier")
-
-
-def stack(fs, line):
-    """Labelled lines of one text, sized so the widest fills the width.
-    Returns (height, body)."""
-    size = min(W / f.advance(line, 1) for f, _, _ in fs)
-    y, body = TOP, []
-    for k, (f, name, value) in enumerate(fs):
-        body.append(label(0, y, name, value, LAB))
-        y += 0.72 * size + 30
-        body.append(f'<path fill="{{ink}}" d="{f.outline(line, size, 0, y)}"/>')
-        y += 0.25 * size + (TOP + 40 if k < len(fs) - 1 else 0)
-    return y, "\n".join(body)
+        fits = lambda s: (lambda b: b[2] - b[0])(f.bounds(s)) * px <= CELL
+        s = next(s for s in WATERFALL_TEXT if fits(s))
+        x0, y0, x1, y1 = f.bounds(s)
+        base = math.ceil(y1 * px)           # baseline on a pixel boundary
+        h = base + math.ceil(-y0 * px)
+        document(f"waterfall-{px:02d}", CELL, h,
+                 f'<path fill="{{ink}}" d="{f.outline(s, px, -x0 * px, base)}"/>',
+                 f"{s} at {px}px in Cal Sans UI {tname}")
+        print(f"      {px}px {tname}: {s!r}")
 
 
 def families():
     """The four GEOM families on a line that shows what moves between them."""
-    line = "2160 just Groovy, I’ll Magic"
-    fs = [(face(static("", k)), n, f"GEOM {g}") for k, n, g in FAMILIES]
-    document("families", W, *stack(fs, line),
-             "Cal Sans A11y, Cal Sans UI, Cal Sans and Cal Sans Geo")
+    rows = [(f"families-{k.lower() or 'base'}", face(static("", k)), f"2160 just Groovy, I’ll Magic in {n}")
+            for k, n, _ in FAMILIES]
+    rows_sheet(rows, "2160 just Groovy, I’ll Magic")
 
 
 def textui_l():
-    """Where Cal Sans Text UI's default l comes from: Cal Sans A11y draws it, and
-    the Google Fonts family takes that l alone, keeping UI's I, so I, l and 1
-    never collide."""
-    line = "Il1 Illinois"
-    fs = [(face(static("Text", "A11y")), "Cal Sans A11y Text", "where the curved l comes from"),
-          (face(str(TEXTUI), 400), "Cal Sans Text UI", "takes only the l, by default")]
-    document("textui-l", W, *stack(fs, line),
-             "Il1 Illinois in Cal Sans A11y Text and Cal Sans Text UI")
+    """How I, l and 1 are told apart: Cal Sans A11y Text draws a serifed I and a
+    curved l; Cal Sans Text UI, the release's static cut (calsans-static-essentials),
+    keeps the plain ones. Not the Google Fonts family, which bakes the curved l in."""
+    rows = [("textui-l-a11y", face(static("Text", "A11y")), "Il1 Illinois in Cal Sans A11y Text"),
+            ("textui-l-ui", face(static("Text", "UI")), "Il1 Illinois in Cal Sans Text UI")]
+    rows_sheet(rows, "Il1 Illinois")
 
 
 def cuts():
     """Per static variant: the four weights of Cal Sans, roman on top and the
-    italics beneath, nudged right — a large crop of CalStatics."""
-    word, gap = "Cal v2", 0.5
+    italics beneath, nudged right — a large crop of CalStatics. One size for all
+    four variants. Not in a table: each opens its section as a figure under the
+    heading, with a margin around it (CalLines' ~3%) to set it apart from the
+    tables below."""
+    word, gap, nudge, pitch = "Cal v2", 0.5, 0.4, 1.14   # em
+    made = []
     for slug, var, ytas, shrp in VARIANTS:
         rom = [face(static("", "", var, wt)) for wt in WEIGHTS]
         ita = [face(static("", "", var, italic(wt))) for wt in WEIGHTS]
-        nudge = 0.4   # em the italic row sits right of the roman
-        span = lambda fs: sum(f.advance(word, 1) for f in fs) + gap * (len(fs) - 1)
-        size = W / (max(span(rom), span(ita)) + nudge)
-        y = TOP
-        name = "Cal Sans" + {"tall": " Tall", "sharp": " Sharp", "tall-sharp": " Tall Sharp"}.get(slug, "")
-        body = [label(0, y, name, f"YTAS {ytas}  SHRP {shrp}  opsz 45", LAB)]
-        for row, fs, dx in ((0, rom, 0), (1, ita, nudge * size)):
-            y += 0.72 * size + (36 if row == 0 else 0.42 * size)
-            x = dx
+        rows = []
+        for fs, dx in ((rom, 0.0), (ita, nudge)):
+            x, items = dx, []
             for f in fs:
-                body.append(f'<path fill="{{ink}}" d="{f.outline(word, size, x, y)}"/>')
-                x += f.advance(word, size) + gap * size
-        document(f"cuts-{slug}", W, y + 0.25 * size, "\n".join(body),
+                items.append((f, x))
+                x += f.advance(word, 1) + gap
+            rows.append(items)
+        bs = [[(f.bounds(word), x) for f, x in r] for r in rows]
+        left = min(b[0] + x for r in bs for b, x in r)
+        right = max(b[2] + x for r in bs for b, x in r)
+        top = max(b[3] for r in bs for b, _ in r)
+        bottom = min(b[1] for b, _ in bs[1])      # the italic row is the lower one
+        made.append((slug, rows, left, right, top, bottom))
+    margin = round(W * CUT_MARGIN)
+    size = (W - 2 * margin) / max(m[3] - m[2] for m in made)
+    for slug, rows, left, right, top, bottom in made:
+        base0 = top * size
+        h = math.ceil(base0 + pitch * size - bottom * size) + 2 * margin
+        body = [f'<path fill="{{ink}}" d="{f.outline(word, size, margin + (x - left) * size, margin + base0 + k * pitch * size)}"/>'
+                for k, items in enumerate(rows) for f, x in items]
+        name = "Cal Sans" + {"tall": " Tall", "sharp": " Sharp", "tall-sharp": " Tall Sharp"}.get(slug, "")
+        document(f"cuts-{slug}", W, h, "\n".join(body),
                  f"{name} in Regular, Medium, SemiBold and Bold, roman and italic")
 
 
 def metrics():
-    """Interoperable, turned on Cal Sans itself: “Hx” in Cal Sans UI Regular
+    """Interoperable, turned on Cal Sans itself: “Hax” in Cal Sans UI Regular
     (solid) with every tier, Regular and Bold, overlaid as outlines from the same
     origin. Cap height, ascender and descender never move; x-height is the one
     vertical metric that does, more at Bold. The small tiers also set wider, so
@@ -292,7 +320,9 @@ def metrics():
     EM = 460.0
     PILL_TEXT, PILL_H, PILL_PAD, PILL_GAP = 26.0, 54.0, 22.0, 10.0
     INTRO, SPOT, FADE = 2.5, 2.2, 0.35
-    fs = [(face(static(t, "UI", "", wt)), (n + (" Bold" if wt == "Bold" else "")).strip(), t)
+    # Micro gets a dagger: the variable fonts reach opsz 8 but name no instance there
+    # (only Text, 10, and Display, 45); Micro exists by name only as static fonts.
+    fs = [(face(static(t, "UI", "", wt)), n + ("†" if n == "Micro" else ""), t, wt)
           for wt in ("Regular", "Bold") for t, n, _ in TIERS]
     total = INTRO + SPOT * len(fs) + FADE
     mid = W / 2
@@ -312,16 +342,18 @@ def metrics():
         f'<path fill="{{{fill}}}" d="{VALUE().outline(s, size, x, y, anchor)}"/>')
 
     ref = fs[0][0]
-    wide = max(f.advance("Hx", EM) for f, _, _ in fs)
-    x0 = mid - wide / 2 - 30
+    wide = max(f.advance("Hax", EM) for f, _, _, _ in fs)
+    # Centre between the solid word and the widest outline, so the solid "Hax" sits
+    # near the middle while the wider tiers still fit inside the guides.
+    x0 = mid - (ref.advance("Hax", EM) + wide) / 4
     pill_y = 1.0
     base = pill_y + PILL_H + 80 + 0.72 * EM
     cap, xh = ref.height("H"), ref.height("x")
     gx0, gx1 = x0 - 40, x0 + wide + 40
-    ref_d = ref.outline("Hx", EM, x0, base, merge=True)
+    ref_d = ref.outline("Hax", EM, x0, base, merge=True)
 
     def dotted(y):
-        """A dotted line that stays visible where it crosses the solid “Hx”: ink
+        """A dotted line that stays visible where it crosses the solid “Hax”: ink
         over the card, card colour over the ink."""
         line = lambda c: (f'<path d="M{gx0:.1f},{y:.1f}H{gx1:.1f}" stroke="{{{c}}}" stroke-width="2.5" '
                           f'stroke-linecap="round" stroke-dasharray="0 9"/>')
@@ -336,9 +368,9 @@ def metrics():
     body.append(txt("100%", 26, gx0 - 16, base - cap * EM + 9, anchor="end"))
     display_w = {}
     faces, spots = [], []
-    for k, (f, _, tier) in enumerate(fs):
-        d = f.outline("Hx", EM, x0, base, merge=True)
-        w = f.advance("Hx", EM)
+    for k, (f, _, tier, _) in enumerate(fs):
+        d = f.outline("Hax", EM, x0, base, merge=True)
+        w = f.advance("Hax", EM)
         if tier == "":
             display_w = w
         if k:
@@ -355,10 +387,22 @@ def metrics():
                 txt(f"width{more}", 26, x0 + w + 18, ty + 9)]
         spots.append(f'<g class="spot" opacity="0">{"".join(spot)}</g>')
 
-    widths = [VALUE().advance(n, PILL_TEXT) + 2 * PILL_PAD for _, n, _ in fs]
-    px = mid - (sum(widths) + PILL_GAP * (len(fs) - 1)) / 2
+    # Two groups, each led by its weight as a dim label: "Regular  Display Text Micro",
+    # a gap, "Bold  Display Text Micro". The pills carry only the tier.
+    GROUP_GAP, LABEL_GAP = 56.0, 14.0
+    widths = [VALUE().advance(n, PILL_TEXT) + 2 * PILL_PAD for _, n, _, _ in fs]
+    groups = ["Regular", "Bold"]
+    label_w = {g: VALUE().advance(g, PILL_TEXT) + LABEL_GAP for g in groups}
+    total_w = (sum(widths) + PILL_GAP * (len(fs) - len(groups)) + sum(label_w.values())
+               + GROUP_GAP * (len(groups) - 1))
+    px = mid - total_w / 2
     pills = []
-    for k, (_, n, _) in enumerate(fs):
+    for k, (_, n, _, wt) in enumerate(fs):
+        if k == 0 or fs[k - 1][3] != wt:            # first pill of a group: its label first
+            if k:
+                px += GROUP_GAP - PILL_GAP
+            pills.append(txt(wt, PILL_TEXT, px, pill_y + PILL_H / 2 + PILL_TEXT * 0.36, "dim"))
+            px += label_w[wt]
         wd, by = widths[k], pill_y + PILL_H / 2 + PILL_TEXT * 0.36
         shape = (f'x="{px:.1f}" y="{pill_y:.1f}" width="{wd:.1f}" height="{PILL_H:.1f}" '
                  f'rx="{PILL_H / 2:.1f}"')
@@ -370,15 +414,68 @@ def metrics():
 
     body += faces + [f'<path fill="{{ink}}" d="{ref_d}"/>'] + spots + pills
     body.append(txt("Cal Sans UI tiers at one size: only the x-height moves", 30, mid, base + 62 + 90, "dim", "middle"))
+    body.append(txt("† Micro is a static font only. The variable fonts reach its size, opsz 8, but don’t name it.",
+                    22, mid, base + 62 + 90 + 46, "dim", "middle"))
     style = ("<style>@media(prefers-reduced-motion:reduce){.face{opacity:.12!important}.spot{opacity:0!important}}</style>")
-    document("metrics", W, base + 62 + 90 + 8, "\n".join(body),
+    document("metrics", W, base + 62 + 90 + 46 + 8, "\n".join(body),
              "Cal Sans UI Display, Text and Micro in Regular and Bold overlaid: "
              "only the x-height moves, and the small tiers set wider",
              style=style, card=True)
 
 
+def header():
+    """The README's opening banner: the specimens from further down the page, at
+    one shared scale, drifting right to left in three lanes and looping without a
+    seam, feathered out at both edges. Animated (SMIL translate, linear), so the
+    build leaves it alone like metrics.
+
+    Each lane is drawn once into <defs> and placed twice, one lane-width apart; the
+    pair slides left by exactly that width and repeats, so the second copy lands
+    where the first began. Every lane moves at the same speed, so they read as one
+    surface, each with its own period."""
+    size, gap, speed = 120.0, 0.55, 70.0          # px, em between items, px/s
+    pitch = 1.32 * size
+    weights = [static("", "", v, st) for v in ("", "Tall", "Sharp")
+               for wt in WEIGHTS for st in (wt, italic(wt))]
+    lanes = [
+        [(face(p), "Cal v2") for p in weights],
+        [(face(static("", k)), "2160 just Groovy, I’ll Magic") for k, _, _ in FAMILIES],
+        [(face(static(t, "UI")), "Scheduling Infrastructure") for t, _, _ in TIERS]
+        + [(face(static("Text", "A11y")), "Il1 Illinois"), (face(static("Text", "UI")), "Il1 Illinois")],
+    ]
+    top = max(f.bounds(t)[3] for lane in lanes for f, t in lane) * size
+    h = math.ceil(top + (len(lanes) - 1) * pitch + 0.3 * size)
+    defs, moving = [], []
+    for k, lane in enumerate(lanes):
+        x, paths = 0.0, []
+        for f, text in lane:
+            paths.append(f'<path d="{f.outline(text, size, x, 0)}"/>')
+            x += f.advance(text, size) + gap * size
+        width = x                                  # includes the trailing gap: the seam
+        defs.append(f'<g id="lane{k}">{"".join(paths)}</g>')
+        y = top + k * pitch
+        moving.append(
+            f'<g transform="translate(0 {y:.1f})"><g>'
+            f'<use href="#lane{k}"/><use href="#lane{k}" x="{width:.1f}"/>'
+            f'<animateTransform attributeName="transform" type="translate" '
+            f'from="0 0" to="{-width:.1f} 0" dur="{width / speed:.2f}s" '
+            f'repeatCount="indefinite" calcMode="linear"/></g></g>')
+    feather = 0.08
+    body = (f'<defs>{"".join(defs)}'
+            f'<linearGradient id="fade" x1="0" x2="1" y1="0" y2="0">'
+            f'<stop offset="0" stop-color="#fff" stop-opacity="0"/>'
+            f'<stop offset="{feather}" stop-color="#fff"/>'
+            f'<stop offset="{1 - feather}" stop-color="#fff"/>'
+            f'<stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>'
+            f'<mask id="feather"><rect width="{W:.0f}" height="{h}" fill="url(#fade)"/></mask></defs>'
+            f'<g fill="{{ink}}" mask="url(#feather)">{"".join(moving)}</g>')
+    document("header", W, h, body,
+             "Cal Sans specimens from this page drifting past: the weights, the four families, the tiers")
+
+
 SHEETS = {"tiers": tiers, "waterfall": waterfall, "families": families,
-          "metrics": metrics, "textui-l": textui_l, "cuts": cuts}
+          "metrics": metrics, "textui-l": textui_l, "cuts": cuts,
+          "header": header}
 
 
 def build(only=None):
@@ -390,7 +487,7 @@ def build(only=None):
 
 # Animated sheets are judged by eye before they ship, so a build never redraws
 # them; run `python3 -m scripts.lib.docsheets metrics` by hand.
-ANIMATED = {"metrics"}
+ANIMATED = {"metrics", "header"}
 
 
 def spawn(log_path="scripts/temp/docsheets.log"):

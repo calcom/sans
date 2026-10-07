@@ -13,7 +13,7 @@ ref = d;
 piece = {
 Right = 55;
 };
-pos = (1090,506);
+pos = (1091,506);
 ref = _part.strokeshort;
 }
 );
@@ -29,7 +29,7 @@ ref = d;
 piece = {
 Right = 77;
 };
-pos = (1058,482);
+pos = (1059,482);
 ref = _part.strokeshort;
 }
 );
@@ -45,7 +45,7 @@ ref = d;
 piece = {
 Right = 45;
 };
-pos = (1044,498);
+pos = (1043,498);
 ref = _part.strokeshort;
 }
 );
@@ -61,7 +61,7 @@ ref = d;
 piece = {
 Right = 49;
 };
-pos = (1004,498);
+pos = (1005,498);
 ref = _part.strokeshort;
 }
 );

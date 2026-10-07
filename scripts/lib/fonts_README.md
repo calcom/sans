@@ -7,6 +7,11 @@ here is generated from a single hand-drawn source by the build pipeline (see the
 repo [README](../README.md)); the folders below are
 just different cuts of the same font for different jobs. **This whole directory is wiped and regenerated on every build** — don’t hand-edit anything in it. That includes this README: it is generated from the template [`scripts/lib/fonts_README.md`](../scripts/lib/fonts_README.md), with the version stamped from the built font, and its pictures are drawn from the fonts by [`scripts/lib/docsheets.py`](../scripts/lib/docsheets.py). Edit those instead.
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="../documentation/images/fonts-readme/header-dark.svg">
+  <img alt="Cal Sans specimens from this page drifting past: the weights, the four families, the tiers" src="../documentation/images/fonts-readme/header.svg">
+</picture>
+
 ## Which folder do I want?
 
 If you’re not sure, take **`calsans-var-full/`** — it’s the complete variable font.
@@ -21,10 +26,10 @@ If you’re not sure, take **`calsans-var-full/`** — it’s the complete varia
 | **`calsans-gf-api`** | `CalSans` + `CalSans-Italic` | The full variable font delivered as two variable fonts (upright + italic) packaged to the Google Fonts spec after removing stylistic-set / character-variant features (`ssXX`/`cvXX`/`aalt` glyphs) via subset out. Same subsetting as `cossui`. The `opsz` axis is relabeled to peak at **48** instead of 45 — the same display drawing, answering to a rounder number. |
 | **`calsans-gf-api-textui`** | `CalSansTextUI` + `CalSansTextUI-Italic` | **Cal Sans Text UI** — the second Google Fonts family ([google/fonts#9970](https://github.com/google/fonts/issues/9970)): a small-optical-size variable font with `wght` (400–700) as its only live axis, upright + italic. Baked in: `opsz` 10, `GEOM` 25 (UI), `YTAS` raised to 760, and the curved l (`l.rcltA11y` + its accented family) as the default for I/l differentiation. Same subsetting as `gf-api`. |
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="../documentation/images/fonts-readme/textui-l-dark.svg">
-  <img alt="Il1 Illinois in Cal Sans UI Text, with a straight l, and Cal Sans Text UI, with the curved l it ships as its default" src="../documentation/images/fonts-readme/textui-l.svg">
-</picture>
+<table>
+<tr><td align="left" valign="middle" width="180"><b>Cal Sans A11y Text</b> <sub>serifed capital I, curved lowercase l</sub></td><td align="left"><picture><source media="(prefers-color-scheme: dark)" srcset="../documentation/images/fonts-readme/textui-l-a11y-dark.svg"><img alt="Il1 Illinois in Cal Sans A11y Text, with a serifed capital I and a curved lowercase l" src="../documentation/images/fonts-readme/textui-l-a11y.svg" width="483"></picture></td></tr>
+<tr><td align="left" valign="middle" width="180"><b>Cal Sans Text UI</b> <sub>plain capital I and lowercase l</sub></td><td align="left"><picture><source media="(prefers-color-scheme: dark)" srcset="../documentation/images/fonts-readme/textui-l-ui-dark.svg"><img alt="Il1 Illinois in Cal Sans Text UI, with a plain capital I and lowercase l" src="../documentation/images/fonts-readme/textui-l-ui.svg" width="483"></picture></td></tr>
+</table>
 
 <br>
 
@@ -48,24 +53,41 @@ Each static family comes in three optical tiers, and they differ in spacing and 
 
 Use the tier made for the size you set it at: **Micro** below 10px, **Text** from 10px to about 20px (body copy, prices, reviews, labels), **Display** — the family with no tier in its name — from about 24px (headlines). The variable fonts make this choice for you along `opsz`.
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="../documentation/images/fonts-readme/tiers-dark.svg">
-  <img alt="Cal v2 in Cal Sans UI, Cal Sans UI Text and Cal Sans UI Micro at one size: the smaller tiers set wider" src="../documentation/images/fonts-readme/tiers.svg">
-</picture>
+<table>
+<tr><td align="left" valign="middle" width="180"><b>Display</b> <sub>opsz 45</sub></td><td align="left"><picture><source media="(prefers-color-scheme: dark)" srcset="../documentation/images/fonts-readme/tiers-display-dark.svg"><img alt="Cal v2 in Cal Sans UI Display, each letter's advance marked" src="../documentation/images/fonts-readme/tiers-display.svg" width="328"></picture></td></tr>
+<tr><td align="left" valign="middle" width="180"><b>Text</b> <sub>opsz 10 · 15% wider</sub></td><td align="left"><picture><source media="(prefers-color-scheme: dark)" srcset="../documentation/images/fonts-readme/tiers-text-dark.svg"><img alt="Cal v2 in Cal Sans UI Text, each letter's advance marked: it sets 15% wider than Display" src="../documentation/images/fonts-readme/tiers-text.svg" width="328"></picture></td></tr>
+<tr><td align="left" valign="middle" width="180"><b>Micro</b> <sub>opsz 8 · 18% wider</sub></td><td align="left"><picture><source media="(prefers-color-scheme: dark)" srcset="../documentation/images/fonts-readme/tiers-micro-dark.svg"><img alt="Cal v2 in Cal Sans UI Micro, each letter's advance marked: it sets 18% wider than Display" src="../documentation/images/fonts-readme/tiers-micro.svg" width="328"></picture></td></tr>
+</table>
 
 <br>
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="../documentation/images/fonts-readme/metrics-dark.svg">
-  <img alt="Hx in every tier, Regular and Bold, overlaid: only the x-height moves, and the small tiers set wider" src="../documentation/images/fonts-readme/metrics.svg">
+  <img alt="Hax in every tier, Regular and Bold, overlaid: only the x-height moves, and the small tiers set wider" src="../documentation/images/fonts-readme/metrics.svg">
 </picture>
 
 <br>
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="../documentation/images/fonts-readme/waterfall-dark.svg">
-  <img alt="Cal Sans UI from 8px to 192px, each size in the tier made for it" src="../documentation/images/fonts-readme/waterfall.svg">
-</picture>
+<table>
+<tr><td align="left" valign="middle" width="180"><code>8px</code> <sub>Micro</sub></td><td align="left"><picture><source media="(prefers-color-scheme: dark)" srcset="../documentation/images/fonts-readme/waterfall-08-dark.svg"><img alt="Scheduling Infrastructure at 8px in Cal Sans UI Micro" src="../documentation/images/fonts-readme/waterfall-08.svg" width="640" height="8"></picture></td></tr>
+<tr><td align="left" valign="middle" width="180"><code>9px</code> <sub>Micro</sub></td><td align="left"><picture><source media="(prefers-color-scheme: dark)" srcset="../documentation/images/fonts-readme/waterfall-09-dark.svg"><img alt="Scheduling Infrastructure at 9px in Cal Sans UI Micro" src="../documentation/images/fonts-readme/waterfall-09.svg" width="640" height="10"></picture></td></tr>
+<tr><td align="left" valign="middle" width="180"><code>10px</code> <sub>Text</sub></td><td align="left"><picture><source media="(prefers-color-scheme: dark)" srcset="../documentation/images/fonts-readme/waterfall-10-dark.svg"><img alt="Scheduling Infrastructure at 10px in Cal Sans UI Text" src="../documentation/images/fonts-readme/waterfall-10.svg" width="640" height="11"></picture></td></tr>
+<tr><td align="left" valign="middle" width="180"><code>11px</code> <sub>Text</sub></td><td align="left"><picture><source media="(prefers-color-scheme: dark)" srcset="../documentation/images/fonts-readme/waterfall-11-dark.svg"><img alt="Scheduling Infrastructure at 11px in Cal Sans UI Text" src="../documentation/images/fonts-readme/waterfall-11.svg" width="640" height="12"></picture></td></tr>
+<tr><td align="left" valign="middle" width="180"><code>12px</code> <sub>Text</sub></td><td align="left"><picture><source media="(prefers-color-scheme: dark)" srcset="../documentation/images/fonts-readme/waterfall-12-dark.svg"><img alt="Scheduling Infrastructure at 12px in Cal Sans UI Text" src="../documentation/images/fonts-readme/waterfall-12.svg" width="640" height="12"></picture></td></tr>
+<tr><td align="left" valign="middle" width="180"><code>13px</code> <sub>Text</sub></td><td align="left"><picture><source media="(prefers-color-scheme: dark)" srcset="../documentation/images/fonts-readme/waterfall-13-dark.svg"><img alt="Scheduling Infrastructure at 13px in Cal Sans UI Text" src="../documentation/images/fonts-readme/waterfall-13.svg" width="640" height="14"></picture></td></tr>
+<tr><td align="left" valign="middle" width="180"><code>14px</code> <sub>Text</sub></td><td align="left"><picture><source media="(prefers-color-scheme: dark)" srcset="../documentation/images/fonts-readme/waterfall-14-dark.svg"><img alt="Scheduling Infrastructure at 14px in Cal Sans UI Text" src="../documentation/images/fonts-readme/waterfall-14.svg" width="640" height="15"></picture></td></tr>
+<tr><td align="left" valign="middle" width="180"><code>16px</code> <sub>Text</sub></td><td align="left"><picture><source media="(prefers-color-scheme: dark)" srcset="../documentation/images/fonts-readme/waterfall-16-dark.svg"><img alt="Scheduling Infrastructure at 16px in Cal Sans UI Text" src="../documentation/images/fonts-readme/waterfall-16.svg" width="640" height="16"></picture></td></tr>
+<tr><td align="left" valign="middle" width="180"><code>18px</code> <sub>Text</sub></td><td align="left"><picture><source media="(prefers-color-scheme: dark)" srcset="../documentation/images/fonts-readme/waterfall-18-dark.svg"><img alt="Scheduling Infrastructure at 18px in Cal Sans UI Text" src="../documentation/images/fonts-readme/waterfall-18.svg" width="640" height="19"></picture></td></tr>
+<tr><td align="left" valign="middle" width="180"><code>20px</code> <sub>Text</sub></td><td align="left"><picture><source media="(prefers-color-scheme: dark)" srcset="../documentation/images/fonts-readme/waterfall-20-dark.svg"><img alt="Scheduling Infrastructure at 20px in Cal Sans UI Text" src="../documentation/images/fonts-readme/waterfall-20.svg" width="640" height="20"></picture></td></tr>
+<tr><td align="left" valign="middle" width="180"><code>24px</code> <sub>Display</sub></td><td align="left"><picture><source media="(prefers-color-scheme: dark)" srcset="../documentation/images/fonts-readme/waterfall-24-dark.svg"><img alt="Scheduling Infrastructure at 24px in Cal Sans UI Display" src="../documentation/images/fonts-readme/waterfall-24.svg" width="640" height="24"></picture></td></tr>
+<tr><td align="left" valign="middle" width="180"><code>32px</code> <sub>Display</sub></td><td align="left"><picture><source media="(prefers-color-scheme: dark)" srcset="../documentation/images/fonts-readme/waterfall-32-dark.svg"><img alt="Scheduling Infrastructure at 32px in Cal Sans UI Display" src="../documentation/images/fonts-readme/waterfall-32.svg" width="640" height="32"></picture></td></tr>
+<tr><td align="left" valign="middle" width="180"><code>40px</code> <sub>Display</sub></td><td align="left"><picture><source media="(prefers-color-scheme: dark)" srcset="../documentation/images/fonts-readme/waterfall-40-dark.svg"><img alt="Scheduling Infrastructure at 40px in Cal Sans UI Display" src="../documentation/images/fonts-readme/waterfall-40.svg" width="640" height="40"></picture></td></tr>
+<tr><td align="left" valign="middle" width="180"><code>48px</code> <sub>Display</sub></td><td align="left"><picture><source media="(prefers-color-scheme: dark)" srcset="../documentation/images/fonts-readme/waterfall-48-dark.svg"><img alt="Scheduling Infrastructure at 48px in Cal Sans UI Display" src="../documentation/images/fonts-readme/waterfall-48.svg" width="640" height="48"></picture></td></tr>
+<tr><td align="left" valign="middle" width="180"><code>64px</code> <sub>Display</sub></td><td align="left"><picture><source media="(prefers-color-scheme: dark)" srcset="../documentation/images/fonts-readme/waterfall-64-dark.svg"><img alt="Sched Infra at 64px in Cal Sans UI Display" src="../documentation/images/fonts-readme/waterfall-64.svg" width="640" height="48"></picture></td></tr>
+<tr><td align="left" valign="middle" width="180"><code>96px</code> <sub>Display</sub></td><td align="left"><picture><source media="(prefers-color-scheme: dark)" srcset="../documentation/images/fonts-readme/waterfall-96-dark.svg"><img alt="Sched Infra at 96px in Cal Sans UI Display" src="../documentation/images/fonts-readme/waterfall-96.svg" width="640" height="73"></picture></td></tr>
+<tr><td align="left" valign="middle" width="180"><code>128px</code> <sub>Display</sub></td><td align="left"><picture><source media="(prefers-color-scheme: dark)" srcset="../documentation/images/fonts-readme/waterfall-128-dark.svg"><img alt="Sched Infra at 128px in Cal Sans UI Display" src="../documentation/images/fonts-readme/waterfall-128.svg" width="640" height="96"></picture></td></tr>
+<tr><td align="left" valign="middle" width="180"><code>192px</code> <sub>Display</sub></td><td align="left"><picture><source media="(prefers-color-scheme: dark)" srcset="../documentation/images/fonts-readme/waterfall-192-dark.svg"><img alt="Infra at 192px in Cal Sans UI Display" src="../documentation/images/fonts-readme/waterfall-192.svg" width="640" height="143"></picture></td></tr>
+</table>
 
 <br>
 
@@ -94,10 +116,12 @@ The static families combine four `GEOM` zones — **A11y** (0), **UI** (25),
 (Regular / Medium / SemiBold / Bold), three optical tiers (**Display** ≈ 45,
 **Text** ≈ 10, **Micro** ≈ 8), and upright + italic.
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="../documentation/images/fonts-readme/families-dark.svg">
-  <img alt="2160 just Groovy, I’ll Magic in Cal Sans A11y, Cal Sans UI, Cal Sans and Cal Sans Geo" src="../documentation/images/fonts-readme/families.svg">
-</picture>
+<table>
+<tr><td align="left" valign="middle" width="180"><b>Cal Sans A11y</b> <sub>GEOM 0</sub></td><td align="left"><picture><source media="(prefers-color-scheme: dark)" srcset="../documentation/images/fonts-readme/families-a11y-dark.svg"><img alt="2160 just Groovy, I’ll Magic in Cal Sans A11y" src="../documentation/images/fonts-readme/families-a11y.svg" width="647"></picture></td></tr>
+<tr><td align="left" valign="middle" width="180"><b>Cal Sans UI</b> <sub>GEOM 25</sub></td><td align="left"><picture><source media="(prefers-color-scheme: dark)" srcset="../documentation/images/fonts-readme/families-ui-dark.svg"><img alt="2160 just Groovy, I’ll Magic in Cal Sans UI" src="../documentation/images/fonts-readme/families-ui.svg" width="647"></picture></td></tr>
+<tr><td align="left" valign="middle" width="180"><b>Cal Sans</b> <sub>GEOM 50</sub></td><td align="left"><picture><source media="(prefers-color-scheme: dark)" srcset="../documentation/images/fonts-readme/families-base-dark.svg"><img alt="2160 just Groovy, I’ll Magic in Cal Sans" src="../documentation/images/fonts-readme/families-base.svg" width="647"></picture></td></tr>
+<tr><td align="left" valign="middle" width="180"><b>Cal Sans Geo</b> <sub>GEOM 100</sub></td><td align="left"><picture><source media="(prefers-color-scheme: dark)" srcset="../documentation/images/fonts-readme/families-geo-dark.svg"><img alt="2160 just Groovy, I’ll Magic in Cal Sans Geo" src="../documentation/images/fonts-readme/families-geo.svg" width="647"></picture></td></tr>
+</table>
 
 <br>
 
@@ -105,7 +129,9 @@ The static families combine four `GEOM` zones — **A11y** (0), **UI** (25),
 
 All **384** named static instances (vX.XXX) — four `GEOM` families × four weights × three optical tiers (Display ≈ 45, Text ≈ 10, Micro ≈ 8) × upright + italic, across the base, Tall, Sharp, and Tall Sharp variants. Each cell lists the Display / Text / Micro tier.
 
-### Default — optical sizes only
+### Cal Sans — optical sizes only
+
+<picture><source media="(prefers-color-scheme: dark)" srcset="../documentation/images/fonts-readme/cuts-default-dark.svg"><img alt="Cal Sans in Regular, Medium, SemiBold and Bold, roman above italic" src="../documentation/images/fonts-readme/cuts-default.svg"></picture>
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="../documentation/images/fonts-readme/cuts-default-dark.svg">
@@ -130,7 +156,9 @@ All **384** named static instances (vX.XXX) — four `GEOM` families × four wei
 | SemiBold | Cal Sans A11y SemiBold Italic<br>Cal Sans A11y Text SemiBold Italic<br>Cal Sans A11y Micro SemiBold Italic | Cal Sans UI SemiBold Italic<br>Cal Sans UI Text SemiBold Italic<br>Cal Sans UI Micro SemiBold Italic | Cal Sans SemiBold Italic<br>Cal Sans Text SemiBold Italic<br>Cal Sans Micro SemiBold Italic | Cal Sans Geo SemiBold Italic<br>Cal Sans Geo Text SemiBold Italic<br>Cal Sans Geo Micro SemiBold Italic |
 | Bold | Cal Sans A11y Bold Italic<br>Cal Sans A11y Text Bold Italic<br>Cal Sans A11y Micro Bold Italic | Cal Sans UI Bold Italic<br>Cal Sans UI Text Bold Italic<br>Cal Sans UI Micro Bold Italic | Cal Sans Bold Italic<br>Cal Sans Text Bold Italic<br>Cal Sans Micro Bold Italic | Cal Sans Geo Bold Italic<br>Cal Sans Geo Text Bold Italic<br>Cal Sans Geo Micro Bold Italic |
 
-### Tall — `YTAS` 800
+### Cal Sans Tall — `YTAS` 800
+
+<picture><source media="(prefers-color-scheme: dark)" srcset="../documentation/images/fonts-readme/cuts-tall-dark.svg"><img alt="Cal Sans Tall in Regular, Medium, SemiBold and Bold, roman above italic" src="../documentation/images/fonts-readme/cuts-tall.svg"></picture>
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="../documentation/images/fonts-readme/cuts-tall-dark.svg">
@@ -155,7 +183,16 @@ All **384** named static instances (vX.XXX) — four `GEOM` families × four wei
 | SemiBold | Cal Sans A11y Tall SemiBold Italic<br>Cal Sans A11y Tall Text SemiBold Italic<br>Cal Sans A11y Tall Micro SemiBold Italic | Cal Sans UI Tall SemiBold Italic<br>Cal Sans UI Tall Text SemiBold Italic<br>Cal Sans UI Tall Micro SemiBold Italic | Cal Sans Tall SemiBold Italic<br>Cal Sans Tall Text SemiBold Italic<br>Cal Sans Tall Micro SemiBold Italic | Cal Sans Geo Tall SemiBold Italic<br>Cal Sans Geo Tall Text SemiBold Italic<br>Cal Sans Geo Tall Micro SemiBold Italic |
 | Bold | Cal Sans A11y Tall Bold Italic<br>Cal Sans A11y Tall Text Bold Italic<br>Cal Sans A11y Tall Micro Bold Italic | Cal Sans UI Tall Bold Italic<br>Cal Sans UI Tall Text Bold Italic<br>Cal Sans UI Tall Micro Bold Italic | Cal Sans Tall Bold Italic<br>Cal Sans Tall Text Bold Italic<br>Cal Sans Tall Micro Bold Italic | Cal Sans Geo Tall Bold Italic<br>Cal Sans Geo Tall Text Bold Italic<br>Cal Sans Geo Tall Micro Bold Italic |
 
-### Sharp — `SHRP` 100
+### Cal Sans Sharp — `SHRP` 100
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/calcom/sans/main/documentation/images/svg/geometry-mach-5-dark.svg">
+  <img alt="Mach 5 across GEOM, SHRP and optical size" src="https://raw.githubusercontent.com/calcom/sans/main/documentation/images/svg/geometry-mach-5.svg">
+</picture>
+
+<br>
+
+<picture><source media="(prefers-color-scheme: dark)" srcset="../documentation/images/fonts-readme/cuts-sharp-dark.svg"><img alt="Cal Sans Sharp in Regular, Medium, SemiBold and Bold, roman above italic" src="../documentation/images/fonts-readme/cuts-sharp.svg"></picture>
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/calcom/sans/main/documentation/images/svg/geometry-mach-5-dark.svg">
@@ -187,7 +224,9 @@ All **384** named static instances (vX.XXX) — four `GEOM` families × four wei
 | SemiBold | Cal Sans A11y Sharp SemiBold Italic<br>Cal Sans A11y Sharp Text SemiBold Italic<br>Cal Sans A11y Sharp Micro SemiBold Italic | Cal Sans UI Sharp SemiBold Italic<br>Cal Sans UI Sharp Text SemiBold Italic<br>Cal Sans UI Sharp Micro SemiBold Italic | Cal Sans Sharp SemiBold Italic<br>Cal Sans Sharp Text SemiBold Italic<br>Cal Sans Sharp Micro SemiBold Italic | Cal Sans Geo Sharp SemiBold Italic<br>Cal Sans Geo Sharp Text SemiBold Italic<br>Cal Sans Geo Sharp Micro SemiBold Italic |
 | Bold | Cal Sans A11y Sharp Bold Italic<br>Cal Sans A11y Sharp Text Bold Italic<br>Cal Sans A11y Sharp Micro Bold Italic | Cal Sans UI Sharp Bold Italic<br>Cal Sans UI Sharp Text Bold Italic<br>Cal Sans UI Sharp Micro Bold Italic | Cal Sans Sharp Bold Italic<br>Cal Sans Sharp Text Bold Italic<br>Cal Sans Sharp Micro Bold Italic | Cal Sans Geo Sharp Bold Italic<br>Cal Sans Geo Sharp Text Bold Italic<br>Cal Sans Geo Sharp Micro Bold Italic |
 
-### Tall Sharp — `YTAS` 800 + `SHRP` 100
+### Cal Sans Tall Sharp — `YTAS` 800 + `SHRP` 100
+
+<picture><source media="(prefers-color-scheme: dark)" srcset="../documentation/images/fonts-readme/cuts-tall-sharp-dark.svg"><img alt="Cal Sans Tall Sharp in Regular, Medium, SemiBold and Bold, roman above italic" src="../documentation/images/fonts-readme/cuts-tall-sharp.svg"></picture>
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="../documentation/images/fonts-readme/cuts-tall-sharp-dark.svg">
