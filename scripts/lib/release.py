@@ -209,10 +209,7 @@ def _trim_gf_instances(font: TTFont, ps_suffix: str = ""):
     if ital:
         missing = [name.getDebugName(i.subfamilyNameID) for i in instances
                    if "Italic" not in (name.getDebugName(i.subfamilyNameID) or "")]
-        skipped = sorted(config.README_UNDOCUMENTED & {d.name for d in dirs})
-    if skipped:
-        print(f"   🔒 {len(skipped)} package(s) built but deliberately undocumented: {', '.join(skipped)}")
-    if missing:
+        if missing:
             raise AssertionError(
                 f"italic fvar instances without a slope in the name: {missing}")
 
@@ -698,7 +695,7 @@ def _make_curved_l_default(font: TTFont):
 def _save_with_curved_l_names(font: TTFont, dest_ttf: Path, woff2: bool = True):
     """Serialize, then rename glyphs on the reloaded binary: curved *.rcltA11y take
     over the canonical names (l, lacute, …) and any surviving straight originals
-    become *.rcltDflt (hoi.py's I.rcltDflt convention). Glyph names live only in the
+    become *.rcltDflt (piecewise_phlex.py's I.rcltDflt convention). Glyph names live only in the
     post table, and GIDs don't move, so relabeling the lazy-loaded binary is safe —
     renaming the DECOMPILED font would be corruption: every fontTools table is keyed
     by name there, so a rename silently rebinds outlines, kerning, and rules."""
@@ -865,34 +862,6 @@ def _audit_italic_instances(pkg_dir: Path) -> list:
     return bad
 
 
-def _check_readme_covers_packages(out_path: Path):
-    """Warn if a package folder just built is not mentioned in fonts/README.md.
-
-    The version stamps itself now, but the prose does not: calsans-adobe-vf and
-    calsans-gf-api-static both shipped before anyone wrote them into the table. Rather than a
-    reminder nobody reads, compare what is on disk against what the README names.
-    """
-    readme = out_path / "README.md"
-    if not readme.exists():
-        return
-    text = readme.read_text()
-    dirs = [d for d in out_path.iterdir() if d.is_dir() and d.name.startswith(_PFX)]
-    # "calsans-var-full 2" and friends: empty numbered copies a sync client leaves behind when
-    # it races the rmtree above. Not packages — report them, but do not count them as missing.
-    dupes = sorted(d.name for d in dirs if re.search(r" \d+$", d.name))
-    built = sorted(d.name for d in dirs if not re.search(r" \d+$", d.name)
-                   and d.name not in config.README_UNDOCUMENTED)
-    if dupes:
-        print(f"   🧹 {len(dupes)} empty duplicate folder(s) in {out_path}/ "
-              f"(sync-client copies, e.g. {dupes[0]!r}) — safe to delete")
-    missing = [name for name in built if name not in text]
-    if missing:
-        print(f"   📝 fonts/README.md does not mention: {', '.join(missing)}")
-        print(f"      → describe them in scripts/lib/fonts_README.md (the template), not in fonts/")
-    else:
-        print(f"   ✅ fonts/README.md covers all {len(built)} packages")
-
-
 def _emit_fonts_readme(src: Path, dest: Path, var_dir: Path):
     """Copy the fonts/ README template, rewriting every vX.YYY to the version actually built.
 
@@ -947,7 +916,7 @@ def compress_build_outputs(build_dir: str):
 
 
 def build_release_folders(build_dir: str, output_dir: str, build_italic: bool = False,
-                          flex_var_ttf: str = None):
+                          flex_var_ttf: str = None, phlex_var_ttf: str = None):
     build_path = Path(build_dir)
     out_path   = Path(output_dir)
     var_dir    = build_path / "variable"
@@ -989,13 +958,17 @@ def build_release_folders(build_dir: str, output_dir: str, build_italic: bool = 
         _build_adobe_vf(ttf, pkg)
     _report(pkg, f"{_PFX}-adobe-vf")
 
-    # var-flex: the HOI morphing build (Flex-family only) → avar2, YTAS hidden/slaved to opsz.
-    # Uses the HOI variable TTF when the flex stage produced one; else falls back to the base VF.
+    # var-flex: both morphing builds, same avar2 / hidden-YTAS treatment, each its own family.
+    # Cal Sans Flex: true HOI (morphs ride hidden helper axes, the stock rclt swaps stay, so
+    # renderers without avar2 still get every drawing). Cal Sans Phlex: piecewise HOI (GEOM brace
+    # morphs, morphed swaps stripped); falls back to the base VF when its stage did not run.
     pkg = out_path / f"{_PFX}-var-flex"
     pkg.mkdir(parents=True, exist_ok=True)
-    flex_input = flex_var_ttf or next((str(t) for t in sorted(var_dir.glob("*.ttf"))), None)
-    if flex_input:
-        build_flex(flex_input, str(pkg))
+    if flex_var_ttf:
+        build_flex(flex_var_ttf, str(pkg), family=config.FLEX_FAMILY_NAME)
+    phlex_input = phlex_var_ttf or next((str(t) for t in sorted(var_dir.glob("*.ttf"))), None)
+    if phlex_input:
+        build_flex(phlex_input, str(pkg), family=config.PHLEX_FAMILY_NAME)
     _report(pkg, f"{_PFX}-var-flex")
 
     # cossui: roman + italic as TWO variable fonts (ital instanced out), ss/cv stripped.
@@ -1106,5 +1079,6 @@ def build_release_folders(build_dir: str, output_dir: str, build_italic: bool = 
         print(f"\n⚠️  {missing} expected static files not found in {static_dir}/")
         print(f"   Run fontmake first, or check style_name_to_filename() in scripts/manifest.py")
 
-    _check_readme_covers_packages(out_path)
     print(f"\n✅ Release folders written to {output_dir}/")
+    print("   📝 did you update fonts/README.md? edit scripts/lib/fonts_README.md — "
+          "fonts/README.md is regenerated every build")

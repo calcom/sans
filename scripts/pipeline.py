@@ -1,6 +1,8 @@
 import sys
 import os
+import gc
 import time
+import faulthandler
 from pathlib import Path
 from contextlib import contextmanager
 import glyphsLib
@@ -13,12 +15,13 @@ from scripts.config import (
 from scripts.lib.metrics import export_metrics
 from scripts.lib.validate import validate_font_setup
 from scripts.lib.prepare import patch_smart_components, prepare_for_fontmake, inject_ytas_ascend_braces
-from scripts.lib.compile_variable import run_fontmake_variable, run_fontmake_flex
-from scripts.lib.hoi import inject_hoi
+from scripts.lib.compile_variable import (run_fontmake_variable, run_fontmake_flex,
+                                          run_fontmake_masters, run_fontmake_flex_hoi)
+from scripts.lib.piecewise_phlex import inject_hoi, add_follower_swaps
 from scripts.lib.utils import axis_index
 from scripts.lib.instance_statics import run_instancer_statics
 from scripts.lib.release import compress_build_outputs, build_release_folders
-from scripts.lib import charalts
+from scripts.lib import charalts, docsheets
 
 
 # ── Build step progress ───────────────────────────────────────────────────────
@@ -36,13 +39,16 @@ def step(label):
 
 class _Ctx:
     """Carries state (the in-memory font, compiled paths, run options) between stages."""
-    def __init__(self, build_italic=BUILD_ITALIC, verbose=False, flex=True, docs=True):
+    def __init__(self, build_italic=BUILD_ITALIC, verbose=False, flex=True, docs=True,
+                 flex_hoi=True):
         self.font = None
         self.var_ttf = None
         self.flex_var_ttf = None
         self.build_italic = build_italic
         self.verbose = verbose
         self.flex = flex
+        self.flex_hoi = flex_hoi
+        self.flex_hoi_var_ttf = None
         self.docs = docs
         self.docs_proc = None
         self.docs_log = None
@@ -89,6 +95,11 @@ def stage_save_ready_sources(ctx):
     for p in getattr(font, "featurePrefixes", []):
         if p.name == config.VARIATIONS_PREFIX_NAME:
             p.disabled = False
+    # Nothing after this stage reads the in-memory font (the compiles work from the saved
+    # sources), and glyphsLib objects hold parent back-references, so only the cyclic GC
+    # frees them. Drop it before fontmake and the Flex stage's own load stack on top.
+    ctx.font = font = None
+    gc.collect()
 
 
 def stage_compile_variable(ctx):
@@ -111,7 +122,7 @@ def stage_docs(ctx):
 
 
 def stage_compile_flex(ctx):
-    """Cal Sans Flex = the HOI morphing build (Flex-family only). Re-prep a fresh font (so the
+    """Cal Sans Phlex = the piecewise HOI morphing build (morphs on GEOM braces). Re-prep a fresh font (so the
     base build's ctx.font stays untouched), inject the HOI braces + strip morphed conditionset
     swaps, save the disposable _FLEX source, and compile → the morphing variable TTF. build_flex
     (defaults/avar2/hide-YTAS/rename) runs later in packaging on this VF."""
@@ -123,6 +134,7 @@ def stage_compile_flex(ctx):
     patch_smart_components(font)
     prepare_for_fontmake(font, verbose=ctx.verbose)
     inject_ytas_ascend_braces(font, verbose=ctx.verbose)
+    add_follower_swaps(font)                     # λ swaps with y (Flex only)
     geom_i = axis_index(font.axes, "GEOM")
     inject_hoi(font, geom_i, verbose=ctx.verbose)
     # the HOI rename (handle_I) + sub-strip can orphan class refs → filter classes to live glyphs
@@ -131,7 +143,60 @@ def stage_compile_flex(ctx):
         cls.code = " ".join(n for n in cls.code.split() if n in existing)
     print(f"💾 Saving HOI source to {OUTPUT_PATH_FLEX}...")
     font.save(OUTPUT_PATH_FLEX)
+    del font
+    gc.collect()                      # as in save_ready_sources: free it before fontmake
     ctx.flex_var_ttf = run_fontmake_flex(OUTPUT_PATH_FLEX, BUILD_DIR)
+
+
+# Disposable true-HOI source: the prepared font with the stock swaps intact and no braces.
+OUTPUT_PATH_FLEXHOI = "sources/CalSans_FLEXHOI.glyphspackage"
+
+
+def stage_compile_flex_hoi(ctx):
+    """Cal Sans Flex, true HOI (on by default; --no-flex-hoi or --no-flex leave it out of the run).
+    The morph rides hidden helper axes as sparse sources instead of GEOM braces
+    (scripts/lib/hoi_flex.py). The prepared font is saved
+    untouched (stock swaps kept), then the piecewise injector runs on the same in-memory font only to
+    read back the designed path. fontmake writes the master UFOs, the helper axes and sources go into
+    that designspace, and fontmake compiles it. stage_package build_flex'es the compiled TTF
+    (flexhoi_variable/) into fonts/calsans-var-flex; a build_flex'd copy also lands in flexhoi/."""
+    from fontTools.designspaceLib import DesignSpaceDocument
+    import ufoLib2
+    from scripts.lib import hoi_flex
+    from scripts.lib.build_flex import build_flex
+    font = glyphsLib.load(SOURCE_PATH)
+    font.filepath = SOURCE_PATH
+    patch_smart_components(font)
+    prepare_for_fontmake(font, verbose=ctx.verbose)
+    inject_ytas_ascend_braces(font, verbose=ctx.verbose)
+    add_follower_swaps(font)                     # λ swaps with y (Flex only)
+    hoi_flex.a11y_drop_swaps(font)               # IJ morphs through I (Flex only)
+    hoi_flex.digit_add_swaps(font)              # six family: Flex-only rclt swaps (no stock swap)
+    print(f"💾 Saving true-HOI source to {OUTPUT_PATH_FLEXHOI}...")
+    font.save(OUTPUT_PATH_FLEXHOI)
+    prefix = next(p.code for p in font.featurePrefixes if p.name == config.VARIATIONS_PREFIX_NAME)
+    snap = hoi_flex.digit_snapshot(font)
+    snap_a11y = hoi_flex.a11y_snapshot(font)
+    paths, followers, locations = hoi_flex.designed_paths(font)   # mutates the font: throwaway now
+    digits = hoi_flex.digit_read_back(font, snap)
+    legs = hoi_flex.a11y_read_back(font, snap_a11y, prefix, taken=set(followers) | set(digits[1]))
+    del font
+    gc.collect()
+
+    ds_path = run_fontmake_masters(OUTPUT_PATH_FLEXHOI, f"{BUILD_DIR}/flexhoi_ufo")
+    ds = DesignSpaceDocument.fromfile(ds_path)
+    fonts = {path: ufoLib2.Font.open(path) for path in {s.path for s in ds.sources}}
+    hoi_flex.add_true_hoi(ds, fonts, paths, followers, locations, prefix)
+    hoi_flex.add_digit_hoi(ds, fonts, *digits)
+    hoi_flex.add_a11y_hoi(ds, fonts, *legs)
+    for ufo in fonts.values():
+        ufo.save()
+    ds.write(ds_path)
+    del fonts
+    gc.collect()
+    ctx.flex_hoi_var_ttf = run_fontmake_flex_hoi(ds_path, BUILD_DIR)
+    os.makedirs(f"{BUILD_DIR}/flexhoi", exist_ok=True)
+    build_flex(ctx.flex_hoi_var_ttf, f"{BUILD_DIR}/flexhoi")
 
 
 def stage_instance_statics(ctx):
@@ -144,7 +209,14 @@ def stage_compress(ctx):
 
 def stage_package(ctx):
     build_release_folders(BUILD_DIR, RELEASE_DIR, build_italic=ctx.build_italic,
-                          flex_var_ttf=ctx.flex_var_ttf)
+                          flex_var_ttf=ctx.flex_hoi_var_ttf,      # Cal Sans Flex (true HOI)
+                          phlex_var_ttf=ctx.flex_var_ttf)         # Cal Sans Phlex (piecewise)
+    # The fonts/README.md specimen sheets draw from the statics just packaged, so they
+    # can only start now. Background, like the character alternatives; --no-docs skips both.
+    if ctx.docs:
+        proc, log = docsheets.spawn()
+        print(f"   \U0001f5bc  README sheets redrawing in pid {proc.pid} \u2192 {docsheets.OUT}/")
+        print(f"   \U0001f4c4 log: {log}")
 
 
 # Ordered (name, function, step-header) — the subset a runner can select from.
@@ -156,7 +228,8 @@ STAGES = [
     ("save_ready_sources", stage_save_ready_sources, "Saving variable/static-ready sources"),
     ("compile_variable", stage_compile_variable, "Compiling variable font (fontmake)"),
     ("docs",             stage_docs,             "Documenting character alternatives (background)"),
-    ("compile_flex",     stage_compile_flex,     "Compiling HOI (Flex) variable font"),
+    ("compile_flex",     stage_compile_flex,     "Compiling Phlex (piecewise HOI) variable font"),
+    ("compile_flex_hoi", stage_compile_flex_hoi, "Compiling Flex (true HOI) variable font"),
     ("instance_statics", stage_instance_statics, "Instancing static styles"),
     ("compress",         stage_compress,         "Compressing to WOFF2"),
     ("package",          stage_package,          "Packaging release folders"),
@@ -168,17 +241,19 @@ VARIABLE_ONLY_STAGES = ("metrics", "load", "validate", "prepare", "save_ready_so
 
 
 def run(only=None, build_italic=None, verbose=False, flex=True, docs=True,
-        extra_steps=0):
+        extra_steps=0, flex_hoi=True):
     """Run the named subset of STAGES in order (default: all of them).
 
     build_italic, if given, overrides config.BUILD_ITALIC for this run.
     verbose enables full glyph/instance name listings in the prepare stage.
-    flex=False skips the HOI (Cal Sans Flex) compile.
+    flex=False skips both morphing builds (Cal Sans Phlex and Cal Sans Flex).
+    flex_hoi=False skips only the true-HOI one (Cal Sans Flex); it is then not in the run at all.
     docs=False skips regenerating the character-alternative doc.
     extra_steps counts phases main() runs AFTER this function — --bump is one — so
     the step headers read [n/12] throughout instead of counting past the end.
     """
-    stages = [s for s in STAGES if only is None or s[0] in only]
+    stages = [s for s in STAGES if (only is None or s[0] in only)
+              and ((flex and flex_hoi) or s[0] != "compile_flex_hoi")]
 
     print("🚀 Starting build")
     print(f"   Source: {SOURCE_PATH}")
@@ -190,7 +265,7 @@ def run(only=None, build_italic=None, verbose=False, flex=True, docs=True,
     _STEP["n"] = 0
     _STEP["total"] = len(stages) + extra_steps
     ctx = _Ctx(build_italic=BUILD_ITALIC if build_italic is None else build_italic,
-               verbose=verbose, flex=flex, docs=docs)
+               verbose=verbose, flex=flex, docs=docs, flex_hoi=flex_hoi)
     for _, fn, label in stages:
         with step(label):
             fn(ctx)
@@ -223,8 +298,12 @@ def _parse_args(argv=None):
     )
     parser.add_argument(
         "--no-flex", dest="flex", action="store_false",
-        help="Skip the HOI / Cal Sans Flex compile (the morphing variable build). "
-             "Flex is built by default.",
+        help="Skip both morphing builds, Cal Sans Phlex (piecewise HOI) and Cal Sans Flex "
+             "(true HOI). Both are built by default.",
+    )
+    parser.add_argument(
+        "--no-flex-hoi", dest="flex_hoi", action="store_false",
+        help="Skip only Cal Sans Flex (true HOI); Cal Sans Phlex is still built.",
     )
     parser.add_argument(
         "--bump", dest="bump_primitives", nargs="?", const=config.PRIMITIVES_PATH,
@@ -243,19 +322,20 @@ def _parse_args(argv=None):
     )
     parser.add_argument(
         "--no-docs", dest="docs", action="store_false",
-        help="Do NOT regenerate documentation/character-alternatives.md or its SVG cells. "
+        help="Do NOT regenerate documentation/character-alternatives.md, its SVG cells, or the static fonts/README.md sheets. "
              "The doc is rebuilt on every build by default, in its own process.",
     )
     return parser.parse_args(argv)
 
 
 def main(argv=None):
+    faulthandler.enable()             # a Python stack on SIGSEGV/SIGABRT in a C extension
     args = _parse_args(argv)
     only = VARIABLE_ONLY_STAGES if args.variable_only else None
     # Italics are the default (config.BUILD_ITALIC=True); --roman opts out.
     build_italic = False if args.roman else None
     run(only=only, build_italic=build_italic, verbose=args.verbose, flex=args.flex,
-        docs=args.docs, extra_steps=1 if args.bump_primitives else 0)
+        docs=args.docs, extra_steps=1 if args.bump_primitives else 0, flex_hoi=args.flex_hoi)
 
     if args.bump_primitives:
         from scripts.lib.bump_primitives import bump_primitives

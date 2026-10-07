@@ -43,12 +43,6 @@ STATIC_AXIS_VALUES = {
 RELEASE_PACKAGE_PREFIX = "calsans"
 PER_GEOM_PACKAGE_IDS = ("a11y", "ui", "base", "geo")
 
-# Packages that ship in fonts/ but are deliberately NOT described in fonts/README.md, so the
-# post-packaging coverage check does not report them as forgotten. adobe-vf is a submission
-# candidate Adobe has not seen; gf-api-static ships twelve GEOM-named GF families, which cuts
-# against what google/fonts#9970 settled. Neither is something a reader of the public repo can
-# act on yet.
-README_UNDOCUMENTED = {"calsans-adobe-vf", "calsans-gf-api-static"}
 
 
 # ── Micro optical-size tracking (instance_statics) ───────────────────────
@@ -60,7 +54,8 @@ MICRO_TRACKING_ADVANCE = 20
 
 
 # ── Flex build / avar2 ───────
-FLEX_FAMILY_NAME = "Cal Sans Flex"
+FLEX_FAMILY_NAME = "Cal Sans Flex"     # true HOI: morphs on hidden helper axes, stock swaps kept
+PHLEX_FAMILY_NAME = "Cal Sans Phlex"   # piecewise HOI: GEOM brace morphs, swaps stripped
 FLEX_STYLE_NAME  = "Regular"
 # (input opsz, output YTAS) calibration points for the avar2 axis mapping
 FLEX_OPSZ_TO_YTAS = [(16.0, 1440.0), (10.0, 1500.0), (8.0, 1600.0)]

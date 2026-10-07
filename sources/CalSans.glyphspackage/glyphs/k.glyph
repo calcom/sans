@@ -12,7 +12,7 @@ pos = (618,0);
 },
 {
 name = top;
-pos = (618,1440);
+pos = (301,1440);
 }
 );
 background = {
@@ -173,7 +173,7 @@ pos = (572,0);
 },
 {
 name = top;
-pos = (572,1440);
+pos = (258,1440);
 }
 );
 hints = (
@@ -296,7 +296,7 @@ pos = (560,0);
 },
 {
 name = top;
-pos = (560,1440);
+pos = (219,1440);
 }
 );
 hints = (
@@ -410,7 +410,7 @@ pos = (572,0);
 },
 {
 name = top;
-pos = (572,1600);
+pos = (258,1600);
 }
 );
 associatedMasterId = "0B84D982-BA46-4CB9-89EB-4BEFB54BBE92";
@@ -542,7 +542,7 @@ pos = (618,0);
 },
 {
 name = top;
-pos = (618,1600);
+pos = (301,1600);
 }
 );
 associatedMasterId = m006;
@@ -715,7 +715,7 @@ pos = (560,0);
 },
 {
 name = top;
-pos = (560,1600);
+pos = (219,1600);
 }
 );
 associatedMasterId = "1B5AC656-48C3-4864-953F-2CD31E7BA751";
@@ -841,7 +841,7 @@ pos = (510,0);
 },
 {
 name = top;
-pos = (510,1440);
+pos = (172,1440);
 }
 );
 hints = (
@@ -961,7 +961,7 @@ pos = (510,0);
 },
 {
 name = top;
-pos = (510,1600);
+pos = (172,1600);
 }
 );
 associatedMasterId = "F32A93D6-BEB9-4F11-B510-2860D42C0CD2";
@@ -1087,7 +1087,7 @@ pos = (470,0);
 },
 {
 name = top;
-pos = (712,1440);
+pos = (371,1440);
 }
 );
 background = {
@@ -1309,7 +1309,7 @@ pos = (470,0);
 },
 {
 name = top;
-pos = (740,1600);
+pos = (399,1600);
 }
 );
 associatedMasterId = "0DDD66F2-BE4C-471A-8E86-2163424A6CF0";
@@ -1430,7 +1430,7 @@ pos = (423,0);
 },
 {
 name = top;
-pos = (665,1440);
+pos = (327,1440);
 }
 );
 background = {
@@ -1672,7 +1672,7 @@ pos = (423,0);
 },
 {
 name = top;
-pos = (691,1600);
+pos = (353,1600);
 }
 );
 associatedMasterId = "CC8ADC1C-440E-49BA-9C42-2F7F780CE9BF";
@@ -1913,7 +1913,7 @@ pos = (530,0);
 },
 {
 name = top;
-pos = (770,1440);
+pos = (453,1440);
 }
 );
 background = {
@@ -2163,7 +2163,7 @@ pos = (529,0);
 },
 {
 name = top;
-pos = (797,1600);
+pos = (480,1600);
 }
 );
 associatedMasterId = "FA9346B6-A16F-4CF3-996A-4A8FD0AD301D";
@@ -2336,7 +2336,7 @@ pos = (487,0);
 },
 {
 name = top;
-pos = (727,1440);
+pos = (413,1440);
 }
 );
 background = {
@@ -2577,7 +2577,7 @@ pos = (486,0);
 },
 {
 name = top;
-pos = (754,1600);
+pos = (440,1600);
 }
 );
 associatedMasterId = "33BF50A0-DEC8-4619-95BB-DD23FBD7FB0B";

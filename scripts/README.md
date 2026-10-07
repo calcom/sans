@@ -35,6 +35,8 @@ pip install -r requirements.txt
   crashes on this font's large `@All`-class GPOS table)
 - **brotli** — required by fontTools to write `.woff2` files (step 10/11
   compresses the variable font and all static instances to WOFF2)
+- **skia-pathops** — unions overlapping contours so the animated README sheet
+  can draw glyphs as clean outlines (only `docsheets metrics` needs it)
 
 ## Run the build
 
@@ -55,13 +57,16 @@ Useful flags:
   shift, STAT + instance names), so it's a fast way to test variable-font output.
 - `--roman` — build roman styles only (192), skipping the italic statics.
   Italics are built by default (384 styles).
-- `--no-flex` — skip the **Cal Sans Flex** build (step 8, the HOI
-  variable-morph font). Flex is built **by default** on every full run; this
-  opts out for a faster build when you only need the base/static families.
-- `--no-docs` — skip regenerating the character-alternatives documentation
-  (step 7). The doc is rebuilt on **every** run by default. Use this when you
-  only want fonts: it leaves `documentation/character-alternatives.md` and its ~880 SVG
-  cells exactly as committed, and shaves the ~1,760 file writes off the run.
+- `--no-flex` — skip the morphing variable-font builds (step 8), including
+  **Cal Sans Flex**, the true-HOI font. They are built **by default** on every
+  full run; this opts out for a faster build when you only need the base/static
+  families. `--no-flex-hoi` skips only Cal Sans Flex.
+- `--no-docs` — skip regenerating the documentation: the character-alternatives
+  doc (step 7) and the static `fonts/README.md` sheets (after step 11). Both are
+  rebuilt on **every** run by default. Use this when you only want fonts: it
+  leaves `documentation/` exactly as committed and shaves ~1,800 file writes off
+  the run. `fonts/README.md` itself is still re-emitted and stamped. See
+  [Documentation](#documentation).
 - `--verbose` — show full glyph/instance name lists in the pre-processing
   stage (step 4); by default only counts and the first few names are printed.
 
@@ -84,12 +89,14 @@ Useful flags:
    success report and a failure in the docs can never fail the fonts. The build
    prints the child's pid and a log path (`scripts/temp/character-alternatives.log`)
    and moves straight on. Skip with `--no-docs`.
-8. **Compile Cal Sans Flex** — re-preps a fresh copy of the source, injects the
-   HOI variable-morph braces and strips the morphed glyphs from the conditionset
-   (so GEOM glyphs *interpolate* instead of hard-swapping), compiles a **second**
-   variable font from that disposable `_FLEX` package, then applies avar2 + hides
-   the YTAS axis + renames it to **Cal Sans Flex**. Flex-family only; the base
-   build keeps the discrete swaps. Skip with `--no-flex`.
+8. **Compile the morphing fonts** — **Cal Sans Flex** is true HOI: it
+   re-preps a fresh copy of the source, keeps the stock `rclt` GEOM swaps, adds
+   three hidden helper axes (`GE1M`, `GE2M`, `GE3M`) and writes the morph
+   windows as sparse masters on them, then compiles a **second** variable font
+   from that disposable `_FLEXHOI` package. A post-process applies avar2 (the
+   helpers follow `GEOM`, the hidden `YTAS` follows `opsz`), hides those axes
+   and renames it to **Cal Sans Flex**. The base build is untouched. Skip with
+   `--no-flex`.
 9. **Instance statics** — generates all static styles (384 with italics by
    default, or 192 roman-only with `--roman`) into `scripts/temp/static/`, baking
    the correct GEOM substitutions into each.
@@ -97,6 +104,9 @@ Useful flags:
 11. **Package releases** — sorts the finished exports into the `fonts/` release
     folders (e.g. `calsans-var-full`, `calsans-var-flex`, `calsans-static-essentials`,
     `calsans-gf-workspace`, etc.)
+    It also re-emits `fonts/README.md` from its template, stamped with the built
+    version, then starts the README sheets redrawing in a background process
+    (log: `scripts/temp/docsheets.log`). Skip the sheets with `--no-docs`.
 
 ### Configuration
 
@@ -130,7 +140,7 @@ There are two output locations, serving different purposes:
   | Package | Contents |
   |---------|----------|
   | `calsans-var-full` | The full variable font, all axes exposed |
-  | `calsans-var-flex` | **Cal Sans Flex** — the HOI variable-morph build: GEOM glyphs interpolate instead of hard-swapping, plus avar2 (YTAS hidden, follows `opsz`). Built by default (step 8); skip with `--no-flex`. |
+  | `calsans-var-flex` | **Cal Sans Flex** — the true-HOI morphing font: GEOM letterforms blend along curved paths on hidden helper axes (`GE1M`–`GE3M`) that avar2 drives from `GEOM`, with `YTAS` hidden and following `opsz`. Built by default (step 8); skip with `--no-flex`. The folder's full contents are listed in `fonts/README.md`. |
   | `calsans-cossui` | Variable font with `ss*`/`cv*`/`aalt` features and their alternate glyphs subset out |
   | `calsans-gf-api` | Same subsetting as `cossui`, packaged for the Google Fonts API |
   | `calsans-gf-api-textui` | **Cal Sans Text UI** — second GF family ([google/fonts#9970](https://github.com/google/fonts/issues/9970)): `wght`-only (400–700) VF pair, `opsz` 10 / `GEOM` 25 / `YTAS` 760 baked, curved l (`l.rcltA11y`) as default |
@@ -138,6 +148,64 @@ There are two output locations, serving different purposes:
   | `calsans-static-{a11y,ui,base,geo}` | Per-GEOM-family static subsets (base YTAS/SHRP only) |
   | `calsans-static-essentials` | Curated minimal set: Text+UI (roman) and Display+Base (incl. italics), TTF-only |
   | `calsans-gf-workspace` | Same two families as `static-essentials`, without `opsz`-axis awareness; the Text UI half is instanced fresh at the `gf-api-textui` position (`YTAS` 760, curved l) |
+
+## Documentation
+
+The build writes two sets of documentation, both drawn from the fonts it just
+made, so they can never describe a build that no longer exists. Both run in
+their own Python process that nothing waits on (a failure there never fails the
+fonts), both are skipped by `--no-docs`, and both are committed with the fonts.
+
+| What | Made by | When | Lands in |
+|------|---------|------|----------|
+| Character alternatives: every `ssXX`/`cvXX`, every glyph it produces | `scripts/lib/charalts.py` | step 7, from the variable font | `documentation/character-alternatives.md` + `documentation/images/character-alternatives/` |
+| `fonts/README.md`, version stamped | `scripts/lib/release.py` | step 11, every run, even with `--no-docs` | `fonts/README.md` |
+| The specimen sheets `fonts/README.md` shows | `scripts/lib/docsheets.py` | after step 11, from the packaged statics | `documentation/images/fonts-readme/` |
+
+### `fonts/README.md` is generated: edit the template
+
+`fonts/` is wiped every run, so its README is re-emitted from
+**`scripts/lib/fonts_README.md`**. Edit that, never `fonts/README.md`. Write the
+version as `vX.XXX`; the build stamps every one with the version read from the
+built variable font's name ID 5, so the README can never disagree with the
+binary beside it. Two packages are left out of it on purpose: `adobe-vf` and
+`gf-api-static` still build but are not described. Each run ends with a
+reminder to edit the template if a package changed.
+
+### The README sheets
+
+Outlined text, no webfonts: they render the same in every browser. Every sheet
+is written twice, `name.svg` and `name-dark.svg`, with the palette baked in,
+because Safari ignores `prefers-color-scheme` inside an SVG loaded through
+`<img>`; the README picks one with `<picture>`. They sit on the page with no
+background or margin, like the character-alternative cells. Each is a table:
+the label is README text on the left, the SVG holds only the specimen, and every
+row of one table shares a scale (the waterfall's rows are drawn at real pixels).
+
+| Sheet | Shows | Built by the build |
+|-------|-------|--------------------|
+| `tiers-{display,text,micro}` | Rows of a table: "Cal v2" in UI Display, Text and Micro at one size, each letter's advance marked. The text label says the opsz and how much wider each sets than Display | yes |
+| `waterfall-{08…192}` | One row per size, 8px to 192px, each at **real pixels** (640 wide, drawn 1:1, `<img>` given explicit width and height), in its tier: Micro below 10px, Text 10–20px, Display from 24px. The longest of "Scheduling Infrastructure", "Sched Infra" and "Infra" that fits one line. The label (`8px`, tier) is text | yes |
+| `families-{a11y,ui,base,geo}` | Rows of a table: "2160 just Groovy, I’ll Magic" in A11y, UI, Base and Geo, the family and its `GEOM` as a text label | yes |
+| `textui-l-{a11y,ui}` | Two rows: Cal Sans A11y Text against Cal Sans Text UI (the static cut), how I, l and 1 are told apart; the text label spells out which I and l each draws | yes |
+| `cuts-{default,tall,sharp,tall-sharp}` | A one-row table per static table: the four weights, roman over italic; the text label gives the name and its `YTAS`, `SHRP` and `opsz` | yes |
+| `header` | **Animated.** The README's banner: this page's specimens at one scale, drifting right to left in three lanes, looping seamlessly, feathered at both edges | **no** — by hand |
+| `metrics` | **Animated.** "Hax" in every tier, Regular and Bold: only x-height moves, the small tiers set wider. Keeps a card, full width | **no** — by hand |
+
+Animated sheets are judged by eye before they ship, so a build never redraws
+them (`ANIMATED` in `docsheets.py`). Redraw any sheet by hand, from the repo
+root, after a full build has filled `fonts/`:
+
+```bash
+python3 -m scripts.lib.docsheets              # every static sheet
+python3 -m scripts.lib.docsheets metrics      # the animated one
+python3 -m scripts.lib.docsheets tiers cuts   # just these
+```
+
+The README points at them with relative paths
+(`../documentation/images/fonts-readme/…`), so the same file works in this repo
+and in `calcom/sans`. When populating `sans`, copy `fonts/README.md` **and**
+`documentation/images/fonts-readme/` together, or the pictures 404.
 
 ## Troubleshooting
 
@@ -153,3 +221,7 @@ There are two output locations, serving different purposes:
   installed outside your `PATH` (commonly under
   `~/Library/Python/<version>/bin` on macOS if not using a venv). Activating
   the venv from Setup avoids this; otherwise add that directory to `PATH`.
+- **README sheets did not change after a build** — they redraw in the
+  background; check `scripts/temp/docsheets.log`. `No module named 'pathops'`
+  there means `skia-pathops` is missing (`pip install -r requirements.txt`); only
+  the animated `metrics` sheet needs it, and builds do not draw that one.
