@@ -36,7 +36,7 @@ _AXIS_NAMES = {
     "wght": "Weight",
     "GEOM": "Geometric Form",
     "YTAS": "Ascender Height",
-    "SHRP": "Sharp",
+    "SHRP": "Sharpness",
 }
 
 

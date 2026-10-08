@@ -12,6 +12,10 @@ name = bottom;
 pos = (664,0);
 },
 {
+name = cedilla;
+pos = (664,0);
+},
+{
 name = ogonek;
 pos = (950,0);
 },
@@ -235,6 +239,10 @@ name = bottom;
 pos = (630,0);
 },
 {
+name = cedilla;
+pos = (630,0);
+},
+{
 name = ogonek;
 pos = (976,0);
 },
@@ -408,6 +416,10 @@ name = bottom;
 pos = (618,0);
 },
 {
+name = cedilla;
+pos = (618,0);
+},
+{
 name = ogonek;
 pos = (912,0);
 },
@@ -420,6 +432,10 @@ background = {
 anchors = (
 {
 name = bottom;
+pos = (610,0);
+},
+{
+name = cedilla;
 pos = (610,0);
 },
 {
@@ -525,6 +541,10 @@ width = 1262;
 anchors = (
 {
 name = bottom;
+pos = (538,0);
+},
+{
+name = cedilla;
 pos = (538,0);
 },
 {
@@ -660,6 +680,10 @@ width = 1182;
 anchors = (
 {
 name = bottom;
+pos = (630,0);
+},
+{
+name = cedilla;
 pos = (630,0);
 },
 {
@@ -845,6 +869,10 @@ width = 1314;
 anchors = (
 {
 name = bottom;
+pos = (664,0);
+},
+{
+name = cedilla;
 pos = (664,0);
 },
 {
@@ -1083,6 +1111,10 @@ name = bottom;
 pos = (528,0);
 },
 {
+name = cedilla;
+pos = (528,0);
+},
+{
 name = ogonek;
 pos = (822,0);
 },
@@ -1095,6 +1127,10 @@ background = {
 anchors = (
 {
 name = bottom;
+pos = (528,0);
+},
+{
+name = cedilla;
 pos = (528,0);
 },
 {
@@ -1269,6 +1305,10 @@ name = bottom;
 pos = (449,0);
 },
 {
+name = cedilla;
+pos = (449,0);
+},
+{
 name = ogonek;
 pos = (843,0);
 },
@@ -1281,6 +1321,10 @@ background = {
 anchors = (
 {
 name = bottom;
+pos = (449,0);
+},
+{
+name = cedilla;
 pos = (449,0);
 },
 {
@@ -1523,6 +1567,10 @@ name = bottom;
 pos = (577,0);
 },
 {
+name = cedilla;
+pos = (577,0);
+},
+{
 name = ogonek;
 pos = (863,0);
 },
@@ -1535,6 +1583,10 @@ background = {
 anchors = (
 {
 name = bottom;
+pos = (577,0);
+},
+{
+name = cedilla;
 pos = (577,0);
 },
 {
@@ -1809,6 +1861,10 @@ name = bottom;
 pos = (577,0);
 },
 {
+name = cedilla;
+pos = (577,0);
+},
+{
 name = ogonek;
 pos = (863,0);
 },
@@ -2044,6 +2100,10 @@ name = bottom;
 pos = (544,0);
 },
 {
+name = cedilla;
+pos = (544,0);
+},
+{
 name = ogonek;
 pos = (890,0);
 },
@@ -2056,6 +2116,10 @@ background = {
 anchors = (
 {
 name = bottom;
+pos = (544,0);
+},
+{
+name = cedilla;
 pos = (544,0);
 },
 {
@@ -2336,6 +2400,10 @@ width = 1314;
 anchors = (
 {
 name = bottom;
+pos = (544,0);
+},
+{
+name = cedilla;
 pos = (544,0);
 },
 {

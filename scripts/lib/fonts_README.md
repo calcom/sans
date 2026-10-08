@@ -133,11 +133,6 @@ All **384** named static instances (vX.XXX) — four `GEOM` families × four wei
 
 <picture><source media="(prefers-color-scheme: dark)" srcset="../documentation/images/fonts-readme/cuts-default-dark.svg"><img alt="Cal Sans in Regular, Medium, SemiBold and Bold, roman above italic" src="../documentation/images/fonts-readme/cuts-default.svg"></picture>
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="../documentation/images/fonts-readme/cuts-default-dark.svg">
-  <img alt="Cal Sans in Regular, Medium, SemiBold and Bold, roman and italic" src="../documentation/images/fonts-readme/cuts-default.svg">
-</picture>
-
 **Roman**
 
 | Weight | A11y · GEOM 0–10 | UI · GEOM 15–30 | Base (Cal Sans) · GEOM 40–60 | Geo · GEOM 80–100 |
@@ -159,11 +154,6 @@ All **384** named static instances (vX.XXX) — four `GEOM` families × four wei
 ### Cal Sans Tall — `YTAS` 800
 
 <picture><source media="(prefers-color-scheme: dark)" srcset="../documentation/images/fonts-readme/cuts-tall-dark.svg"><img alt="Cal Sans Tall in Regular, Medium, SemiBold and Bold, roman above italic" src="../documentation/images/fonts-readme/cuts-tall.svg"></picture>
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="../documentation/images/fonts-readme/cuts-tall-dark.svg">
-  <img alt="Cal Sans Tall in Regular, Medium, SemiBold and Bold, roman and italic" src="../documentation/images/fonts-readme/cuts-tall.svg">
-</picture>
 
 **Roman**
 
@@ -194,18 +184,6 @@ All **384** named static instances (vX.XXX) — four `GEOM` families × four wei
 
 <picture><source media="(prefers-color-scheme: dark)" srcset="../documentation/images/fonts-readme/cuts-sharp-dark.svg"><img alt="Cal Sans Sharp in Regular, Medium, SemiBold and Bold, roman above italic" src="../documentation/images/fonts-readme/cuts-sharp.svg"></picture>
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/calcom/sans/main/documentation/images/svg/geometry-mach-5-dark.svg">
-  <img alt="Mach 5 across GEOM, SHRP and optical size" src="https://raw.githubusercontent.com/calcom/sans/main/documentation/images/svg/geometry-mach-5.svg">
-</picture>
-
-<br>
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="../documentation/images/fonts-readme/cuts-sharp-dark.svg">
-  <img alt="Cal Sans Sharp in Regular, Medium, SemiBold and Bold, roman and italic" src="../documentation/images/fonts-readme/cuts-sharp.svg">
-</picture>
-
 **Roman**
 
 | Weight | A11y · GEOM 0–10 | UI · GEOM 15–30 | Base (Cal Sans) · GEOM 40–60 | Geo · GEOM 80–100 |
@@ -227,11 +205,6 @@ All **384** named static instances (vX.XXX) — four `GEOM` families × four wei
 ### Cal Sans Tall Sharp — `YTAS` 800 + `SHRP` 100
 
 <picture><source media="(prefers-color-scheme: dark)" srcset="../documentation/images/fonts-readme/cuts-tall-sharp-dark.svg"><img alt="Cal Sans Tall Sharp in Regular, Medium, SemiBold and Bold, roman above italic" src="../documentation/images/fonts-readme/cuts-tall-sharp.svg"></picture>
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="../documentation/images/fonts-readme/cuts-tall-sharp-dark.svg">
-  <img alt="Cal Sans Tall Sharp in Regular, Medium, SemiBold and Bold, roman and italic" src="../documentation/images/fonts-readme/cuts-tall-sharp.svg">
-</picture>
 
 **Roman**
 

@@ -49,7 +49,7 @@ shapes = (
 ref = a.rcltBase;
 },
 {
-pos = (538,0);
+pos = (578,0);
 ref = dotbelowcomb;
 }
 );
@@ -75,7 +75,7 @@ shapes = (
 ref = a.rcltBase;
 },
 {
-pos = (539,0);
+pos = (589,0);
 ref = dotbelowcomb;
 }
 );

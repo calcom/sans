@@ -252,6 +252,43 @@ def align_composite_braces(font):
           f"follow their components' advance and anchors")
 
 
+def propagate_anchors_for_fontmake(font):
+    """Run glyphsLib's anchor propagation here, with axis ranges that include the Virtual
+    Masters, and switch it off for fontmake.
+
+    glyphsLib takes each axis's range from the real masters only. SHRP exists only through
+    Virtual Masters, so it reads 0–0 and every SHRP=100 brace normalizes onto its master: the
+    composite braces align_composite_braces adds then fail to interpolate their components'
+    anchors (~1,650 'failed to interpolate anchor' warnings) and lose the ones they don't carry
+    themselves (bottom/ogonek on acircumflex & co). Same transformations, same order, just the
+    right ranges. Call it last, after every pass that adds layers, right before saving."""
+    from glyphsLib.builder.transformations import align_alternate_layers
+    from glyphsLib.builder.transformations import propagate_anchors as pa
+
+    orig = pa._get_design_space_info
+
+    def with_virtual_masters(f):
+        locs, triples = orig(f)
+        for cp in f.customParameters:
+            if cp.name != "Virtual Master" or cp.disabled:
+                continue
+            for v in cp.value:
+                name, loc = v["Axis"], float(v["Location"])
+                if name in triples:
+                    lo, default, hi = triples[name]
+                    triples[name] = (min(lo, loc), default, max(hi, loc))
+        return locs, triples
+
+    pa._get_design_space_info = with_virtual_masters
+    try:
+        align_alternate_layers(font)
+        pa.propagate_all_anchors(font)
+    finally:
+        pa._get_design_space_info = orig
+    font.customParameters["Propagate Anchors"] = False
+    print("   ✅ Propagated anchors (Virtual Master axis ranges); fontmake's own pass switched off")
+
+
 def _clone_layer(layer):
     """deepcopy a GSLayer without dragging the whole font. A layer reaches the
     GSFont two ways: via `.parent` (the glyph) AND, on outline glyphs, through its

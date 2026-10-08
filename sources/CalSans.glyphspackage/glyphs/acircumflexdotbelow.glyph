@@ -78,7 +78,7 @@ shapes = (
 ref = a;
 },
 {
-pos = (504,0);
+pos = (491,0);
 ref = dotbelowcomb;
 },
 {
@@ -112,7 +112,7 @@ shapes = (
 ref = a;
 },
 {
-pos = (568,0);
+pos = (538,0);
 ref = dotbelowcomb;
 },
 {

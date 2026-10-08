@@ -342,6 +342,30 @@ def _fix_gf_stat(font: TTFont):
             if getattr(axv, "AxisIndex", None) == opsz_i:
                 axv.Flags &= ~0x0002                 # ELIDABLE_AXIS_VALUE_NAME
 
+    name = font["name"]
+    def _name_id(string):
+        for rec in name.names:
+            if rec.nameID >= 256 and rec.toUnicode() == string:
+                return rec.nameID
+        return name.addName(string)
+
+    # GFAxisRegistry names: rename opsz values (by value) and drop values the registry
+    # does not list (SHRP "Sharp"). Done on the AxisValueArray before ital handling.
+    if config.GF_OPSZ_STAT_NAMES and "opsz" in axes:
+        opsz_i = axes.index("opsz")
+        for axv in getattr(stat.AxisValueArray, "AxisValue", []) or []:
+            if getattr(axv, "AxisIndex", None) == opsz_i and axv.Format == 1:
+                new = config.GF_OPSZ_STAT_NAMES.get(round(axv.Value))
+                if new:
+                    axv.ValueNameID = _name_id(new)
+    drop = [(axes.index(t), v) for t, vs in config.GF_STAT_DROP_VALUES.items()
+            if t in axes for v in vs]
+    if drop and getattr(stat.AxisValueArray, "AxisValue", None):
+        stat.AxisValueArray.AxisValue = [
+            a for a in stat.AxisValueArray.AxisValue
+            if not (a.Format == 1 and (a.AxisIndex, round(a.Value)) in drop)]
+        stat.AxisValueCount = len(stat.AxisValueArray.AxisValue)
+
     if not config.GF_ENSURE_ITAL_STAT:
         return
     is_italic = bool(font["OS/2"].fsSelection & 0x0001)
@@ -765,7 +789,10 @@ def _build_gf_textui(src_ttf: Path, dest_dir: Path):
             axes["ital"] = ital_value
         font = _instance_textui(src_ttf, axes)
         _set_style_names(font, subfamily, family=config.GF_TEXTUI_FAMILY)
-        buildStatTable(font, stat_axes, elidedFallbackName=config.STAT_ELIDED_FALLBACK)
+        # each file carries only its own ital record (the roman's keeps the style link)
+        file_axes = [dict(a, values=[v for v in a["values"] if v["value"] == ital_value])
+                     if a["tag"] == "ital" else a for a in stat_axes]
+        buildStatTable(font, file_axes, elidedFallbackName=config.STAT_ELIDED_FALLBACK)
         if config.GF_TRIM_INSTANCES:
             _trim_gf_instances(font, ps_suffix=suffix)
         _set_gf_version(font)            # name/version_format ("Version X.YYY"[; sha])

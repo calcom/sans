@@ -237,6 +237,10 @@ GF_DROP_TYPOGRAPHIC_NAMES = True
 # see which optical size they are looking at), and every VF needs an 'ital' axis record.
 GF_OPSZ_NEVER_ELIDABLE = True
 GF_ENSURE_ITAL_STAT    = True
+# GFAxisRegistry fallback names: opsz values are named in points (by axis value), and
+# SHRP carries only its Default record — "Sharp" is not an expected name on that axis.
+GF_OPSZ_STAT_NAMES     = {8: "8pt", 10: "10pt", 14: "14pt", 48: "48pt"}
+GF_STAT_DROP_VALUES    = {"SHRP": [100]}
 
 # gf meta table. ScriptLangTags declaring what the font is designed and supported for.
 GF_META_DESIGN_LANGS   = ["Latn"]
@@ -302,7 +306,7 @@ STAT_AXES = [
         {"value": 1440, "name": "Default", "flags": STAT_ELIDABLE},
         {"value": 1600, "name": "Tall"},
     ]},
-    {"tag": "SHRP", "name": "Sharp", "values": [
+    {"tag": "SHRP", "name": "Sharpness", "values": [
         {"value": 0,   "name": "Default", "flags": STAT_ELIDABLE},
         {"value": 100, "name": "Sharp"},
     ]},

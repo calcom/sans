@@ -11,6 +11,10 @@ name = bottom;
 pos = (542,0);
 },
 {
+name = cedilla;
+pos = (562,7);
+},
+{
 name = ogonek;
 pos = (842,0);
 },
@@ -187,6 +191,10 @@ anchors = (
 {
 name = bottom;
 pos = (568,0);
+},
+{
+name = cedilla;
+pos = (568,40);
 },
 {
 name = ogonek;
@@ -381,6 +389,10 @@ anchors = (
 {
 name = bottom;
 pos = (476,0);
+},
+{
+name = cedilla;
+pos = (516,0);
 },
 {
 name = ogonek;
@@ -622,6 +634,10 @@ name = bottom;
 pos = (504,0);
 },
 {
+name = cedilla;
+pos = (526,10);
+},
+{
 name = ogonek;
 pos = (844,-8);
 },
@@ -733,6 +749,10 @@ name = bottom;
 pos = (414,0);
 },
 {
+name = cedilla;
+pos = (441,0);
+},
+{
 name = ogonek;
 pos = (754,-8);
 },
@@ -745,6 +765,10 @@ background = {
 anchors = (
 {
 name = bottom;
+pos = (414,0);
+},
+{
+name = cedilla;
 pos = (414,0);
 },
 {
@@ -953,6 +977,10 @@ name = bottom;
 pos = (388,0);
 },
 {
+name = cedilla;
+pos = (418,0);
+},
+{
 name = ogonek;
 pos = (716,0);
 },
@@ -965,6 +993,10 @@ background = {
 anchors = (
 {
 name = bottom;
+pos = (388,0);
+},
+{
+name = cedilla;
 pos = (388,0);
 },
 {
@@ -1197,6 +1229,10 @@ name = bottom;
 pos = (480,0);
 },
 {
+name = cedilla;
+pos = (483,27);
+},
+{
 name = ogonek;
 pos = (766,0);
 },
@@ -1209,6 +1245,10 @@ background = {
 anchors = (
 {
 name = bottom;
+pos = (480,0);
+},
+{
+name = cedilla;
 pos = (480,0);
 },
 {
@@ -1457,6 +1497,10 @@ name = bottom;
 pos = (456,0);
 },
 {
+name = cedilla;
+pos = (487,8);
+},
+{
 name = ogonek;
 pos = (764,0);
 },
@@ -1469,6 +1513,10 @@ background = {
 anchors = (
 {
 name = bottom;
+pos = (456,0);
+},
+{
+name = cedilla;
 pos = (456,0);
 },
 {
