@@ -10,7 +10,7 @@ shapes = (
 ref = n;
 },
 {
-pos = (644,0);
+pos = (594,0);
 ref = commaaccentcomb.loclMAH;
 }
 );
@@ -23,7 +23,7 @@ shapes = (
 ref = n;
 },
 {
-pos = (614,0);
+pos = (564,0);
 ref = commaaccentcomb.loclMAH;
 }
 );
@@ -36,7 +36,7 @@ shapes = (
 ref = n;
 },
 {
-pos = (592,0);
+pos = (572,0);
 ref = commaaccentcomb.loclMAH;
 }
 );
@@ -49,7 +49,7 @@ shapes = (
 ref = n;
 },
 {
-pos = (562,0);
+pos = (522,0);
 ref = commaaccentcomb.loclMAH;
 }
 );
@@ -62,7 +62,7 @@ shapes = (
 ref = n;
 },
 {
-pos = (592,0);
+pos = (548,0);
 ref = commaaccentcomb.loclMAH;
 }
 );
@@ -75,7 +75,7 @@ shapes = (
 ref = n;
 },
 {
-pos = (563,0);
+pos = (503,0);
 ref = commaaccentcomb.loclMAH;
 }
 );
@@ -88,7 +88,7 @@ shapes = (
 ref = n;
 },
 {
-pos = (645,0);
+pos = (605,0);
 ref = commaaccentcomb.loclMAH;
 }
 );
@@ -101,7 +101,7 @@ shapes = (
 ref = n;
 },
 {
-pos = (614,0);
+pos = (574,0);
 ref = commaaccentcomb.loclMAH;
 }
 );

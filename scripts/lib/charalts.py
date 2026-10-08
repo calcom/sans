@@ -172,8 +172,10 @@ def draw(glyph_set, hmtx, name, fill):
 
 def slug(name):
     """Glyph name -> filename stem. '.' is the only character Glyphs names
-    carry that reads badly in a path next to the .light/.dark suffix."""
-    return name.replace(".", "-")
+    carry that reads badly in a path next to the .light/.dark suffix. Capitals
+    get a trailing '_' (as .glyphspackage does) so C.ss10 and c.ss10 don't
+    collapse into one file on a case-insensitive disk."""
+    return re.sub(r"([A-Z])", r"\1_", name).replace(".", "-")
 
 
 # ------------------------------------------------------------------ markdown

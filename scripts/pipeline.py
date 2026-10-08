@@ -14,7 +14,8 @@ from scripts.config import (
 )
 from scripts.lib.metrics import export_metrics
 from scripts.lib.validate import validate_font_setup
-from scripts.lib.prepare import patch_smart_components, prepare_for_fontmake, inject_ytas_ascend_braces
+from scripts.lib.prepare import (patch_smart_components, prepare_for_fontmake, inject_ytas_ascend_braces,
+                                  propagate_anchors_for_fontmake)
 from scripts.lib.compile_variable import (run_fontmake_variable, run_fontmake_flex,
                                           run_fontmake_masters, run_fontmake_flex_hoi)
 from scripts.lib.piecewise_phlex import inject_hoi, add_follower_swaps
@@ -71,6 +72,7 @@ def stage_prepare(ctx):
     patch_smart_components(ctx.font)
     prepare_for_fontmake(ctx.font, verbose=ctx.verbose)
     inject_ytas_ascend_braces(ctx.font, verbose=ctx.verbose)
+    propagate_anchors_for_fontmake(ctx.font)
 
 
 def stage_save_ready_sources(ctx):
@@ -141,6 +143,7 @@ def stage_compile_flex(ctx):
     existing = {g.name for g in font.glyphs}
     for cls in list(getattr(font, "classes", [])):
         cls.code = " ".join(n for n in cls.code.split() if n in existing)
+    propagate_anchors_for_fontmake(font)
     print(f"💾 Saving HOI source to {OUTPUT_PATH_FLEX}...")
     font.save(OUTPUT_PATH_FLEX)
     del font
@@ -172,6 +175,7 @@ def stage_compile_flex_hoi(ctx):
     add_follower_swaps(font)                     # λ swaps with y (Flex only)
     hoi_flex.a11y_drop_swaps(font)               # IJ morphs through I (Flex only)
     hoi_flex.digit_add_swaps(font)              # six family: Flex-only rclt swaps (no stock swap)
+    propagate_anchors_for_fontmake(font)
     print(f"💾 Saving true-HOI source to {OUTPUT_PATH_FLEXHOI}...")
     font.save(OUTPUT_PATH_FLEXHOI)
     prefix = next(p.code for p in font.featurePrefixes if p.name == config.VARIATIONS_PREFIX_NAME)
