@@ -30,6 +30,17 @@ font-optical-sizing: auto;
 
 That's the whole integration. The font handles the rest.
 
+### Upgrading from v1
+
+v1 was a single style. To keep that look in v2:
+
+```css
+font-weight: 700;
+font-variation-settings: "GEOM" 50, "opsz" 45;
+```
+
+Without it, v2 renders as Cal Sans UI Regular, lighter and tightly spaced at display sizes.
+
 Commissioned by Peer Richelsen for [Cal.com](https://cal.com). Drawn, engineered, and shipped by [WORDMARK](https://wordmark.nyc). Free for commercial and personal use, thanks to the [SIL Open Font License, Version 1.1](#license). Available now via NPM, coming to Google Fonts, and with your help could come to [Adobe Fonts via UserVoice request](https://adobefonts.uservoice.com/forums/940222-adobe-fonts-feature-requests-and-feedback/suggestions/51720489-cal-sans-sil-ofl-one-or-two-variable-files-gi).
 
 ## Made for humans.
