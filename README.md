@@ -5,20 +5,20 @@
 [![npm](https://badgen.net/npm/v/cal-sans)](https://www.npmjs.com/package/cal-sans)
 [![packagephobia/install](https://badgen.net/packagephobia/install/cal-sans)](https://www.npmjs.com/package/cal-sans)
 [![packagephobia/publish](https://badgen.net/packagephobia/publish/cal-sans)](https://www.npmjs.com/package/cal-sans)
-[![interactive showcase](documentation/images/isite.svg)](https://cal.com/font)
+[![interactive showcase](https://raw.githubusercontent.com/calcom/sans/main/documentation/images/isite.svg)](https://cal.com/font)
 
 ### Every size. Every surface. One file.
 
 Cal Sans is an open-source variable font built for product design and brand in the same breath. One file spans fine-print UI at 8 pt through hero display at 45, adapting its proportions, spacing, and geometry continuously along the way.
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="documentation/images/svg/VariableMorph2-dark.svg">
-  <img alt="Optical adjustments from 45 pt to 10 pt" src="documentation/images/svg/VariableMorph2.svg">
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/calcom/sans/main/documentation/images/svg/VariableMorph2-dark.svg">
+  <img alt="Optical adjustments from 45 pt to 10 pt" src="https://raw.githubusercontent.com/calcom/sans/main/documentation/images/svg/VariableMorph2.svg">
 </picture>
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="documentation/images/svg/OpticalSize-dark.svg">
-  <img alt="Another optical size demonstration with “Scheduling infrastructure”" src="documentation/images/svg/OpticalSize.svg">
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/calcom/sans/main/documentation/images/svg/OpticalSize-dark.svg">
+  <img alt="Another optical size demonstration with “Scheduling infrastructure”" src="https://raw.githubusercontent.com/calcom/sans/main/documentation/images/svg/OpticalSize.svg">
 </picture>
 
 Write it once:
@@ -30,14 +30,25 @@ font-optical-sizing: auto;
 
 That's the whole integration. The font handles the rest.
 
+### Upgrading from v1
+
+v1 was a single style. To keep that look in v2:
+
+```css
+font-weight: 700;
+font-variation-settings: "GEOM" 50, "opsz" 45;
+```
+
+Without it, v2 renders as Cal Sans UI Regular, lighter and tightly spaced at display sizes.
+
 Commissioned by Peer Richelsen for [Cal.com](https://cal.com). Drawn, engineered, and shipped by [WORDMARK](https://wordmark.nyc). Free for commercial and personal use, thanks to the [SIL Open Font License, Version 1.1](#license). Available now via NPM, coming to Google Fonts, and with your help could come to [Adobe Fonts via UserVoice request](https://adobefonts.uservoice.com/forums/940222-adobe-fonts-feature-requests-and-feedback/suggestions/51720489-cal-sans-sil-ofl-one-or-two-variable-files-gi).
 
 ## Made for humans.
 Like its namesake product, Cal Sans UI, Cal Sans Text, and Cal Sans Geo are easy to use. Every vector is placed to balance the geometry and flow just right for you.
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="documentation/images/svg/CalLines-dark.svg">
-  <img alt="Cal Sans A11y, Cal Sans UI, Cal Sans, and Cal Sans Geo in every weight." src="documentation/images/svg/CalLines.svg">
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/calcom/sans/main/documentation/images/svg/CalLines-dark.svg">
+  <img alt="Cal Sans A11y, Cal Sans UI, Cal Sans, and Cal Sans Geo in every weight." src="https://raw.githubusercontent.com/calcom/sans/main/documentation/images/svg/CalLines.svg">
 </picture>
 
 ## Geometrically perfect. In every size.
@@ -45,25 +56,24 @@ Like its namesake product, Cal Sans UI, Cal Sans Text, and Cal Sans Geo are easy
 If Inter is Univers and Geist is Helvetica, Cal Sans is Futura.
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="documentation/images/svg/geometry-mach-5-dark.svg">
-  <img alt="Mach 5 set across GEOM, SHRP, and optical sizes, normalized to one cap height" src="documentation/images/svg/geometry-mach-5.svg">
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/calcom/sans/main/documentation/images/svg/geometry-mach-5-dark.svg">
+  <img alt="Mach 5 set across GEOM, SHRP, and optical sizes, normalized to one cap height" src="https://raw.githubusercontent.com/calcom/sans/main/documentation/images/svg/geometry-mach-5.svg">
 </picture>
 
 Not the hundredth revival of the shapes; a return of the system. Bauer cut the original in metal size by size, down to 6 pt, and that discipline is what the digital revivals flattened into one drawing, scaled. Cal Sans brings it back. The 45 pt and the 10 pt styles are separate drawings: corners blunt as sizes fall, overshoots ease, spacing is cut per size and keeps widening through OpenType below 10 pt, and at 8 pt the a grows a tail for the hardest settings. The geometry is Renner's ideal. The sizes are how it reads.
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="documentation/images/svg/Geometry-dark.svg">
-  <img alt="The word acted going soft under blur, with its apertures marked" src="documentation/images/svg/Geometry.svg">
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/calcom/sans/main/documentation/images/svg/Geometry-dark.svg">
+  <img alt="The word acted going soft under blur, with its apertures marked" src="https://raw.githubusercontent.com/calcom/sans/main/documentation/images/svg/Geometry.svg">
 </picture>
 
 The acid test for legibility is to simulate the inevitable bad conditions. This separates the beautiful type designs from the dryly functional. I recommend blurring it. This simulates quickly-moving eyes, poor light, a far screen, or degenerative optical conditions.
 
-
 ## Shift the geometry.
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="documentation/images/svg/CalGraphics-top-dark.svg">
-  <img alt="GEOM axis demo" src="documentation/images/svg/CalGraphics-top.svg">
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/calcom/sans/main/documentation/images/svg/CalGraphics-top-dark.svg">
+  <img alt="GEOM axis demo" src="https://raw.githubusercontent.com/calcom/sans/main/documentation/images/svg/CalGraphics-top.svg">
 </picture>
 
 `GEOM` is the axis the others orbit. Slide it and the letterforms travel from accessibility-first neutrality to full geometry, landing on four named families as they go:
@@ -73,8 +83,8 @@ The acid test for legibility is to simulate the inevitable bad conditions. This 
 </div>
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="documentation/images/svg/GeomAxis-dark.svg">
-  <img alt="GEOM axis demo" src="documentation/images/svg/GeomAxis.svg">
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/calcom/sans/main/documentation/images/svg/GeomAxis-dark.svg">
+  <img alt="GEOM axis demo" src="https://raw.githubusercontent.com/calcom/sans/main/documentation/images/svg/GeomAxis.svg">
 </picture>
 
 Four typefaces in one axis. In the standard build, compatible letterforms switch cleanly at the boundaries. In **Cal Sans Flex**, they even morph between each other, humanist flowing into geometric mid-slide.
@@ -82,8 +92,8 @@ Four typefaces in one axis. In the standard build, compatible letterforms switch
 ## Tune the rest.
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="documentation/images/svg/VariableMorph-dark.svg">
-  <img alt="a (U+0061) interpolating from *wght* 400–700 *opsz* 10" src="documentation/images/svg/VariableMorph.svg">
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/calcom/sans/main/documentation/images/svg/VariableMorph-dark.svg">
+  <img alt="a (U+0061) interpolating from *wght* 400–700 *opsz* 10" src="https://raw.githubusercontent.com/calcom/sans/main/documentation/images/svg/VariableMorph.svg">
 </picture>
 
 Set the weight, 400 to 700. Raise the ascenders with `YTAS` for taller, airier headlines. Sharpen the corners with `SHRP` for display work. Lean into the real italics, drawn at 9.5° and powered by [Sebastian Carewe's Italify](https://www.sebastiancarewe.com/italify), not slanted by the browser.
@@ -92,13 +102,25 @@ The named instances cover one optical size and the four weights per family. Ever
 
 Full axis documentation lives in [fonts/README](fonts/README.md).
 
+
+## Built for buttons.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/calcom/sans/main/documentation/images/svg/Interoperable-dark.svg">
+  <img alt="Cal Sans UI Text cap height and x-height against other UI typefaces at 14px" src="https://raw.githubusercontent.com/calcom/sans/main/documentation/images/svg/Interoperable.svg">
+</picture>
+
+Two measurements decide whether a font behaves in a component: how tall the lowercase runs against the caps, and how far the line box sits off cap-center.
+Cal Sans UI Text holds its x-height at 71.5% of cap height, the classic UI proportion, not the taller lowercase of Inter and SF Pro. Descenders get 23% of the em, so mixed-case labels still read as mixed case at 14px.
+And the line box is cap-centred to within 0.02 em: the space above the capitals matches the space below the baseline, so a label sits in the optical middle of a button, badge or input. No nudging, no one-pixel padding hack.
+
 ## Your words, your way. Customize in 3 toolless ways.
 
 As a variable font, static font, or custom build, Cal Sans v2 is one of the most adaptable typographic systems available.
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="documentation/images/svg/CalThreeWays-dark.svg">
-  <img alt="Sticker Code" src="documentation/images/svg/CalThreeWays.svg">
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/calcom/sans/main/documentation/images/svg/CalThreeWays-dark.svg">
+  <img alt="Sticker Code" src="https://raw.githubusercontent.com/calcom/sans/main/documentation/images/svg/CalThreeWays.svg">
 </picture>
 
 ### №1 Variable stylistic control: the GEOM axis.
@@ -116,6 +138,42 @@ Twenty stylistic sets and forty-two character variants, ready to toggle wherever
 
 Choose new defaults and axis configurations, and freeze tabular figures and other OpenType features into something new, online, no command line or font software needed. Your favorite settings become the font's only settings. Hosting for custom builds is available too.
 
+## Built for buttons.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/calcom/sans/main/documentation/images/svg/Interoperable-dark.svg">
+  <img alt="Cal Sans cap height and x-height against Segoe UI, TikTok Sans, Helvetica, SF Pro, Inter, Geist, Roboto and Google Sans Flex at 14px" src="https://raw.githubusercontent.com/calcom/sans/main/documentation/images/svg/Interoperable.svg">
+</picture>
+
+Swapping a UI font shouldn’t mean re-tuning every button, badge and input. At text sizes, Cal Sans is drawn to fit the components you already have: the same space as the fonts they were tuned for, with labels that hold their shape and sit centered.
+
+### A drop-in for the UI fonts you already use.
+
+Cal Sans is drawn to the same vertical proportions as the system and open-source faces interfaces already ship with, so at the same `font-size` it sits in the same space.
+
+Above, each face is set at an equal size and stacked on one baseline. Cal Sans is the solid shape; the others are outlines. Every one of them has capitals within 3% of Cal Sans’s, and Cal Sans holds its x-height at 71.5% of cap height, inside the band those faces span. Measured at the Text UI instance (`opsz` 10, `GEOM` 25).
+
+| Typeface | Cap height | x-height |
+|---|---|---|
+| **Cal Sans Text UI** | **100.0%** | **71.5%** |
+| Segoe UI | 97.2% | 69.4% |
+| TikTok Sans | 97.9% | 73.0% |
+| Helvetica | 99.7% | 72.6% |
+| SF Pro Text | 97.9% | 73.1% |
+| Inter | 101.0% | 75.8% |
+| Roboto | 98.7% | 73.4% |
+| Google Sans Flex | 99.4% | 72.4% |
+
+*Each face at the same `font-size`, measured from its own H and x, as a percentage of Cal Sans’s cap height.*
+
+### Centered in the component.
+
+Two numbers decide how a label sits once the font is in: how deep the descenders reach, and how far the line box sits off cap-center.
+
+Descenders reach 31.9% of cap height below the baseline, so mixed-case labels still read as mixed case at 12px. And the line box is cap-centered to within 0.02 em: the space above the capitals matches the space below the baseline, so a label sits in the optical middle of a button, badge or input. No nudging, no one-pixel padding hack.
+
+An open-source alternative to Inter, Roboto and SF Pro for product UI: same space, no resizing, free under the [SIL Open Font License](#license).
+
 ## Pick your cut.
 
 Every release is a different cut of the same source, sorted and ready in [`fonts/`](fonts/):
@@ -123,20 +181,21 @@ Every release is a different cut of the same source, sorted and ready in [`fonts
 | Cut | What it is |
 |-----|------------|
 | **calsans-var-full** | Every axis. One file. The default choice. |
-| **calsans-var-flex** | Cal Sans, morphing. Letterforms blend along `GEOM` instead of switching. The first finished family to ship HOI in the open. |
+| **calsans-var-flex** | Cal Sans, morphing. Letterforms blend along `GEOM` instead of switching. The first finished family to ship HOI in the open. Needs a renderer with `avar2`; without it you get every drawn form, switching cleanly. Both files in the folder are listed in [`fonts/README.md`](fonts/README.md). |
 | **calsans-cossui** | The lean product build. Alternates subset out, italics style-linked, and `opsz` re-tuned to peak at 32 pt so headlines hit harder, sooner. Made for Cal.com, ready for Framer. |
 | **calsans-static-essentials** | Two families, sixteen fonts, zero decisions. Start here. |
+| **[@calcom/cal-sans-ui](https://www.npmjs.com/package/@calcom/cal-sans-ui)** | The interface cut, shipped on npm rather than in `fonts/`. `opsz` pinned at the 10 pt drawing, every other axis live. A drop-in beside Inter, SF Pro and the system stack: same space, no resizing. `npm i @calcom/cal-sans-ui` |
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="documentation/images/svg/CalStatics-dark.svg">
-  <img alt="Cal Sans A11y, Cal Sans UI, Cal Sans, and Cal Sans Geo in every style and optical size." src="documentation/images/svg/CalStatics.svg">
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/calcom/sans/main/documentation/images/svg/CalStatics-dark.svg">
+  <img alt="Cal Sans A11y, Cal Sans UI, Cal Sans, and Cal Sans Geo in every style and optical size." src="https://raw.githubusercontent.com/calcom/sans/main/documentation/images/svg/CalStatics.svg">
 </picture>
 
 The full catalog (384 static styles, per-family subsets, Google Fonts packages) is in [fonts/README](fonts/README.md).
 
 ## OpenType features.
 
-Start with **[the character-alternative catalog](documentation/character-alternatives.md)**: every set and variant, every letter it reshapes, drawn straight out of the finished font. Twenty stylistic sets and forty-two character variants ride in the full cuts; the lean `cossui` and Google Fonts builds subset them out to stay light.
+Start with **[the character-alternative catalog](https://github.com/calcom/sans/blob/main/documentation/character-alternatives.md)**: every set and variant, every letter it reshapes, drawn straight out of the finished font. Twenty stylistic sets and forty-two character variants ride in the full cuts; the lean `cossui` and Google Fonts builds subset them out to stay light.
 
 ## Build it yourself.
 
@@ -148,7 +207,7 @@ One command runs **calBuild**, a compiler built for this typeface alone. Using C
 
 **Cal Sans VF.** The complete variable font, interpolated from the master drawings. calBuild starts by measuring the drawings themselves, taking true stem readings from the letters before a single style is compiled, then lifts the lowercase accents into the room taller ascenders create.
 
-**Cal Sans Flex.** The morphing build. Powered by avar2, the axes coordinate on their own: shrink the size and the ascenders rise to meet it, for fine print that reads like it was set by hand. And a new HOI interpolation engine moves every point along curves instead of straight lines, so letterforms bend through the geometry as if redrawn, never recalculated.
+**Cal Sans Flex.** The morphing build. Powered by avar2, the axes coordinate on their own: shrink the size and the ascenders rise to meet it, for fine print that reads like it was set by hand. And a new HOI interpolation engine moves every point along curves instead of straight lines, so letterforms bend through the geometry as if redrawn, never recalculated. HOI fonts require multiple hidden avar2 axes: three helpers that `GEOM` drives, whose products make the curves.
 
 **Cal Sans Statics.** All 384, cut from the variable font with the right letterforms already inside, ready for every platform that has never heard of an axis.
 
