@@ -27,7 +27,7 @@ from fontTools.pens.transformPen import TransformPen
 from scripts import config
 
 CELL_W, CELL_H = 128, 160
-SCALE = 0.096
+SCALE = 0.048
 BASELINE_Y = 104.99201
 FILL_LIGHT = "#20242e"
 FILL_DARK = "#dee4e3"
@@ -172,8 +172,10 @@ def draw(glyph_set, hmtx, name, fill):
 
 def slug(name):
     """Glyph name -> filename stem. '.' is the only character Glyphs names
-    carry that reads badly in a path next to the .light/.dark suffix."""
-    return name.replace(".", "-")
+    carry that reads badly in a path next to the .light/.dark suffix. Capitals
+    get a trailing '_' (as .glyphspackage does) so C.ss10 and c.ss10 don't
+    collapse into one file on a case-insensitive disk."""
+    return re.sub(r"([A-Z])", r"\1_", name).replace(".", "-")
 
 
 # ------------------------------------------------------------------ markdown

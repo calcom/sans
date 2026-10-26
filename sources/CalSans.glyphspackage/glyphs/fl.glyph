@@ -7,7 +7,7 @@ layers = (
 anchors = (
 {
 name = caret_1;
-pos = (409,0);
+pos = (818,0);
 }
 );
 background = {
@@ -32,21 +32,21 @@ ref = fpart.comb;
 piece = {
 width = 514;
 };
-pos = (-5,0);
+pos = (-10,0);
 ref = _part.stroke;
 },
 {
-pos = (376,0);
+pos = (752,0);
 ref = l;
 }
 );
-width = 678;
+width = 1356;
 },
 {
 anchors = (
 {
 name = caret_1;
-pos = (389,0);
+pos = (778,0);
 }
 );
 background = {
@@ -68,21 +68,21 @@ ref = fpart.comb;
 piece = {
 width = 485;
 };
-pos = (-5,0);
+pos = (-10,0);
 ref = _part.stroke;
 },
 {
-pos = (376,0);
+pos = (752,0);
 ref = l;
 }
 );
-width = 632;
+width = 1264;
 },
 {
 anchors = (
 {
 name = caret_1;
-pos = (312,0);
+pos = (624,0);
 }
 );
 background = {
@@ -110,17 +110,17 @@ width = 430;
 ref = _part.stroke;
 },
 {
-pos = (315,0);
+pos = (630,0);
 ref = l;
 }
 );
-width = 534;
+width = 1068;
 },
 {
 anchors = (
 {
 name = caret_1;
-pos = (300,0);
+pos = (600,0);
 }
 );
 background = {
@@ -148,17 +148,17 @@ width = 385;
 ref = _part.stroke;
 },
 {
-pos = (302,0);
+pos = (604,0);
 ref = l;
 }
 );
-width = 476;
+width = 952;
 },
 {
 anchors = (
 {
 name = caret_1;
-pos = (267,0);
+pos = (534,0);
 }
 );
 background = {
@@ -186,17 +186,17 @@ width = 430;
 ref = _part.stroke;
 },
 {
-pos = (315,0);
+pos = (630,0);
 ref = l;
 }
 );
-width = 534;
+width = 1068;
 },
 {
 anchors = (
 {
 name = caret_1;
-pos = (256,0);
+pos = (512,0);
 }
 );
 background = {
@@ -224,17 +224,17 @@ width = 385;
 ref = _part.stroke;
 },
 {
-pos = (302,0);
+pos = (604,0);
 ref = l;
 }
 );
-width = 476;
+width = 952;
 },
 {
 anchors = (
 {
 name = caret_1;
-pos = (365,0);
+pos = (730,0);
 }
 );
 background = {
@@ -259,21 +259,21 @@ ref = fpart.comb;
 piece = {
 width = 514;
 };
-pos = (-5,0);
+pos = (-10,0);
 ref = _part.stroke;
 },
 {
-pos = (376,0);
+pos = (752,0);
 ref = l;
 }
 );
-width = 678;
+width = 1356;
 },
 {
 anchors = (
 {
 name = caret_1;
-pos = (346,0);
+pos = (692,0);
 }
 );
 background = {
@@ -295,15 +295,15 @@ ref = fpart.comb;
 piece = {
 width = 485;
 };
-pos = (-5,0);
+pos = (-10,0);
 ref = _part.stroke;
 },
 {
-pos = (376,0);
+pos = (752,0);
 ref = l;
 }
 );
-width = 632;
+width = 1264;
 }
 );
 metricLeft = f;

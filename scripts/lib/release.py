@@ -99,16 +99,21 @@ def _subset_ss_cv(font: TTFont):
 
 
 def _relabel_opsz_max(font: TTFont, new_max: float):
-    """Relabel the opsz axis maximum down to new_max WITHOUT resampling outlines: gvar
+    """Relabel the opsz axis maximum to new_max WITHOUT resampling outlines: gvar
     deltas live in normalized space and the large-optical master sits at normalized +1.0,
-    so after lowering fvar maxValue, input=new_max still maps to that master design. This
+    so after moving fvar maxValue, input=new_max still maps to that master design. This
     is a pure relabel (fvar/STAT/instance metadata) — not an instancer range-limit, which
-    would interpolate a milder design at new_max. Used so cossui presents opsz 8–new_max
-    while shipping the same display drawing the full build labels at the source max."""
+    would interpolate a milder design at new_max. Used so cossui presents opsz 8–32 and
+    gf-api 8–48 while both ship the same display drawing the full build labels at 45.
+
+    Works in both directions. Lowering (cossui 45→32) and raising (gf-api 45→48) are the
+    same operation on the same metadata; what moves is only the number the extreme design
+    answers to. Raising does mean an input of 45 now lands short of the master and gets an
+    interpolated, slightly milder design — correct, since 45 is no longer the extreme."""
     fvar = font["fvar"]
     axis = axis_by_tag(fvar.axes, "opsz")
     old_max = axis.maxValue
-    if new_max >= old_max:
+    if new_max == old_max:
         return
     axis.maxValue = new_max
     for inst in fvar.instances:
@@ -337,6 +342,30 @@ def _fix_gf_stat(font: TTFont):
             if getattr(axv, "AxisIndex", None) == opsz_i:
                 axv.Flags &= ~0x0002                 # ELIDABLE_AXIS_VALUE_NAME
 
+    name = font["name"]
+    def _name_id(string):
+        for rec in name.names:
+            if rec.nameID >= 256 and rec.toUnicode() == string:
+                return rec.nameID
+        return name.addName(string)
+
+    # GFAxisRegistry names: rename opsz values (by value) and drop values the registry
+    # does not list (SHRP "Sharp"). Done on the AxisValueArray before ital handling.
+    if config.GF_OPSZ_STAT_NAMES and "opsz" in axes:
+        opsz_i = axes.index("opsz")
+        for axv in getattr(stat.AxisValueArray, "AxisValue", []) or []:
+            if getattr(axv, "AxisIndex", None) == opsz_i and axv.Format == 1:
+                new = config.GF_OPSZ_STAT_NAMES.get(round(axv.Value))
+                if new:
+                    axv.ValueNameID = _name_id(new)
+    drop = [(axes.index(t), v) for t, vs in config.GF_STAT_DROP_VALUES.items()
+            if t in axes for v in vs]
+    if drop and getattr(stat.AxisValueArray, "AxisValue", None):
+        stat.AxisValueArray.AxisValue = [
+            a for a in stat.AxisValueArray.AxisValue
+            if not (a.Format == 1 and (a.AxisIndex, round(a.Value)) in drop)]
+        stat.AxisValueCount = len(stat.AxisValueArray.AxisValue)
+
     if not config.GF_ENSURE_ITAL_STAT:
         return
     is_italic = bool(font["OS/2"].fsSelection & 0x0001)
@@ -509,6 +538,7 @@ def _build_gf_api(src_ttf: Path, dest_dir: Path):
     for ital_value, suffix, subfamily in targets:
         font = TTFont(str(src_ttf))
         _subset_ss_cv(font)
+        _relabel_opsz_max(font, config.GF_API_OPSZ_MAX)
         if has_ital:
             instantiateVariableFont(font, {"ital": ital_value}, inplace=True, updateFontNames=False)
         _set_style_names(font, subfamily)
@@ -521,6 +551,67 @@ def _build_gf_api(src_ttf: Path, dest_dir: Path):
         font.save(str(dest_ttf))
         font.flavor = "woff2"
         font.save(str(dest_ttf.with_suffix(".woff2")))
+
+
+def _gf_static_names(style: dict) -> tuple:
+    """gf-api-static naming for a style-matrix entry: the opsz word moves out of the
+    middle of the family and becomes a point-size suffix on it.
+
+        Cal Sans Text A11y Medium Italic  →  Cal Sans A11y 10pt Medium Italic
+        Cal Sans Micro SemiBold           →  Cal Sans 8pt SemiBold
+        Cal Sans Geo Bold                 →  Cal Sans Geo Bold        (display, unsuffixed)
+
+    Returns (style_name, ps_name). The two spell the tier differently on purpose: the
+    READABLE name separates with a space like the rest of the family, while the
+    PostScript name and filename use the underscore — SourceSerif4_48pt-Regular.ttf is
+    named "Source Serif 4 48pt", the underscore being a filename device and not part of
+    what a font menu shows. Composed from the style's own token ids rather than by
+    rewriting the existing name, so 'base' GEOM keeps contributing nothing
+    (STATIC_GEOM_TOKENS maps it to "")."""
+    geom = dict(config.STATIC_GEOM_TOKENS)[style["geom"]]
+    wght = dict(config.STATIC_WGHT_TOKENS)[style["wght"]]
+    ital = dict(config.STATIC_ITAL_TOKENS)[style["ital"]]
+    tier = config.GF_STATIC_OPSZ_SUFFIX[style["opsz"]]          # "", "_10pt", "_8pt"
+    stem = " ".join(t for t in ("Cal Sans", geom) if t)
+    family = stem + tier.replace("_", " ")
+    # RIBBI elision, as everywhere else: the 400 italic is "Italic", never "Regular Italic".
+    subfamily = " ".join(t for t in (("" if wght == "Regular" and ital else wght), ital) if t)
+    ps = f"{stem.replace(' ', '')}{tier}-{subfamily.replace(' ', '')}"
+    return f"{family} {subfamily}".strip(), ps
+
+
+def _build_gf_api_static(styles: list, static_dir: Path, dest_dir: Path) -> int:
+    """gf-api-static: the whole static matrix (all four GEOM families × three optical
+    tiers), renamed to the point-size convention and GF-conformed. TTF-only, ss/cv
+    subset out like every other GF folder.
+
+    Nothing here instances anything — each file is a static the matrix already produced,
+    re-read under a new name. Returns the count of styles it could not find.
+
+    Scope note: this ships 12 GF families (4 GEOM × 3 opsz). google/fonts#9970 settled
+    that GEOM-named families stay OUT of GF, with the UI/Text position going as the
+    separate 'Cal Sans Text UI'; Mark reopened that deliberately on 2026-09-08. The
+    gf-api-textui folder is unaffected and still ships that agreed family."""
+    from scripts.lib.manifest import style_name_records
+    dest_dir.mkdir(parents=True, exist_ok=True)
+    missing = 0
+    for s in styles:
+        src = static_dir / s["filename"]
+        if not src.exists():
+            missing += 1
+            continue
+        gf_name, ps = _gf_static_names(s)
+        font = TTFont(str(src))
+        _subset_ss_cv(font)
+        r = style_name_records(gf_name)
+        r["records"][6] = ps      # underscore tier: PostScript name matches the filename
+        name = font["name"]
+        for nid, val in r["records"].items():
+            name.setName(val, nid, 3, 1, 0x0409)  # Windows, English (US)
+            name.setName(val, nid, 1, 0, 0)        # Mac, Roman
+        _apply_gf_conformance(font)
+        font.save(str(dest_dir / f"{ps}.ttf"))
+    return missing
 
 
 def _make_curved_l_default(font: TTFont):
@@ -628,7 +719,7 @@ def _make_curved_l_default(font: TTFont):
 def _save_with_curved_l_names(font: TTFont, dest_ttf: Path, woff2: bool = True):
     """Serialize, then rename glyphs on the reloaded binary: curved *.rcltA11y take
     over the canonical names (l, lacute, …) and any surviving straight originals
-    become *.rcltDflt (hoi.py's I.rcltDflt convention). Glyph names live only in the
+    become *.rcltDflt (piecewise_phlex.py's I.rcltDflt convention). Glyph names live only in the
     post table, and GIDs don't move, so relabeling the lazy-loaded binary is safe —
     renaming the DECOMPILED font would be corruption: every fontTools table is keyed
     by name there, so a rename silently rebinds outlines, kerning, and rules."""
@@ -698,7 +789,10 @@ def _build_gf_textui(src_ttf: Path, dest_dir: Path):
             axes["ital"] = ital_value
         font = _instance_textui(src_ttf, axes)
         _set_style_names(font, subfamily, family=config.GF_TEXTUI_FAMILY)
-        buildStatTable(font, stat_axes, elidedFallbackName=config.STAT_ELIDED_FALLBACK)
+        # each file carries only its own ital record (the roman's keeps the style link)
+        file_axes = [dict(a, values=[v for v in a["values"] if v["value"] == ital_value])
+                     if a["tag"] == "ital" else a for a in stat_axes]
+        buildStatTable(font, file_axes, elidedFallbackName=config.STAT_ELIDED_FALLBACK)
         if config.GF_TRIM_INSTANCES:
             _trim_gf_instances(font, ps_suffix=suffix)
         _set_gf_version(font)            # name/version_format ("Version X.YYY"[; sha])
@@ -708,8 +802,8 @@ def _build_gf_textui(src_ttf: Path, dest_dir: Path):
 
 def _build_gf_workspace_textui(var_ttf: Path, dest_dir: Path, build_italic: bool):
     """Workspace statics for the Text UI half: instanced fresh from the VF at the
-    gf-api-textui position (YTAS=760, curved l default — google/fonts#9970) instead of
-    copied from the static matrix, which pins YTAS=720 with the straight l. Same
+    gf-api-textui position (YTAS=1520, curved l default — google/fonts#9970) instead of
+    copied from the static matrix, which pins YTAS=1440 with the straight l. Same
     filenames as the matrix statics they replace; ss/cv subset out; TTF-only."""
     from scripts.lib.instance_statics import _apply_static_names
     dest_dir.mkdir(parents=True, exist_ok=True)
@@ -754,6 +848,30 @@ def _build_cossui(src_ttf: Path, dest_dir: Path):
         font.save(str(dest_ttf.with_suffix(".woff2")))
 
 
+def _build_adobe_vf(src_ttf: Path, dest_dir: Path):
+    """adobe-vf: var-full, split into roman + italic variable fonts and nothing else.
+
+    Same split as cossui and gf-api, for the same reason — a host that only knows
+    "italic" cannot activate an `ital` axis and fakes an oblique instead — but this is
+    the FULL font: ss/cv features stay in, opsz keeps the source's 8–45, no GF
+    conformance pass. The only difference from var-full is that ital is instanced out
+    of fvar and survives as the STAT style-link record."""
+    from fontTools.varLib.instancer import instantiateVariableFont
+    dest_dir.mkdir(parents=True, exist_ok=True)
+
+    has_ital = any(a.axisTag == "ital" for a in TTFont(str(src_ttf))["fvar"].axes)
+    targets = [(0, "", "Regular")] + ([(1, "-Italic", "Italic")] if has_ital else [])
+    for ital_value, suffix, subfamily in targets:
+        font = TTFont(str(src_ttf))
+        if has_ital:
+            instantiateVariableFont(font, {"ital": ital_value}, inplace=True, updateFontNames=False)
+        _set_style_names(font, subfamily)   # also injects post.italicAngle on the italic
+        dest_ttf = dest_dir / f"{src_ttf.stem}{suffix}.ttf"
+        font.save(str(dest_ttf))
+        font.flavor = "woff2"
+        font.save(str(dest_ttf.with_suffix(".woff2")))
+
+
 def _audit_italic_instances(pkg_dir: Path) -> list:
     """Every italic variable font in a package whose named instances forget the slope.
 
@@ -769,6 +887,32 @@ def _audit_italic_instances(pkg_dir: Path) -> list:
                 bad.append((path.name, names))
         font.close()
     return bad
+
+
+def _emit_fonts_readme(src: Path, dest: Path, var_dir: Path):
+    """Copy the fonts/ README template, rewriting every vX.YYY to the version actually built.
+
+    The number is read from the compiled variable font's name ID 5, the same source
+    bump_primitives._sync_readme uses for wm-primitives, so the two can never disagree. If no
+    font is there to read, the template is copied through untouched and the run says so.
+    """
+    text = src.read_text()
+    ttf = next((t for t in sorted(var_dir.glob("*.ttf"))), None)
+    version = None
+    if ttf is not None:
+        name5 = TTFont(str(ttf))["name"].getDebugName(5) or ""
+        m = re.search(r"Version\s+([\d.]+)", name5)
+        if m:
+            version = m.group(1)
+    if version is None:
+        shutil.copy2(src, dest)
+        print(f"   ⚠️  fonts/README.md: no version readable from {var_dir}/ — template copied as-is")
+        return
+    # Matches the vX.XXX placeholder AND a real version, so re-stamping an already-stamped
+    # copy works and the template's placeholder is not silently skipped.
+    text, n = re.subn(r"v(?:X\.XXX|\d+\.\d+)", f"v{version}", text)
+    dest.write_text(text)
+    print(f"   ✅ fonts/README.md stamped v{version} ({n} mention{'s' if n != 1 else ''})")
 
 
 def _report(pkg_dir: Path, label: str):
@@ -799,7 +943,7 @@ def compress_build_outputs(build_dir: str):
 
 
 def build_release_folders(build_dir: str, output_dir: str, build_italic: bool = False,
-                          flex_var_ttf: str = None):
+                          flex_var_ttf: str = None, phlex_var_ttf: str = None):
     build_path = Path(build_dir)
     out_path   = Path(output_dir)
     var_dir    = build_path / "variable"
@@ -811,10 +955,12 @@ def build_release_folders(build_dir: str, output_dir: str, build_italic: bool = 
         shutil.rmtree(out_path)
     out_path.mkdir()
 
-    # fonts/ is wiped above, so re-emit its README each run from the source copy.
+    # fonts/ is wiped above, so re-emit its README each run from the source copy, STAMPING the
+    # version as it goes. The template's version is a placeholder; hand-typing it meant the file
+    # said v1.999 beside a 2.000 binary, then v2.001 through both 2.003 and 2.007.
     readme_src = Path(__file__).parent / "fonts_README.md"
     if readme_src.exists():
-        shutil.copy2(readme_src, out_path / "README.md")
+        _emit_fonts_readme(readme_src, out_path / "README.md", var_dir)
 
     print("📦 Building release folders...")
     missing = 0
@@ -832,13 +978,24 @@ def build_release_folders(build_dir: str, output_dir: str, build_italic: bool = 
         _copy_pair(var_dir, ttf.name, pkg)
     _report(pkg, f"{_PFX}-var-full")
 
-    # var-flex: the HOI morphing build (Flex-family only) → avar2, YTAS hidden/slaved to opsz.
-    # Uses the HOI variable TTF when the flex stage produced one; else falls back to the base VF.
+    # adobe-vf: var-full split into roman + italic VFs for Adobe Fonts. Full feature set,
+    # full opsz range — the split is the only difference from var-full.
+    pkg = out_path / f"{_PFX}-adobe-vf"
+    for ttf in sorted(var_dir.glob("*.ttf")):
+        _build_adobe_vf(ttf, pkg)
+    _report(pkg, f"{_PFX}-adobe-vf")
+
+    # var-flex: both morphing builds, same avar2 / hidden-YTAS treatment, each its own family.
+    # Cal Sans Flex: true HOI (morphs ride hidden helper axes, the stock rclt swaps stay, so
+    # renderers without avar2 still get every drawing). Cal Sans Phlex: piecewise HOI (GEOM brace
+    # morphs, morphed swaps stripped); falls back to the base VF when its stage did not run.
     pkg = out_path / f"{_PFX}-var-flex"
     pkg.mkdir(parents=True, exist_ok=True)
-    flex_input = flex_var_ttf or next((str(t) for t in sorted(var_dir.glob("*.ttf"))), None)
-    if flex_input:
-        build_flex(flex_input, str(pkg))
+    if flex_var_ttf:
+        build_flex(flex_var_ttf, str(pkg), family=config.FLEX_FAMILY_NAME)
+    phlex_input = phlex_var_ttf or next((str(t) for t in sorted(var_dir.glob("*.ttf"))), None)
+    if phlex_input:
+        build_flex(phlex_input, str(pkg), family=config.PHLEX_FAMILY_NAME)
     _report(pkg, f"{_PFX}-var-flex")
 
     # cossui: roman + italic as TWO variable fonts (ital instanced out), ss/cv stripped.
@@ -896,6 +1053,17 @@ def build_release_folders(build_dir: str, output_dir: str, build_italic: bool = 
         copy_styles(subset, pkg)
         _report(pkg, f"{_PFX}-static-{geom_id}")
 
+    # gf-api-static: every GEOM family × every optical tier, base YTAS/SHRP, renamed to
+    # the point-size convention (Cal Sans_10pt, Cal Sans A11y_8pt, …). Copied from the
+    # static matrix — nothing re-instanced.
+    pkg = out_path / f"{_PFX}-gf-api-static"
+    gf_static_styles = [s for s in styles if s["ytas"] == "base" and s["shrp"] == "base"]
+    print("   ⚠️  gf-api-static ships 12 GF families (4 GEOM × 3 opsz) — reopens the "
+          "google/fonts#9970 agreement that GEOM families stay out of GF.")
+    missing += _build_gf_api_static(gf_static_styles, static_dir, pkg)
+    _unify_family_win_metrics(pkg)
+    _report(pkg, f"{_PFX}-gf-api-static")
+
     # Cal Sans (Display/Base) + Cal Sans UI Text, base YTAS/SHRP, all 4 weights,
     # roman + italic → 8 roman / 16 with italic. Shared by essentials + gf-workspace.
     def is_text_family(s):
@@ -914,8 +1082,8 @@ def build_release_folders(build_dir: str, output_dir: str, build_italic: bool = 
     # gf-workspace: same family for Google Fonts onboarding, but ss/cv (+ aalt and
     # their alternate glyphs) stripped like cossui/gf-api; TTF-only. The Display/Base
     # half copies from the static matrix; the Text UI half is instanced fresh at the
-    # gf-api-textui position (YTAS=760, curved l — google/fonts#9970), which the
-    # matrix statics (YTAS=720, straight l) no longer represent.
+    # gf-api-textui position (YTAS=1520, curved l — google/fonts#9970), which the
+    # matrix statics (YTAS=1440, straight l) no longer represent.
     pkg = out_path / f"{_PFX}-gf-workspace"
     pkg.mkdir(parents=True, exist_ok=True)
     for s in [s for s in text_family_styles if s["geom"] == "base"]:
@@ -939,3 +1107,5 @@ def build_release_folders(build_dir: str, output_dir: str, build_italic: bool = 
         print(f"   Run fontmake first, or check style_name_to_filename() in scripts/manifest.py")
 
     print(f"\n✅ Release folders written to {output_dir}/")
+    print("   📝 did you update fonts/README.md? edit scripts/lib/fonts_README.md — "
+          "fonts/README.md is regenerated every build")

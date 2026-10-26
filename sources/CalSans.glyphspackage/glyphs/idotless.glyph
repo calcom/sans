@@ -8,15 +8,15 @@ layers = (
 anchors = (
 {
 name = bottom;
-pos = (151,0);
+pos = (302,0);
 },
 {
 name = ogonek;
-pos = (121,0);
+pos = (242,0);
 },
 {
 name = top;
-pos = (151,529);
+pos = (302,1058);
 }
 );
 hints = (
@@ -43,28 +43,28 @@ shapes = (
 {
 closed = 1;
 nodes = (
-(222,0,l),
-(222,529,l),
-(80,529,l),
-(80,0,l)
+(444,0,l),
+(444,1058,l),
+(160,1058,l),
+(160,0,l)
 );
 }
 );
-width = 302;
+width = 604;
 },
 {
 anchors = (
 {
 name = bottom;
-pos = (128,0);
+pos = (256,0);
 },
 {
 name = ogonek;
-pos = (89,0);
+pos = (178,0);
 },
 {
 name = top;
-pos = (128,514);
+pos = (256,1028);
 }
 );
 hints = (
@@ -91,28 +91,28 @@ shapes = (
 {
 closed = 1;
 nodes = (
-(172,0,l),
-(172,514,l),
-(84,514,l),
-(84,0,l)
+(344,0,l),
+(344,1028,l),
+(168,1028,l),
+(168,0,l)
 );
 }
 );
-width = 256;
+width = 512;
 },
 {
 anchors = (
 {
 name = bottom;
-pos = (110,0);
+pos = (220,0);
 },
 {
 name = ogonek;
-pos = (86,0);
+pos = (172,0);
 },
 {
 name = top;
-pos = (110,535);
+pos = (220,1070);
 }
 );
 hints = (
@@ -139,28 +139,28 @@ shapes = (
 {
 closed = 1;
 nodes = (
-(179,0,l),
-(179,535,l),
-(40,535,l),
-(40,0,l)
+(358,0,l),
+(358,1070,l),
+(80,1070,l),
+(80,0,l)
 );
 }
 );
-width = 219;
+width = 438;
 },
 {
 anchors = (
 {
 name = bottom;
-pos = (83,0);
+pos = (166,0);
 },
 {
 name = ogonek;
-pos = (55,0);
+pos = (110,0);
 },
 {
 name = top;
-pos = (85,520);
+pos = (170,1040);
 }
 );
 hints = (
@@ -188,43 +188,43 @@ shapes = (
 {
 closed = 1;
 nodes = (
-(128,0,l),
-(128,520,l),
-(42,520,l),
-(42,0,l)
+(256,0,l),
+(256,1040,l),
+(84,1040,l),
+(84,0,l)
 );
 }
 );
-width = 170;
+width = 340;
 },
 {
 anchors = (
 {
 name = bottom;
-pos = (65,0);
+pos = (130,0);
 },
 {
 name = ogonek;
-pos = (53,0);
+pos = (106,0);
 },
 {
 name = top;
-pos = (155,535);
+pos = (310,1070);
 }
 );
 background = {
 anchors = (
 {
 name = bottom;
-pos = (65,0);
+pos = (130,0);
 },
 {
 name = ogonek;
-pos = (41,0);
+pos = (82,0);
 },
 {
 name = top;
-pos = (155,535);
+pos = (310,1070);
 }
 );
 hints = (
@@ -250,10 +250,10 @@ shapes = (
 {
 closed = 1;
 nodes = (
-(134,0,l),
-(224,535,l),
-(85,535,l),
-(-5,0,l)
+(268,0,l),
+(448,1070,l),
+(170,1070,l),
+(-10,0,l)
 );
 }
 );
@@ -282,42 +282,42 @@ shapes = (
 {
 closed = 1;
 nodes = (
-(134,0,l),
-(224,535,l),
-(85,535,l),
-(-5,0,l)
+(268,0,l),
+(448,1070,l),
+(170,1070,l),
+(-10,0,l)
 );
 }
 );
-width = 219;
+width = 438;
 },
 {
 anchors = (
 {
 name = bottom;
-pos = (39,0);
+pos = (78,0);
 },
 {
 name = ogonek;
-pos = (12,0);
+pos = (24,0);
 },
 {
 name = top;
-pos = (129,520);
+pos = (258,1040);
 }
 );
 background = {
 anchors = (
 {
 name = bottom;
-pos = (39,0);
+pos = (78,0);
 },
 {
 name = ogonek;
 },
 {
 name = top;
-pos = (129,520);
+pos = (258,1040);
 }
 );
 hints = (
@@ -343,10 +343,10 @@ shapes = (
 {
 closed = 1;
 nodes = (
-(84,0,l),
-(172,520,l),
-(86,520,l),
-(-2,0,l)
+(168,0,l),
+(344,1040,l),
+(172,1040,l),
+(-4,0,l)
 );
 }
 );
@@ -376,43 +376,43 @@ shapes = (
 {
 closed = 1;
 nodes = (
-(84,0,l),
-(172,520,l),
-(86,520,l),
-(-2,0,l)
+(168,0,l),
+(344,1040,l),
+(172,1040,l),
+(-4,0,l)
 );
 }
 );
-width = 170;
+width = 340;
 },
 {
 anchors = (
 {
 name = bottom;
-pos = (107,0);
+pos = (214,0);
 },
 {
 name = ogonek;
-pos = (85,0);
+pos = (170,0);
 },
 {
 name = top;
-pos = (195,529);
+pos = (390,1058);
 }
 );
 background = {
 anchors = (
 {
 name = bottom;
-pos = (107,0);
+pos = (214,0);
 },
 {
 name = ogonek;
-pos = (85,0);
+pos = (170,0);
 },
 {
 name = top;
-pos = (195,529);
+pos = (390,1058);
 }
 );
 hints = (
@@ -438,10 +438,10 @@ shapes = (
 {
 closed = 1;
 nodes = (
-(178,0,l),
-(266,529,l),
-(124,529,l),
-(36,0,l)
+(356,0,l),
+(532,1058,l),
+(248,1058,l),
+(72,0,l)
 );
 }
 );
@@ -470,43 +470,43 @@ shapes = (
 {
 closed = 1;
 nodes = (
-(178,0,l),
-(266,529,l),
-(124,529,l),
-(36,0,l)
+(356,0,l),
+(532,1058,l),
+(248,1058,l),
+(72,0,l)
 );
 }
 );
-width = 302;
+width = 604;
 },
 {
 anchors = (
 {
 name = bottom;
-pos = (85,0);
+pos = (170,0);
 },
 {
 name = ogonek;
-pos = (46,0);
+pos = (92,0);
 },
 {
 name = top;
-pos = (171,514);
+pos = (342,1028);
 }
 );
 background = {
 anchors = (
 {
 name = bottom;
-pos = (85,0);
+pos = (170,0);
 },
 {
 name = ogonek;
-pos = (46,0);
+pos = (92,0);
 },
 {
 name = top;
-pos = (171,514);
+pos = (342,1028);
 }
 );
 hints = (
@@ -532,10 +532,10 @@ shapes = (
 {
 closed = 1;
 nodes = (
-(129,0,l),
-(215,514,l),
-(127,514,l),
-(41,0,l)
+(258,0,l),
+(430,1028,l),
+(254,1028,l),
+(82,0,l)
 );
 }
 );
@@ -564,14 +564,14 @@ shapes = (
 {
 closed = 1;
 nodes = (
-(129,0,l),
-(215,514,l),
-(127,514,l),
-(41,0,l)
+(258,0,l),
+(430,1028,l),
+(254,1028,l),
+(82,0,l)
 );
 }
 );
-width = 256;
+width = 512;
 }
 );
 unicode = 305;

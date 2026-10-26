@@ -157,6 +157,137 @@ def prepare_for_fontmake(font, verbose=False):
         font.featurePrefixes = lang + rest
         print(f"   ✅ Moved {len(lang)} languagesystem prefix(es) before variation blocks")
 
+    align_composite_braces(font)
+
+
+def align_composite_braces(font):
+    """Give auto-aligned composites the brace layers their components have, as Glyphs does live.
+
+    In Glyphs an auto-aligned composite takes its advance from its base and seats its marks on the
+    base's anchors at EVERY location, braces included. glyphsLib only reads the composite's own
+    layers, so where only the base has a brace the composite keeps the master's advance and mark
+    positions: y narrows to 1080 at SHRP 100 (opsz 10) while ý stays 1098, ź is 108u off z, Á 113u
+    off A. Here each missing brace is added: bases keep their order and push what follows by their
+    own advance change, a mark rides the anchor it attaches to on the last base carrying it.
+    Composites with any alignment-disabled component (.tf figures, fractions) hold their own width
+    and are left alone. YTAS braces are skipped: inject_ytas_ascend_braces owns them."""
+    axes = [a.axisTag for a in font.axes]
+    ytas_i = axes.index("YTAS")
+    masters = {m.id: m for m in font.masters}
+
+    def braces(glyph, mid):
+        """{coords: layer} — the non-YTAS braces of `glyph` on master `mid`."""
+        out, m = {}, masters[mid]
+        for L in glyph.layers:
+            c = (getattr(L, "attributes", {}) or {}).get("coordinates")
+            if not c or L.associatedMasterId != mid or L.layerId == mid:
+                continue
+            moved = [i for i, (a, b) in enumerate(zip(c, m.axes)) if float(a) != float(b)]
+            if moved and ytas_i not in moved:
+                out[tuple(float(v) for v in c)] = L
+        return out
+
+    def anchors(layer):
+        return {a.name: (a.position.x, a.position.y) for a in layer.anchors}
+
+    done, added, glyphs_touched = set(), 0, set()
+
+    def visit(glyph):
+        nonlocal added
+        if glyph.name in done:
+            return
+        done.add(glyph.name)
+        for mid in masters:
+            ml = glyph.layers[mid]
+            if ml is None or not ml.components:
+                continue
+            parts = [font.glyphs[c.name] for c in ml.components]
+            if any(p is None for p in parts) or any(c.alignment == -1 for c in ml.components):
+                return
+            for p in parts:
+                visit(p)                                  # nested composites first
+            mine = braces(glyph, mid)
+            wanted = set().union(*(braces(p, mid) for p in parts)) - set(mine)
+            for coords in sorted(wanted):
+                br, run, bases, moved = _clone_layer(ml), 0.0, [], False
+                for c, p in zip(br.components, parts):
+                    pm, pb = p.layers[mid], braces(p, mid).get(coords)
+                    pb = pb or pm
+                    da = {n: (pb_xy[0] - pm_xy[0], pb_xy[1] - pm_xy[1])
+                          for n, pm_xy in anchors(pm).items()
+                          for pb_xy in [anchors(pb).get(n, pm_xy)]}
+                    attach = {n[1:] for n in anchors(pm) if n.startswith("_")}
+                    host = next((b for b in reversed(bases) if attach & set(b[1])), None)
+                    if attach and host is not None:
+                        n = sorted(attach & set(host[1]))[0]
+                        dx = host[0] + host[1][n][0] - da.get("_" + n, (0, 0))[0]
+                        dy = host[1][n][1] - da.get("_" + n, (0, 0))[1]
+                    else:
+                        dx, dy = run, 0.0
+                        if not attach:
+                            bases.append((run, da))
+                            run += pb.width - pm.width
+                    if abs(dx) > 0.5 or abs(dy) > 0.5:
+                        c.position = Point(c.position.x + dx, c.position.y + dy)
+                        moved = True
+                for a in br.anchors:                     # own anchors ride the base carrying them
+                    host = next((b for b in reversed(bases) if a.name in b[1]), None)
+                    if host is not None:
+                        a.position = Point(a.position.x + host[0] + host[1][a.name][0],
+                                           a.position.y + host[1][a.name][1])
+                br.width = ml.width + run
+                if not moved and abs(run) <= 0.5:
+                    continue
+                br.layerId = str(uuid.uuid4()).upper()
+                br.associatedMasterId = mid
+                br.attributes["coordinates"] = list(coords)
+                br.name = "{" + ", ".join(f"{v:g}" for v in coords) + "}"
+                glyph.layers.append(br)
+                added += 1
+                glyphs_touched.add(glyph.name)
+
+    for g in list(font.glyphs):
+        visit(g)
+    print(f"   ✅ Aligned composite braces: {added} brace layer(s) on {len(glyphs_touched)} composite(s) "
+          f"follow their components' advance and anchors")
+
+
+def propagate_anchors_for_fontmake(font):
+    """Run glyphsLib's anchor propagation here, with axis ranges that include the Virtual
+    Masters, and switch it off for fontmake.
+
+    glyphsLib takes each axis's range from the real masters only. SHRP exists only through
+    Virtual Masters, so it reads 0–0 and every SHRP=100 brace normalizes onto its master: the
+    composite braces align_composite_braces adds then fail to interpolate their components'
+    anchors (~1,650 'failed to interpolate anchor' warnings) and lose the ones they don't carry
+    themselves (bottom/ogonek on acircumflex & co). Same transformations, same order, just the
+    right ranges. Call it last, after every pass that adds layers, right before saving."""
+    from glyphsLib.builder.transformations import align_alternate_layers
+    from glyphsLib.builder.transformations import propagate_anchors as pa
+
+    orig = pa._get_design_space_info
+
+    def with_virtual_masters(f):
+        locs, triples = orig(f)
+        for cp in f.customParameters:
+            if cp.name != "Virtual Master" or cp.disabled:
+                continue
+            for v in cp.value:
+                name, loc = v["Axis"], float(v["Location"])
+                if name in triples:
+                    lo, default, hi = triples[name]
+                    triples[name] = (min(lo, loc), default, max(hi, loc))
+        return locs, triples
+
+    pa._get_design_space_info = with_virtual_masters
+    try:
+        align_alternate_layers(font)
+        pa.propagate_all_anchors(font)
+    finally:
+        pa._get_design_space_info = orig
+    font.customParameters["Propagate Anchors"] = False
+    print("   ✅ Propagated anchors (Virtual Master axis ranges); fontmake's own pass switched off")
+
 
 def _clone_layer(layer):
     """deepcopy a GSLayer without dragging the whole font. A layer reaches the
@@ -188,7 +319,7 @@ def _is_target_stylistic_set(glyph_name):
     """The .ssNN alternates are component-references to .rclt forms; after fontmake
     flattens components they lose the YTAS variation they'd otherwise inherit, so
     they need their own brace (a plain clone — the ascend re-resolves through the
-    flattened .rclt component at YTAS=800). Target sets, per design: ss01–04 and
+    flattened .rclt component at YTAS=1600). Target sets, per design: ss01–04 and
     ss07 (all members), plus ss10/ss14 LOWERCASE only — those two sets also carry
     uppercase alternates, whose accents don't move."""
     suffixes = glyph_name.split(".")[1:]
@@ -218,7 +349,7 @@ def _is_top_mark(name):
 
 
 def inject_ytas_ascend_braces(font, verbose=False):
-    """Add a YTAS=800 brace (intermediate) layer to every targeted glyph and, on
+    """Add a YTAS=1600 brace (intermediate) layer to every targeted glyph and, on
     that brace, move the `top` anchor and any above-base mark components up by
     config.YTAS_ACCENT_ASCEND_DY (with a calculated italic dx = dy·tan(angle)).
 
@@ -232,9 +363,22 @@ def inject_ytas_ascend_braces(font, verbose=False):
     ytas_i, ital_i = axes.index("YTAS"), axes.index("ital")
     ytas_top = config.STATIC_AXIS_VALUES["ytas"]["tall"]
     ytas_extent = ytas_top - config.STATIC_AXIS_VALUES["ytas"]["base"]
-    dy = config.YTAS_ACCENT_ASCEND_DY
-    ital_dx = round(dy * math.tan(math.radians(config.ITALIC_SLANT_DEGREES)))
+    dy_asc = config.YTAS_ACCENT_ASCEND_DY                 # accents on ascenders: full travel
+    dy_xht = config.YTAS_ACCENT_ASCEND_DY_XHEIGHT         # accents on x-height bases: half
+    tan_ital = math.tan(math.radians(config.ITALIC_SLANT_DEGREES))
     bases = set(config.YTAS_ACCENT_ASCEND_BASES)
+    asc_bases = set(config.YTAS_ACCENT_ASCEND_BASES_ASCENDER)
+
+    def travel_for(glyph):
+        """An accent rides its BASE: full travel on an ascender that extends with YTAS, half on
+        an x-height letter whose outline does not move. Composites are judged by their first
+        component (lacute -> l -> ascender)."""
+        if glyph.name in asc_bases:
+            return dy_asc
+        for layer in (glyph.layers[m.id] for m in font.masters):
+            if layer and layer.components and layer.components[0].name in asc_bases:
+                return dy_asc
+        return dy_xht
 
     def in_scope(glyph):
         if glyph.name in bases:
@@ -259,7 +403,8 @@ def inject_ytas_ascend_braces(font, verbose=False):
                    and layer.associatedMasterId == m.id
                    for layer in glyph.layers):
                 continue
-            dx = ital_dx if round(m.axes[ital_i]) == 1 else 0
+            dy = travel_for(glyph)
+            dx = round(dy * tan_ital) if round(m.axes[ital_i]) == 1 else 0
             br = _clone_layer(ml)
             br.layerId = str(uuid.uuid4()).upper()
             br.associatedMasterId = m.id
@@ -277,4 +422,5 @@ def inject_ytas_ascend_braces(font, verbose=False):
                     c.position = Point(c.position.x + dx, c.position.y + dy)
             glyph.layers.append(br)
 
-    print(f"   ✅ coordinated {anchors} top anchors so attached marks ascend {dy}u as ascenders extend {ytas_extent}u")
+    print(f"   ✅ coordinated {anchors} top anchors — ascender bases ascend {dy_asc}u (1:1), "
+          f"x-height bases {dy_xht}u (2:1), as ascenders extend {ytas_extent}u")
