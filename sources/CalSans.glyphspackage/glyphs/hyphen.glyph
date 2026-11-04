@@ -1,8 +1,8 @@
 {
 color = 4;
 glyphname = hyphen;
-kernLeft = hypen;
-kernRight = hypen;
+kernLeft = hyphen;
+kernRight = hyphen;
 layers = (
 {
 hints = (

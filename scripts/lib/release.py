@@ -13,6 +13,7 @@ from fontTools.ttLib.tables import otTables
 from fontTools.ttLib.tables._f_v_a_r import NamedInstance
 from scripts.lib.manifest import all_styles, style_name_to_filename
 from scripts.lib.build_flex import build_flex
+from scripts.lib.postprocess import apply_instance_ps_names, prune_unused_names
 from scripts.lib.utils import axis_by_tag
 from scripts import config
 
@@ -203,6 +204,7 @@ def _trim_gf_instances(font: TTFont, ps_suffix: str = ""):
         inst.postscriptNameID = name.addName(f"{family_ps}-{ps_style}")
         instances.append(inst)
     fvar.instances = instances
+    prune_unused_names(font)   # the source instances' own PS/subfamily strings are orphaned now
     # Guard the exact regression this function shipped once: an italic cut whose named
     # instances read Regular/Medium/SemiBold/Bold, claiming to be the roman. Cheap, and
     # it fires at the point of generation rather than in a QA run weeks later.
@@ -424,6 +426,7 @@ def _apply_gf_conformance(font: TTFont):
     _drop_typographic_names(font)
     _fix_gf_stat(font)
     _add_meta(font)
+    prune_unused_names(font)          # the STAT renames above leave the old value names behind
 
 
 def _unify_family_win_metrics(pkg_dir: Path):
@@ -842,6 +845,7 @@ def _build_cossui(src_ttf: Path, dest_dir: Path):
         if has_ital:
             instantiateVariableFont(font, {"ital": ital_value}, inplace=True, updateFontNames=False)
         _set_style_names(font, subfamily)   # also injects post.italicAngle on the italic
+        apply_instance_ps_names(font)       # after the relabel: italic file → CalSansItalic-…
         dest_ttf = dest_dir / f"{src_ttf.stem}{suffix}.ttf"
         font.save(str(dest_ttf))
         font.flavor = "woff2"
@@ -866,6 +870,7 @@ def _build_adobe_vf(src_ttf: Path, dest_dir: Path):
         if has_ital:
             instantiateVariableFont(font, {"ital": ital_value}, inplace=True, updateFontNames=False)
         _set_style_names(font, subfamily)   # also injects post.italicAngle on the italic
+        apply_instance_ps_names(font)       # after the relabel: italic file → CalSansItalic-…
         dest_ttf = dest_dir / f"{src_ttf.stem}{suffix}.ttf"
         font.save(str(dest_ttf))
         font.flavor = "woff2"

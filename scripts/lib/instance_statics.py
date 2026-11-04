@@ -11,6 +11,7 @@ from fontTools.varLib.instancer import instantiateVariableFont
 
 from scripts import config
 from scripts.lib.manifest import all_styles, style_name_records
+from scripts.lib.postprocess import prune_unused_names
 
 
 def _apply_static_names(font, style_name):
@@ -72,6 +73,8 @@ def _instance_one(task):
     font = TTFont(BytesIO(_VAR_FONT_BYTES))
     instantiateVariableFont(font, axes, inplace=True, optimize=True, updateFontNames=False)
     _apply_static_names(font, style_name)
+    prune_unused_names(font)   # fvar is gone; its instance name strings are orphans
+    font["name"].removeNames(nameID=25)   # the variations PS-name prefix means nothing without fvar
     if widen:
         _widen_advances(font, config.MICRO_TRACKING_ADVANCE)
     font.save(out_path)

@@ -273,6 +273,100 @@ def build_stat_and_instance_names(ttf_path: str):
     """Path wrapper for the main-pipeline post-fontmake pass."""
     font = TTFont(ttf_path)
     renamed, full = apply_stat_and_instance_names(font)
+    apply_instance_ps_names(font)
     font.save(ttf_path)
     print(f"   ✅ STAT rebuilt, {renamed} fvar instance names disambiguated, "
           f"default family → \"{full}\"")
+
+
+def prune_unused_names(font: TTFont) -> int:
+    """Drop name records >= 256 that nothing references: fvar (axes + instances), STAT, and
+    the GSUB/GPOS feature parameters (ssXX UI names, cvXX labels). Instance renames leave
+    the old subfamily/PostScript strings behind otherwise. Returns records removed."""
+    from fontTools.varLib.instancer.names import getVariationNameIDs
+
+    used = set(getVariationNameIDs(font))
+    for tag in ("GSUB", "GPOS"):
+        if tag not in font or not getattr(font[tag], "table", None) or not font[tag].table.FeatureList:
+            continue
+        for rec in font[tag].table.FeatureList.FeatureRecord:
+            fp = rec.Feature.FeatureParams
+            if fp is None:
+                continue
+            # ssXX: UINameID; cvXX: FeatUILabelNameID / FeatUITooltipTextNameID (the cv label
+            # Illustrator and CSS-inspecting tools show), SampleTextNameID, FirstParamUILabelNameID
+            for attr in ("UINameID", "FeatureNameID", "FeatUILabelNameID", "FeatUITooltipTextNameID",
+                         "SampleTextNameID", "FirstParamUILabelNameID"):
+                if getattr(fp, attr, None):
+                    used.add(getattr(fp, attr))
+            first, count = getattr(fp, "FirstParamUILabelNameID", 0), getattr(fp, "NumNamedParameters", 0)
+            if first and count:
+                used.update(range(first, first + count))
+            if getattr(fp, "ParamUILabelNameID", None):
+                used.update(fp.ParamUILabelNameID)
+    before = len(font["name"].names)
+    font["name"].names[:] = [r for r in font["name"].names
+                             if r.nameID < 256 or r.nameID in used]
+    return before - len(font["name"].names)
+
+
+def apply_instance_ps_names(font: TTFont) -> bool:
+    """Give every fvar instance a PostScript name and the font a nameID 25 prefix.
+
+    The source owns the names: each Glyphs instance's Variable PostScript Name
+    (variablePostscriptFontName) reaches fvar through glyphsLib and fontmake. Here only the
+    family part before the hyphen is set to this file's own family (nameID 6 up to the
+    hyphen), so Flex/Phlex, which compile from the same instances and arrive as "CalSans-…",
+    read "CalSansFlex-…"/"CalSansPhlex-…". The style part is kept as the source wrote it; when
+    it no longer matches the instance's subfamily name the build says so (a stale source
+    name), and an instance the source left unnamed gets family + "-" + subfamily without
+    spaces, also reported.
+
+    nameID 25 = family, + "Italic" on an italic cut (the GF rule: a name synthesised for an
+    arbitrary italic location must not claim the roman). glyphsLib does not carry the source's
+    Variations PostScript Name Prefix, so it is always written here. Run AFTER every
+    subfamily/family rename. All or none: a partial set is an Adobe profile failure, so any
+    invalid or duplicate name leaves the font with no instance PS names and no nameID 25.
+    Returns True when the names were written."""
+    if not config.INSTANCE_PS_NAMES or "fvar" not in font:
+        return False
+    name, fvar = font["name"], font["fvar"]
+    family = (name.getDebugName(6) or "").split("-")[0]
+    prefix = family + ("Italic" if font["OS/2"].fsSelection & 0x0001 else "")
+
+    names, stale, unnamed = [], [], []
+    for inst in fvar.instances:
+        expected = (name.getDebugName(inst.subfamilyNameID) or "").replace(" ", "")
+        given = name.getDebugName(inst.postscriptNameID) if inst.postscriptNameID != 0xFFFF else None
+        if given and "-" in given:
+            style = given.split("-", 1)[1]
+            if style != expected:
+                stale.append(f"{given} (instance is {expected})")
+        else:
+            style = expected
+            unnamed.append(expected)
+        names.append(f"{family}-{style}")
+    if stale:
+        print(f"   ⚠️  {len(stale)} source PostScript name(s) do not match their instance: {', '.join(stale[:4])}")
+    if unnamed:
+        print(f"   ⚠️  {len(unnamed)} instance(s) had no source PostScript name; generated: {', '.join(unnamed[:4])}")
+    problems = []
+    if not prefix:
+        problems.append("no nameID 6 to derive a prefix from")
+    problems += [f"{n!r} is not ASCII" for n in names if not n.isascii()]
+    problems += [f"{n!r} is {len(n)} chars (max 63)" for n in names if len(n) > 63]
+    problems += [f"{n!r} is duplicated" for n in {n for n in names if names.count(n) > 1}]
+
+    for pid, eid, lid in ((3, 1, 0x409), (1, 0, 0)):
+        name.removeNames(nameID=25, platformID=pid, platEncID=eid, langID=lid)
+    if problems:
+        print(f"   ⚠️  instance PostScript names NOT written: {'; '.join(problems)}")
+        for inst in fvar.instances:
+            inst.postscriptNameID = 0xFFFF
+    else:
+        for pid, eid, lid in ((3, 1, 0x409), (1, 0, 0)):
+            name.setName(prefix, 25, pid, eid, lid)
+        for inst, n in zip(fvar.instances, names):
+            inst.postscriptNameID = name.addName(n)
+    prune_unused_names(font)
+    return not problems

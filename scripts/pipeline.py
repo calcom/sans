@@ -41,7 +41,7 @@ def step(label):
 class _Ctx:
     """Carries state (the in-memory font, compiled paths, run options) between stages."""
     def __init__(self, build_italic=BUILD_ITALIC, verbose=False, flex=True, docs=True,
-                 flex_hoi=True):
+                 flex_hoi=True, flex_geom=False):
         self.font = None
         self.var_ttf = None
         self.flex_var_ttf = None
@@ -50,6 +50,8 @@ class _Ctx:
         self.flex = flex
         self.flex_hoi = flex_hoi
         self.flex_hoi_var_ttf = None
+        self.flex_hoi_ds = None
+        self.flex_geom = flex_geom
         self.docs = docs
         self.docs_proc = None
         self.docs_log = None
@@ -198,9 +200,25 @@ def stage_compile_flex_hoi(ctx):
     ds.write(ds_path)
     del fonts
     gc.collect()
+    ctx.flex_hoi_ds = ds_path
     ctx.flex_hoi_var_ttf = run_fontmake_flex_hoi(ds_path, BUILD_DIR)
     os.makedirs(f"{BUILD_DIR}/flexhoi", exist_ok=True)
     build_flex(ctx.flex_hoi_var_ttf, f"{BUILD_DIR}/flexhoi")
+
+
+def stage_compile_flex_geom(ctx):
+    """Cal Sans Flex Geom (off by default; --flex-geom): Flex's morphs as GEOM-only sparse sources,
+    no helper axes and no HOI avar2 (scripts/lib/hoi_geom.py). Reads the true-HOI designspace
+    compile_flex_hoi just wrote, so it runs after it in the same build; writes flexgeom_ufo/,
+    flexgeom_variable/ and the build_flex'd CalSansFlexGeomVF in flexgeom/. Nothing is packaged."""
+    from scripts.lib import hoi_geom
+    from scripts.lib.build_flex import build_flex
+    assert ctx.flex_hoi_ds, "--flex-geom needs compile_flex_hoi in the same run"
+    ds_path, _ = hoi_geom.geom_only(ctx.flex_hoi_ds, f"{BUILD_DIR}/flexgeom_ufo")
+    gc.collect()
+    ttf = run_fontmake_flex_hoi(ds_path, BUILD_DIR, name="flexgeom", label="GEOM-only (Flex Geom)")
+    os.makedirs(f"{BUILD_DIR}/flexgeom", exist_ok=True)
+    build_flex(ttf, f"{BUILD_DIR}/flexgeom", family=config.FLEXGEOM_FAMILY_NAME)
 
 
 def stage_instance_statics(ctx):
@@ -234,6 +252,7 @@ STAGES = [
     ("docs",             stage_docs,             "Documenting character alternatives (background)"),
     ("compile_flex",     stage_compile_flex,     "Compiling Phlex (piecewise HOI) variable font"),
     ("compile_flex_hoi", stage_compile_flex_hoi, "Compiling Flex (true HOI) variable font"),
+    ("compile_flex_geom", stage_compile_flex_geom, "Compiling Flex Geom (GEOM-only HOI) variable font"),
     ("instance_statics", stage_instance_statics, "Instancing static styles"),
     ("compress",         stage_compress,         "Compressing to WOFF2"),
     ("package",          stage_package,          "Packaging release folders"),
@@ -245,19 +264,21 @@ VARIABLE_ONLY_STAGES = ("metrics", "load", "validate", "prepare", "save_ready_so
 
 
 def run(only=None, build_italic=None, verbose=False, flex=True, docs=True,
-        extra_steps=0, flex_hoi=True):
+        extra_steps=0, flex_hoi=True, flex_geom=False):
     """Run the named subset of STAGES in order (default: all of them).
 
     build_italic, if given, overrides config.BUILD_ITALIC for this run.
     verbose enables full glyph/instance name listings in the prepare stage.
     flex=False skips both morphing builds (Cal Sans Phlex and Cal Sans Flex).
     flex_hoi=False skips only the true-HOI one (Cal Sans Flex); it is then not in the run at all.
+    flex_geom=True adds Cal Sans Flex Geom (needs flex and flex_hoi); off, it is not in the run.
     docs=False skips regenerating the character-alternative doc.
     extra_steps counts phases main() runs AFTER this function — --bump is one — so
     the step headers read [n/12] throughout instead of counting past the end.
     """
     stages = [s for s in STAGES if (only is None or s[0] in only)
-              and ((flex and flex_hoi) or s[0] != "compile_flex_hoi")]
+              and ((flex and flex_hoi) or s[0] != "compile_flex_hoi")
+              and ((flex and flex_hoi and flex_geom) or s[0] != "compile_flex_geom")]
 
     print("🚀 Starting build")
     print(f"   Source: {SOURCE_PATH}")
@@ -269,7 +290,7 @@ def run(only=None, build_italic=None, verbose=False, flex=True, docs=True,
     _STEP["n"] = 0
     _STEP["total"] = len(stages) + extra_steps
     ctx = _Ctx(build_italic=BUILD_ITALIC if build_italic is None else build_italic,
-               verbose=verbose, flex=flex, docs=docs, flex_hoi=flex_hoi)
+               verbose=verbose, flex=flex, docs=docs, flex_hoi=flex_hoi, flex_geom=flex_geom)
     for _, fn, label in stages:
         with step(label):
             fn(ctx)
@@ -310,6 +331,12 @@ def _parse_args(argv=None):
         help="Skip only Cal Sans Flex (true HOI); Cal Sans Phlex is still built.",
     )
     parser.add_argument(
+        "--flex-geom", dest="flex_geom", action="store_true",
+        help="Also build Cal Sans Flex Geom, a test duplicate of Flex whose morphs are GEOM-only "
+             "sources (no helper axes, no HOI avar2), into scripts/temp/flexgeom/. Off by default; "
+             "needs the Flex build (not with --no-flex, --no-flex-hoi or --varonly).",
+    )
+    parser.add_argument(
         "--bump", dest="bump_primitives", nargs="?", const=config.PRIMITIVES_PATH,
         metavar="PATH",
         help="Mark Davis' own shortcut when he builds locally, and no use to anyone "
@@ -329,7 +356,10 @@ def _parse_args(argv=None):
         help="Do NOT regenerate documentation/character-alternatives.md, its SVG cells, or the static fonts/README.md sheets. "
              "The doc is rebuilt on every build by default, in its own process.",
     )
-    return parser.parse_args(argv)
+    args = parser.parse_args(argv)
+    if args.flex_geom and not (args.flex and args.flex_hoi and not args.variable_only):
+        parser.error("--flex-geom needs the Flex build: drop --no-flex / --no-flex-hoi / --varonly")
+    return args
 
 
 def main(argv=None):
@@ -339,7 +369,8 @@ def main(argv=None):
     # Italics are the default (config.BUILD_ITALIC=True); --roman opts out.
     build_italic = False if args.roman else None
     run(only=only, build_italic=build_italic, verbose=args.verbose, flex=args.flex,
-        docs=args.docs, extra_steps=1 if args.bump_primitives else 0, flex_hoi=args.flex_hoi)
+        docs=args.docs, extra_steps=1 if args.bump_primitives else 0, flex_hoi=args.flex_hoi,
+        flex_geom=args.flex_geom)
 
     if args.bump_primitives:
         from scripts.lib.bump_primitives import bump_primitives

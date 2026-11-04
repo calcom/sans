@@ -170,7 +170,10 @@ def align_composite_braces(font):
     off A. Here each missing brace is added: bases keep their order and push what follows by their
     own advance change, a mark rides the anchor it attaches to on the last base carrying it.
     Composites with any alignment-disabled component (.tf figures, fractions) hold their own width
-    and are left alone. YTAS braces are skipped: inject_ytas_ascend_braces owns them."""
+    and are left alone. YTAS braces are skipped: inject_ytas_ascend_braces owns them.
+    An edge (SHRP 100) is added at every master or none: a master whose brace would change nothing
+    still needs it, or interpolation infers that corner from the other three (M.ss12 at 45 Bold,
+    SHRP 100: 1784, where M.rcltGeo is 1760)."""
     axes = [a.axisTag for a in font.axes]
     ytas_i = axes.index("YTAS")
     masters = {m.id: m for m in font.masters}
@@ -197,6 +200,7 @@ def align_composite_braces(font):
         if glyph.name in done:
             return
         done.add(glyph.name)
+        edges = {}                                        # {moved axes: [(brace, master, coords, changes)]}
         for mid in masters:
             ml = glyph.layers[mid]
             if ml is None or not ml.components:
@@ -236,8 +240,12 @@ def align_composite_braces(font):
                         a.position = Point(a.position.x + host[0] + host[1][a.name][0],
                                            a.position.y + host[1][a.name][1])
                 br.width = ml.width + run
-                if not moved and abs(run) <= 0.5:
-                    continue
+                edge = tuple((i, v) for i, (v, a) in enumerate(zip(coords, masters[mid].axes)) if v != float(a))
+                edges.setdefault(edge, []).append((br, mid, coords, moved or abs(run) > 0.5))
+        for found in edges.values():
+            if not any(changes for *_, changes in found):
+                continue
+            for br, mid, coords, _ in found:
                 br.layerId = str(uuid.uuid4()).upper()
                 br.associatedMasterId = mid
                 br.attributes["coordinates"] = list(coords)

@@ -1,4 +1,4 @@
-# Cal Sans Variable and Static Fonts, v2.010
+# Cal Sans Variable and Static Fonts, v2.012
 
 > “This Font Software is licensed under the SIL Open Font License, Version 1.1.”
 
@@ -127,7 +127,7 @@ The static families combine four `GEOM` zones — **A11y** (0), **UI** (25),
 
 ## Full Static Instance List
 
-All **384** named static instances (v2.010) — four `GEOM` families × four weights × three optical tiers (Display ≈ 45, Text ≈ 10, Micro ≈ 8) × upright + italic, across the base, Tall, Sharp, and Tall Sharp variants. Each cell lists the Display / Text / Micro tier.
+All **384** named static instances (v2.012) — four `GEOM` families × four weights × three optical tiers (Display ≈ 45, Text ≈ 10, Micro ≈ 8) × upright + italic, across the base, Tall, Sharp, and Tall Sharp variants. Each cell lists the Display / Text / Micro tier.
 
 ### Cal Sans — optical sizes only
 

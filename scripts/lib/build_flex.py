@@ -28,7 +28,7 @@ from fontTools.varLib.avar.build import build as build_avar
 
 from scripts import config
 from scripts.lib import hoi_flex as hoi_axes
-from scripts.lib.postprocess import apply_stat_and_instance_names, append_distribution_sha
+from scripts.lib.postprocess import apply_instance_ps_names, apply_stat_and_instance_names, append_distribution_sha
 from scripts.lib.utils import axis_by_tag
 
 _AXIS_NAMES = {
@@ -207,6 +207,7 @@ def build_flex(input_path: str, output_dir: str = ".", helper_ramps=None,
     renamed, _ = apply_stat_and_instance_names(font)
     print(f"  STAT rebuilt (YTAS hidden → no STAT values), {renamed} instance names disambiguated")
     add_stat_axis_records(font, helpers)
+    apply_instance_ps_names(font)   # CalSansFlex-… / CalSansPhlex-…, after the family rename
 
     append_distribution_sha(font)   # live calcom/sans hash in nameID 5 (before save → both ttf+woff2)
 

@@ -57,6 +57,8 @@ MICRO_TRACKING_ADVANCE = 20
 FLEX_FAMILY_NAME = "Cal Sans Flex"     # true HOI: morphs on hidden helper axes, stock swaps kept
 PHLEX_FAMILY_NAME = "Cal Sans Phlex"   # piecewise HOI: GEOM brace morphs, swaps stripped
 FLEX_STYLE_NAME  = "Regular"
+FLEXGEOM_FAMILY_NAME = "Cal Sans Flex Geom"   # --flex-geom test font: Flex's morphs on GEOM alone (hoi_geom)
+FLEXGEOM_TOL = 2.0     # units: greedy GEOM knots until every point is this close to the true-HOI path
 # (input opsz, output YTAS) calibration points for the avar2 axis mapping
 FLEX_OPSZ_TO_YTAS = [(16.0, 1440.0), (10.0, 1500.0), (8.0, 1600.0)]
 
@@ -316,6 +318,10 @@ STAT_AXES = [
     ]},
 ]
 STAT_ELIDED_FALLBACK = "Regular"
+
+# PostScript names for every fvar instance + nameID 25 on the non-GF variable fonts
+# (postprocess.apply_instance_ps_names). Off = leave whatever the source passed through.
+INSTANCE_PS_NAMES = True
 
 # fvar instance subfamily names are composed from the static token tables (so
 # they match the static families): opsz first, then GEOM, YTAS, SHRP, wght,

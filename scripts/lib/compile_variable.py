@@ -98,22 +98,24 @@ def run_fontmake_masters(glyphs_path: str, master_dir: str) -> str:
     return ds_path
 
 
-def run_fontmake_flex_hoi(ds_path: str, build_dir: str) -> str:
+def run_fontmake_flex_hoi(ds_path: str, build_dir: str, name: str = "flexhoi",
+                          label: str = "true-HOI (Flex)") -> str:
     """Compile the true-HOI designspace (stock sources + helper axes + helper sources) and run
-    the same post-compile passes as the piecewise Flex. Returns the compiled TTF path."""
-    out_dir = f"{build_dir}/flexhoi_variable"
+    the same post-compile passes as the piecewise Flex. Returns the compiled TTF path. `name`/`label`
+    keep another designspace's output apart (flexgeom: the GEOM-only one, hoi_geom)."""
+    out_dir = f"{build_dir}/{name}_variable"
     shutil.rmtree(out_dir, ignore_errors=True)
     os.makedirs(out_dir, exist_ok=True)
 
-    print("🪄 Compiling true-HOI (Flex) variable font...")
+    print(f"🪄 Compiling {label} variable font...")
     _run_fontmake(["-m", ds_path, "-o", "variable", "--output-dir", out_dir,
                    "--filter", "FlattenComponentsFilter"],
-                  f"{build_dir}/flexhoi_variable.fontmake.log")
+                  f"{build_dir}/{name}_variable.fontmake.log")
 
     ttf = str(sorted(Path(out_dir).glob("*.ttf"))[0])
-    _keep_premerge(ttf, build_dir, "flexhoi-")
+    _keep_premerge(ttf, build_dir, f"{name}-")
     merge_gsub_feature_variations(ttf)
     ensure_gasp(ttf)
     ensure_smart_dropout(ttf)
-    print(f"   ✅ true-HOI (Flex) variable font built → {ttf}")
+    print(f"   ✅ {label} variable font built → {ttf}")
     return ttf
