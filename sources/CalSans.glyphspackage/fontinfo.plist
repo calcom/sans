@@ -256,7 +256,7 @@ value = WORD;
 },
 {
 name = "Use Typo Metrics";
-value = 0;
+value = 1;
 },
 {
 name = fsType;
