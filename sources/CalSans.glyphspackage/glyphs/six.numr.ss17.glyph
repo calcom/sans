@@ -53,7 +53,7 @@ shapes = (
 ref = six.numr;
 }
 );
-width = 875;
+width = 874;
 },
 {
 layerId = "CC8ADC1C-440E-49BA-9C42-2F7F780CE9BF";

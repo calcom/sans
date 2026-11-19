@@ -1,0 +1,355 @@
+{
+glyphname = f_t.rcltBase;
+kernLeft = f;
+kernRight = t;
+layers = (
+{
+.lastUpdate = 816778960.4;
+anchors = (
+{
+name = caret_1;
+pos = (798,0);
+}
+);
+background = {
+shapes = (
+{
+pos = (-5,0);
+ref = f_t.rcltGeo;
+}
+);
+};
+layerId = m006;
+shapes = (
+{
+ref = fpartrcltBase.comb;
+},
+{
+piece = {
+width = 786;
+};
+pos = (-10,0);
+ref = _part.stroke;
+},
+{
+alignment = -1;
+pos = (762,0);
+ref = tpartrcltBase.comb;
+}
+);
+width = 1644;
+},
+{
+.lastUpdate = 816778960.4;
+anchors = (
+{
+name = caret_1;
+pos = (808,0);
+}
+);
+background = {
+shapes = (
+{
+alignment = -1;
+pos = (46,-264);
+ref = partstroke.comb;
+scale = (1.931,1);
+},
+{
+pos = (-11,0);
+ref = f_t.rcltGeo;
+},
+{
+pos = (323,0);
+ref = t;
+}
+);
+};
+layerId = "0B84D982-BA46-4CB9-89EB-4BEFB54BBE92";
+shapes = (
+{
+ref = fpartrcltBase.comb;
+},
+{
+piece = {
+width = 704;
+};
+pos = (-10,-2);
+ref = _part.stroke;
+},
+{
+alignment = -1;
+pos = (658,0);
+ref = tpartrcltBase.comb;
+}
+);
+width = 1480;
+},
+{
+.lastUpdate = 816778960.4;
+anchors = (
+{
+name = caret_1;
+pos = (634,0);
+}
+);
+background = {
+shapes = (
+{
+ref = fpartrcltBase.comb;
+},
+{
+ref = partstroke.comb;
+scale = (0.95,1);
+},
+{
+alignment = -1;
+pos = (-5,0);
+ref = partstroke.comb;
+scale = (1.9025,1);
+}
+);
+};
+layerId = "1B5AC656-48C3-4864-953F-2CD31E7BA751";
+shapes = (
+{
+ref = fpartrcltBase.comb;
+},
+{
+piece = {
+width = 607;
+};
+ref = _part.stroke;
+},
+{
+alignment = -1;
+pos = (560,0);
+ref = tpartrcltBase.comb;
+}
+);
+width = 1234;
+},
+{
+.lastUpdate = 816778960.4;
+anchors = (
+{
+name = caret_1;
+pos = (598,0);
+}
+);
+background = {
+shapes = (
+{
+pos = (0,3);
+ref = fpart.comb;
+},
+{
+piece = {
+width = 529;
+};
+pos = (0,3);
+ref = _part.stroke;
+},
+{
+alignment = -1;
+pos = (257,3);
+ref = tpart.comb;
+}
+);
+};
+layerId = "F32A93D6-BEB9-4F11-B510-2860D42C0CD2";
+shapes = (
+{
+ref = fpartrcltBase.comb;
+},
+{
+piece = {
+width = 529;
+};
+ref = _part.stroke;
+},
+{
+alignment = -1;
+pos = (516,0);
+ref = tpartrcltBase.comb;
+}
+);
+width = 1080;
+},
+{
+.lastUpdate = 816778960.4;
+anchors = (
+{
+name = caret_1;
+pos = (544,0);
+}
+);
+background = {
+shapes = (
+{
+ref = fpartrcltBase.comb;
+},
+{
+ref = partstroke.comb;
+scale = (0.95,1);
+},
+{
+alignment = -1;
+pos = (-5,0);
+ref = partstroke.comb;
+scale = (1.9025,1);
+}
+);
+};
+layerId = "0DDD66F2-BE4C-471A-8E86-2163424A6CF0";
+shapes = (
+{
+ref = fpartrcltBase.comb;
+},
+{
+piece = {
+width = 607;
+};
+ref = _part.stroke;
+},
+{
+alignment = -1;
+pos = (560,0);
+ref = tpartrcltBase.comb;
+}
+);
+width = 1234;
+},
+{
+.lastUpdate = 816778960.4;
+anchors = (
+{
+name = caret_1;
+pos = (510,0);
+}
+);
+background = {
+shapes = (
+{
+pos = (0,3);
+ref = fpart.comb;
+},
+{
+piece = {
+width = 529;
+};
+pos = (0,3);
+ref = _part.stroke;
+},
+{
+alignment = -1;
+pos = (257,3);
+ref = tpart.comb;
+}
+);
+};
+layerId = "CC8ADC1C-440E-49BA-9C42-2F7F780CE9BF";
+shapes = (
+{
+ref = fpartrcltBase.comb;
+},
+{
+piece = {
+width = 529;
+};
+ref = _part.stroke;
+},
+{
+alignment = -1;
+pos = (516,0);
+ref = tpartrcltBase.comb;
+}
+);
+width = 1080;
+},
+{
+.lastUpdate = 816778960.4;
+anchors = (
+{
+name = caret_1;
+pos = (710,0);
+}
+);
+background = {
+shapes = (
+{
+pos = (-5,0);
+ref = f_t.rcltGeo;
+}
+);
+};
+layerId = "FA9346B6-A16F-4CF3-996A-4A8FD0AD301D";
+shapes = (
+{
+ref = fpartrcltBase.comb;
+},
+{
+piece = {
+width = 786;
+};
+pos = (-11,0);
+ref = _part.stroke;
+},
+{
+alignment = -1;
+pos = (762,0);
+ref = tpartrcltBase.comb;
+}
+);
+width = 1643;
+},
+{
+.lastUpdate = 816778960.4;
+anchors = (
+{
+name = caret_1;
+pos = (722,0);
+}
+);
+background = {
+shapes = (
+{
+alignment = -1;
+pos = (46,-264);
+ref = partstroke.comb;
+scale = (1.931,1);
+},
+{
+pos = (-11,0);
+ref = f_t.rcltGeo;
+},
+{
+pos = (323,0);
+ref = t;
+}
+);
+};
+layerId = "33BF50A0-DEC8-4619-95BB-DD23FBD7FB0B";
+shapes = (
+{
+ref = fpartrcltBase.comb;
+},
+{
+piece = {
+width = 704;
+};
+pos = (-13,-2);
+ref = _part.stroke;
+},
+{
+alignment = -1;
+pos = (658,0);
+ref = tpartrcltBase.comb;
+}
+);
+width = 1480;
+}
+);
+metricLeft = f;
+metricRight = t;
+}
