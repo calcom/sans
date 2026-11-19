@@ -49211,6 +49211,19 @@ key = designerURL;
 value = "https://wordmark.nyc";
 },
 {
+key = licenses;
+values = (
+{
+language = dflt;
+value = "This Font Software is licensed under the SIL Open Font License, Version 1.1. This license is available with a FAQ at: https://openfontlicense.org";
+}
+);
+},
+{
+key = licenseURL;
+value = "https://openfontlicense.org";
+},
+{
 key = vendorID;
 value = WORD;
 }
