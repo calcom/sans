@@ -4,3 +4,4 @@ fontmake
 tqdm
 uharfbuzz
 brotli
+numpy
