@@ -165,7 +165,8 @@ def _relabel_permille_axes(font: TTFont):
 
 def _shift_gf_axis_defaults(font: TTFont):
     """Move the fvar default of the axes in config.GF_SHIPPING_DEFAULTS that differ from the
-    main build's SHIPPING_DEFAULTS (GEOM 25 → 50 for the GF cut), keeping the full range.
+    main build's SHIPPING_DEFAULTS (GEOM 25 → 0 for the GF cut, the registry default),
+    keeping the full range.
     Same instancer call as postprocess.shift_axis_defaults: gvar, avar and the GSUB
     FeatureVariations are re-normalized to the new default, so the GEOM swaps keep firing
     at the same user coordinates."""
@@ -225,14 +226,14 @@ def _set_style_names(font: TTFont, subfamily: str, family: str = None):
 def _trim_gf_instances(font: TTFont, ps_suffix: str = ""):
     """Google Fonts fvar spec: named instances must be Weight-only, each pinned at the
     shipping default of every OTHER axis. Replace fvar.instances with the config-defined
-    GF weights (Regular/Medium/SemiBold/Bold) at GF_SHIPPING_DEFAULTS, GEOM=50 / opsz=14 (SHRP/YTAS at their
+    GF weights (Regular/Medium/SemiBold/Bold) at GF_INSTANCE_COORDS, GEOM=50 / opsz=14 (SHRP/YTAS at their
     fvar default). Re-adds PostScript-name entries so fvar_instance_ps_names stays happy."""
     fvar = font["fvar"]
     name = font["name"]
     family_ps = (name.getDebugName(6) or "CalSans").split("-")[0]
     axis_tags = [a.axisTag for a in fvar.axes]
     coords0 = {a.axisTag: a.defaultValue for a in fvar.axes}
-    for tag, val in config.GF_SHIPPING_DEFAULTS.items():   # GEOM=50, opsz=14 (GF cut)
+    for tag, val in config.GF_INSTANCE_COORDS.items():     # GEOM=50, opsz=14 (GF cut)
         if tag in coords0:
             coords0[tag] = val
 
@@ -419,6 +420,14 @@ def _fix_gf_stat(font: TTFont):
                 new = renames.get(round(axv.Value))
                 if new:
                     axv.ValueNameID = _name_id(new)
+    for tag, values in config.GF_STAT_ELIDABLE.items():
+        if tag not in axes:
+            continue
+        i = axes.index(tag)
+        for axv in getattr(stat.AxisValueArray, "AxisValue", []) or []:
+            if (getattr(axv, "AxisIndex", None) == i and axv.Format in (1, 3)
+                    and round(axv.Value) in values):
+                axv.Flags |= 0x0002                  # ELIDABLE_AXIS_VALUE_NAME
     drop = [(axes.index(t), v) for t, vs in config.GF_STAT_DROP_VALUES.items()
             if t in axes for v in vs]
     if drop and getattr(stat.AxisValueArray, "AxisValue", None):
@@ -698,7 +707,7 @@ def _build_gf_api(src_ttf: Path, dest_dir: Path):
         _relabel_opsz_max(font, config.GF_API_OPSZ_MAX)
         if has_ital:
             instantiateVariableFont(font, {"ital": ital_value}, inplace=True, updateFontNames=False)
-        _shift_gf_axis_defaults(font)    # GEOM default 25 → 50 (v1 letterforms by default)
+        _shift_gf_axis_defaults(font)    # GEOM default 25 → 0 (registry); instances stay at 50
         _relabel_permille_axes(font)     # YTAS 1440–1600 → 720–800 (registry unit)
         _set_style_names(font, subfamily)
         if config.GF_TRIM_INSTANCES:
@@ -1171,7 +1180,7 @@ def build_release_folders(build_dir: str, output_dir: str, build_italic: bool = 
     pkg = out_path / f"{_PFX}-gf-api"
     if config.GF_TRIM_INSTANCES:
         print("   ⚠️  GF fvar spec: trimming named instances to Weight-only "
-              "(Regular/Medium/SemiBold/Bold) at GEOM=50, opsz=14 "
+              "(Regular/Medium/SemiBold/Bold) at GEOM=50, opsz=14; fvar default GEOM=0 "
               "(settled in google/fonts#9970 — the UI/Text position ships as "
               "gf-api-textui instead).")
     for ttf in sorted(var_dir.glob("*.ttf")):

@@ -116,7 +116,7 @@ ITALIC_ANGLE = -9.5
 
 # gf-api: per the Google Fonts fvar spec, a variable font's named instances must be
 # Weight-only (Regular/Medium/SemiBold/Bold), each pinned at the shipping default of
-# every OTHER axis (GEOM=50, opsz=14 from GF_SHIPPING_DEFAULTS; SHRP/YTAS/ital at their
+# every OTHER axis (GEOM=50, opsz=14 from GF_INSTANCE_COORDS; SHRP/YTAS/ital at their
 # fvar default). Default ON; set False to ship the full GEOM×opsz instance matrix.
 # Settled with Dave (google/fonts#9970): GEOM-named instances stay out of GF — the
 # UI/Text position ships as its own second family instead (gf-api-textui below).
@@ -242,7 +242,9 @@ GF_ENSURE_ITAL_STAT    = True
 # GFAxisRegistry fallback names: opsz values are named in points (by axis value), and
 # SHRP carries only its Default record — "Sharp" is not an expected name on that axis.
 GF_OPSZ_STAT_NAMES     = {8: "8pt", 10: "10pt", 14: "14pt", 48: "48pt"}
-GF_STAT_DROP_VALUES    = {"SHRP": [100], "YTAS": [800]}   # YTAS values after the per-mille relabel
+# GEOM: the registry lists only "Default" at 0, so A11y (renamed below), UI, Default@50 and
+# Geo leave the GF STAT. YTAS values are the ones after the per-mille relabel.
+GF_STAT_DROP_VALUES    = {"SHRP": [100], "YTAS": [800], "GEOM": [25, 50, 100]}
 
 # gf meta table. ScriptLangTags declaring what the font is designed and supported for.
 GF_META_DESIGN_LANGS   = ["Latn"]
@@ -283,14 +285,19 @@ GF_LICENSE_DESCRIPTION = ("This Font Software is licensed under the SIL Open Fon
                           "https://openfontlicense.org")
 GF_LICENSE_URL = "https://openfontlicense.org"
 
-# gf-api: the GEOM shipping default for the GOOGLE FONTS cut only (every other package keeps
-# SHIPPING_DEFAULTS). Requests that do not set GEOM must land on the v1 letterforms
-# (single-storey a), which is GEOM=50 — the STAT "Default" (elidable) record already sits
-# there. calcom/sans#36: set the fvar default itself, not only METADATA.pb's
-# registry_default_overrides, so the variable file, the ZIP statics and the API agree.
-# Note: googlefonts/axisregistry/fvar_axis_defaults keeps failing until the GEOM registry
-# entry lists 50 as a fallback (or its default moves to 50) — that is a registry decision.
-GF_SHIPPING_DEFAULTS = {"opsz": 14, "GEOM": 50}
+# gf-api: GEOM on the GOOGLE FONTS cut follows the GF Axis Registry entry, which was
+# created for this family: default 0, single fallback "Default" at 0. Every other package
+# keeps SHIPPING_DEFAULTS. Nothing is redrawn — only where the axis default sits moves:
+#   - the fvar default (the variable file's own default point) is GEOM=0, as the
+#     registry requires (googlefonts/axisregistry/fvar_axis_defaults);
+#   - the named instances (Regular … Bold) stay on the v1 letterforms, GEOM=50
+#     (GF_INSTANCE_COORDS below);
+#   - the API serves GEOM=50 to requests that do not set GEOM through METADATA.pb:
+#       registry_default_overrides { key: "GEOM" value: 50.0 }
+GF_SHIPPING_DEFAULTS = {"opsz": 14, "GEOM": 0}
+# Coordinates of the GF named instances (and of the API default via the METADATA.pb
+# override above) — the v1 letterforms, single-storey a.
+GF_INSTANCE_COORDS = {"opsz": 14, "GEOM": 50}
 
 # gf-api: parametric axes are defined by the GF Axis Registry in THOUSANDTHS OF AN EM,
 # whatever the UPM (Roboto Flex, UPM 2048: YTAS=750 ↔ ascender at 1536 units). The source
@@ -301,7 +308,10 @@ GF_PERMILLE_AXES = ["YTAS"]
 # STAT names on the relabelled YTAS axis. The registry's only fallback is "Normal" at 750,
 # so 720 named "Normal" still reports bad-coordinate until GF accepts 720 (open question in
 # calcom/sans#36); "Tall" is not a registry name and is dropped, as SHRP "Sharp" is.
-GF_STAT_RENAMES = {"YTAS": {720: "Normal"}}
+GF_STAT_RENAMES = {"YTAS": {720: "Normal"}, "GEOM": {0: "Default"}}
+# Axis values (by value) made elidable after the renames: the registry fallback at the
+# fvar default is the one a UI leaves out of the style name.
+GF_STAT_ELIDABLE = {"GEOM": [0]}
 
 # Set the macOS overlap flags (OVERLAP_SIMPLE / OVERLAP_COMPOUND) on every glyph of the GF
 # cuts: the variable fonts keep their overlapping contours, and CoreText needs the flag to
