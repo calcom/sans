@@ -1602,7 +1602,7 @@ type = Stem;
 },
 {
 origin = (0,12);
-place = (85,28);
+place = (98,28);
 type = Stem;
 }
 );
