@@ -1,0 +1,1311 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Diffenator3</title>
+    <script
+      src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+      crossorigin="anonymous"
+    ></script>
+    <style type="text/css">
+      	@font-face {
+           font-family: "Font Before";
+           src: url();
+         }
+
+         @font-face {
+           font-family: "Font After";
+           src: url();
+         }
+
+         .font-before, .font-after {
+           font-variation-settings: "wght" 400, "wdth" 100;
+         }
+
+         .font-before {
+           font-family: "Font Before", "Adobe Notdef";
+         }
+
+         .font-after {
+           font-family: "Font After", "Adobe Notdef";
+         }
+
+      p {
+      font-size: 25px;
+      background-color: #d4dffb;
+      padding: 15px;
+      }
+      .language {
+        font-size: 15px;
+        left: -100px;
+        margin-top: 1em;
+        width: 100px;
+        font-family: sans-serif;
+        display: block;
+        position: absolute;
+      }
+
+      @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+    background-color: #b3d4f5 !important;
+    font-family: "Montserrat", sans-serif !important;
+}
+
+.nav-pills .nav-item.show .nav-link, .nav-pills .nav-link.active {
+    background-color: #ced9e4 !important;
+}
+.nav-item {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 2px;
+}
+
+.nav-pills .nav-link{
+    background-color: #9fcaf5 !important;
+}
+h4 {
+    color: #6f7882 !important;
+}
+
+@font-face {
+    font-family: "Adobe NotDef";
+    src: url(https://cdn.jsdelivr.net/gh/adobe-fonts/adobe-notdef/AND-Regular.ttf);
+}
+
+.box-title {
+    width: 100%;
+    font-size: 8pt;
+    font-weight: 700;
+    border-top: 1px solid black;
+    padding-top: 5px;
+    margin-bottom: 10pt;
+    display: block;
+}
+
+.box {
+    margin-bottom: 20pt;
+    width: 100%;
+    float: left;
+}
+
+.box-text {}
+
+.cell {
+    display: inline-block;
+    text-align: center;
+    padding: 5pt;
+    margin: 5pt;
+    width: 1.5em;
+    line-height: 1.5em;
+    background-color: #fcfcfc;
+    border: 1px solid #eee;
+}
+
+#ui-nav {
+    position: fixed;
+    right: 20px;
+    z-index: 100;
+}
+
+#font-toggle {}
+
+.ui-nav-item {
+    display: block;
+    cursor: pointer;
+    -webkit-user-select: none;
+    /* Safari */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* IE10+/Edge */
+    user-select: none;
+    /* Standard */
+    text-align: center;
+    color: white;
+    background-color: black;
+    display: block;
+    font-size: 14pt;
+    padding: 5px;
+    margin: 2px;
+}
+
+/* Stuff needed for the table differ */
+body {
+    font-family: Helvetica;
+}
+
+.node {
+    font-family: courier;
+    cursor: pointer;
+    position: relative;
+    left: 30px;
+    padding: 5px;
+    display: block;
+    border: 1px dashed grey;
+    background-color: #e9e9ee;
+}
+
+.header {
+    font-weight: bold;
+}
+
+.attr-before {
+    color: green !important;
+    cursor: text;
+}
+
+.attr-after {
+    color: red;
+    cursor: text !important;
+}
+
+.leaf {
+    font-weight: bold;
+}
+
+.old .cell .new {
+    display: none;
+}
+
+.new .cell .old {
+    display: none;
+}
+
+.both .cell .old {
+    opacity: 0.75;
+    color: red;
+}
+
+.both .cell .new {
+    opacity: 0.75;
+    position: absolute;
+    top: 0;
+    color: green;
+}
+
+.spacer {
+    display: block;
+    float: left;
+    width: 100%;
+}
+
+#ot-panel {
+    max-height: 400px;
+    overflow-y: scroll;
+    background: white;
+    padding: 10px;
+    display: none;
+   }
+
+   .cell{
+    z-index: -100;
+    float: left;
+    display: block;
+    text-align: center;
+    padding: 5pt;
+    margin: 5pt;
+    width: 50pt;
+    font-size: var(--node-pt-size);
+    line-height: calc(var(--node-pt-size) * 1.5);
+  }
+  .cell-word{
+    z-index: -100;
+    float: left;
+    display: block;
+    text-align: center;
+    padding: 5pt;
+    margin: 5pt;
+    font-size: var(--node-pt-size);
+    line-height: calc(var(--node-pt-size) * 1.5);
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  }
+  .cell-glyph{
+    z-index: -100;
+    float: left;
+    display: block;
+    text-align: center;
+    border-radius: 5pt;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    padding: 5pt;
+    margin: 5pt;
+    width: calc(var(--node-pt-size) * 2);
+    min-height: calc(var(--node-pt-size) * 2);
+    font-size: var(--node-pt-size);
+  }
+  .cell-glyph.font-before, .cell-word.font-before {
+    background: #eff6f2;
+  }
+  .cell-glyph.font-after, .cell-word.font-after {
+    background: #f7f4f4;
+  }
+
+  .cell-glyph:hover {
+    box-shadow: none;
+    background: #f0f0f5;
+  }
+  .cat-strings .cell {
+    clear: both;
+    position: static;
+    float: none;
+    text-align: left;
+  }
+  .codepoint {
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 10pt;
+    line-height: 10pt;
+  }
+  .box-title {
+    clear: both;
+  }
+  .node.closed::before {
+    content: "+";
+    margin-right: 5pt;
+  }
+  .node.open::before {
+    content: "-";
+    margin-right: 5pt;
+  }
+
+  .tooltip pre {
+    background-color: #6f7882;
+    padding: 5px;
+    white-space: pre-wrap;
+    word-break: break-all;
+  }
+  .tooltip {
+    line-height: 1em;
+  }
+  .tooltip-inner {
+    max-width: 300px;
+  }
+
+  h1,h2,h3,h4,h5 {
+    clear: both;
+  }
+
+  #locationnav li {
+    white-space: wrap;
+  }
+
+  #userdefined div { width: 100%; }
+  
+/* The following rules are used in the WASM version, not in the CLI version.
+   But we keep them here so we can share them between the two versions. */
+
+   .modal-dialog {
+    max-width: 100% !important;
+    margin: 0 !important;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100vh;
+    display: flex;
+  }
+
+  .drop {
+    padding: 30px;
+    border-radius: 20px;
+    outline: 3px dashed #ffffffff;
+    outline-offset: -20px;
+  }
+
+  #fontbefore {
+    background-color: #ddffdddd;
+  }
+
+  #fontafter {
+    background-color: #ffdddddd;
+  }
+
+  #worddrop {
+    background-color: #ddffffdd;
+  }
+
+  .dragging {
+    background-image: linear-gradient(rgb(0 0 0/5%) 0 0);
+    outline: 5px dashed #ffffffff;
+  }
+
+  #diffkerns {
+    max-height: 500px;
+    overflow-y: scroll;
+  }
+
+  /* Layout for the WASM dynamic site: left location nav + floating
+     control panel on the right. */
+  #locationnav-col {
+    position: sticky;
+    top: 0;
+    max-height: 100vh;
+    overflow-y: auto;
+  }
+  #locationnav .nav-link {
+    cursor: pointer;
+  }
+  #content-col {
+    padding-right: 280px;
+  }
+  #controlpanel {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 1050;
+    width: 260px;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid #c8d2dc;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+  #controlpanel .panel-title {
+    margin-bottom: 0.5rem;
+  }
+  #controlpanel .control-actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+  #controlpanel .control-actions .ui-nav-item {
+    flex: 1;
+    margin: 0;
+  }
+  #controlpanel .axis {
+    margin-bottom: 0.5rem;
+    font-size: 12pt;
+  }
+  #controlpanel .axis-tag {
+    font-weight: 600;
+  }
+  #controlpanel .axis-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  #controlpanel .axis-controls .slider {
+    flex: 1;
+    width: auto;
+  }
+  #controlpanel .axis-value {
+    width: 5rem;
+  }
+  #controlpanel #instance-select {
+    width: 100%;
+    margin-top: 0.25rem;
+  }
+  #controlpanel .panel-hint {
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+    font-size: 9pt;
+    color: #6f7882;
+  }
+  #axes.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+  .diff-spinner {
+    padding: 1rem;
+  }
+  }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+      integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <body>
+    <div id="ui-nav">
+      
+      <div class="ui-nav-item" id="fonttoggle">Old</div>
+      <div class="ui-nav-item" id="fontanimate">Animate</div>
+      
+      <div id="axes"></div>
+    </div>
+
+    <div class="row">
+      <div class="col-2">
+        <ul class="nav nav-pills" id="locationnav"></ul>
+      </div>
+      <div class="col-9 mt-3">
+        <div id="header">
+          <h1> Diffenator3 Proof</h1>
+          
+          <h3> Font before: <code>CalSans-Regular.ttf </code></h3>
+          <h3> Font after: <code>CalSans-Italic[GEOM,SHRP,YTAS,opsz,wght].ttf </code></h3>
+          
+        </div>
+        <div id="main">
+         
+          
+          <h4>Latin</h4>
+          <div class="font-before">
+            
+              <p dir="auto"><span class="language text-secondary">English</span>Everyone has the right to freedom of thought, conscience and religion; this right includes freedom to change his religion or belief, and freedom, either alone or in community with others and in public or private, to manifest his religion or belief in teaching, practice, worship and observance. Everyone has the right to freedom of opinion and expression; this right includes freedom to hold opinions without interference and to seek, receive and impart information and ideas through any media and regardless of frontiers. Everyone has the right to rest and leisure, including reasonable limitation of working hours and periodic holidays with pay.</p>
+            
+              <p dir="auto"><span class="language text-secondary">Spanish</span>Considerando que la libertad, la justicia y la paz en el mundo tienen por base el reconocimiento de la dignidad intrínseca y de los derechos iguales e inalienables de todos los miembros de la familia humana, Considerando que el desconocimiento y el menosprecio de los derechos humanos han originado actos de barbarie ultrajantes para la conciencia de la humanidad; y que se ha proclamado, como la aspiración más elevada del hombre, el advenimiento de un mundo en que los seres humanos, liberados del temor y de la miseria, disfruten de la libertad de palabra y de la libertad de creencias,</p>
+            
+              <p dir="auto"><span class="language text-secondary">French</span>Considérant que la reconnaissance de la dignité inhérente à tous les membres de la famille humaine et de leurs droits égaux et inaliénables constitue le fondement de la liberté, de la justice et de la paix dans le monde, Considérant que la méconnaissance et le mépris des droits de l’homme ont conduit à des actes de barbarie qui révoltent la conscience de l’humanité et que l’avènement d’un monde où les êtres humains seront libres de parler et de croire, libérés de la terreur et de la misère, a été proclamé comme la plus haute aspiration de l’homme, Considérant qu’il est essentiel que les droits de l’homme soient protégés par un régime de droit pour que l’homme ne soit pas contraint, en suprême recours, à la révolte contre la tyrannie et l’oppression,</p>
+            
+              <p dir="auto"><span class="language text-secondary">Portuguese</span>Todos os seres humanos nascem livres e iguais em dignidade e direitos. São dotados de razão e consciência e devem agir em relação uns aos outros com espírito de fraternidade. </p>
+            
+              <p dir="auto"><span class="language text-secondary">Swahili</span>Kwa kuwa kukiri heshima ya asili na haki sawa kwa binadamu wote ndio msingi wa uhuru, haki na amani duniani, Kwa kuwa kutojali na kudharau haki za binadamu kumeletea vitendo vya kishenzi ambavyo vimeharibu dhamiri ya binadamu na kwa sababu taarifa ya ulimwengu ambayo itawafanya binadamu wafurahie uhuru wao wa kusema, kusadiki na wa kutoogopa cho chote imekwisha kutangazwa kwamba ndio hamu kuu ya watu wote, Kwa kuwa ni lazima, ili mtu asishurutizwe kuomba msaada kutokana na maasi ya kupinga dhuluma na uonevu, kwamba haki za binadamu ziwe chini ya ulinzi wa sheria,</p>
+            
+              <p dir="auto"><span class="language text-secondary">Indonesian</span>Menimbang bahwa pengakuan atas martabat alamiah dan hak-hak yang sama dan mutlak dari semua anggota keluarga manusia adalah dasar kemerdekaan, keadilan dan perdamaian di dunia, Menimbang bahwa mengabaikan dan memandang rendah hak-hak asasi manusia telah mengakibatkan perbuatan-perbuatan bengis yang menimbulkan rasa kemarahan hati nurani umat manusia, dan terbentuknya suatu dunia tempat manusia akan mengecap kenikmatan kebebasan berbicara dan beragama serta kebebasan dari ketakutan dan kekurangan telah dinyatakan sebagai cita-cita tertinggi dari rakyat biasa,</p>
+            
+              <p dir="auto"><span class="language text-secondary">German</span>Alle Menschen sind frei und gleich an Würde und Rechten geboren. Sie sind mit Vernunft und Gewissen begabt und sollen einander im Geist der Brüderlichkeit begegnen. </p>
+            
+              <p dir="auto"><span class="language text-secondary">Javanese</span>MANIMBANG manowo ngakoni marang martabat alamiah sarta hak-hak kang padha lan pinasthi ing saben warganing kulawarga umat manungsa, mujudake landhesaning kamardikan, kaadilan sarta bedhamening donya. MANIMBANG menawa nyingkur lan nganggep remeh hak-hak umat manungsa bisa njalari tandang tanduk kasar lan wengis kang nuwuhake rasa runtik atine umat manungsa, lan kabangune donya dadi papaning umat manungsa bisa ngrasakake lan ngalami nikmating bebas medhar panemu lan bebas ngrasuk agama sarta kalis saka rasa wedi lan was-sumelang sarta urip kacingkrangan, kapratelakake dadi pranyatan minangka dadi gegayuhan luhur sakabehing umat manungsa lumrah (kawula alit).</p>
+            
+              <p dir="auto"><span class="language text-secondary">Vietnamese</span>Mọi người đều có quyền được hưởng trật tự xã hội và trật tự quốc tế trong đó các quyền và tự do nêu trong Bản tuyên ngôn này có thể được thực hiện đầy đủ. Không được phép diễn giải bất kỳ điều khoản nào trong Bản tuyên ngôn này theo hướng ngầm ý cho phép bất kỳ quốc gia, nhóm người hay cá nhân nào được quyền tham gia vào bất kỳ hoạt động nào hay thực hiện bất kỳ hành vi nào nhằm phá hoại bất kỳ quyền và tự do nào nêu trong Bản tuyên ngôn này. Với nhận thức rằng: Việc thừa nhận nhân phẩm vốn có, các quyền bình đẳng và không thể tách rời của mọi thành viên trong gia đình nhân loại là cơ sở cho tự do, công bằng và hoà bình trên thế giới,</p>
+            
+              <p dir="auto"><span class="language text-secondary">Turkish</span>Herkesin, işbu Beyannamede derpiş edilen hak ve hürriyetlerin tam tatbikini sağlayacak bir sosyal ve milletlerarası nizama hakkı vardır. İşbu Beyannamenin hiçbir hükmü, herhangi bir devlete, zümreye ya da ferde, bu Beyannamede ilan olunan hak ve hürriyetleri yoketmeye yönelik bir faaliyete girişme ya da eylemde bulunma hakkını verir şekilde yorumlanamaz. İnsanlık ailesinin bütün üyelerinde bulunan haysiyetin ve bunların eşit ve devir kabul etmez haklarının tanınması hususunun, hürriyetin, adaletin ve dünya barışının temeli olmasına, İnsanin zulüm ve baskıya karşı son çare olarak ayaklanmaya mecbur kalmaması için insan haklarının bir hukuk rejimi ile korunmasının esaslı bir zaruret olmasına,</p>
+            
+              <p dir="auto"><span class="language text-secondary">Italian</span>Considerato che il riconoscimento della dignità inerente a tutti i membri della famiglia umana e dei loro diritti, uguali ed inalienabili, costituisce il fondamento della libertà, della giustizia e della pace nel mondo; Considerato che il disconoscimento e il disprezzo dei diritti umani hanno portato ad atti di barbarie che offendono la coscienza dell&#x27;umanità, e che l&#x27;avvento di un mondo in cui gli esseri umani godano della libertà di parola e di credo e della libertà dal timore e dal bisogno è stato proclamato come la più alta aspirazione dell&#x27;uomo; Considerato che è indispensabile promuovere lo sviluppo di rapporti amichevoli tra le Nazioni;</p>
+            
+              <p dir="auto"><span class="language text-secondary">Polish</span>Nie wolno nikogo czynić niewolnikiem ani nakładać na nikogo służebności; niewolnictwo i handel niewolnikami są zakazane we wszystkich swych postaciach. Nie wolno nikogo torturować ani karać lub traktować w sposób okrutny, nieludzki lub poniżający. Każdy człowiek ma prawo do uznawania wszędzie jego osobowości prawnej. Wszyscy są równi wobec prawa i mają prawo, bez jakiejkolwiek różnicy, do jednakowej ochrony prawnej. Wszyscy mają prawo do jednakowej ochrony przed jakąkolwiek dyskryminacją, będącą pogwałceniem niniejszej Deklaracji, i przed jakimkolwiek narażeniem na taką dyskryminację.</p>
+            
+              <p dir="auto"><span class="language text-secondary">Oromo</span>Ulfinni fi wal-qixxummaan ilmoo namaa kan uummattoota hundaa akka ifatti kabajamu gochuun bu&#x27;ura bilisummaa, haqaa fi nageenya addunyaa waan ta&#x27;eef; Mirga namummaa irra ijjechuun yookaan tuffachuun yeroo hunda jeequmsa badiisa fidu uumee uummata kan dheekamsiisu waan ta&#x27;eef, akkasumas addunyaa haaraa kan uummanni ishee wal-qixxummaadhaan, bilisummaa yaadaa fi amantii argatanii, yaaddoo fi dhaba irraa birmaduu ta&#x27;anii gammachuudhaan akka jiraatan gochuun hawwii fi fedha uummattoota addunyaa waan ta&#x27;eef; Uummanni bulchiisa rooroo fi cunqursaa ofirra kuffisuuf humnaan akka hinfayyadamnetti yoo barbaachise, mirgooti namummaa seeraan akka eegamu gochuun barbaachisaa waan ta&#x27;eef;</p>
+            
+              <p dir="auto"><span class="language text-secondary">Dutch</span>Overwegende, dat erkenning van de inherente waardigheid en van de gelijke en onvervreemdbare rechten van alle leden van de mensengemeenschap grondslag is voor de vrijheid, gerechtigheid en vrede in de wereld; Overwegende, dat terzijdestelling van en minachting voor de rechten van de mens geleid hebben tot barbaarse handelingen, die het geweten van de mensheid geweld hebben aangedaan en dat de komst van een wereld, waarin de mensen vrijheid van meningsuiting en geloof zullen genieten, en vrij zullen zijn van vrees en gebrek, is verkondigd als het hoogste ideaal van iedere mens;</p>
+            
+              <p dir="auto"><span class="language text-secondary">Yoruba</span>Ẹnì kọ̀ọ̀kan ló ní ẹ̀tọ́ pé kí a má ṣàdédé ṣe àyọjúràn sí ọ̀rọ̀ ìgbésí ayé rẹ̀, tàbí sí ọ̀rọ̀ẹbí rẹ̀ tàbí sí ọ̀rọ̀ ìdílé rẹ̀ tàbí ìwé tí a kọ sí i; a kò sì gbọdọ̀ ba iyì àti orúkọ rẹ̀ jẹ́. Ẹnì kọ̀ọ̀kan ló ní ẹ̀tọ́ sí ààbò lábẹ́ òfin kúrò lọ́wọ́ irú àyọjúràn tàbí ìbanijẹ́ bẹ́ẹ̀. Ẹnì kọ̀ọ̀kan ló ní ẹ̀tọ́ sí òmìnira èrò, òmìnira ẹ̀rí-ọkàn àti òmìnira ẹ sìn. Ẹtọ́ yìí sì gbani láàyè láti pààrọ̀ ẹ sìn tàbí ìgbàgbọ́ ẹni. Ó sì fún ẹyọ ẹnì kan tàbí àkójọpọ̀ ènìyàn láàyè láti ṣe ẹ̀sìn wọn àti ìgbàgbọ́ wọn bó ṣe jẹ mọ́ ti ìkọ́ni, ìṣesí, ìjọ́sìn àti ìmúṣe ohun tí wọ́n gbàgbọ́ yálà ní ìkọ̀kọ̀ tàbí ní gban̄gba. Ẹnì kọ̀ọ̀kan ló ní ẹ̀tọ́ sí ìsinmi àti fàájì pẹ̀lú àkókò tí kò pọ̀ jù lẹ́nu iṣẹ́ àti àsìkò ìsinmi lẹ́nu iṣẹ́ láti ìgbà dé ìgbà tí a ó sanwó fún.</p>
+            
+              <p dir="auto"><span class="language text-secondary">Igbo</span>Ọ dịghị onye a ga-ejigide n&#x27;ọnọdu ohu ma ọ bụ odibọ a ga-amachi ịkpa ma ọ bụ ire ohu n&#x27;ụdị ọ bụla. Ọ dịghị onye a ga-akwagide n&#x27;oke ntaramahụhụ, ma ọ bụ na mmeso omume na ntaramahụhụ obi ọjọọ, obi tara mmiri ma ọ bụ nke naz-ewetu ugwu mmadụ. Onye ọ bụla nwere ikike nkwanyere ugwu dị ka mmadụ ebe ọ bụla n&#x27;usoro iwu. Madụ nile ha otu n&#x27;usoro iwu, tozukwa oke n&#x27;enweghi ịkpa oke ọ bụla inweta nchedo nha anya n&#x27;usoro iwu. Madụ nile tozukwara oke nchedo nha anya megide ụdị ịkpa oke ọ bụla mebiri Nkwuwapụta nke a ma megidekwa ikwanye mmadụ ọ bụla n&#x27;ụdị ikpa oke a. Onye ọ bụla nwere ikike ikpe mmezi ga-enwe nkawado ọha na eze nke ndi ụlọ ikpe tozuru etozu nke obodo ma e nwee omume ndi megidere ikike ntọala nke e nyegasịrị ya site n&#x27;usoro ọchịchị ma ọbụ iwu.</p>
+            
+              <p dir="auto"><span class="language text-secondary">Kurdish (Latin)</span>Herkes mafê azadiya fikr, wijdan û olê heye; azadiya ol an bawerî guhartin û azadiya ol û baweriya xwe bi tenê an bi hev re him eşkere him arizî, bi hînkirin, emel, îbadet û bicihanîna ayînan nîşandanê jî di nav vî mafî de ne. Herkes mafê azadiya fikr û îfade heye; mafê ji ber ramanên xwe nehatin êşandin û herweha mafê bêî nasîna tu sînoran û bi her cure navgînan li agahdariyan û fikran gerîn, wan bi dest xistin û îfade û belavkirin dikevin nav vî mafî. Herkes, wekî endamê civakî, mafê ewleyiya sosyal heye; Ew mafdar e ku bi riya xebata neteweyî û hevkariya navneteweyî û li gora tenzîm û hatiniyên her dewletê, doza bidestxistina mafên aborî, civakî û çandî yên ku jo bo weqara wî û geşbûna serbest a şexsiyeta wî ferz in, bike.</p>
+            
+              <p dir="auto"><span class="language text-secondary">Malagasy</span>Tsy misy olona azo hitsabahana ny fiainany manokana, ny fianankaviany, ny fonenany, ny taratasy ifandefasany na hitsahana ny voninahiny sy ny lazany. Zon’ny olona ny harovan’ny lalna eo anatrehan’ny fanitsakitsahana tsy ara-drariny sy tsy ara-dalna rehetra. Malalaka amin’ny heviny sy amin’ny fivavahana hinoany ary manan-jo hiheno ny feon’ny fieritreretany ny olon-drehetra. Io zo io dia mamela azy malalaka hiova fivavahana na firehana samihafa. Ny olon-drehetra koa dia manan-jo haneho izany finoany na firehany izany am-pahabemaso na ho an’olom-bitsy ; amin’ny alalan’ny fampianarana na fanaovana fomba...</p>
+            
+              <p dir="auto"><span class="language text-secondary">Romanian</span>Considerând că recunoașterea demnității inerente tuturor membrilor familiei umane și a drepturilor lor egale și inalienabile constituie fundamentul libertății, dreptății și păcii în lume, Considerând că ignorarea și disprețuirea drepturilor omului au dus la acte de barbarie care revoltă conștiința omenirii și că făurirea unei lumi în care ființele umane se vor bucura de libertatea cuvântului și a convingerilor și vor fi eliberate de teamă și mizerie a fost proclamată drept cea mai înaltă aspirație a oamenilor, Considerând că este esențial ca drepturile omului să fie ocrotite de autoritatea legii pentru ca omul să nu fie silit să recurgă, ca soluție extremă, la revoltă împotriva tiraniei și asupririi,</p>
+            
+              <p dir="auto"><span class="language text-secondary">Nyanja</span>Popeza kuti citsimikizo ca khalidwe loyenera la munthu mu banja lonse ndico tsinde la ufulu, ungwiro ndi mtendere pa dziko liri lonse la pansi, Popeza kuti kusalabadira ufulu wa munthu kwabweretsa khalidwe la nkhalwe pa umoyo wa munthu, ndi kutinso kusintha kwa zinthu pa dziko la pansi mwakufuna kupereka ufulu weni-weni pa umoyo wa munthu aliyense ndilo funo la munthu wamba aliyense, Popeza kuti ndi kofunikira kuti ufulu wa munthu ucinjirizidwe ndi lamulo pofuna kupewa nkhondo yomenyera ufulu kukhala ngati njira yomwe munthu angagwiritse nchito pofuna kumasulidwa ku nsinga za nkhalwe,</p>
+            
+              <p dir="auto"><span class="language text-secondary">Somali</span>Qof kastaa wuxuu xaq u leeyaday inuu helo nidaam bulsho iyo hab caalami ah oo xuquuqda iyo xorriyaadka lagu tilmaamay Baaqan si buuxda loogu dhaqan gelin karo. Baaqan kuma jiraan wax loo fasiri karo in micnahoodu yahay in Dawlad, koox ama qof xaq u leeyahay inuu ku kaco fal ama falal loola jeedo in lagu burburiyo xuquuqda ama xorriyaadka lagu qoray Baaqan. Iyadoo aqoonsiga sharafta uu ku dhashay iyo xuquuqda maguurtada ah ee ay u siman-yihiin dadweynaha adduunku uu yahay saldhigga xorriyada, caddaaladda iyo nabadda dunida. Iyadoo ay tahay lagama maarmaan in xuquuqda aadanuhu ay noqdaan kuwo sharcigu dhowro, si uusan qofku, ugu dambeynta, ugu baahan inuu xoog kaga soo horjeesto cadaadiska.</p>
+            
+              <p dir="auto"><span class="language text-secondary">Czech</span>Každý má právo na svobodu myšlení, svědomí a náboženství; toto právo zahrnuje v sobě i volnost změnit své náboženství nebo víru, jakož i svobodu projevovat své náboženství nebo víru, sám nebo společně s jinými, ať veřejně nebo soukromě, vyučováním, prováděním náboženských úkonů, bohoslužbou a zachováváním obřadů. Každý má právo na svobodu přesvědčení a projevu; toto právo nepřipouští, aby někdo trpěl újmu pro své přesvědčení, a zahrnuje právo vyhledávat, přijímat a rozšiřovat informace a myšlenky jakýmikoli prostředky a bez ohledu na hranice. Každý má právo na odpočinek a na zotavení, zejména také na rozumné vymezení pracovních hodin a na pravidelnou placenou dovolenou.</p>
+            
+              <p dir="auto"><span class="language text-secondary">Swedish</span>Enär erkännandet av det inneboende värdet hos alla medlemmar av människosläktet och av deras lika och oförytterliga rättigheter är grundvalen för frihet, rättvisa och fred i världen, enär ringaktning och förakt för de mänskliga rättigheterna lett till barbariska gärningar, som upprört mänsklighetens samvete, och enär skapandet av en värld, där människorna åtnjuta yttrandefrihet, trosfrihet samt frihet från fruktan och nöd, kungjorts som folkens högsta strävan, enär det är väsentligt för att icke människan skall tvingas att som en sista utväg tillgripa uppror mot tyranni och förtryck, att de mänskliga rättigheterna skyddas genom lagens överhöghet,</p>
+            
+              <p dir="auto"><span class="language text-secondary">Hungarian</span>Senkinek magánéletébe, családi ügyeibe, lakóhelye megválasztásába vagy levelezésébe nem szabad önkényesen beavatkozni, sem pedig becsületében vagy jó hírnevében megsérteni. Minden személynek joga van az ilyen beavatkozásokkal vagy sértésekkel szemben a törvény védelméhez. Minden személynek joga van a gondolat, a lelkiismeret és a vallás szabadságához, ez a jog magában foglalja a vallás és a meggyőződés megváltoztatásának szabadságát, valamint a vallásnak vagy a meggyőződésnek mind egyénileg, mind együttesen, mind a nyilvánosság előtt, mind a magánéletben oktatás, gyakorlás és szertartások végzése útján való kifejezésre juttatásának jogát.</p>
+            
+              <p dir="auto"><span class="language text-secondary">Low German</span>Vunwegen wat dat Anerkennen vun de Wüürd, mit de all Minschen baren sünd, un de Rechten, de all Maten vun de Gemeenschupp vun de Minschen hebbt un de gliek un nich to verköpen sünd, de Grundlaag vun Frieheit un Freden in de Welt is, un wat dat recht und billig togeiht, vunwegen wat dat Verkennen un Minnachten vun de Minschen rechten to unminschlich Doon föhrt hett, un dat Geweten vun de Minschen daarvun vull is vun Schann, is dat vör nehmste Wark vun de Minschen dat Buen vun een Welt, wo elk un een seggen un gloven dröff, wat he will un he frie is vun Bang sien un Noot,</p>
+            
+              <p dir="auto"><span class="language text-secondary">Quechua</span>Llapa runan yuyaykukuyta, jamut&#x27;ayta atin yuyaychakusqanman jina. Manan pipas chaytaqa jark&#x27;ayta atinmanchu. Kaqtaqmi ima &quot;religionpipas&quot; kausayta atin tukuy runaq yachashasqan. Tukuy runapas umanpi yuyaykusqantan rimarinan manapitapas manchakuspa. Yuyaykusqantataqmi pachantin runaman, teqsi muyuntin, lluy &quot;munduntin&quot; runaman riqsichinan yachananpaq. Sut&#x27;in rimaqtan pacha kamaq taytachapas yanapan. Chay yuyaykukusqanmantaqa, ruwasqanmantaqa manan pipas cheqniytapas, juchachaytapas atinchu. Llapa runan, imaynan kausasqanman jina llaqtanwan, &quot;nacionninwan&quot; qochikunan mikhuytapas, tukuy ima kausaytapas; yachaytawanpas, yachayninman yapananpaq, chaywantaq jananchasqa runa kananpaq.</p>
+            
+              <p dir="auto"><span class="language text-secondary">Wolof</span>Nit kune war naa dund ci tawfeex ak kaaraange. Waruñoo def kenn jaam mbaa mbindaan. Njaam ak njaayum jaam nanguwunu ko ci anam gu mu mën ti doon. Waruñoo mbugal, tutal, mbaa teg kenn lu metti lool lu yelloo wul ak doomu aadama. Nit ku ne am na sañ-sañ ñu war kaa nangul darajaam ci wàllu yoon. Népp a yam ci kanamu yoon. Te it amul xeej ak seen, ku ne yoon woowu war na laa aar. Népp war nañu leen aar ci luy jalgati liñu tënk ci bataaxal bii ak bepp yëngu-gëngu buy indi par-parloo. Nit ku ne am na sañ-sañ dem ci berebi àtte kaay yi ci reewam saa yoo xamne sañ-sañam yooyu dëppook sàrti réewam mba yoon jalgati nañu ko.</p>
+            
+              <p dir="auto"><span class="language text-secondary">Turkmen (Latin)</span>Hiç kim öz şahsy we maşgala durmuşyna eden-ýtdilikli gatyşylmagyna, öz ýaşaýyş jaýynyň eldegrilmezliginiň, hat-habar aragatnaşyklarynyň gizlinliginiň ýa-da öz at-abraýynyň we mertebesiniň garawsyz bozulmagyna duçar edilip bilinmez. Her bir adam öz durmuşyna beýle gatyşmalardan ýa-da kastdan kanun arkaly goranmaga haklydyr. Her bir adam pikir, ynam we din azatlygyna haklydyr; bu hukuk diniňi ýa-da ynamyňy üýtgetmek azatlygyny we öz diniňe ýa-da ynamyňa uýmak hem-de oňa ýeke özüň we il bilen bile hususy tertipde, şeýle-de köpçülikde sežde etmek, ýörelge, hudaýa çokunmak we dini ritual dessurlaryň azatlygyny öz içine alýar.</p>
+            
+              <p dir="auto"><span class="language text-secondary">Azerbaijani</span>Heç kim şəxsi və ailə həyatına müdaxiləyə, evinin toxunulmazlığına, məktublaşmasının gizliliyinə, şərəf və nüfuzuna özbaşına qəsdə məruz qala bilməz. Hər bir şəxsin belə müdaxilə və qəsdən qanun tərəfindən müdafiə olunmaq hüququ var. Hər bir şəxs düşüncə, vicdan və din azadlığı hüququna malikdir; bu hüquqa öz dinini və etiqadını dəyişmək azadlığı və öz dininə və inanclarına təhsil, dua və dini və ritual ayinlər zamanı təklikdə və ya başqaları ilə birlikdə, aşkar və ya fərdi şəkildə etiqad etmək azadlığı daxildir. Hər bir şəxsin istirahət və asudə vaxt, o cümlədən iş gününün ağlabatan hüdudu və ödənilən mütamadi məzuniyyət hüququ var.</p>
+            
+              <p dir="auto"><span class="language text-secondary">Catalan</span>Considerant que el reconeixement de la dignitat inherent i dels drets iguals i inalienables de tots els membres de la família humana és el fonament de la llibertat, la justícia i la pau en el món, Considerant que el desconeixement i el menyspreu dels drets humans han originat actes de barbàrie que han ultratjat la consciència de la humanitat; i que s’ha proclamat com l’aspiració més elevada de tothom l’adveniment d’un món on els éssers humans, deslliurats del temor i la misèria, puguin gaudir de llibertat d’expressió i de creença, Considerant que és essencial que els drets humans siguin protegits per un règim de dret per tal que les persones no es vegin forçades, com a últim recurs, a la rebel·lió contra la tirania i l’opressió,</p>
+            
+              <p dir="auto"><span class="language text-secondary">Swiss German</span>Wil d’Fréiheit, d’Gerachtichkeit ùn de Frìdde ùff de Walt sich ùff d’Ànerkannùng vùn de Wìrde stìtze, wie ìn àlle Litt vùn de Menschefàmìli zükùmmt, sowie ùff ìhri gliche ùn ùnverüsserliche Rachte, Wil ’s do, wo mr d’Menscherachte nìt gekannt ùn nìt reschpektìert het, zü ùnmenschliche Tàte gebroocht het, wie s Gewìsse vùn de gànze Menschheit revoltìere, ùn wil ’s proklàmìert wùrre ìsch, àss de Mensch vor àllem ùff e néji Walt blàngt, wo d’Litt fréi sìnn, ze redde ùn ze gloewe wie se welle, ùn wo se vùn Schrecke ùn Not befréit sìnn, Wil ’s notwandich ìsch, àss d’Menscherachte dùrich e Rachtssyschtem gschìtzt ware, fer àss de Mensch nìt gezwùnge wùrd, sich àls letschter Üsswaj gejje d’Tyrànnéi ùn d’Ùnterdrìckùng ze revoltìere,</p>
+            
+              <p dir="auto"><span class="language text-secondary">Danish</span>Da anerkendelse af den mennesket iboende værdighed og af de lige og ufortabelige rettigheder for alle medlemmer af den menneskelige familie er grundlaget for frihed, retfærdighed og fred i verden, da tilsidesættelse af og foragt for menneskerettighederne har ført til barbariske handlinger, der har oprørt menneskehedens samvittighed, og da skabelsen af en verden, hvor menneskene nyder tale- og trosfrihed og frihed for frygt og nød, er blevet forkyndt som folkenes højeste mål, da det er af afgørende betydning, at menneskerettighederne beskyttes af loven, hvis ikke mennesket som en sidste udvej skal tvinges til at gøre oprør mod tyranni og undertrykkelse,</p>
+            
+              <p dir="auto"><span class="language text-secondary">Slovak</span>Každý má právo na slobodu myslenia, svedomia a náboženstva; toto právo obsahuje aj voľnosť zmeniť náboženstvo alebo vieru, ako i slobodu prejavovať svoje náboženstvo alebo vieru, sám alebo společne s inými, či už verejne alebo súkromne, vyučovaním, vykonávaním náboženských úkonov, bohoslužbou a zachovávaním obradov. Každý má právo na slobodu presvedčenia a prejavu: toto právo nepripúšťa, aby niekto trpel ujmu pre svoje presvedčenie a zahrňuje právo vyhľadávať, prijímať a rozširovať informácie a myšlienky hociakými prostriedkami a bez ohľadu na hranice. Každý má právo na odpočinok a na zotavenie, zvlášť aj na rozumné vymedzenie pracovných hodín a na pravidelnú platenú dovolenku.</p>
+            
+              <p dir="auto"><span class="language text-secondary">Central Atlas Tamazight</span>Ur yezmir ḥedd ad yessekchem iman is s ldjur di tudert n wemdan, di twachult is; deg wekkham is, timuzniwin is nagh ad yessims lḥwerma-s d nnif is; kull amdan ghur-s lḥeqq at iḥudd lqanun si tiytiwin yechban tigi. Kull amdan ghur-s lḥeqq i tlelli n tedmi, tamsakwit d ddiyana, lḥeqq agi tetteski deg-s tlelli ubeddel n ddiyana akkw d wayn is yettamen, wehd es nagh gar medden âinani nagh di sser, s uselmed s tegdimin, s wâbâd d umares n lemdaheb. Kull amdan ghur-s lḥeqq n tlelli di ṛṛay d lmenṭeq anda yetteski lḥeqq ubeggen n ṛṛay bla ma yettuchebbwel u daghen tebbwi yas-dd ad inadi, ad yeṭṭef, u ad yefser di yall tamurt isallen d- tedmiwin s yall ttawil n wenṭaq.</p>
+            
+              <p dir="auto"><span class="language text-secondary">Sango</span>Amû na zo kûe zarä tî bibê, tî boro-li na tî mäbê ; ngangü sô afa atene zo kûê ayeke na zarä tî gbîan mäbê tî lo, wala bibê tî lo ngâ na zarä tî fa polêlê mäbê ti lo, lo ôko wala na yâ tî mbênî bûngbi, polêlê wala koiko, na lêgë tî fängô mbëtï, tî särängö yê, tî vöröngö nzapä ngâ na särängö ângôbo. Amû na zo kûê ngangü tî zarä tî bibê na tî särängö tënë. Sô atene alîngbi tî doroko zo pëpëe ndâli tî âbibê tî lo. Amû ngâ na zo kûê ngangü tî gi, tî wara na tî vûnga âsango na âkodë na âmarä lêgë kûê, na zïängö bê pëpëe na ndö tî tënë tî âmeka. Amû na zo kûe ngangü tî woterë tî lo, tî sâra ngîâ ngâ. Sô atene alîngbi tî dë gï na lêgë nî längö kâpä tî kua ngâ na âlängö tî wöngö terê sô afûta nî.</p>
+            
+              <p dir="auto"><span class="language text-secondary">Aymara</span>Jaqejh, jaqëtapat layku, kauki markankipansa jaqe kankañapajh wali chaninchatëñapaw. Jiliri p&#x27;eqeñanakajh taqe mayniru khuskat uñjapjhañapaw. Taqe mayniw arjhatatäñapa; kunapachati markanakan hualinkañapataki inoqat arunaka khitis t&#x27;unjaña munaspa ukajha, qhananchatäñapaw. Khititejh ñanqhachat uñjasisp ukajha, jach&#x27;a j ilirinakaruwa yatiyasiñapa arjhatatäñapataki. Janiw khitis markapana mutuyatäniti, janirakiw khitis markapata alismukutäniti. Taqe mayniw juchanchata uñjasisa mä cheqa arun jilirimpi ist&#x27;ayasiñap wakisi qhananchayasiñataki, uka qepatsti cheq cheqaru t &#x27;aqayasiñataki.</p>
+            
+              <p dir="auto"><span class="language text-secondary">Sasak</span>Selapuk manusie te anakan bebas kance bedoe martabat kance hak hak sak pade. Selapuk ne tebeng akal kance ate jari bergaul&#x2F;bekedek dalem semanget besemeton. </p>
+            
+              <p dir="auto"><span class="language text-secondary">Lithuanian</span>Atsižvelgdama į tai, kad visiems žmonių giminės nariams būdingo orumo ir lygių bei neatimamų teisių pripainimas yra laisvės, teisingumo ir taikos pasaulyje pagrindas; atsižvelgdama į tai, kad žmogaus teisių visiškas nepaisymas ir niekinimas pastūméjo vykdyti barbariškus aktus, piktinančius žmonijos sąžinę, o sukūrimas pasaulio, kuriame žmonės turės žodžio ir įsitikinimų laisvę ir bus išlaisvinti iš baimės ir skurdo pančių, paskelbtas kaip kilniausias žmogaus siekimas; atsižvelgdama į tai, jog būtinai reikia, kad žmogaus teises saugotų įstaymo galia, dėl to, kad jis nebūtų priverstas imtis, kaip kraštutinės priemonės, sukilimo prieš tironiją ir priespaudą;</p>
+            
+              <p dir="auto"><span class="language text-secondary">Acoli</span>Iceŋ adek ii otyeno, mama odwogo ki iot yat ma tye ka bwonyo matek. Onoŋo ocwalo kare malac me neno en ka bunyu. I acaki en onoŋo obedo ma cwinye cwee pien onoŋo en peke ki tic me atima, kun gwoko lutino aboro kulu. Onoŋo en peke ki cente me gaŋ kwan pa lotino, wilo yat ki me wilo cam pi jo ma i gaŋe. Kama en bedo i iye ni onoŋo pe ceko cam tutwal kadi bed en opur. I otyeno me ceŋ adek ni, en bene onoŋo yat mo me konyo two ne me nono. En bene oyee ni etye ki two cilim ki bene me kanyo peko me mwonyo yat. Me medo ikom meno bene kimiye  mucele, uŋa, muraŋa ki moo dek. Bene kimiye net ki jeriken me mato pi maleŋ. Lami tam  ocike bote me bedo ka roto kit ma yot kome tye kwede kicel i cabit ace.</p>
+            
+              <p dir="auto"><span class="language text-secondary">Makonde</span>Lisiku lya 10 Disemba 1948, Lukumbi Lukulu lwa Umoja wa Vilambo lunihaula na kuhumya lilove lya vilambo lya wasa wa vanu. Lilove alino lihumile baada ya chilambo chohechohe kupanyana ding’ondo ding’ulu dimbili. Lukumbi anelwo lulembedile kila chilambo chihumye lilove alino livahwikile vanu vake kwa kulangudya, kusomesa, kusomela, kuhaula n’disule na n’disehemu dinji kuvele na ilimu. Ili kuhinikiha kuchidono wasa wa vanu unawuniwa, na Tansania inaunila wasa anewo, lilove alino lihumile M’chimakonde ili valembela usoma vavike wasa wene mun’tima mwavo vene na vanu vanji. Koka chive chihinde cha kukonyelela kuwuniwa kwa wasa wene m’manu na lyene lipanda.</p>
+            
+              <p dir="auto"><span class="language text-secondary">Bulu</span>Eyóñ bia noñ na fili, sosoo ai mvoe bia so bia olugu biave ekokom mod. Eyóñ bia noñ na fili ya nyol ai a nsisim ene dzom ya mod ose ayi, adzeñe fe, ai na ndimi, tege yene, ebiandi y&#x27;akar so e minsingi ai minyanda a minnam. Eyóñ bia noñ na ngomena ayian kala enyiñ asu e na bod be za bam nge batibili bo. Eyóñ bia noñ na fulu mbga etam, fulu anyañ, fulu ediñ ndzo ene mfi asu mie bod ya minnam. Eyóñ bia noñ na Akōk Memvende Ekuan Elad Meyoñ amem na aluman asu na enyiñ bod bese etebe etu dzia. Eyóñ bia noñ na abui minnam mbamena ai Ekuan Elad meyoñ mo yebe ovañ ye na si ese ebaala memvende m&#x27;enyiñ ma.</p>
+            
+              <p dir="auto"><span class="language text-secondary">Zaza</span>Pêr însanî azad û rûmet û mafan de seyyewbîno yenî dunya. Ê wayerê aqil û wijdan î û ganî pê yewbîno verê be zihniyetêda birayîyê biluwenî. </p>
+            
+              <p dir="auto"><span class="language text-secondary">Latvian</span>Nevienu nedrīkst turēt verdzībā vai dzimtbūtniecībā; visa veida verdzība un vergu tirdzniecība ir jāaizliedz. Nevienu nedrīkst pakļaut spīdzināšanai vai cietsirdīgi, necilvēcīgi ar viņu apieties vai sodīt, pazemojot viņa cilvēcisko cieņu. Ikvienam, visur, ir tiesības būt atzītam par personu likuma priekšā. Visi ir vienlīdzīgi likuma priekšā un viņiem ir tiesības, bez jebkādas diskriminācijas, uz vienādu likuma aizsardzību. Visiem ir tiesības uz vienādu aizsardzību pret jebkādu diskrimināciju, pārkāpjot šo Deklarāciju, un pret jebkuru kūdīšanu uz tādu diskrimināciju.</p>
+            
+              <p dir="auto"><span class="language text-secondary">Estonian</span>Kellegi isiklikku ja perekonnaellu ei või meelevaldselt vahele segada, kellegi korteripuutumatust, kirjavahetuse saladust või au ja reputatsiooni ei tohi meelevaldselt määrida. Igal inimesel on õigus seaduse kaitsele selliste vahelesegamiste ja rikkumiste eest. Igal inimesel on õigus mõtte-, südametunnistuse ja usuvabadusele; see õigus kätkeb vabadust oma usku või veendumusi muuta, samuti vabadust vabalt kuulutuada oma usku või veendumusi nii üksikult kui ka koos teistega avalikult või eraviisiliselt õpetuse, jumalateenistuse ja religioossete ning rituaalsete kombetalituste kaudu.</p>
+            
+              <p dir="auto"><span class="language text-secondary">Bari</span>Ŋutu liŋ a yuŋwe kana, jojo i to’diri ko ’dekesi ko ti se tokitaki ko ’börik ko mulökötyo lo toluŋaseran. Se a ’doka ko denet na kulya na’but ko narok. </p>
+            
+              <p dir="auto"><span class="language text-secondary">Picard</span>Il èst disfindou d&#x27; s&#x27;intrimète sins re°zon d&#x27;vins lès-afe°res d&#x27;ine saquî ou di s&#x27; famile, di brokî è s&#x27; mohone, di nahî d&#x27;vins lès lètes qu&#x27;i r&#x27;çût ou qu&#x27;il èvôye. Il èst disfindou d&#x27; l&#x27; ac&#x27;sûre divins si-oneûr ou d&#x27;vins s&#x27; réputåcion. A d&#x27; fåt d&#x27; çoula, chaskeun&#x27; a l&#x27; dreût d&#x27; rèclamer l&#x27;pretècsion dès lwès. Chaskeun&#x27; èst me°sse di sès-îdèyes, di s&#x27; consyinca, di s&#x27; rilidjon. Coula vout dîre qu&#x27;il èst lîbe dè régler s&#x27; vèye so sès prôpés-îdèyes èt so s&#x27; rilidjon, tot seû ou bin avou dès-ôtes, è s&#x27; mohone come å d&#x27; foû, avou l&#x27;ansègnemint, lès pratiques, lès-ûzances èt lès cèrèmon&#x27;rèyes qui l&#x27;agrèyèt.</p>
+            
+              <p dir="auto"><span class="language text-secondary">Bamun (Latin)</span>Lo’ te ka kúmshe nga wûme, yúe a njit ne gú púen te ngúet púen nyütu pua pa mféé kêr’ap ngúenengúe sebe, pe na yire mbe map(ureyúe’ne) kú ghét ngam pua sappé ne fúeshe te njú na, lo’ te ka fét kwen pua tâne pa mféé kêt mún nyütu kpa’ nkiére gû ngétne nga pâre yúe a mfiébe Wupme pa te njú na, pua ka tuo tuo njú mfé ira yúe púen nyütu ntuo pe ne kú shúkét pua kú wûshe te túm túme puô pua ngúe’, shi na mbe pô yi nsa’ me pum yu sha’ múm nyütu na, Lo’ te ka a nta’ mi pa mféékêt mún nyütu kpa’ mbe yu shî te nsa’ngu mféékêt me shi’ mi a me yétne yi njit mún nyütu me ndînî ne pi’ tu te nsa’kpen pua yit mún te ngu na,</p>
+            
+              <p dir="auto"><span class="language text-secondary">Silesian</span>Wšyjske ludźe rodzům śe swobodne a růwne we swojim werće a prawach. Sům uůne uobdařůne filipym a sůmńyńym a majům powinność wzglyndym inkšych jak brat s bratym postympować. </p>
+            
+              <p dir="auto"><span class="language text-secondary">Maltese</span>Kulħadd hu intitolat għal ordni soċjali u internazzjonali li fih il-jeddijiet u l-libertajiet imxandra f’din l-Istqarrija jkunu jistgħu jitwettqu tassew. Xejn f’din l-Istqarrija ma jista’ jkun mifhum li jagħti lil xi Stat, għaqda jew persuna l-jedd li tagħmel xi ħidma jew li twettaq xi għemil bil-għan li teqred xi jeddijiet jew libertajiet li huma mxandra hawnhekk. Billi l-għarfien tad-dinjità proprja tal-membri kollha tal-familja umana u tad-drittijiet tagħhom ugwali li ma jistgħux jitteħdulhom hu s-sies tal-ħelsien, tal-ħaqq u tal-paċi fid-dinja, Billi hu essenzjali li l-jeddijiet tal-bniedem ikunu mħarsa bil-ħakma tal-liġi biex il-bniedem ma jkunx imġiegħel, fl-aħħar mill-aħħar, li jqum kontra t-tirannija u l-moħqrija,</p>
+            
+              <p dir="auto"><span class="language text-secondary">Central Mazahua</span>Panru̸ji k&#x27;u̸ mara mimiji na joo texe yo nte̱&#x27;e̱ in dya ra chu̱nji, numa so&#x27;o k&#x27;u̸ ra mamu̸ji k&#x27;u̸ ri chjekjoji texezgoji. Panru̸ji k&#x27;u̸ ma dya ri pjechiji texto yo jña&#x27;a nuyo nrra pjosu̸ ye nte̱&#x27;e̱, nudyama so&#x27;o k&#x27;u̸ ra potr&#x27;u̸ji yo in Kjuarma; ngek&#x27;ua nesta nura mbaraji k&#x27;u̸ ye nte̱&#x27;e̱, ma sa̸ja̸ kja ne xoñi jomu̸, na kjuana k&#x27;u̸ rambesi nura zi&#x27;i, ra so&#x27;o mamu̸ nu in jña&#x27;a ñeje ra eme nu K&#x27;inchi angeze. Panru̸ji k&#x27;u̸ nuyo jña&#x27;a yo pjosu̸ ye nte̱&#x27;e̱ ximi nesta ra k&#x27;uatr&#x27;u̸ kja xiskuama, ngek&#x27;ua dya ra chu̱&#x27;u̱nji. Panru̸ji k&#x27;u̸ nesta ra mimi na jo&#x27;o texto ye tr&#x27;ajñiñi. Panru̸ji k&#x27;u̸ yo jñiñi ye jmuru̸ kja nu tr&#x27;angumu̸ a xoñijomu̸, o dyu̸su̸ji ye jña&#x27;a kja naja xiskuama, jango mamu̸ yo nrra pjosu̸ yo nte̱&#x27;e̱ ñeje mamu̸ k&#x27;u̸ yo b&#x27;ezo ñe ye nrrixo chjetroji, kjana xits&#x27;iji k&#x27;u̸ ra mbox k&#x27;u̸ji nura jok&#x27;u̸ji jango ri mimiji nu padya.</p>
+            
+              <p dir="auto"><span class="language text-secondary">Luxembourgish</span>Well d&#x27;Unerkennong vun der Dignitéit, déi all Mêmber vun der Mënschefamill gebuer as, a vu sénge gläichen an onersetzleche Rechter de Fëllement vun der Fräiheet, der Gerechtegkeet an dem Fridden an der Welt as, Well et do, wou d&#x27;Mënscherechter nët unerkannt an nët respektéiert gin, zu barbareschen Akte koum, déi d&#x27;Gewësse vun der ganzer Mënschheet revoltéieren a well d&#x27;Schafe vun enger Welt, an deer d&#x27;Mënschen d&#x27;Fräiheet vum Wuert a vum Glaf hun, an deer se fräi si vu Fuurcht an Nout, als dem Mënsch säin héchst Striewe proklaméiert gouf, Well et haaptsächlech drëm geet fir duerch e Rechtssystem Hand iwwer d&#x27;Mënscherechter ze halen an datt de Mënsch doduerch nët forcéiert gët fir säi leschten Auswee an der Revolt géint d&#x27;Tyrannei an d&#x27;Ënnerdrécktgin ze sichen,</p>
+            
+              <p dir="auto"><span class="language text-secondary">Lamnso’</span>Á dzə̀ə́ wir dzə̀m réŋréŋ fó ghvəm wùn à fó ghày, á yo’ dzə̀ə́ wir msòŋ ji kwàn. Wìr dzə̀m k̀m k fómo woo fó kwà’tì wùn à fó vifii, a wù kér fó a yiì e wùmò’ woo wír moo fə́r və. </p>
+            
+              <p dir="auto"><span class="language text-secondary">Icelandic</span>Það ber að viðurkenna, að hver maður sé jafnborinn til virðingar og réttinda, er eigi verði af honum tekin, og er þetta undirstaða frelsis, réttlætis og friðar i heiminum. Hafi mannréttindi verið fyrir borð borin og lítilsvirt, hefur slíkt haft í för með sér siðlausar athafnir, er ofboðið hafa samvizku mannkynsins, enda hefur því verið yfir lýst, að æðsta markmið almennings um heim allan sé að skapa veröld, þar sem menn fái notið málfrelsis , trúfrelsis og óttaleysis um einkalíf afkomu. Mannréttindi á að vernda með lögum. Að öðrum kosti hljóta menn að grípa til þess örþrifaráðs að rísa upp gegn kúgun og ofbeldi.</p>
+            
+              <p dir="auto"><span class="language text-secondary">Tongan</span>‘E ‘ikai ke ngofua ke puke pe fakahu pilisone ta’efakalao, tauhi pilisone ta’efakalao pe fakahee’i ta’efakalao ha taha. ‘Oku ‘a e tokotaha kotoa pe ‘a e totonu tatau ki ha fakamaau’i ‘oku taau mo ‘ilo ki ai ‘a e kakai ‘i ha fakamaau’anga ‘oku tau’ataina mo ta’efilifilimanako ‘a ‘ene ngaue ki hono fakapapau’i ‘a ‘ene ngaahi totonu mo hono ngaahi ngafa pea pehe ki he ngaahi hia kuo faka’ilo kiai ‘ehe pule’anga. ‘E ‘ikai ke ngofua ke fai ha kaunoa pe fakamalohi ta’efakalao ki ha tokotaha, ‘i ha’ane me’a fakafo’ituitui, pe ko hono famili, hono ‘api, ‘ene fetu’utaki, pe ko hono fakamele’i hono langilangi mo hono ongoongo. ‘Oku ‘i ai ‘a e totonu ‘a e tokotaha kotoa pe ke malu’i ia ‘ehe lao mei he ngaahi kaunoa pe fakamalohi pehe ni.</p>
+            
+              <p dir="auto"><span class="language text-secondary">Uduk</span>Aris ’kwaniny’ceshi ’baar mo dho’thkunu ’baḵany mo dhali mmomiiya ṯu’c imonṯal ’de&#x2F; mo dhali mii ma ḵar&#x2F;e mo. Uni mini ta gi gwo mo dhali mii mo dhali uni mini mii ka karambuye&#x2F; ’kup̱ ki cin tiya mo e shi&#x2F;in mo dhali mii kun tanu ikam mo. </p>
+            
+              <p dir="auto"><span class="language text-secondary">Esperanto</span>Ĉiu havas la rajton je libereco de penso, konscienco kaj religio; tiu ĉi rajto inkluzivas la liberecon ŝanĝi sian religion aŭ kredon, kaj liberecon manifesti, ĉu sola ĉu kune kun aliaj, ĉu publike ĉu private, sian religion aŭ kredon per instruado, praktikado, adorado kaj observado. Ĉiu havas la rajton je libereco de opinio kaj esprimado; ĉi tiu rajto inkluzivas la liberecon havi opiniojn sen intervenoj de aliaj, kaj la rajton peti, ricevi kaj havigi informojn kaj ideojn per kiu ajn rimedo kaj senkonsidere pri la landlimoj. Ĉiu havas rajton je ripozo kaj libertempo, inkluzive racian limigon de la laborhoroj kaj periodajn feriojn kun salajro.</p>
+            
+              <p dir="auto"><span class="language text-secondary">Yaneshaʼ</span>Allohueney ñeñtey arromñatey att̃o ye&#x27;ñalletyesa arr patsro e&#x27;ñe att̃ecma cohuen yesherb̃a&#x27;yen. Ñam̃a yechyen allpon derechos att̃och e&#x27;ñech cohueno&#x27;tsa&#x27;yeney arr patsro. Ñam̃a allohuen att̃ecma yechyen alloch yoct̃ape&#x27; chyen cohuen ñam̃a yeñotyen yeyoc̈hro ñeñt ̃e&#x27;ne pocte&#x27; enten acheñenesha&#x27; ñam̃a ñeñt ̃ama pocteye&#x27; enteneto. Yeñoteñ añ poctetsa e&#x27;ñe yemo&#x27;nasheñ yep̃annena ama&#x27;t ora allohuen allpon acheñenesha&#x27; ñeñt ̃añe patsro&#x27;tsa&#x27;yeney.</p>
+            
+              <p dir="auto"><span class="language text-secondary">Arapaho</span>Beisiihi&#x27; hineeniteeno&#x27; tohcebii&#x27;oo3i&#x27; beehni&#x27;iine&#x27;etii3i&#x27;, beehnii3inou&#x27;u nuhu&#x27; neneehiisou&#x27;u niihenehiitoono noh bobooteenetiit. Heetnookohuusniini&#x27;iheti3i&#x27; wootii hiniito&#x27;eino hookoh niini&#x27;kokoh&#x27;u3ecoo3i&#x27; noh hee&#x27;eihi3i&#x27;. </p>
+            
+              <p dir="auto"><span class="language text-secondary">Chinantec, Ojitlán</span>La juu dsa lu siä –Dsa kö ñi ba dsa, nía kö ni&#x27; ba na lu&#x27; dsa e dsa tï é li jnia&#x27; roö&#x27;. La juu dsa lu siä –Dsa kö ñi ba dsa, nía kö ni&#x27; ba na lu&#x27; dsa e dsa tï é li jnia&#x27; roö&#x27;. La juu dsa lu siä –Dsa kö ñi ba dsa, nía kö ni&#x27; ba na lu&#x27; dsa e dsa tï é li jnia&#x27; roö&#x27;. </p>
+            
+              <p dir="auto"><span class="language text-secondary">Yanomamö</span>Kõmi thë pë rë përiprawë rë piyëkëi, he usukuwë thë pë keprou ai thë ã rëamaihã no ã heparohowë, totihitawë thë pë riã rẽ thaiwehei hami, thë pë puhi tao kãi përihiwëha, thë pë puhi kãi katehewëha hawë kama thë pë mashi shĩro përihimopë. </p>
+            
+              <p dir="auto"><span class="language text-secondary">Awa-Cuaiquer</span>Wantuz awá m+jan wuantuz nitchatpa karakas m+nkaskachapmuchi. Mamaz kualtuz puchakas awapit relionkaz upiniónkaz politkakaz mamaztusne indulekaz nacionalkaz socialkaz posicionkaz pialkaz chikta mamaztuskaz kunticionkaz. </p>
+            
+              <p dir="auto"><span class="language text-secondary">Old Norse, Sweden (Latin)</span>Allir mæn æru fø̄ddir frælsir ok ǣghu sama værdhe ok rǣtt. Thēr æru givnir samvit ok sin, ok skulu gæra hwarannan brōdhurlīka. Allir mæn æru fø̄ddir frælsir ok ǣghu sama værdhe ok rǣtt. Thēr æru givnir samvit ok sin, ok skulu gæra hwarannan brōdhurlīka. </p>
+            
+              <p dir="auto"><span class="language text-secondary">Toba</span>&#x27;Enauac na naaxat shiỹaxauapi na mayipi huesochiguii qataq &#x27;eeta&#x27;a&#x27;t da l&#x27;amaqchic qataq da &#x27;enec qataq ỹataqta ỹaỹate&#x27;n naua lataxaco qataq nua no&#x27;o&#x27;n nvilỹaxaco, qaq ỹoqo&#x27;oyi iuen da i &#x27;oonolec ỹataqta itauan ichoxoden ca lỹa </p>
+            
+              <p dir="auto"><span class="language text-secondary">Tzeltal, Oxchuc</span>Spisil winiketik te ya xbejk´ajik ta k´inalil ay jrerechotik, mayuk mach´a chukul ya xbejka, ya jnatik stojol te jpisiltik ay snopibal sok sbijil joltik, ja´ me k´ux ya kaibatik ta jujun tul. </p>
+            
+          
+          
+          
+          
+          
+          
+        </div>
+      </div>
+    </div>
+    <script type="module">
+         /******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
+/******/ 	var __webpack_modules__ = ({
+
+/***/ "./ts/types.ts":
+/*!*********************!*\
+  !*** ./ts/types.ts ***!
+  \*********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   isArrayDiff: () => (/* binding */ isArrayDiff),
+/* harmony export */   isSimpleDiff: () => (/* binding */ isSimpleDiff),
+/* harmony export */   isValue: () => (/* binding */ isValue)
+/* harmony export */ });
+function isValue(node) {
+    return node?.constructor != Object;
+}
+function isSimpleDiff(node) {
+    return Array.isArray(node) && node.length == 2;
+}
+function isArrayDiff(node) {
+    return (node?.constructor == Object &&
+        Object.keys(node).every((k) => !isNaN(parseInt(k, 10))));
+}
+
+
+/***/ })
+
+/******/ 	});
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	(() => {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = (exports) => {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/************************************************************************/
+var __webpack_exports__ = {};
+// This entry needs to be wrapped in an IIFE because it needs to be isolated against other modules in the chunk.
+(() => {
+/*!**********************!*\
+  !*** ./ts/shared.ts ***!
+  \**********************/
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   addAGlyph: () => (/* binding */ addAGlyph),
+/* harmony export */   addAWord: () => (/* binding */ addAWord),
+/* harmony export */   cmapDiff: () => (/* binding */ cmapDiff),
+/* harmony export */   diffFeatures: () => (/* binding */ diffFeatures),
+/* harmony export */   diffKerns: () => (/* binding */ diffKerns),
+/* harmony export */   diffLanguages: () => (/* binding */ diffLanguages),
+/* harmony export */   diffSignatureSummary: () => (/* binding */ diffSignatureSummary),
+/* harmony export */   diffSignificantTables: () => (/* binding */ diffSignificantTables),
+/* harmony export */   diffTables: () => (/* binding */ diffTables),
+/* harmony export */   locationLabel: () => (/* binding */ locationLabel),
+/* harmony export */   renderGlyphs: () => (/* binding */ renderGlyphs),
+/* harmony export */   renderLocationDiff: () => (/* binding */ renderLocationDiff),
+/* harmony export */   renderTableDiff: () => (/* binding */ renderTableDiff),
+/* harmony export */   renderWords: () => (/* binding */ renderWords),
+/* harmony export */   setVariationStyle: () => (/* binding */ setVariationStyle),
+/* harmony export */   setupAnimation: () => (/* binding */ setupAnimation)
+/* harmony export */ });
+/* harmony import */ var _types__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./types */ "./ts/types.ts");
+
+function toTitleCase(str) {
+    return str.replace(/\w\S*/g, (text) => text.charAt(0).toUpperCase() + text.substring(1).toLowerCase());
+}
+function renderTableDiff(node, toplevel) {
+    var wrapper = $("<div> </div>");
+    if (!node) {
+        return wrapper;
+    }
+    if ((0,_types__WEBPACK_IMPORTED_MODULE_0__.isSimpleDiff)(node)) {
+        var before = $("<span/>");
+        before.addClass("attr-before");
+        before.html(" " + node[0] + " ");
+        var after = $("<span/>");
+        after.addClass("attr-after");
+        after.append(renderTableDiff(node[1], true).children());
+        wrapper.append(before);
+        wrapper.append(after);
+        return wrapper;
+    }
+    if ((0,_types__WEBPACK_IMPORTED_MODULE_0__.isValue)(node)) {
+        var thing = $("<span/>");
+        thing.html(node);
+        wrapper.append(thing);
+        return wrapper;
+    }
+    for (const [key, value] of Object.entries(node)) {
+        var display = $("<div/>");
+        display.addClass("node");
+        if (!toplevel) {
+            display.hide();
+        }
+        display.append(key);
+        display.append(renderTableDiff(value, false).children());
+        if (display.children(".node").length > 0) {
+            display.addClass("closed");
+        }
+        wrapper.append(display);
+    }
+    return wrapper;
+}
+function addAGlyph(glyph, where) {
+    let title = "";
+    if (glyph.name) {
+        title = "name: " + glyph.name;
+    }
+    let cp = "<br>U+" +
+        glyph.string.codePointAt(0).toString(16).padStart(4, "0").toUpperCase();
+    let pixeldiff_title = "";
+    if ("differing_pixels" in glyph) {
+        pixeldiff_title = `${glyph.differing_pixels} pixels`;
+    }
+    where.append(`
+        <div class="cell-glyph font-before">
+        <div data-bs-toggle="tooltip" data-bs-html="true" title="${pixeldiff_title}"> ${glyph.string}
+        <div class="codepoint" data-bs-toggle="tooltip" data-bs-html="true" title="${title}">
+        ${cp}
+        </div>
+        </div>
+    `);
+}
+function addAWord(diff, where) {
+    if (!diff.buffer_b) {
+        diff.buffer_b = diff.buffer_a;
+    }
+    where.append(`
+		<div class="cell-word font-before">
+		<span data-toggle="tooltip" data-html="true" data-title="Before: <pre>${diff.buffer_a}</pre>After: <pre>${diff.buffer_b}</pre><br>difference: ${diff.differing_pixels} pixels">
+		${diff.word}
+		</span>
+		</div>
+	`);
+}
+function diffTables(report) {
+    $("#difftable").empty();
+    $("#difftable").append(`<h4 class="mt-2 box-title">Table-level details</h4>`);
+    $("#difftable").append(renderTableDiff({ tables: report.tables }, true).children());
+    $("#difftable .node").on("click", function (e) {
+        $(this).toggleClass("closed open");
+        $(this).children(".node").toggle();
+        e.stopPropagation();
+    });
+}
+function diffFeatures(report) {
+    $("#difffeatures").empty();
+    let tables = report.tables;
+    if (!tables) {
+        $("#difffeatures").append(`<p>No changes to features</p>`);
+        return;
+    }
+    const isAllNull = (arr) => arr.every((v) => v === null || v === undefined);
+    let changes = {};
+    for (var table of ["GPOS", "GSUB"]) {
+        let layout_table = tables[table];
+        if (table in tables && "feature_list" in layout_table) {
+            let features = layout_table.feature_list;
+            for (var [feature_name, lookups] of Object.entries(features)) {
+                if ((0,_types__WEBPACK_IMPORTED_MODULE_0__.isSimpleDiff)(lookups)) {
+                    lookups = { 0: lookups };
+                }
+                let lookupsNew = lookups;
+                let left_lookups = Object.values(lookupsNew).map((l) => l && l[0]);
+                let right_lookups = Object.values(lookupsNew).map((l) => l && l[1]);
+                console.log(table, feature_name, left_lookups, right_lookups);
+                let status = isAllNull(left_lookups)
+                    ? "added"
+                    : isAllNull(right_lookups)
+                        ? "removed"
+                        : left_lookups.length != right_lookups.length
+                            ? `modified (${left_lookups.length} → ${right_lookups.length})`
+                            : "modified";
+                changes[`${table} ${feature_name}`] = status;
+            }
+        }
+    }
+    $("#difffeatures").append(`<h3 class="border-top pt-2 border-dark-subtle">Modified Features</h3>`);
+    if (Object.keys(changes).length == 0) {
+        $("#difffeatures").append(`<p>No changes to features</p>`);
+        return;
+    }
+    $("#difffeatures").append(`<table class="table table-striped" id="difffeatures"><tr><th>Feature</th><th>Status</th></table>`);
+    for (let [feature, status] of Object.entries(changes)) {
+        let row = $("<tr>");
+        row.append(`<td>${feature}</td>`);
+        row.append(`<td>${status}</td>`);
+        $("#difffeatures table").append(row);
+    }
+}
+function diffLanguages(report) {
+    $("#difflanguages").empty();
+    $("#difflanguages").append(`<h3 class="border-top pt-2 border-dark-subtle">Modified Languages</h3>`);
+    let notSame = Object.entries(report).filter(([name, diff]) => diff.score_a !== diff.score_b || diff.level_a !== diff.level_b);
+    if (notSame.length === 0) {
+        $("#difflanguages").append(`<p>No changes to languages</p>`);
+        return;
+    }
+    $("#difflanguages").append(`<table class="table table-striped" id="difflanguages"><tr><th>Language</th><th>Before</th><th>After</th></tr></table>`);
+    for (let [name, diff] of notSame) {
+        let row = $("<tr>");
+        row.append(`<td>${name}</td>`);
+        row.append(`<td>${diff.level_a} (${diff.score_a}%)</td>`);
+        row.append(`<td>${diff.level_b} (${diff.score_b}%)</td>`);
+        $("#difflanguages table").append(row);
+    }
+}
+function diffSignificantTables(report) {
+    // Pull things we care about out of the table diff
+    let tables = report.tables;
+    if (!tables) {
+        return;
+    }
+    let result = $("<tbody/>");
+    let table = $("<table/>").addClass("table table-striped");
+    table.append(result);
+    if ("name" in tables) {
+        let name_table = tables["name"];
+        result.append(`<tr><th colspan="3">Name Table Changes</th></tr>`);
+        for (let [name_id, thing] of Object.entries(name_table)) {
+            name_id = toTitleCase(name_id.replaceAll("_", " "));
+            if (name_id.startsWith("Nameid ")) {
+                continue;
+            }
+            for (let [language, entry] of Object.entries(thing)) {
+                if (!(0,_types__WEBPACK_IMPORTED_MODULE_0__.isSimpleDiff)(entry)) {
+                    let element = renderTableDiff(entry, true);
+                    let row = $("<tr/>");
+                    row.append(`<td>${name_id} (${language})</td>`);
+                    let after_td = $("<td/>");
+                    after_td.append(element.children());
+                    row.append(after_td);
+                    table.children().first().append(row);
+                    continue;
+                }
+                let [before, after] = entry;
+                let row = $("<tr/>");
+                row.append(`<td>${name_id} (${language})</td>`);
+                let before_td = $("<td/>").addClass("attr-before").text(before);
+                let after_td = $("<td/>").addClass("attr-after").text(after);
+                row.append(before_td);
+                row.append(after_td);
+                table.children().first().append(row);
+            }
+        }
+    }
+    // Vertical metrics
+    let vmetricsRows = [];
+    const vMetricsFields = [
+        ["hhea", "ascent"],
+        ["hhea", "descent"],
+        ["hhea", "line_gap"],
+        ["OS/2", "s_typo_ascender"],
+        ["OS/2", "s_typo_descender"],
+        ["OS/2", "s_typo_line_gap"],
+        ["OS/2", "us_win_ascent"],
+        ["OS/2", "us_win_descent"],
+    ];
+    for (let [table_name, field_name] of vMetricsFields) {
+        if (table_name in tables) {
+            let table = tables[table_name];
+            if (field_name in table) {
+                let entry = table[field_name];
+                if ((0,_types__WEBPACK_IMPORTED_MODULE_0__.isSimpleDiff)(entry)) {
+                    let [before, after] = entry;
+                    let row = $("<tr/>");
+                    row.append(`<td>${table_name}.${toTitleCase(field_name.replaceAll("_", " ")).replaceAll(" ", "")}</td>`);
+                    let before_td = $("<td/>").addClass("attr-before").text(before);
+                    let after_td = $("<td/>").addClass("attr-after").text(after);
+                    row.append(before_td);
+                    row.append(after_td);
+                    vmetricsRows.push(row);
+                }
+            }
+        }
+    }
+    if (vmetricsRows.length > 0) {
+        result.append(`<tr><th colspan="3">Vertical Metrics Changes</th></tr>`);
+        result.append(vmetricsRows);
+    }
+    // fvar, avar
+    if ("fvar" in tables) {
+        result.append(`<tr><th colspan="3">fvar Table Changes</th></tr>`);
+        result.append(`<tr><td colspan="3">The fvar table has changed. See the full table diff below.</td></tr>`);
+    }
+    if ("avar" in tables) {
+        result.append(`<tr><th colspan="3">avar Table Changes</th></tr>`);
+        result.append(`<tr><td colspan="3">The avar table has changed. See the full table diff below.</td></tr>`);
+    }
+    // Other stuff.
+    let lookIn = [
+        ["head", "units_per_em"],
+        ["head", "font_revision"],
+        ["head", "flags"],
+        ["head", "mac_style"],
+        ["os/2", "fs_type"],
+        ["os/2", "fs_selection"],
+    ];
+    let otherChanges = [];
+    for (let [table_name, field_name] of lookIn) {
+        if (table_name in tables) {
+            let table = tables[table_name];
+            if (field_name in table) {
+                let entry = table[field_name];
+                if ((0,_types__WEBPACK_IMPORTED_MODULE_0__.isSimpleDiff)(entry)) {
+                    let [before, after] = entry;
+                    let row = $("<tr/>");
+                    row.append(`<td>${table_name}.${toTitleCase(field_name.replaceAll("_", " ")).replaceAll(" ", "")}</td>`);
+                    if (field_name == "font_revision") {
+                        before = parseFloat(before).toFixed(3);
+                        after = parseFloat(after).toFixed(3);
+                    }
+                    else if (field_name == "flags" ||
+                        field_name == "mac_style" ||
+                        field_name == "fs_type" ||
+                        field_name == "fs_selection") {
+                        before = "0b" + before.toString(2).toUpperCase();
+                        after = "0b" + after.toString(2).toUpperCase();
+                    }
+                    let before_td = $("<td/>").addClass("attr-before").text(before);
+                    let after_td = $("<td/>").addClass("attr-after").text(after);
+                    row.append(before_td);
+                    row.append(after_td);
+                    otherChanges.push(row);
+                }
+            }
+        }
+    }
+    if (otherChanges.length > 0) {
+        result.append(`<tr><th colspan="3">Other Significant Changes</th></tr>`);
+        result.append(otherChanges);
+    }
+    $("#diffsignificanttables").empty();
+    $("#diffsignificanttables").append(`<h3 class="border-top pt-2 border-dark-subtle">Significant Table Changes</h3>`);
+    if (result.children().length == 0) {
+        $("#diffsignificanttables").append(`<tr><th>No significant table changes</th></tr>`);
+    }
+    else {
+        $("#diffsignificanttables").append(table);
+    }
+}
+function diffKerns(report) {
+    $("#diffkerns").empty();
+    if (!report["kerns"] || Object.keys(report["kerns"]).length == 0) {
+        $("#diffkerns").append(`<p>No changes to kerning</p>`);
+        return;
+    }
+    $("#diffkerns").append(`<h3 class="border-top pt-2 border-dark-subtle">Modified Kerns</h3>`);
+    $("#diffkerns").append(`<table class="table table-striped" id="diffkerns"><tr><th>Pair</th><th>Before</th><th>After</th></tr></table>`);
+    for (let [pair, value] of Object.entries(report["kerns"])) {
+        if (pair == "error") {
+            $("#diffkerns").append(`<p class="text-danger">Error: ${value}</p>`);
+            continue;
+        }
+        else {
+            let row = $("<tr>");
+            row.append(`<td>${pair}</td>`);
+            row.append(`<td>${serializeKernBefore(value)}</td>`);
+            row.append(`<td>${serializeKernAfter(value)}</td>`);
+            $("#diffkerns table").append(row);
+        }
+    }
+}
+function serializeKernBefore(kern) {
+    if ((0,_types__WEBPACK_IMPORTED_MODULE_0__.isSimpleDiff)(kern)) {
+        return serializeKern(kern[0], -1);
+    }
+    return serializeKern(kern, 0);
+}
+function serializeKernAfter(kern) {
+    if ((0,_types__WEBPACK_IMPORTED_MODULE_0__.isSimpleDiff)(kern)) {
+        return serializeKern(kern[1], -1);
+    }
+    return serializeKern(kern, 1);
+}
+function serializeKern(kern, index) {
+    let string = "";
+    if (kern === null || kern === undefined) {
+        return "(null)";
+    }
+    if (kern.x) {
+        string += serializeKernValue(kern.x, index);
+    }
+    else if (kern.y) {
+        string = "0";
+    }
+    if (kern.y) {
+        string += "," + serializeKernValue(kern.y, index);
+    }
+    if (!kern.x_placement && !kern.y_placement) {
+        return string;
+    }
+    string += "@";
+    if (kern.x_placement) {
+        string += serializeKernValue(kern.x_placement, index);
+    }
+    else if (kern.y_placement) {
+        string += "0";
+    }
+    if (kern.y_placement) {
+        string += "," + serializeKernValue(kern.y_placement, index);
+    }
+    return string;
+}
+function serializeKernValue(kern, index) {
+    if (typeof kern == "number") {
+        return kern;
+    }
+    let string = "(";
+    let verybig = Object.entries(kern).length > 5;
+    for (let [key, value] of Object.entries(kern)) {
+        if (key == "default") {
+            string += value[index] + " ";
+        }
+        else {
+            string += value[index] + "@" + key + " ";
+        }
+        if (verybig) {
+            string += "<br>";
+        }
+    }
+    return string.trim() + ")";
+}
+function cmapDiff(cmap_diff) {
+    $("#cmapdiff").empty();
+    $("#cmapdiff").append(`<h3 class="border-top pt-2 border-dark-subtle">Added and Removed Encoded Glyphs</h3>`);
+    if (cmap_diff && (cmap_diff.new || cmap_diff.missing)) {
+        if (cmap_diff.new) {
+            $("#cmapdiff").append(`<h4>Added Glyphs</h4><p>Be sure to look at the 'after' because the 'before' will likely show tofu</p>`);
+            let added = $("<div>");
+            for (let glyph of cmap_diff.new) {
+                addAGlyph(glyph, added);
+            }
+            $("#cmapdiff").append(added);
+        }
+        if (cmap_diff.missing) {
+            $("#cmapdiff").append(`<h4>Removed Glyphs</h4>`);
+            let missing = $("<div>");
+            for (let glyph of cmap_diff.missing) {
+                addAGlyph(glyph, missing);
+            }
+            $("#cmapdiff").append(missing);
+        }
+    }
+    else {
+        $("#cmapdiff").append(`<p>No changes to encoded glyphs</p>`);
+    }
+}
+function setupAnimation() {
+    $("#fonttoggle").click(function () {
+        if ($(this).text() == "Before") {
+            $(this).text("After");
+            $(".font-before").removeClass("font-before").addClass("font-after");
+        }
+        else {
+            $(this).text("Before");
+            $(".font-after").removeClass("font-after").addClass("font-before");
+        }
+    });
+    let animationHandle;
+    function animate() {
+        $("#fonttoggle").click();
+        animationHandle = setTimeout(animate, 1000);
+    }
+    $("#fontanimate").click(function () {
+        if ($(this).text() == "Animate") {
+            $(this).text("Stop");
+            animate();
+        }
+        else {
+            $(this).text("Animate");
+            clearTimeout(animationHandle);
+        }
+    });
+}
+/**
+ * Human-readable label for a designspace location, e.g. "wght=400 wdth=100".
+ * Returns "Default" when there are no coordinates.
+ */
+function locationLabel(coords) {
+    if (coords && Object.keys(coords).length > 0) {
+        return Object.entries(coords)
+            .map(([axis, value]) => `${axis}=${value}`)
+            .join(" ");
+    }
+    return "Default";
+}
+/**
+ * Set the `font-variation-settings` on the first @font-face rule pair, so the
+ * rendered glyph/word cells reflect the requested axis location.
+ */
+function setVariationStyle(coords) {
+    let rule = document.styleSheets[0].cssRules[2].style;
+    let cssSetting = coords
+        ? Object.entries(coords)
+            .map(([axis, value]) => `"${axis}" ${value}`)
+            .join(", ")
+        : "";
+    rule.setProperty("font-variation-settings", cssSetting);
+}
+/**
+ * Render a list of glyph diffs into `where`. Clears `where` first, so it can
+ * replace a loading placeholder. Shows "No changes" when the list is empty.
+ */
+function renderGlyphs(glyphs, where) {
+    where.empty();
+    if (!glyphs || glyphs.length == 0) {
+        where.append(`<p>No changes to glyphs</p>`);
+        return;
+    }
+    where.append(`<h3 class="border-top pt-2 border-dark-subtle">Modified Glyphs</h3>`);
+    let sorted = [...glyphs].sort((a, b) => new Intl.Collator().compare(a.string, b.string));
+    let place = $('<div class="glyphgrid"/>');
+    for (let glyph of sorted) {
+        addAGlyph(glyph, place);
+    }
+    where.append(place);
+}
+/**
+ * Render word diffs (grouped by script) into `where`. Clears `where` first.
+ * Shows "No changes" when there is nothing to show.
+ */
+function renderWords(words, where) {
+    where.empty();
+    if (!words || Object.keys(words).length == 0) {
+        where.append(`<p>No changes to words</p>`);
+        return;
+    }
+    where.append(`<h3 class="border-top pt-2 border-dark-subtle">Modified Words</h3>`);
+    for (let [script, diffs] of Object.entries(words)) {
+        where.append($(`<h6>${script}</h6>`));
+        let place = $('<div class="wordgrid"/>');
+        for (let diff of diffs) {
+            addAWord(diff, place);
+        }
+        where.append(place);
+    }
+}
+/**
+ * Render the per-location diff (glyphs + words) of a `LocationResult` into
+ * `where`, which is cleared first. Used by both the static report and the
+ * auto-mode view of the dynamic site.
+ */
+function renderLocationDiff(loc, where) {
+    where.empty();
+    // renderGlyphs / renderWords both clear their target, so give each its own
+    // sub-container instead of writing into the same element.
+    let glyphsDiv = $('<div class="glyph-section"/>');
+    let wordsDiv = $('<div class="word-section"/>');
+    where.append(glyphsDiv);
+    where.append(wordsDiv);
+    renderGlyphs(loc.glyphs, glyphsDiv);
+    renderWords(loc.words, wordsDiv);
+}
+/**
+ * Render the human-readable difference signature summary into `where`.
+ * Clears `where` first; renders nothing if no summary was provided.
+ */
+function diffSignatureSummary(summary, where) {
+    where.empty();
+    if (!summary)
+        return;
+    where.append(`<h3 class="border-top pt-2 border-dark-subtle">Difference Summary</h3>`);
+    if (summary.overview) {
+        where.append(`<p class="signature-overview">${summary.overview}</p>`);
+    }
+    if (summary.points && summary.points.length > 0) {
+        let ul = $('<ul class="signature-points"/>');
+        for (let point of summary.points) {
+            ul.append(`<li>${point}</li>`);
+        }
+        where.append(ul);
+    }
+}
+
+
+})();
+
+window.Diffenator3Shared = __webpack_exports__;
+/******/ })()
+;
+//# sourceMappingURL=shared.js.map
+
+  function beforeCssStyle() {
+    return document.styleSheets[0].cssRules[0].style;
+  }
+  function afterCssStyle() {
+    return document.styleSheets[0].cssRules[1].style;
+  }
+
+  function setVariationStyle(variations) {
+    let rule = document.styleSheets[0].cssRules[2].style;
+    rule.setProperty("font-variation-settings", variations);
+  }
+
+  function setVariations() {
+    let cssSetting = $("#axes input")
+      .map(function () {
+        return `"${this.id.replace("axis-", "")}" ${this.value}`;
+      })
+      .get()
+      .join(", ");
+    setVariationStyle(cssSetting);
+  }
+
+  function setupAxes(message) {
+    $("#axes").empty();
+    let { axes, instances } = message;
+    for (var [tag, limits] of Object.entries(axes)) {
+      console.log(tag, limits);
+      let [axis_min, axis_def, axis_max] = limits;
+      let axis = $(`<div class="axis">
+				${tag}
+				<input type="range" min="${axis_min}" max="${axis_max}" value="${axis_def}" class="slider" id="axis-${tag}">
+			`);
+      $("#axes").append(axis);
+      axis.on("input", setVariations);
+    }
+    if (Object.keys(instances).length > 0) {
+      let select = $("<select id='instance-select'></select>");
+      for (var [name, location] of instances) {
+        console.log(location);
+        let location_str = Object.entries(location)
+          .map(([k, v]) => `${k}=${v}`)
+          .join(",");
+        let option = $(`<option value="${location_str}">${name}</option>`);
+        select.append(option);
+      }
+      select.on("change", function () {
+        let location = $(this).val();
+        let parts = location.split(",");
+        for (let [i, part] of parts.entries()) {
+          let [tag, value] = part.split("=");
+          console.log(tag, value);
+          $(`#axis-${tag}`).val(value);
+        }
+        $("#axes input").trigger("input");
+        $("#axes input").trigger("change");
+      });
+      $("#axes").append(select);
+    }
+  }
+
+  function variationLocation() {
+    // Return the current axis location as a string of the form
+    // tag=value,tag=value
+    return $("#axes input")
+      .map(function () {
+        return `${this.id.replace("axis-", "")}=${this.value}`;
+      })
+      .get()
+      .join(",");
+  }
+
+let axes_instances = {"axes":{},"instances":[]};
+
+      $( ()=>{ 
+        document.styleSheets[0].cssRules[0].style.setProperty(
+          "src",
+          "url(old-CalSans-Regular.ttf)"
+        );
+        document.styleSheets[0].cssRules[1].style.setProperty(
+          "src",
+          "url(new-CalSans-Italic[GEOM,SHRP,YTAS,opsz,wght].ttf)"
+        );
+        Diffenator3Shared.setupAnimation()
+        setupAxes(axes_instances);
+        });
+    </script>
+  </body>
+</html>
