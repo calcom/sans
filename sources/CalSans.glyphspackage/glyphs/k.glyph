@@ -114,7 +114,7 @@ italify.stemId = (
 "20B00981-1732-409E-9ADF-E88787DBFAEB"
 );
 }),
-(1172,2,l,{
+(1172,0,l,{
 italify.stemCorner = (
 "20B00981-1732-409E-9ADF-E88787DBFAEB"
 );
@@ -902,7 +902,7 @@ italify.stemId = (
 "20B00981-1732-409E-9ADF-E88787DBFAEB"
 );
 }),
-(1038,-2,l,{
+(1038,0,l,{
 italify.stemCorner = (
 "20B00981-1732-409E-9ADF-E88787DBFAEB"
 );
@@ -1606,7 +1606,7 @@ italify.stemId = (
 "20B00981-1732-409E-9ADF-E88787DBFAEB"
 );
 }),
-(953,-2,l,{
+(953,0,l,{
 italify.stemCorner = (
 "20B00981-1732-409E-9ADF-E88787DBFAEB"
 );
@@ -2104,7 +2104,7 @@ italify.stemId = (
 "20B00981-1732-409E-9ADF-E88787DBFAEB"
 );
 }),
-(1074,2,l,{
+(1074,0,l,{
 italify.stemCorner = (
 "20B00981-1732-409E-9ADF-E88787DBFAEB"
 );
