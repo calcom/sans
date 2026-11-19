@@ -51,11 +51,11 @@ shapes = (
 {
 alignment = -1;
 angle = 180;
-pos = (817,1010);
+pos = (822,1010);
 ref = six.dnom.rclt2;
 }
 );
-width = 817;
+width = 822;
 },
 {
 layerId = "FA9346B6-A16F-4CF3-996A-4A8FD0AD301D";

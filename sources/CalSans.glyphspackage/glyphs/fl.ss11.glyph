@@ -966,7 +966,7 @@ width = 327;
 ref = _part.stroke;
 }
 );
-width = 1076;
+width = 1077;
 },
 {
 anchors = (
@@ -1033,7 +1033,7 @@ width = 315;
 ref = _part.stroke;
 }
 );
-width = 996;
+width = 997;
 },
 {
 anchors = (
@@ -1112,7 +1112,7 @@ width = 315;
 ref = _part.stroke;
 }
 );
-width = 996;
+width = 995;
 },
 {
 anchors = (
@@ -1254,7 +1254,7 @@ pos = (-10,0);
 ref = _part.stroke;
 }
 );
-width = 1318;
+width = 1319;
 },
 {
 anchors = (
@@ -1402,7 +1402,7 @@ pos = (-10,0);
 ref = _part.stroke;
 }
 );
-width = 1318;
+width = 1319;
 },
 {
 anchors = (

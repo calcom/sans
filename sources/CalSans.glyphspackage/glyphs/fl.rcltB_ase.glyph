@@ -193,19 +193,19 @@ pos = (588,0);
 ref = l;
 }
 );
-width = 936;
+width = 937;
 },
 {
 anchors = (
 {
 name = caret_1;
-pos = (706,0);
+pos = (707,0);
 }
 );
 background = {
 shapes = (
 {
-pos = (-11,0);
+pos = (-10,0);
 ref = partstroke.comb;
 scale = (1.3163,1);
 }
@@ -215,33 +215,34 @@ layerId = "FA9346B6-A16F-4CF3-996A-4A8FD0AD301D";
 shapes = (
 {
 alignment = -1;
+pos = (1,0);
 ref = fpartrcltBase.comb;
 },
 {
 piece = {
 width = 514;
 };
-pos = (-11,0);
+pos = (-10,0);
 ref = _part.stroke;
 },
 {
-pos = (746,0);
+pos = (747,0);
 ref = l;
 }
 );
-width = 1352;
+width = 1353;
 },
 {
 anchors = (
 {
 name = caret_1;
-pos = (684,0);
+pos = (687,0);
 }
 );
 background = {
 shapes = (
 {
-pos = (-11,0);
+pos = (-8,0);
 ref = partstroke.comb;
 scale = (1.3163,1);
 }
@@ -251,21 +252,22 @@ layerId = "33BF50A0-DEC8-4619-95BB-DD23FBD7FB0B";
 shapes = (
 {
 alignment = -1;
+pos = (3,0);
 ref = fpartrcltBase.comb;
 },
 {
 piece = {
 width = 485;
 };
-pos = (-13,-2);
+pos = (-10,-2);
 ref = _part.stroke;
 },
 {
-pos = (754,0);
+pos = (757,0);
 ref = l;
 }
 );
-width = 1267;
+width = 1270;
 }
 );
 metricLeft = f;

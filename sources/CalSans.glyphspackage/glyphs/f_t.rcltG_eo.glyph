@@ -360,7 +360,7 @@ pos = (672,0);
 ref = tpartcrltGeo.comb;
 }
 );
-width = 1486;
+width = 1485;
 },
 {
 anchors = (
@@ -410,7 +410,7 @@ pos = (648,0);
 ref = tpartcrltGeo.comb;
 }
 );
-width = 1342;
+width = 1341;
 }
 );
 metricLeft = f;

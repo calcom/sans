@@ -63,11 +63,11 @@ shapes = (
 {
 alignment = -1;
 angle = 180;
-pos = (1037,1874);
+pos = (1073,1874);
 ref = six.numr.rclt1;
 }
 );
-width = 903;
+width = 939;
 },
 {
 layerId = "CC8ADC1C-440E-49BA-9C42-2F7F780CE9BF";

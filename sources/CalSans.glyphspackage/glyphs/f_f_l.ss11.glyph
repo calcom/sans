@@ -1703,7 +1703,7 @@ pos = (-10,0);
 ref = _part.stroke;
 }
 );
-width = 1954;
+width = 1955;
 },
 {
 anchors = (
@@ -1827,7 +1827,7 @@ pos = (-10,0);
 ref = _part.stroke;
 }
 );
-width = 1954;
+width = 1955;
 },
 {
 anchors = (

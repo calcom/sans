@@ -205,14 +205,14 @@ width = 952;
 anchors = (
 {
 name = caret_1;
-pos = (732,0);
+pos = (734,0);
 }
 );
 background = {
 shapes = (
 {
 alignment = -1;
-pos = (-10,0);
+pos = (-8,0);
 ref = partstroke.comb;
 scale = (1.4,1);
 }
@@ -232,11 +232,11 @@ ref = _part.stroke;
 },
 {
 alignment = -1;
-pos = (790,0);
+pos = (792,0);
 ref = i;
 }
 );
-width = 1394;
+width = 1396;
 },
 {
 anchors = (

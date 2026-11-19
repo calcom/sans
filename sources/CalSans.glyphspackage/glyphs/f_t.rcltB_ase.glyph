@@ -259,19 +259,19 @@ pos = (516,0);
 ref = tpartrcltBase.comb;
 }
 );
-width = 1080;
+width = 1079;
 },
 {
 anchors = (
 {
 name = caret_1;
-pos = (710,0);
+pos = (712,0);
 }
 );
 background = {
 shapes = (
 {
-pos = (-5,0);
+pos = (-3,0);
 ref = f_t.rcltGeo;
 }
 );
@@ -290,33 +290,33 @@ ref = _part.stroke;
 },
 {
 alignment = -1;
-pos = (762,0);
+pos = (764,0);
 ref = tpartrcltBase.comb;
 }
 );
-width = 1643;
+width = 1642;
 },
 {
 anchors = (
 {
 name = caret_1;
-pos = (722,0);
+pos = (728,0);
 }
 );
 background = {
 shapes = (
 {
 alignment = -1;
-pos = (46,-264);
+pos = (52,-264);
 ref = partstroke.comb;
 scale = (1.931,1);
 },
 {
-pos = (-11,0);
+pos = (-5,0);
 ref = f_t.rcltGeo;
 },
 {
-pos = (323,0);
+pos = (329,0);
 ref = t;
 }
 );
@@ -335,11 +335,11 @@ ref = _part.stroke;
 },
 {
 alignment = -1;
-pos = (658,0);
+pos = (664,0);
 ref = tpartrcltBase.comb;
 }
 );
-width = 1480;
+width = 1485;
 }
 );
 metricLeft = f;
