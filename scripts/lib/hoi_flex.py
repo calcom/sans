@@ -111,9 +111,9 @@ So with avar2 the swap at E is invisible; without it every form is its own drawi
 sits below its window (13-15): f_X is 0 there and l.rcltA11y gets no sources. a's swap (13) is the
 window's end: a.rcltA11y carries the morph and then ramps back.
 
-opsz ≤ 8: the stock keeps a.rcltA11y on to GEOM 34 (cond_opsz_8_A11y), the static A11y drawing. Its
-helper sources get a twin at each opsz-8 corner holding the plain drawing, which cancels the morph at
-opsz 8 (fading out to opsz 10, where that swap is off).
+opsz ≤ 9: the stock keeps a.rcltA11y on to GEOM 34 (cond_opsz_9_A11y), the static A11y drawing. Its
+helper sources get a twin at each opsz-8 and opsz-9 corner holding the plain drawing, which cancels
+the morph through opsz 9 (fading out by opsz 10, where that swap is off).
 
 Call order (pipeline.stage_compile_flex_hoi): a11y_snapshot → designed_paths (runs the injector)
 → a11y_read_back → … → add_true_hoi → add_a11y_hoi.
@@ -894,7 +894,7 @@ def add_true_hoi(ds, fonts, paths, followers, locations, prefix_code):
 # ════════════════════════════════════════════════════════════════════════════════════════════════
 # six family
 # ════════════════════════════════════════════════════════════════════════════════════════════════
-DIGIT_HOI = ("six", "six.numr", "six.dnom", "sixsuperior", "sixinferior")   # path leaves with .rclt1-3
+DIGIT_HOI = ("six", "six.dnom")   # path leaves with .rclt1-3; six.numr/sixsuperior/sixinferior are six.dnom components (calcom/sans#58) and join its family
 SFX = (".rclt1", ".rclt2", ".rclt3")
 ANCHOR = ".rclt1"
 # Flex true-HOI only. GEOM bands of the added rclt swaps: midpoints of the Phlex timeline (Mark,
@@ -1279,7 +1279,8 @@ def a11y_drop_swaps(font):
     prefix = next(p for p in font.featurePrefixes if p.name == "VARIATIONS")
     prefix.code = phlex.strip_subs(prefix.code, DROP_SWAPS)
     print(f"   ✅ dropped stock swaps (Flex true HOI, as Phlex): {sorted(DROP_SWAPS)}")
-OPSZ_HOLD = {"a.rcltA11y"}               # shown to GEOM 34 at opsz 8 by the stock swap: kept static there
+OPSZ_HOLD = {"a.rcltA11y"}               # shown to GEOM 34 up to opsz 9 by the stock swap: kept static there
+OPSZ_HOLD_TO = 9                          # the top of cond_opsz_9_A11y's opsz range in the source
 
 
 def _swaps(prefix_code):
@@ -1521,16 +1522,17 @@ def add_a11y_hoi(ds, fonts, legs, followers, locations):
                 vals = solve_sources_signed(f, hl)
                 for h, val in zip(hl, vals):
                     put(src, h, X, vec + val[order_ix], base_glyph)
-                if X in OPSZ_HOLD:                    # opsz-8 twin: the plain drawing, cancelling the morph
-                    corner = {**locations[loc_key], "opsz": opsz.minimum}
-                    for h in hl:
-                        put(src_opsz(ds, plain, tag_name, corner, fonts), h, X, vec, base_glyph)
+                if X in OPSZ_HOLD:                    # opsz-8/9 twins: the plain drawing, cancelling the morph
+                    for z in sorted({opsz.minimum, max(opsz.minimum, OPSZ_HOLD_TO)}):
+                        corner = {**locations[loc_key], "opsz": z}
+                        for h in hl:
+                            put(src_opsz(ds, plain, tag_name, corner, fonts), h, X, vec, base_glyph)
     print(f"   ✅ A11y-leg true-HOI sources — {n_glyphs} glyph sources, {new} new helper layers, "
           f"worst knot residual {worst_all:.2f}u" + (f"; left static (UFO ≠ Glyphs): {sorted(skipped)}" if skipped else ""))
 
 
 def src_opsz(ds, plain, tag_name, loc, fonts):
-    """The plain source at an opsz-min corner; made (an empty sparse layer on the master's UFO) if
+    """The plain source at an opsz corner (min, or OPSZ_HOLD_TO); made (an empty sparse layer on the master's UFO) if
     the designspace has none there."""
     want = {tag_name[t]: v for t, v in loc.items()}
     hits = [s for s in plain if all(abs(s.location.get(n, 0) - v) < 1e-9 for n, v in want.items())]

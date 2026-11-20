@@ -13,7 +13,7 @@ from fontTools.ttLib.tables import otTables
 from fontTools.ttLib.tables._f_v_a_r import NamedInstance
 from scripts.lib.manifest import all_styles, style_name_to_filename
 from scripts.lib.build_flex import build_flex
-from scripts.lib.postprocess import apply_instance_ps_names, prune_unused_names
+from scripts.lib.postprocess import apply_instance_ps_names, fold_tracking_into_advances, prune_unused_names, set_unique_id
 from scripts.lib.utils import axis_by_tag
 from scripts import config
 
@@ -56,16 +56,21 @@ def _copy_pair(src_dir: Path, filename: str, dest_dir: Path, woff2: bool = True)
     return found
 
 
-def _subset_ss_cv(font: TTFont):
+def _subset_ss_cv(font: TTFont, keep_ss_cv: bool = False):
     """Strip ss/cv stylistic-set / character-variant features—and their now-
-    unreferenced alternate glyphs—from an open font, in place."""
+    unreferenced alternate glyphs—from an open font, in place.
+
+    keep_ss_cv=True keeps every feature and only drops glyphs nothing can reach any more
+    (the alternates a partial pin orphans). The Google Fonts folders use it: they ship
+    every feature, since the GF API subsets what it serves on its own."""
     feature_tags = set()
     for tag in ("GSUB", "GPOS"):
         if tag in font:
             feature_tags.update(fr.FeatureTag for fr in font[tag].table.FeatureList.FeatureRecord)
     # aalt ("access all alternates") points directly at ss/cv glyphs, so it
     # must go too or those glyphs survive subsetting via its closure
-    keep_features = [t for t in feature_tags if t[:2].lower() not in ("ss", "cv") and t != "aalt"]
+    keep_features = ["*"] if keep_ss_cv else \
+        [t for t in feature_tags if t[:2].lower() not in ("ss", "cv") and t != "aalt"]
 
     options = subset.Options()
     options.layout_features = keep_features
@@ -105,9 +110,9 @@ def _relabel_opsz_max(font: TTFont, new_max: float):
     so after moving fvar maxValue, input=new_max still maps to that master design. This
     is a pure relabel (fvar/STAT/instance metadata) — not an instancer range-limit, which
     would interpolate a milder design at new_max. Used so cossui presents opsz 8–32 and
-    gf-api 8–48 while both ship the same display drawing the full build labels at 45.
+    google-fonts 8–48 while both ship the same display drawing the full build labels at 45.
 
-    Works in both directions. Lowering (cossui 45→32) and raising (gf-api 45→48) are the
+    Works in both directions. Lowering (cossui 45→32) and raising (google-fonts 45→48) are the
     same operation on the same metadata; what moves is only the number the extreme design
     answers to. Raising does mean an input of 45 now lands short of the master and gets an
     interpolated, slightly milder design — correct, since 45 is no longer the extreme."""
@@ -130,31 +135,19 @@ def _relabel_opsz_max(font: TTFont, new_max: float):
                     axv.Value = new_max
 
 
-def _strip_ss_cv(src_ttf: Path, dest_dir: Path, woff2: bool = True, opsz_max: float = None,
-                 gf_metrics: bool = False):
-    """Write TTF (+ WOFF2 unless woff2=False) to dest_dir with ss/cv features subset out.
-    If opsz_max is set, the opsz axis max is also relabeled down to it (see _relabel_opsz_max).
-    gf_metrics applies the GF vertical-metrics conformance pass (gf-workspace ships to GF)."""
+def _copy_gf_conformed(src_ttf: Path, dest_dir: Path):
+    """Copy one static TTF to dest_dir with the GF vertical-metrics and naming
+    conformance pass applied. Every feature kept (google-fonts-for-workplace)."""
     dest_dir.mkdir(parents=True, exist_ok=True)
     font = TTFont(str(src_ttf))
-    _subset_ss_cv(font)
-    if opsz_max is not None:
-        _relabel_opsz_max(font, opsz_max)
-    if gf_metrics:
-        _apply_gf_conformance(font)
-
-    dest_ttf = dest_dir / src_ttf.name
-    font.save(str(dest_ttf))
-    if woff2:
-        font.flavor = "woff2"
-        font.save(str(dest_ttf.with_suffix(".woff2")))
-
+    _apply_gf_conformance(font)
+    font.save(str(dest_dir / src_ttf.name))
 
 def _set_style_names(font: TTFont, subfamily: str, family: str = None):
     """Set the RIBBI + typographic name records for a single-style VF (Roman or Italic).
     Subsetting drops nameID 16/17, and the combined VF's defaults are the Roman ones, so
     rewrite both name IDs and the family/full/PS records on Windows + Mac platforms.
-    `family` overrides the inherited family name (gf-api-textui renames the whole family)."""
+    `family` overrides the inherited family name (google-fonts-text-ui renames the whole family)."""
     name = font["name"]
     family = family or name.getDebugName(16) or name.getDebugName(1) or "Cal Sans"
     full = f"{family} {subfamily}"
@@ -162,6 +155,7 @@ def _set_style_names(font: TTFont, subfamily: str, family: str = None):
     for nid, val in ((1, family), (2, subfamily), (4, full), (6, ps), (16, family), (17, subfamily)):
         name.setName(val, nid, 3, 1, 0x0409)  # Windows, English (US)
         name.setName(val, nid, 1, 0, 0)        # Mac, Roman
+    set_unique_id(font)
     if subfamily == "Italic":
         if "OS/2" in font:
             os2 = font["OS/2"]
@@ -173,18 +167,20 @@ def _set_style_names(font: TTFont, subfamily: str, family: str = None):
 
 
 def _trim_gf_instances(font: TTFont, ps_suffix: str = ""):
-    """Google Fonts fvar spec: named instances must be Weight-only, each pinned at the
-    shipping default of every OTHER axis. Replace fvar.instances with the config-defined
-    GF weights (Regular/Medium/SemiBold/Bold) at GEOM=25 / opsz=14 (SHRP/YTAS at their
-    fvar default). Re-adds PostScript-name entries so fvar_instance_ps_names stays happy."""
+    """Google Fonts fvar spec: named instances must be Weight-only, each pinned at one
+    position on every OTHER axis. Replace fvar.instances with the config-defined
+    GF weights (Regular/Medium/SemiBold/Bold) at GEOM=GF_GEOM_INSTANCES (50) / opsz=14
+    (SHRP/YTAS at their fvar default). Re-adds PostScript-name entries so fvar_instance_ps_names stays happy."""
     fvar = font["fvar"]
     name = font["name"]
     family_ps = (name.getDebugName(6) or "CalSans").split("-")[0]
     axis_tags = [a.axisTag for a in fvar.axes]
     coords0 = {a.axisTag: a.defaultValue for a in fvar.axes}
-    for tag, val in config.SHIPPING_DEFAULTS.items():      # GEOM=25, opsz=14
+    for tag, val in config.SHIPPING_DEFAULTS.items():      # opsz=14
         if tag in coords0:
             coords0[tag] = val
+    if "GEOM" in coords0:
+        coords0["GEOM"] = config.GF_GEOM_INSTANCES         # 50: v1 letterforms
 
     ital = ps_suffix == "-Italic"
     instances = []
@@ -273,9 +269,41 @@ def _set_gf_vertical_metrics(font: TTFont):
     # the value — and GF checks win at FAMILY level, requiring one shared pair covering
     # every style's ink. _unify_family_win_metrics does that once the folder is written;
     # this only guarantees the floor for a font examined on its own.
+    # head bounds only (cheap); _unify_family_win_metrics measures a VF's whole design space.
     head = font["head"]
     os2.usWinAscent  = max(m["win_ascent"],  head.yMax)
     os2.usWinDescent = max(m["win_descent"], -head.yMin)
+
+
+def _ink_y_extremes(font: TTFont) -> tuple[int, int]:
+    """(yMax, yMin) of the ink a font can actually draw.
+
+    For a static font that is head.yMax/yMin. For a variable font head only describes the
+    DEFAULT instance, which is how win sat at 2146 while Ǘ reaches 2148 at opsz 8 / GEOM 0 /
+    wght 700 (Emma's review). So a variable font is measured on the grid of every axis's
+    min/default/max plus each named instance — the extremes of the box, where interpolated
+    outlines peak. About 10 s for the full five-axis VF."""
+    import itertools
+    from fontTools.pens.boundsPen import BoundsPen
+    head = font["head"]
+    if "fvar" not in font:
+        return head.yMax, head.yMin
+    fvar = font["fvar"]
+    tags = [a.axisTag for a in fvar.axes]
+    locs = {tuple(c) for c in itertools.product(
+        *[sorted({a.minValue, a.defaultValue, a.maxValue}) for a in fvar.axes])}
+    locs |= {tuple(inst.coordinates[t] for t in tags) for inst in fvar.instances}
+    y_max, y_min = head.yMax, head.yMin
+    order = font.getGlyphOrder()
+    for loc in locs:
+        gs = font.getGlyphSet(location=dict(zip(tags, loc)), normalized=False)
+        for g in order:
+            bp = BoundsPen(gs)
+            gs[g].draw(bp)
+            if bp.bounds:
+                y_max = max(y_max, bp.bounds[3])
+                y_min = min(y_min, bp.bounds[1])
+    return int(round(y_max)), int(round(y_min))
 
 
 def _set_variations_ps_prefix(font: TTFont):
@@ -360,7 +388,11 @@ def _fix_gf_stat(font: TTFont):
                 new = config.GF_OPSZ_STAT_NAMES.get(round(axv.Value))
                 if new:
                     axv.ValueNameID = _name_id(new)
-    drop = [(axes.index(t), v) for t, vs in config.GF_STAT_DROP_VALUES.items()
+    drop_values = dict(config.GF_STAT_DROP_VALUES)
+    if "fvar" in font:
+        for t, vs in config.GF_VF_STAT_DROP_VALUES.items():
+            drop_values[t] = list(drop_values.get(t, [])) + list(vs)
+    drop = [(axes.index(t), v) for t, vs in drop_values.items()
             if t in axes for v in vs]
     if drop and getattr(stat.AxisValueArray, "AxisValue", None):
         stat.AxisValueArray.AxisValue = [
@@ -420,6 +452,7 @@ def _add_meta(font: TTFont):
 def _apply_gf_conformance(font: TTFont):
     """Every GF-only table fix, in one call so the four GF builders cannot drift apart."""
     _set_gf_name_overrides(font)
+    set_unique_id(font)               # backstop: every GF path renames 6 before this runs
     _set_gf_underline(font)
     _set_gf_vertical_metrics(font)
     _set_variations_ps_prefix(font)
@@ -446,10 +479,10 @@ def _unify_family_win_metrics(pkg_dir: Path):
     The per-family preset is the floor; measured ink can only raise it, never lower it."""
     families = {}
     for path in sorted(pkg_dir.glob("*.ttf")):
-        font = TTFont(str(path), lazy=True)
+        font = TTFont(str(path))
         fam = _family_name(font) or path.name
-        head = font["head"]
-        families.setdefault(fam, []).append((path, head.yMax, -head.yMin))
+        y_max, y_min = _ink_y_extremes(font)
+        families.setdefault(fam, []).append((path, y_max, -y_min))
         font.close()
 
     for fam, entries in sorted(families.items()):
@@ -516,16 +549,49 @@ def _set_gf_name_overrides(font: TTFont):
     wired into the two API paths only, so the workspace statics shipped the source string
     ("Copyright © 2026 by Designer Mark Davis DBA Wordmark") and failed font_copyright."""
     name = font["name"]
-    for val, nid in ((config.GF_DESIGNER, 9), (config.GF_COPYRIGHT, 0)):
+    for val, nid in ((config.GF_DESIGNER, 9), (config.GF_COPYRIGHT, 0),
+                     (config.GF_LICENSE, 13), (config.GF_LICENSE_URL, 14)):
         name.setName(val, nid, 3, 1, 0x0409)  # Windows, English (US)
         name.setName(val, nid, 1, 0, 0)        # Mac, Roman
 
 
-def _build_gf_api(src_ttf: Path, dest_dir: Path):
-    """gf-api ships roman + italic as TWO variable fonts (Google Fonts spec): the ital
-    axis is instanced out of fvar and survives only as a STAT style-link record (Roman
-    elidable, linkedValue → Italic). Both files derive from the combined VF — its masters
-    sit exactly at ital 0/1, so the pin is lossless. ss/cv are subset out like cossui."""
+def _set_gf_geom_default(font: TTFont):
+    """google-fonts/variable: move the fvar GEOM default to the axisregistry default (0).
+    The instancer re-normalizes gvar/avar/GSUB FeatureVariations to the new default, the
+    same way shift_axis_defaults moves it to 25, so no drawing changes at any user
+    coordinate. STAT keeps one GEOM value, the registry's "Default" @ 0, elidable."""
+    from fontTools.varLib.instancer import instantiateVariableFont
+    axis = next((a for a in font["fvar"].axes if a.axisTag == "GEOM"), None)
+    if axis is None or axis.defaultValue == config.GF_GEOM_AXIS_DEFAULT:
+        return
+    instantiateVariableFont(font, {"GEOM": (axis.minValue, config.GF_GEOM_AXIS_DEFAULT,
+                                            axis.maxValue)},
+                            inplace=True, optimize=True, updateFontNames=False)
+    if "STAT" not in font:
+        return
+    stat = font["STAT"].table
+    axes = [a.AxisTag for a in stat.DesignAxisRecord.Axis]
+    if "GEOM" not in axes or not getattr(stat.AxisValueArray, "AxisValue", None):
+        return
+    gi = axes.index("GEOM")
+    keep = []
+    for axv in stat.AxisValueArray.AxisValue:
+        if getattr(axv, "AxisIndex", None) != gi:
+            keep.append(axv)
+        elif axv.Format == 1 and axv.Value == config.GF_GEOM_AXIS_DEFAULT:
+            axv.ValueNameID = font["name"].addName("Default")
+            axv.Flags |= 0x0002                  # ELIDABLE_AXIS_VALUE_NAME
+            keep.append(axv)
+    stat.AxisValueArray.AxisValue = keep
+    stat.AxisValueCount = len(keep)
+
+
+def _build_google_fonts_vf(src_ttf: Path, dest_dir: Path):
+    """google-fonts/variable ships roman + italic as TWO variable fonts (Google Fonts
+    spec): the ital axis is instanced out of fvar and survives only as a STAT style-link
+    record (Roman elidable, linkedValue → Italic). Both files derive from the combined
+    VF — its masters sit exactly at ital 0/1, so the pin is lossless. Every feature stays
+    in, ss/cv included: the GF API subsets what it serves, and the download keeps them."""
     from fontTools.varLib.instancer import instantiateVariableFont
     dest_dir.mkdir(parents=True, exist_ok=True)
 
@@ -540,10 +606,10 @@ def _build_gf_api(src_ttf: Path, dest_dir: Path):
     targets = [(0, "", "Regular")] + ([(1, "-Italic", "Italic")] if has_ital else [])
     for ital_value, suffix, subfamily in targets:
         font = TTFont(str(src_ttf))
-        _subset_ss_cv(font)
         _relabel_opsz_max(font, config.GF_API_OPSZ_MAX)
         if has_ital:
             instantiateVariableFont(font, {"ital": ital_value}, inplace=True, updateFontNames=False)
+        _set_gf_geom_default(font)       # fvar GEOM default 25 → 0, STAT "Default" @ 0
         _set_style_names(font, subfamily)
         if config.GF_TRIM_INSTANCES:
             _trim_gf_instances(font, ps_suffix=suffix)
@@ -557,7 +623,7 @@ def _build_gf_api(src_ttf: Path, dest_dir: Path):
 
 
 def _gf_static_names(style: dict) -> tuple:
-    """gf-api-static naming for a style-matrix entry: the opsz word moves out of the
+    """google-fonts/static naming for a style-matrix entry: the opsz word moves out of the
     middle of the family and becomes a point-size suffix on it.
 
         Cal Sans Text A11y Medium Italic  →  Cal Sans A11y 10pt Medium Italic
@@ -583,18 +649,19 @@ def _gf_static_names(style: dict) -> tuple:
     return f"{family} {subfamily}".strip(), ps
 
 
-def _build_gf_api_static(styles: list, static_dir: Path, dest_dir: Path) -> int:
-    """gf-api-static: the whole static matrix (all four GEOM families × three optical
-    tiers), renamed to the point-size convention and GF-conformed. TTF-only, ss/cv
-    subset out like every other GF folder.
+def _build_google_fonts_static(styles: list, static_dir: Path, dest_dir: Path) -> int:
+    """google-fonts/static: the whole static matrix (all four GEOM families × three
+    optical tiers), renamed to the point-size convention and GF-conformed. TTF-only,
+    every feature kept.
 
     Nothing here instances anything — each file is a static the matrix already produced,
     re-read under a new name. Returns the count of styles it could not find.
 
     Scope note: this ships 12 GF families (4 GEOM × 3 opsz). google/fonts#9970 settled
     that GEOM-named families stay OUT of GF, with the UI/Text position going as the
-    separate 'Cal Sans Text UI'; Mark reopened that deliberately on 2026-09-08. The
-    gf-api-textui folder is unaffected and still ships that agreed family."""
+    separate 'Cal Sans Text UI'; Mark reopened that deliberately on 2026-09-08 and kept
+    it for the google-fonts folder on 2026-11-20. google-fonts-text-ui still ships that
+    agreed family."""
     from scripts.lib.manifest import style_name_records
     dest_dir.mkdir(parents=True, exist_ok=True)
     missing = 0
@@ -605,7 +672,6 @@ def _build_gf_api_static(styles: list, static_dir: Path, dest_dir: Path) -> int:
             continue
         gf_name, ps = _gf_static_names(s)
         font = TTFont(str(src))
-        _subset_ss_cv(font)
         r = style_name_records(gf_name)
         r["records"][6] = ps      # underscore tier: PostScript name matches the filename
         name = font["name"]
@@ -618,7 +684,7 @@ def _build_gf_api_static(styles: list, static_dir: Path, dest_dir: Path) -> int:
 
 
 def _make_curved_l_default(font: TTFont):
-    """gf-api-textui: make the curved l (.rcltA11y) the font's REAL default — a glyph-
+    """google-fonts-text-ui: make the curved l (.rcltA11y) the font's REAL default — a glyph-
     identity change, not just a feature. Three coordinated edits, all pre-pin/pre-subset:
 
     1. cmap: the l-family codepoints map directly to the curved glyphs, so shaping-free
@@ -754,29 +820,31 @@ def _save_with_curved_l_names(font: TTFont, dest_ttf: Path, woff2: bool = True):
 def _instance_textui(src_ttf: Path, axes: dict) -> TTFont:
     """Load the full VF, make the curved l the default (before pinning — see
     _make_curved_l_default), pin `axes` (the instancer resolves the GEOM/opsz
-    FeatureVariations exactly as it does for the static matrix), then subset ss/cv out.
-    Subsetting last also sweeps up the variation alternates (.rcltGeo, the a/g/I A11y
-    forms, …) that pinning orphans — and usually the straight l-family too — while the
-    closure keeps the curved-l glyphs the retargeted cmap now reaches."""
+    FeatureVariations exactly as it does for the static matrix), then drop the glyphs
+    nothing reaches any more: the variation alternates (.rcltGeo, the a/g/I A11y forms, …)
+    that pinning orphans. Every feature stays in, ss/cv included; straight l glyphs they
+    still reach survive and become *.rcltDflt in _save_with_curved_l_names."""
     from fontTools.varLib.instancer import instantiateVariableFont
     font = TTFont(str(src_ttf))
     _make_curved_l_default(font)
     instantiateVariableFont(font, axes, inplace=True, updateFontNames=False)
+    fold_tracking_into_advances(font)   # opsz 10 sits in the 9.5–10 band: +3 kern → advances
     if "gvar" in font:
         # partial pinning drops gvar entries for glyphs left with no deltas, but the
         # subsetter indexes gvar by every retained glyph (KeyError otherwise)
         gv = font["gvar"].variations
         font["gvar"].variations = {g: (gv[g] if g in gv else [])
                                    for g in font.getGlyphOrder()}
-    _subset_ss_cv(font)
+    _subset_ss_cv(font, keep_ss_cv=True)
     return font
 
 
-def _build_gf_textui(src_ttf: Path, dest_dir: Path):
-    """gf-api-textui (google/fonts#9970): 'Cal Sans Text UI' — the second GF deliverable.
+def _build_google_fonts_textui_vf(src_ttf: Path, dest_dir: Path):
+    """google-fonts-text-ui/variable (google/fonts#9970): 'Cal Sans Text UI' — the second
+    GF deliverable.
     Roman + Italic variable fonts with wght (400–700) as the only live axis; opsz/GEOM/
     YTAS/SHRP baked per config.GF_TEXTUI_PINNED and ital instanced out per file like
-    gf-api. STAT is rebuilt to wght + the ital style-link record only — the inherited
+    google-fonts. STAT is rebuilt to wght + the ital style-link record only — the inherited
     6-axis STAT would compose 'Text UI' into style names on top of the family name."""
     from fontTools.otlLib.builder import buildStatTable
     dest_dir.mkdir(parents=True, exist_ok=True)
@@ -803,11 +871,11 @@ def _build_gf_textui(src_ttf: Path, dest_dir: Path):
         _save_with_curved_l_names(font, dest_dir / f"{family_ps}{suffix}[wght].ttf")
 
 
-def _build_gf_workspace_textui(var_ttf: Path, dest_dir: Path, build_italic: bool):
-    """Workspace statics for the Text UI half: instanced fresh from the VF at the
-    gf-api-textui position (YTAS=1520, curved l default — google/fonts#9970) instead of
-    copied from the static matrix, which pins YTAS=1440 with the straight l. Same
-    filenames as the matrix statics they replace; ss/cv subset out; TTF-only."""
+def _build_textui_statics(var_ttf: Path, dest_dir: Path, build_italic: bool):
+    """Cal Sans Text UI statics, for google-fonts-text-ui/static and the Text UI half of
+    google-fonts-for-workplace: instanced fresh from the VF at the Text UI position
+    (YTAS=760, curved l default — google/fonts#9970) instead of copied from the static
+    matrix, which pins YTAS=720 with the straight l. Every feature kept; TTF-only."""
     from scripts.lib.instance_statics import _apply_static_names
     dest_dir.mkdir(parents=True, exist_ok=True)
 
@@ -827,7 +895,7 @@ def _build_gf_workspace_textui(var_ttf: Path, dest_dir: Path, build_italic: bool
 
 
 def _build_cossui(src_ttf: Path, dest_dir: Path):
-    """cossui ships roman + italic as TWO variable fonts — the same split as gf-api, and
+    """cossui ships roman + italic as TWO variable fonts — the same split as google-fonts, and
     for the same reason: browsers do not activate an `ital` axis from `font-style: italic`,
     they synthesize a fake oblique instead (web-platform-tests/interop#64). Instancing ital
     out of fvar leaves the STAT style-link record (Roman elidable, linkedValue → Italic), so
@@ -855,7 +923,7 @@ def _build_cossui(src_ttf: Path, dest_dir: Path):
 def _build_adobe_vf(src_ttf: Path, dest_dir: Path):
     """adobe-vf: var-full, split into roman + italic variable fonts and nothing else.
 
-    Same split as cossui and gf-api, for the same reason — a host that only knows
+    Same split as cossui and google-fonts, for the same reason — a host that only knows
     "italic" cannot activate an `ital` axis and fakes an oblique instead — but this is
     the FULL font: ss/cv features stay in, opsz keeps the source's 8–45, no GF
     conformance pass. The only difference from var-full is that ital is instanced out
@@ -1010,27 +1078,31 @@ def build_release_folders(build_dir: str, output_dir: str, build_italic: bool = 
         _build_cossui(ttf, pkg)
     _report(pkg, f"{_PFX}-cossui")
 
-    # gf-api: GF spec — roman + italic shipped as TWO variable fonts, ital instanced
-    # out of fvar and kept only as a STAT style-link record.
-    pkg = out_path / f"{_PFX}-gf-api"
+    # google-fonts/variable: GF spec — roman + italic shipped as TWO variable fonts,
+    # ital instanced out of fvar and kept only as a STAT style-link record. Every
+    # feature kept: the GF API subsets what it serves, the download keeps ss/cv.
+    gf_pkg = out_path / f"{_PFX}-google-fonts"
+    pkg = gf_pkg / "variable"
     if config.GF_TRIM_INSTANCES:
         print("   ⚠️  GF fvar spec: trimming named instances to Weight-only "
-              "(Regular/Medium/SemiBold/Bold) at GEOM=25, opsz=14 "
+              "(Regular/Medium/SemiBold/Bold) at GEOM=50, opsz=14; fvar GEOM default 0 "
               "(settled in google/fonts#9970 — the UI/Text position ships as "
-              "gf-api-textui instead).")
+              "google-fonts-text-ui instead).")
     for ttf in sorted(var_dir.glob("*.ttf")):
-        _build_gf_api(ttf, pkg)
+        _build_google_fonts_vf(ttf, pkg)
     _unify_family_win_metrics(pkg)
-    _report(pkg, f"{_PFX}-gf-api")
+    _report(pkg, f"{_PFX}-google-fonts/variable")
 
-    # gf-api-textui: the second GF delivery folder (google/fonts#9970) — "Cal Sans
-    # Text UI", wght-only (400–700) roman + italic VFs; opsz=10, GEOM=25, YTAS=760
-    # baked, curved l (l.rcltA11y) as the shipped default.
-    pkg = out_path / f"{_PFX}-gf-api-textui"
+    # google-fonts-text-ui/variable: the second GF family (google/fonts#9970) — "Cal
+    # Sans Text UI", wght-only (400–700) roman + italic VFs; opsz=10, GEOM=25, YTAS=760
+    # baked, curved l (l.rcltA11y) as the shipped default. Its statics follow below.
+    textui_pkg = out_path / f"{_PFX}-google-fonts-text-ui"
+    pkg = textui_pkg / "variable"
     for ttf in sorted(var_dir.glob("*.ttf")):
-        _build_gf_textui(ttf, pkg)
+        _build_google_fonts_textui_vf(ttf, pkg)
     _unify_family_win_metrics(pkg)
-    _report(pkg, f"{_PFX}-gf-api-textui")
+    _report(pkg, f"{_PFX}-google-fonts-text-ui/variable")
+
 
     # ── Static packages ───────────────────────────────────────────────────────
 
@@ -1058,19 +1130,26 @@ def build_release_folders(build_dir: str, output_dir: str, build_italic: bool = 
         copy_styles(subset, pkg)
         _report(pkg, f"{_PFX}-static-{geom_id}")
 
-    # gf-api-static: every GEOM family × every optical tier, base YTAS/SHRP, renamed to
-    # the point-size convention (Cal Sans_10pt, Cal Sans A11y_8pt, …). Copied from the
-    # static matrix — nothing re-instanced.
-    pkg = out_path / f"{_PFX}-gf-api-static"
+    # google-fonts/static: every GEOM family × every optical tier, base YTAS/SHRP,
+    # renamed to the point-size convention (Cal Sans_10pt, Cal Sans A11y_8pt, …).
+    # Copied from the static matrix — nothing re-instanced, every feature kept.
+    pkg = gf_pkg / "static"
     gf_static_styles = [s for s in styles if s["ytas"] == "base" and s["shrp"] == "base"]
-    print("   ⚠️  gf-api-static ships 12 GF families (4 GEOM × 3 opsz) — reopens the "
-          "google/fonts#9970 agreement that GEOM families stay out of GF.")
-    missing += _build_gf_api_static(gf_static_styles, static_dir, pkg)
+    missing += _build_google_fonts_static(gf_static_styles, static_dir, pkg)
     _unify_family_win_metrics(pkg)
-    _report(pkg, f"{_PFX}-gf-api-static")
+    _report(pkg, f"{_PFX}-google-fonts/static")
+
+    # google-fonts-text-ui/static: Cal Sans Text UI statics at the variable font's
+    # position (YTAS=760, curved l default), every feature kept, TTF-only.
+    workspace_var = next((t for t in sorted(var_dir.glob("*.ttf"))), None)
+    pkg = textui_pkg / "static"
+    if workspace_var:
+        _build_textui_statics(workspace_var, pkg, build_italic)
+    _unify_family_win_metrics(pkg)
+    _report(pkg, f"{_PFX}-google-fonts-text-ui/static")
 
     # Cal Sans (Display/Base) + Cal Sans UI Text, base YTAS/SHRP, all 4 weights,
-    # roman + italic → 8 roman / 16 with italic. Shared by essentials + gf-workspace.
+    # roman + italic → 8 roman / 16 with italic. Shared by essentials + google-fonts-for-workplace.
     def is_text_family(s):
         if s["ytas"] != "base" or s["shrp"] != "base":
             return False
@@ -1084,28 +1163,27 @@ def build_release_folders(build_dir: str, output_dir: str, build_italic: bool = 
     copy_styles(text_family_styles, pkg, woff2=False)
     _report(pkg, f"{_PFX}-static-essentials")
 
-    # gf-workspace: same family for Google Fonts onboarding, but ss/cv (+ aalt and
-    # their alternate glyphs) stripped like cossui/gf-api; TTF-only. The Display/Base
-    # half copies from the static matrix; the Text UI half is instanced fresh at the
-    # gf-api-textui position (YTAS=1520, curved l — google/fonts#9970), which the
-    # matrix statics (YTAS=1440, straight l) no longer represent.
-    pkg = out_path / f"{_PFX}-gf-workspace"
+    # google-fonts-for-workplace: the same two families for Google Docs/Workspace,
+    # TTF-only, every feature kept. The Cal Sans half copies from the static matrix;
+    # the Text UI half is the google-fonts-text-ui/static set (YTAS=760, curved l —
+    # google/fonts#9970), which the matrix statics (YTAS=720, straight l) don't match.
+    pkg = out_path / f"{_PFX}-google-fonts-for-workplace"
     pkg.mkdir(parents=True, exist_ok=True)
     for s in [s for s in text_family_styles if s["geom"] == "base"]:
         src = static_dir / s["filename"]
         if src.exists():
-            _strip_ss_cv(src, pkg, woff2=False, gf_metrics=True)
+            _copy_gf_conformed(src, pkg)
         else:
             missing += 1
-    workspace_var = next((t for t in sorted(var_dir.glob("*.ttf"))), None)
-    if workspace_var:
-        _build_gf_workspace_textui(workspace_var, pkg, build_italic)
+    for src in sorted((textui_pkg / "static").glob("*.ttf")):
+        shutil.copy2(src, pkg / src.name)
     _unify_family_win_metrics(pkg)
-    _report(pkg, f"{_PFX}-gf-workspace")
+    _report(pkg, f"{_PFX}-google-fonts-for-workplace")
 
     if not build_italic:
         print("⚠️  Built without italics (BUILD_ITALIC=False) — Cal Sans Display/Base "
-              "italic styles are missing from calsans-static-essentials and calsans-gf-workspace")
+              "italic styles are missing from calsans-static-essentials and "
+              "calsans-google-fonts-for-workplace")
 
     if missing:
         print(f"\n⚠️  {missing} expected static files not found in {static_dir}/")

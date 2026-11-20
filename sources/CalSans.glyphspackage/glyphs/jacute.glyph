@@ -101,7 +101,7 @@ shapes = (
 ref = jdotless;
 },
 {
-pos = (250,0);
+pos = (250,-2);
 ref = acutecomb;
 }
 );

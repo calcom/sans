@@ -101,7 +101,7 @@ shapes = (
 ref = jdotless;
 },
 {
-pos = (256,2);
+pos = (256,0);
 ref = dotaccentcomb;
 }
 );

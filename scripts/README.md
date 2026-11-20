@@ -103,7 +103,7 @@ Useful flags:
 10. **Compress** — generates `.woff2` siblings for the variable font and statics.
 11. **Package releases** — sorts the finished exports into the `fonts/` release
     folders (e.g. `calsans-var-full`, `calsans-var-flex`, `calsans-static-essentials`,
-    `calsans-gf-workspace`, etc.)
+    `calsans-google-fonts`, etc.)
     It also re-emits `fonts/README.md` from its template, stamped with the built
     version, then starts the README sheets redrawing in a background process
     (log: `scripts/temp/docsheets.log`). Skip the sheets with `--no-docs`.
@@ -142,12 +142,12 @@ There are two output locations, serving different purposes:
   | `calsans-var-full` | The full variable font, all axes exposed |
   | `calsans-var-flex` | **Cal Sans Flex** — the true-HOI morphing font: GEOM letterforms blend along curved paths on hidden helper axes (`GE1M`–`GE3M`) that avar2 drives from `GEOM`, with `YTAS` hidden and following `opsz`. Built by default (step 8); skip with `--no-flex`. The folder's full contents are listed in `fonts/README.md`. |
   | `calsans-cossui` | Variable font with `ss*`/`cv*`/`aalt` features and their alternate glyphs subset out |
-  | `calsans-gf-api` | Same subsetting as `cossui`, packaged for the Google Fonts API |
-  | `calsans-gf-api-textui` | **Cal Sans Text UI** — second GF family ([google/fonts#9970](https://github.com/google/fonts/issues/9970)): `wght`-only (400–700) VF pair, `opsz` 10 / `GEOM` 25 / `YTAS` 760 baked, curved l (`l.rcltA11y`) as default |
+  | `calsans-google-fonts` | `variable/`: the Google Fonts VF pair (roman + italic), every feature kept, `opsz` relabeled to peak at 48. `static/`: the static matrix (4 `GEOM` families × 3 optical sizes) renamed for GF |
+  | `calsans-google-fonts-text-ui` | **Cal Sans Text UI** ([google/fonts#9970](https://github.com/google/fonts/issues/9970)). `variable/`: `wght`-only (400–700) VF pair, `opsz` 10 / `GEOM` 25 / `YTAS` 760 baked, curved l default. `static/`: its 8 statics |
   | `calsans-static-full` | All static instances (384 with italics by default, or 192 roman-only with `--roman`) |
   | `calsans-static-{a11y,ui,base,geo}` | Per-GEOM-family static subsets (base YTAS/SHRP only) |
   | `calsans-static-essentials` | Curated minimal set: Text+UI (roman) and Display+Base (incl. italics), TTF-only |
-  | `calsans-gf-workspace` | Same two families as `static-essentials`, without `opsz`-axis awareness; the Text UI half is instanced fresh at the `gf-api-textui` position (`YTAS` 760, curved l) |
+  | `calsans-google-fonts-for-workplace` | Statics for Google Docs/Workspace: Cal Sans plus the Cal Sans Text UI statics, every feature kept, TTF-only |
 
 ## Documentation
 
@@ -169,7 +169,7 @@ fonts), both are skipped by `--no-docs`, and both are committed with the fonts.
 version as `vX.XXX`; the build stamps every one with the version read from the
 built variable font's name ID 5, so the README can never disagree with the
 binary beside it. Two packages are left out of it on purpose: `adobe-vf` and
-`gf-api-static` still build but are not described. Each run ends with a
+`google-fonts/static` still build but are not described. Each run ends with a
 reminder to edit the template if a package changed.
 
 ### The README sheets

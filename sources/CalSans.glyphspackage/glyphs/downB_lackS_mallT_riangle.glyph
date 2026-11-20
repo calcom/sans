@@ -74,11 +74,11 @@ layerId = "FA9346B6-A16F-4CF3-996A-4A8FD0AD301D";
 shapes = (
 {
 angle = 180;
-pos = (850,1518);
+pos = (1007,1518);
 ref = upBlackSmallTriangle;
 }
 );
-width = 850;
+width = 930;
 },
 {
 layerId = "33BF50A0-DEC8-4619-95BB-DD23FBD7FB0B";

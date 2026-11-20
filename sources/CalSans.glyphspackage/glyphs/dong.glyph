@@ -6,14 +6,14 @@ layers = (
 hints = (
 {
 horizontal = 1;
-origin = (2,3);
-target = (2,2);
+origin = (1,3);
+target = (1,2);
 type = Stem;
 },
 {
 horizontal = 1;
 origin = (0,18);
-target = (1,11);
+target = (2,11);
 type = Stem;
 },
 {
@@ -25,7 +25,7 @@ type = Stem;
 {
 horizontal = 1;
 origin = (0,5);
-target = (1,11);
+target = (2,11);
 type = Stem;
 },
 {
@@ -36,17 +36,17 @@ type = Stem;
 },
 {
 horizontal = 1;
-origin = (1,5);
+origin = (2,5);
 target = (0,12);
 type = Stem;
 },
 {
 origin = (0,15);
-target = (1,2);
+target = (2,2);
 type = Stem;
 },
 {
-origin = (1,8);
+origin = (2,8);
 target = (0,6);
 type = Stem;
 },
@@ -85,6 +85,15 @@ nodes = (
 {
 closed = 1;
 nodes = (
+(1114,20,l),
+(1114,176,l),
+(116,176,l),
+(116,20,l)
+);
+},
+{
+closed = 1;
+nodes = (
 (506,460,o),
 (398,538,o),
 (398,672,cs),
@@ -97,15 +106,6 @@ nodes = (
 (834,538,o),
 (736,460,o),
 (622,460,cs)
-);
-},
-{
-closed = 1;
-nodes = (
-(1114,20,l),
-(1114,176,l),
-(116,176,l),
-(116,20,l)
 );
 },
 {
@@ -151,12 +151,12 @@ type = TTSnap;
 {
 horizontal = 1;
 origin = (0,18);
-target = (1,11);
+target = (2,11);
 type = Stem;
 },
 {
 horizontal = 1;
-origin = (1,5);
+origin = (2,5);
 target = (0,12);
 type = Stem;
 },
@@ -168,7 +168,7 @@ type = TopGhost;
 },
 {
 origin = (0,15);
-target = (1,2);
+target = (2,2);
 type = Stem;
 },
 {
@@ -178,8 +178,8 @@ type = Stem;
 },
 {
 horizontal = 1;
-origin = (2,3);
-target = (2,2);
+origin = (1,3);
+target = (1,2);
 type = Stem;
 },
 {
@@ -218,6 +218,15 @@ nodes = (
 {
 closed = 1;
 nodes = (
+(1070,20,l),
+(1070,162,l),
+(156,162,l),
+(156,20,l)
+);
+},
+{
+closed = 1;
+nodes = (
 (424,358,o),
 (296,482,o),
 (296,660,cs),
@@ -230,15 +239,6 @@ nodes = (
 (898,490,o),
 (776,358,o),
 (588,358,cs)
-);
-},
-{
-closed = 1;
-nodes = (
-(1070,20,l),
-(1070,162,l),
-(156,162,l),
-(156,20,l)
 );
 },
 {
@@ -258,12 +258,12 @@ hints = (
 {
 horizontal = 1;
 origin = (0,18);
-target = (1,11);
+target = (2,11);
 type = Stem;
 },
 {
 horizontal = 1;
-origin = (1,5);
+origin = (2,5);
 target = (0,12);
 type = Stem;
 },
@@ -276,16 +276,16 @@ type = TopGhost;
 {
 horizontal = 1;
 origin = (0,5);
-target = (1,11);
+target = (2,11);
 type = Stem;
 },
 {
 origin = (0,15);
-target = (1,2);
+target = (2,2);
 type = Stem;
 },
 {
-origin = (1,8);
+origin = (2,8);
 target = (0,6);
 type = Stem;
 }
@@ -319,6 +319,15 @@ nodes = (
 {
 closed = 1;
 nodes = (
+(1088,0,l),
+(1088,170,l),
+(92,170,l),
+(92,0,l)
+);
+},
+{
+closed = 1;
+nodes = (
 (480,460,o),
 (372,538,o),
 (372,672,cs),
@@ -331,15 +340,6 @@ nodes = (
 (808,538,o),
 (710,460,o),
 (596,460,cs)
-);
-},
-{
-closed = 1;
-nodes = (
-(1088,0,l),
-(1088,170,l),
-(92,170,l),
-(92,0,l)
 );
 },
 {
@@ -430,12 +430,12 @@ type = TTSnap;
 {
 horizontal = 1;
 origin = (0,18);
-target = (1,11);
+target = (2,11);
 type = Stem;
 },
 {
 horizontal = 1;
-origin = (1,5);
+origin = (2,5);
 target = (0,12);
 type = Stem;
 },
@@ -447,7 +447,7 @@ type = TopGhost;
 },
 {
 origin = (0,15);
-target = (1,2);
+target = (2,2);
 type = Stem;
 },
 {
@@ -457,8 +457,8 @@ type = Stem;
 },
 {
 horizontal = 1;
-origin = (2,3);
-target = (2,2);
+origin = (1,3);
+target = (1,2);
 type = Stem;
 },
 {
@@ -497,6 +497,15 @@ nodes = (
 {
 closed = 1;
 nodes = (
+(1040,0,l),
+(1040,160,l),
+(88,160,l),
+(88,0,l)
+);
+},
+{
+closed = 1;
+nodes = (
 (394,358,o),
 (264,480,o),
 (264,656,cs),
@@ -509,15 +518,6 @@ nodes = (
 (868,488,o),
 (746,358,o),
 (558,358,cs)
-);
-},
-{
-closed = 1;
-nodes = (
-(1040,0,l),
-(1040,160,l),
-(88,160,l),
-(88,0,l)
 );
 },
 {
@@ -636,12 +636,12 @@ hints = (
 {
 horizontal = 1;
 origin = (0,18);
-target = (1,11);
+target = (2,11);
 type = Stem;
 },
 {
 horizontal = 1;
-origin = (1,5);
+origin = (2,5);
 target = (0,12);
 type = Stem;
 },
@@ -654,16 +654,16 @@ type = TopGhost;
 {
 horizontal = 1;
 origin = (0,5);
-target = (1,11);
+target = (2,11);
 type = Stem;
 },
 {
 origin = (0,15);
-target = (1,2);
+target = (2,2);
 type = Stem;
 },
 {
-origin = (1,8);
+origin = (2,8);
 target = (0,6);
 type = Stem;
 }
@@ -697,6 +697,15 @@ nodes = (
 {
 closed = 1;
 nodes = (
+(998,0,l),
+(1026,170,l),
+(30,170,l),
+(2,0,l)
+);
+},
+{
+closed = 1;
+nodes = (
 (482,460,o),
 (374,548,o),
 (400,700,cs),
@@ -709,15 +718,6 @@ nodes = (
 (806,528,o),
 (710,460,o),
 (612,460,cs)
-);
-},
-{
-closed = 1;
-nodes = (
-(998,0,l),
-(1026,170,l),
-(30,170,l),
-(2,0,l)
 );
 },
 {
@@ -894,12 +894,12 @@ type = TTSnap;
 {
 horizontal = 1;
 origin = (0,18);
-target = (1,11);
+target = (2,11);
 type = Stem;
 },
 {
 horizontal = 1;
-origin = (1,5);
+origin = (2,5);
 target = (0,12);
 type = Stem;
 },
@@ -911,7 +911,7 @@ type = TopGhost;
 },
 {
 origin = (0,15);
-target = (1,2);
+target = (2,2);
 type = Stem;
 },
 {
@@ -921,8 +921,8 @@ type = Stem;
 },
 {
 horizontal = 1;
-origin = (2,3);
-target = (2,2);
+origin = (1,3);
+target = (1,2);
 type = Stem;
 },
 {
@@ -961,6 +961,15 @@ nodes = (
 {
 closed = 1;
 nodes = (
+(952,0,l),
+(980,160,l),
+(28,160,l),
+(0,0,l)
+);
+},
+{
+closed = 1;
+nodes = (
 (384,358,o),
 (260,496,o),
 (294,696,cs),
@@ -973,15 +982,6 @@ nodes = (
 (860,470,o),
 (734,358,o),
 (568,358,cs)
-);
-},
-{
-closed = 1;
-nodes = (
-(952,0,l),
-(980,160,l),
-(28,160,l),
-(0,0,l)
 );
 },
 {
@@ -1116,14 +1116,14 @@ nodes = (
 hints = (
 {
 horizontal = 1;
-origin = (2,3);
-target = (2,2);
+origin = (1,3);
+target = (1,2);
 type = Stem;
 },
 {
 horizontal = 1;
 origin = (0,18);
-target = (1,11);
+target = (2,11);
 type = Stem;
 },
 {
@@ -1135,7 +1135,7 @@ type = Stem;
 {
 horizontal = 1;
 origin = (0,5);
-target = (1,11);
+target = (2,11);
 type = Stem;
 },
 {
@@ -1146,17 +1146,17 @@ type = Stem;
 },
 {
 horizontal = 1;
-origin = (1,5);
+origin = (2,5);
 target = (0,12);
 type = Stem;
 },
 {
 origin = (0,15);
-target = (1,2);
+target = (2,2);
 type = Stem;
 },
 {
-origin = (1,8);
+origin = (2,8);
 target = (0,6);
 type = Stem;
 },
@@ -1195,6 +1195,15 @@ nodes = (
 {
 closed = 1;
 nodes = (
+(1028,20,l),
+(1054,176,l),
+(56,176,l),
+(30,20,l)
+);
+},
+{
+closed = 1;
+nodes = (
 (508,460,o),
 (402,548,o),
 (426,700,cs),
@@ -1207,15 +1216,6 @@ nodes = (
 (834,528,o),
 (736,460,o),
 (638,460,cs)
-);
-},
-{
-closed = 1;
-nodes = (
-(1028,20,l),
-(1054,176,l),
-(56,176,l),
-(30,20,l)
 );
 },
 {
@@ -1392,12 +1392,12 @@ type = TTSnap;
 {
 horizontal = 1;
 origin = (0,18);
-target = (1,11);
+target = (2,11);
 type = Stem;
 },
 {
 horizontal = 1;
-origin = (1,5);
+origin = (2,5);
 target = (0,12);
 type = Stem;
 },
@@ -1409,7 +1409,7 @@ type = TopGhost;
 },
 {
 origin = (0,15);
-target = (1,2);
+target = (2,2);
 type = Stem;
 },
 {
@@ -1419,8 +1419,8 @@ type = Stem;
 },
 {
 horizontal = 1;
-origin = (2,3);
-target = (2,2);
+origin = (1,3);
+target = (1,2);
 type = Stem;
 },
 {
@@ -1459,6 +1459,15 @@ nodes = (
 {
 closed = 1;
 nodes = (
+(988,20,l),
+(1012,162,l),
+(98,162,l),
+(74,20,l)
+);
+},
+{
+closed = 1;
+nodes = (
 (414,358,o),
 (294,498,o),
 (328,700,cs),
@@ -1471,15 +1480,6 @@ nodes = (
 (890,472,o),
 (766,358,o),
 (600,358,cs)
-);
-},
-{
-closed = 1;
-nodes = (
-(988,20,l),
-(1012,162,l),
-(98,162,l),
-(74,20,l)
 );
 },
 {

@@ -101,7 +101,7 @@ shapes = (
 ref = jdotless;
 },
 {
-pos = (264,16);
+pos = (264,14);
 ref = circumflexcomb;
 }
 );

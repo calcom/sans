@@ -11,7 +11,7 @@ from fontTools.varLib.instancer import instantiateVariableFont
 
 from scripts import config
 from scripts.lib.manifest import all_styles, style_name_records
-from scripts.lib.postprocess import prune_unused_names
+from scripts.lib.postprocess import fold_tracking_into_advances, prune_unused_names, set_unique_id
 
 
 def _apply_static_names(font, style_name):
@@ -23,6 +23,7 @@ def _apply_static_names(font, style_name):
     for nid, val in r["records"].items():
         name.setName(val, nid, 3, 1, 0x0409)  # Windows, English (US)
         name.setName(val, nid, 1, 0, 0)        # Mac, Roman
+    set_unique_id(font)
     if "OS/2" in font:
         os2 = font["OS/2"]
         fs = os2.fsSelection & ~(0x0001 | 0x0020 | 0x0040)   # clear ITALIC, BOLD, REGULAR
@@ -72,6 +73,7 @@ def _instance_one(task):
     axes, out_path, widen, style_name = task
     font = TTFont(BytesIO(_VAR_FONT_BYTES))
     instantiateVariableFont(font, axes, inplace=True, optimize=True, updateFontNames=False)
+    fold_tracking_into_advances(font)   # baked opsz band: kern → advance widths
     _apply_static_names(font, style_name)
     prune_unused_names(font)   # fvar is gone; its instance name strings are orphans
     font["name"].removeNames(nameID=25)   # the variations PS-name prefix means nothing without fvar

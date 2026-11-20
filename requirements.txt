@@ -1,6 +1,11 @@
-glyphsLib
+# glyphsLib 6.16 and later fail on the _part.stroke smart component in f (calcom/sans#58).
+# prepare.patch_smart_components works around it; this pin stays until a full build on a
+# newer glyphsLib has been compared against 6.13.1, which built every release so far.
+glyphsLib>=6.13.1,<6.16
 fontTools
 fontmake
 tqdm
 uharfbuzz
 brotli
+skia-pathops
+numpy

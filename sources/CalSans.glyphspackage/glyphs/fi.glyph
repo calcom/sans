@@ -28,7 +28,6 @@ ref = fpart.comb;
 piece = {
 width = 541.58093;
 };
-pos = (-10,0);
 ref = _part.stroke;
 },
 {
@@ -131,6 +130,7 @@ ref = fpart.comb;
 piece = {
 width = 457;
 };
+pos = (10,0);
 ref = _part.stroke;
 },
 {
@@ -181,6 +181,7 @@ ref = fpart.comb;
 piece = {
 width = 390;
 };
+pos = (10,0);
 ref = _part.stroke;
 },
 {
@@ -231,6 +232,7 @@ ref = fpart.comb;
 piece = {
 width = 457;
 };
+pos = (10,0);
 ref = _part.stroke;
 },
 {
@@ -281,6 +283,7 @@ ref = fpart.comb;
 piece = {
 width = 390;
 };
+pos = (10,0);
 ref = _part.stroke;
 },
 {

@@ -39,7 +39,6 @@ ref = fpart.comb;
 piece = {
 width = 825;
 };
-pos = (-10,0);
 ref = _part.stroke;
 },
 {
@@ -90,7 +89,7 @@ ref = fpart.comb;
 piece = {
 width = 825;
 };
-pos = (-10,0);
+pos = (10,0);
 ref = _part.stroke;
 },
 {
@@ -143,6 +142,7 @@ ref = fpart.comb;
 piece = {
 width = 734;
 };
+pos = (10,0);
 ref = _part.stroke;
 },
 {
@@ -195,6 +195,7 @@ ref = fpart.comb;
 piece = {
 width = 660;
 };
+pos = (10,0);
 ref = _part.stroke;
 },
 {
@@ -247,6 +248,7 @@ ref = fpart.comb;
 piece = {
 width = 734;
 };
+pos = (10,0);
 ref = _part.stroke;
 },
 {
@@ -299,6 +301,7 @@ ref = fpart.comb;
 piece = {
 width = 660;
 };
+pos = (10,0);
 ref = _part.stroke;
 },
 {
@@ -400,7 +403,6 @@ ref = fpart.comb;
 piece = {
 width = 825;
 };
-pos = (-10,0);
 ref = _part.stroke;
 },
 {

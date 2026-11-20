@@ -28,7 +28,7 @@ from fontTools.varLib.avar.build import build as build_avar
 
 from scripts import config
 from scripts.lib import hoi_flex as hoi_axes
-from scripts.lib.postprocess import apply_instance_ps_names, apply_stat_and_instance_names, append_distribution_sha
+from scripts.lib.postprocess import apply_instance_ps_names, apply_stat_and_instance_names, append_distribution_sha, set_unique_id
 from scripts.lib.utils import axis_by_tag
 
 _AXIS_NAMES = {
@@ -161,6 +161,7 @@ def rename_font(font, family=config.FLEX_FAMILY_NAME, style=config.FLEX_STYLE_NA
         for r in name.names:
             if r.nameID == nameID:
                 name.setName(value, nameID, r.platformID, r.platEncID, r.langID)
+    set_unique_id(font)
 
     return font
 

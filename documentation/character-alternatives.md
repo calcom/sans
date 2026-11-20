@@ -1,6 +1,6 @@
 # Character Alternatives of Cal Sans
 
-Generated from `CalSansVF.ttf` — Version 2.012; 9fe03d44.
+Generated from `CalSansVF.ttf` — Version 2.020; 06c98192.
 
 Every glyph each feature **produces**, one row per feature. Rows scroll horizontally. Light and dark cells are separate files because Safari ignores `prefers-color-scheme` inside an SVG loaded through `<img>`.
 

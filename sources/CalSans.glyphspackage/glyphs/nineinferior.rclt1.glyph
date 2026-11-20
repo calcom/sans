@@ -51,11 +51,11 @@ shapes = (
 {
 alignment = -1;
 angle = 180;
-pos = (802,770);
+pos = (806,770);
 ref = sixinferior.rclt1;
 }
 );
-width = 838;
+width = 843;
 },
 {
 layerId = "FA9346B6-A16F-4CF3-996A-4A8FD0AD301D";
@@ -63,11 +63,11 @@ shapes = (
 {
 alignment = -1;
 angle = 180;
-pos = (852,770);
+pos = (875,770);
 ref = sixinferior.rclt1;
 }
 );
-width = 904;
+width = 926;
 },
 {
 layerId = "CC8ADC1C-440E-49BA-9C42-2F7F780CE9BF";

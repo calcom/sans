@@ -79,7 +79,7 @@ pos = (916,2094);
 ref = sixsuperior;
 }
 );
-width = 736;
+width = 734;
 },
 {
 layerId = "0DDD66F2-BE4C-471A-8E86-2163424A6CF0";
@@ -87,11 +87,11 @@ shapes = (
 {
 alignment = -1;
 angle = 180;
-pos = (966,2094);
+pos = (968,2094);
 ref = sixsuperior;
 }
 );
-width = 788;
+width = 789;
 }
 );
 metricLeft = sixsuperior;

@@ -4,6 +4,7 @@ kernLeft = y;
 kernRight = v;
 layers = (
 {
+background = {
 anchors = (
 {
 name = bottom;
@@ -14,39 +15,6 @@ name = top;
 pos = (536,1432);
 }
 );
-hints = (
-{
-horizontal = 1;
-origin = (0,26);
-target = (0,19);
-type = Stem;
-},
-{
-horizontal = 1;
-origin = (0,14);
-target = down;
-type = TopGhost;
-},
-{
-horizontal = 1;
-origin = (0,26);
-target = up;
-type = BottomGhost;
-},
-{
-horizontal = 1;
-origin = (1,7);
-target = (1,6);
-type = Stem;
-},
-{
-horizontal = 1;
-origin = (1,2);
-target = (1,6);
-type = Stem;
-}
-);
-layerId = "0B84D982-BA46-4CB9-89EB-4BEFB54BBE92";
 shapes = (
 {
 closed = 1;
@@ -258,9 +226,21 @@ italify.stemId = (
 );
 }
 );
+};
+layerId = "0B84D982-BA46-4CB9-89EB-4BEFB54BBE92";
+shapes = (
+{
+ref = y.ss09;
+},
+{
+pos = (542,16);
+ref = circumflexcomb;
+}
+);
 width = 1098;
 },
 {
+background = {
 anchors = (
 {
 name = bottom;
@@ -271,63 +251,6 @@ name = top;
 pos = (630,1468);
 }
 );
-hints = (
-{
-horizontal = 1;
-options = 4;
-origin = (0,26);
-target = (0,19);
-type = TTStem;
-},
-{
-horizontal = 1;
-options = 4;
-origin = (0,14);
-type = TTSnap;
-},
-{
-horizontal = 1;
-options = 4;
-origin = (0,23);
-type = TTSnap;
-},
-{
-horizontal = 1;
-origin = (0,26);
-target = (0,19);
-type = Stem;
-},
-{
-horizontal = 1;
-origin = (0,14);
-target = down;
-type = TopGhost;
-},
-{
-horizontal = 1;
-origin = (0,23);
-target = up;
-type = BottomGhost;
-},
-{
-horizontal = 1;
-origin = (1,7);
-target = (1,6);
-type = Stem;
-},
-{
-horizontal = 1;
-origin = (1,2);
-target = (1,6);
-type = Stem;
-},
-{
-origin = (1,7);
-target = (1,4);
-type = Stem;
-}
-);
-layerId = m006;
 shapes = (
 {
 closed = 1;
@@ -539,9 +462,21 @@ italify.stemId = (
 );
 }
 );
+};
+layerId = m006;
+shapes = (
+{
+ref = y.ss09;
+},
+{
+pos = (642,0);
+ref = circumflexcomb;
+}
+);
 width = 1252;
 },
 {
+background = {
 anchors = (
 {
 name = bottom;
@@ -552,39 +487,6 @@ name = top;
 pos = (474,1404);
 }
 );
-hints = (
-{
-horizontal = 1;
-origin = (0,26);
-target = (0,19);
-type = Stem;
-},
-{
-horizontal = 1;
-origin = (0,14);
-target = down;
-type = TopGhost;
-},
-{
-horizontal = 1;
-origin = (0,26);
-target = up;
-type = BottomGhost;
-},
-{
-horizontal = 1;
-origin = (1,7);
-target = (1,5);
-type = Stem;
-},
-{
-horizontal = 1;
-origin = (1,2);
-target = (1,5);
-type = Stem;
-}
-);
-layerId = "F32A93D6-BEB9-4F11-B510-2860D42C0CD2";
 shapes = (
 {
 closed = 1;
@@ -796,9 +698,21 @@ italify.stemId = (
 );
 }
 );
+};
+layerId = "F32A93D6-BEB9-4F11-B510-2860D42C0CD2";
+shapes = (
+{
+ref = y.ss09;
+},
+{
+pos = (472,14);
+ref = circumflexcomb;
+}
+);
 width = 940;
 },
 {
+background = {
 anchors = (
 {
 name = bottom;
@@ -809,27 +723,6 @@ name = top;
 pos = (546,1464);
 }
 );
-hints = (
-{
-horizontal = 1;
-origin = (0,26);
-target = (0,19);
-type = Stem;
-},
-{
-horizontal = 1;
-origin = (0,14);
-target = down;
-type = TopGhost;
-},
-{
-horizontal = 1;
-origin = (0,23);
-target = up;
-type = BottomGhost;
-}
-);
-layerId = "1B5AC656-48C3-4864-953F-2CD31E7BA751";
 shapes = (
 {
 closed = 1;
@@ -1041,9 +934,21 @@ italify.stemId = (
 );
 }
 );
+};
+layerId = "1B5AC656-48C3-4864-953F-2CD31E7BA751";
+shapes = (
+{
+ref = y.ss09;
+},
+{
+pos = (546,0);
+ref = circumflexcomb;
+}
+);
 width = 1106;
 },
 {
+background = {
 anchors = (
 {
 name = bottom;
@@ -1054,39 +959,6 @@ name = top;
 pos = (688,1432);
 }
 );
-hints = (
-{
-horizontal = 1;
-origin = (0,26);
-target = (0,19);
-type = Stem;
-},
-{
-horizontal = 1;
-origin = (0,14);
-target = down;
-type = TopGhost;
-},
-{
-horizontal = 1;
-origin = (0,23);
-target = up;
-type = BottomGhost;
-},
-{
-horizontal = 1;
-origin = (1,7);
-target = (1,6);
-type = Stem;
-},
-{
-horizontal = 1;
-origin = (1,2);
-target = (1,6);
-type = Stem;
-}
-);
-layerId = "33BF50A0-DEC8-4619-95BB-DD23FBD7FB0B";
 shapes = (
 {
 closed = 1;
@@ -1298,9 +1170,21 @@ italify.stemId = (
 );
 }
 );
+};
+layerId = "33BF50A0-DEC8-4619-95BB-DD23FBD7FB0B";
+shapes = (
+{
+ref = y.ss09;
+},
+{
+pos = (544,16);
+ref = circumflexcomb;
+}
+);
 width = 1098;
 },
 {
+background = {
 anchors = (
 {
 name = bottom;
@@ -1311,63 +1195,6 @@ name = top;
 pos = (788,1468);
 }
 );
-hints = (
-{
-horizontal = 1;
-options = 4;
-origin = (0,26);
-target = (0,19);
-type = TTStem;
-},
-{
-horizontal = 1;
-options = 4;
-origin = (0,14);
-type = TTSnap;
-},
-{
-horizontal = 1;
-options = 4;
-origin = (0,23);
-type = TTSnap;
-},
-{
-horizontal = 1;
-origin = (0,26);
-target = (0,19);
-type = Stem;
-},
-{
-horizontal = 1;
-origin = (0,14);
-target = down;
-type = TopGhost;
-},
-{
-horizontal = 1;
-origin = (0,23);
-target = up;
-type = BottomGhost;
-},
-{
-horizontal = 1;
-origin = (1,7);
-target = (1,6);
-type = Stem;
-},
-{
-horizontal = 1;
-origin = (1,2);
-target = (1,6);
-type = Stem;
-},
-{
-origin = (1,7);
-target = (1,4);
-type = Stem;
-}
-);
-layerId = "FA9346B6-A16F-4CF3-996A-4A8FD0AD301D";
 shapes = (
 {
 closed = 1;
@@ -1579,9 +1406,21 @@ italify.stemId = (
 );
 }
 );
+};
+layerId = "FA9346B6-A16F-4CF3-996A-4A8FD0AD301D";
+shapes = (
+{
+ref = y.ss09;
+},
+{
+pos = (642,0);
+ref = circumflexcomb;
+}
+);
 width = 1252;
 },
 {
+background = {
 anchors = (
 {
 name = bottom;
@@ -1592,39 +1431,6 @@ name = top;
 pos = (624,1404);
 }
 );
-hints = (
-{
-horizontal = 1;
-origin = (0,26);
-target = (0,19);
-type = Stem;
-},
-{
-horizontal = 1;
-origin = (0,14);
-target = down;
-type = TopGhost;
-},
-{
-horizontal = 1;
-origin = (0,26);
-target = up;
-type = BottomGhost;
-},
-{
-horizontal = 1;
-origin = (1,7);
-target = (1,5);
-type = Stem;
-},
-{
-horizontal = 1;
-origin = (1,2);
-target = (1,5);
-type = Stem;
-}
-);
-layerId = "CC8ADC1C-440E-49BA-9C42-2F7F780CE9BF";
 shapes = (
 {
 closed = 1;
@@ -1836,9 +1642,21 @@ italify.stemId = (
 );
 }
 );
+};
+layerId = "CC8ADC1C-440E-49BA-9C42-2F7F780CE9BF";
+shapes = (
+{
+ref = y.ss09;
+},
+{
+pos = (476,14);
+ref = circumflexcomb;
+}
+);
 width = 940;
 },
 {
+background = {
 anchors = (
 {
 name = bottom;
@@ -1849,27 +1667,6 @@ name = top;
 pos = (702,1464);
 }
 );
-hints = (
-{
-horizontal = 1;
-origin = (0,26);
-target = (0,19);
-type = Stem;
-},
-{
-horizontal = 1;
-origin = (0,14);
-target = down;
-type = TopGhost;
-},
-{
-horizontal = 1;
-origin = (0,23);
-target = up;
-type = BottomGhost;
-}
-);
-layerId = "0DDD66F2-BE4C-471A-8E86-2163424A6CF0";
 shapes = (
 {
 closed = 1;
@@ -2079,6 +1876,17 @@ italify.stemId = (
 );
 })
 );
+}
+);
+};
+layerId = "0DDD66F2-BE4C-471A-8E86-2163424A6CF0";
+shapes = (
+{
+ref = y.ss09;
+},
+{
+pos = (546,0);
+ref = circumflexcomb;
 }
 );
 width = 1106;

@@ -2,7 +2,7 @@
 # proof.sh — run fontbakery (Google Fonts profile) and save a *dated* report under
 # reference/proofs/, so every run is kept (never overwritten).
 #
-#   ./scripts/proof.sh                              # default: the gf-api fonts
+#   ./scripts/proof.sh                              # default: the Google Fonts VFs
 #   ./scripts/proof.sh fonts/calsans-var-full/*.ttf # or any font paths you pass
 #
 # Works from whichever repo it lives in (calbuild or calcom/sans) — paths are
@@ -19,8 +19,8 @@ FB="$(command -v fontbakery || true)"
 [ -z "$FB" ] && FB="/Library/Frameworks/Python.framework/Versions/3.13/bin/fontbakery"
 [ -x "$FB" ] || { echo "❌ fontbakery not found — 'pip install fontbakery' or edit the path in scripts/proof.sh"; exit 1; }
 
-# Targets: passed args, else the gf-api fonts.
-if [ "$#" -gt 0 ]; then TARGETS=("$@"); else TARGETS=(fonts/calsans-gf-api/*.ttf); fi
+# Targets: passed args, else the Google Fonts VFs.
+if [ "$#" -gt 0 ]; then TARGETS=("$@"); else TARGETS=(fonts/calsans-google-fonts/variable/*.ttf); fi
 
 OUTDIR="reference/proofs"; mkdir -p "$OUTDIR"
 STAMP="$(date +%Y-%m-%d_%H%M%S)"

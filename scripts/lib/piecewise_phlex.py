@@ -819,7 +819,7 @@ def follow_composites(font, geom_i, leaves, drawn=None):
               linearly in GEOM, which is the leaf's own blend. Everywhere else it is derived.
 
     Knots are the union of every morphing component's knots and the drawn timeline's. Braces sit at
-    SHRP 0 / YTAS 1440 only: a composite answers SHRP and YTAS through its OWN layers (the accent-
+    SHRP 0 / YTAS 720 only: a composite answers SHRP and YTAS through its OWN layers (the accent-
     ascend YTAS braces), additively, as in the stock font, so an accent rises with YTAS by the same
     amount at every GEOM. A composite whose spacing never moves gets no layers. Returns {composite: (gap, where)}: the worst
     |drawn − derived| in units at its drawn knots, for the designer — a big gap is an alternate

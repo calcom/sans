@@ -84,7 +84,7 @@ type = Stem;
 {
 horizontal = 1;
 origin = (0,33);
-target = (1,11);
+target = (2,11);
 type = Stem;
 },
 {
@@ -101,18 +101,18 @@ type = Stem;
 {
 horizontal = 1;
 origin = (0,3);
-target = (1,11);
+target = (2,11);
 type = Stem;
 },
 {
 horizontal = 1;
 origin = (0,7);
-target = (1,11);
+target = (2,11);
 type = Stem;
 },
 {
 origin = (0,30);
-target = (1,2);
+target = (2,2);
 type = Stem;
 },
 {
@@ -121,7 +121,7 @@ target = (0,11);
 type = Stem;
 },
 {
-origin = (1,8);
+origin = (2,8);
 target = (0,11);
 type = Stem;
 }
@@ -170,6 +170,15 @@ nodes = (
 {
 closed = 1;
 nodes = (
+(850,330,l),
+(850,538,l),
+(132,538,l),
+(132,330,l)
+);
+},
+{
+closed = 1;
+nodes = (
 (390,850,o),
 (340,874,o),
 (340,924,cs),
@@ -182,15 +191,6 @@ nodes = (
 (614,914,o),
 (540,850,o),
 (460,850,cs)
-);
-},
-{
-closed = 1;
-nodes = (
-(850,330,l),
-(850,538,l),
-(132,538,l),
-(132,330,l)
 );
 }
 );
@@ -269,14 +269,14 @@ nodes = (
 hints = (
 {
 horizontal = 1;
-origin = (2,3);
-target = (2,2);
+origin = (1,3);
+target = (1,2);
 type = Stem;
 },
 {
 horizontal = 1;
 origin = (0,33);
-target = (1,11);
+target = (2,11);
 type = Stem;
 },
 {
@@ -292,17 +292,17 @@ type = Stem;
 },
 {
 origin = (0,30);
-target = (1,2);
+target = (2,2);
 type = Stem;
 },
 {
-origin = (1,8);
-target = (2,1);
+origin = (2,8);
+target = (1,1);
 type = Stem;
 },
 {
 origin = (0,3);
-target = (2,1);
+target = (1,1);
 type = Stem;
 }
 );
@@ -350,6 +350,15 @@ nodes = (
 {
 closed = 1;
 nodes = (
+(828,416,l),
+(828,538,l),
+(166,538,l),
+(166,416,l)
+);
+},
+{
+closed = 1;
+nodes = (
 (328,768,o),
 (268,810,o),
 (268,892,cs),
@@ -362,15 +371,6 @@ nodes = (
 (688,878,o),
 (590,768,o),
 (436,768,cs)
-);
-},
-{
-closed = 1;
-nodes = (
-(828,416,l),
-(828,538,l),
-(166,538,l),
-(166,416,l)
 );
 }
 );
@@ -423,14 +423,14 @@ scale = (0.5854,0.5854);
 hints = (
 {
 horizontal = 1;
-origin = (2,3);
-target = (2,2);
+origin = (1,3);
+target = (1,2);
 type = Stem;
 },
 {
 horizontal = 1;
 origin = (0,33);
-target = (1,11);
+target = (2,11);
 type = Stem;
 },
 {
@@ -447,28 +447,28 @@ type = Stem;
 {
 horizontal = 1;
 origin = (0,3);
-target = (1,11);
+target = (2,11);
 type = Stem;
 },
 {
 horizontal = 1;
 origin = (0,7);
-target = (1,11);
+target = (2,11);
 type = Stem;
 },
 {
 origin = (0,30);
-target = (1,2);
+target = (2,2);
 type = Stem;
 },
 {
-origin = (1,8);
-target = (2,1);
+origin = (2,8);
+target = (1,1);
 type = Stem;
 },
 {
 origin = (0,3);
-target = (2,1);
+target = (1,1);
 type = Stem;
 }
 );
@@ -516,6 +516,15 @@ nodes = (
 {
 closed = 1;
 nodes = (
+(810,330,l),
+(810,538,l),
+(92,538,l),
+(92,330,l)
+);
+},
+{
+closed = 1;
+nodes = (
 (350,850,o),
 (300,874,o),
 (300,924,cs),
@@ -528,15 +537,6 @@ nodes = (
 (574,914,o),
 (500,850,o),
 (420,850,cs)
-);
-},
-{
-closed = 1;
-nodes = (
-(810,330,l),
-(810,538,l),
-(92,538,l),
-(92,330,l)
 );
 }
 );
@@ -622,7 +622,7 @@ type = Stem;
 {
 horizontal = 1;
 origin = (0,33);
-target = (1,11);
+target = (2,11);
 type = Stem;
 },
 {
@@ -638,11 +638,11 @@ type = Stem;
 },
 {
 origin = (0,30);
-target = (1,2);
+target = (2,2);
 type = Stem;
 },
 {
-origin = (1,8);
+origin = (2,8);
 target = (0,11);
 type = Stem;
 },
@@ -696,6 +696,15 @@ nodes = (
 {
 closed = 1;
 nodes = (
+(784,416,l),
+(784,538,l),
+(122,538,l),
+(122,416,l)
+);
+},
+{
+closed = 1;
+nodes = (
 (284,768,o),
 (224,810,o),
 (224,892,cs),
@@ -708,15 +717,6 @@ nodes = (
 (644,878,o),
 (546,768,o),
 (392,768,cs)
-);
-},
-{
-closed = 1;
-nodes = (
-(784,416,l),
-(784,538,l),
-(122,538,l),
-(122,416,l)
 );
 }
 );
@@ -847,14 +847,14 @@ nodes = (
 hints = (
 {
 horizontal = 1;
-origin = (2,3);
-target = (2,2);
+origin = (1,3);
+target = (1,2);
 type = Stem;
 },
 {
 horizontal = 1;
 origin = (0,33);
-target = (1,11);
+target = (2,11);
 type = Stem;
 },
 {
@@ -871,28 +871,28 @@ type = Stem;
 {
 horizontal = 1;
 origin = (0,3);
-target = (1,11);
+target = (2,11);
 type = Stem;
 },
 {
 horizontal = 1;
 origin = (0,7);
-target = (1,11);
+target = (2,11);
 type = Stem;
 },
 {
 origin = (0,30);
-target = (1,2);
+target = (2,2);
 type = Stem;
 },
 {
-origin = (1,8);
-target = (2,1);
+origin = (2,8);
+target = (1,1);
 type = Stem;
 },
 {
 origin = (0,3);
-target = (2,1);
+target = (1,1);
 type = Stem;
 }
 );
@@ -940,6 +940,15 @@ nodes = (
 {
 closed = 1;
 nodes = (
+(776,330,l),
+(810,538,l),
+(92,538,l),
+(58,330,l)
+);
+},
+{
+closed = 1;
+nodes = (
 (408,850,o),
 (358,878,o),
 (366,934,cs),
@@ -952,15 +961,6 @@ nodes = (
 (636,906,o),
 (562,850,o),
 (472,850,cs)
-);
-},
-{
-closed = 1;
-nodes = (
-(776,330,l),
-(810,538,l),
-(92,538,l),
-(58,330,l)
 );
 }
 );
@@ -1086,7 +1086,7 @@ type = Stem;
 {
 horizontal = 1;
 origin = (0,33);
-target = (1,11);
+target = (2,11);
 type = Stem;
 },
 {
@@ -1102,11 +1102,11 @@ type = Stem;
 },
 {
 origin = (0,30);
-target = (1,2);
+target = (2,2);
 type = Stem;
 },
 {
-origin = (1,8);
+origin = (2,8);
 target = (0,11);
 type = Stem;
 },
@@ -1160,6 +1160,15 @@ nodes = (
 {
 closed = 1;
 nodes = (
+(766,416,l),
+(788,538,l),
+(126,538,l),
+(104,416,l)
+);
+},
+{
+closed = 1;
+nodes = (
 (334,768,o),
 (274,816,o),
 (288,908,cs),
@@ -1172,15 +1181,6 @@ nodes = (
 (702,864,o),
 (600,768,o),
 (456,768,cs)
-);
-},
-{
-closed = 1;
-nodes = (
-(766,416,l),
-(788,538,l),
-(126,538,l),
-(104,416,l)
 );
 }
 );
@@ -1318,7 +1318,7 @@ type = Stem;
 {
 horizontal = 1;
 origin = (0,33);
-target = (1,11);
+target = (2,11);
 type = Stem;
 },
 {
@@ -1335,18 +1335,18 @@ type = Stem;
 {
 horizontal = 1;
 origin = (0,3);
-target = (1,11);
+target = (2,11);
 type = Stem;
 },
 {
 horizontal = 1;
 origin = (0,7);
-target = (1,11);
+target = (2,11);
 type = Stem;
 },
 {
 origin = (0,30);
-target = (1,2);
+target = (2,2);
 type = Stem;
 },
 {
@@ -1355,7 +1355,7 @@ target = (0,11);
 type = Stem;
 },
 {
-origin = (1,8);
+origin = (2,8);
 target = (0,11);
 type = Stem;
 }
@@ -1404,6 +1404,15 @@ nodes = (
 {
 closed = 1;
 nodes = (
+(816,330,l),
+(852,538,l),
+(134,538,l),
+(98,330,l)
+);
+},
+{
+closed = 1;
+nodes = (
 (450,850,o),
 (398,878,o),
 (408,934,cs),
@@ -1416,15 +1425,6 @@ nodes = (
 (678,906,o),
 (604,850,o),
 (530,850,cs)
-);
-},
-{
-closed = 1;
-nodes = (
-(816,330,l),
-(852,538,l),
-(134,538,l),
-(98,330,l)
 );
 }
 );
@@ -1543,14 +1543,14 @@ nodes = (
 hints = (
 {
 horizontal = 1;
-origin = (2,3);
-target = (2,2);
+origin = (1,3);
+target = (1,2);
 type = Stem;
 },
 {
 horizontal = 1;
 origin = (0,33);
-target = (1,11);
+target = (2,11);
 type = Stem;
 },
 {
@@ -1566,17 +1566,17 @@ type = Stem;
 },
 {
 origin = (0,30);
-target = (1,2);
+target = (2,2);
 type = Stem;
 },
 {
-origin = (1,8);
-target = (2,1);
+origin = (2,8);
+target = (1,1);
 type = Stem;
 },
 {
 origin = (0,3);
-target = (2,1);
+target = (1,1);
 type = Stem;
 }
 );
@@ -1624,6 +1624,15 @@ nodes = (
 {
 closed = 1;
 nodes = (
+(812,416,l),
+(832,538,l),
+(170,538,l),
+(150,416,l)
+);
+},
+{
+closed = 1;
+nodes = (
 (378,768,o),
 (318,816,o),
 (334,908,cs),
@@ -1636,15 +1645,6 @@ nodes = (
 (746,864,o),
 (644,768,o),
 (500,768,cs)
-);
-},
-{
-closed = 1;
-nodes = (
-(812,416,l),
-(832,538,l),
-(170,538,l),
-(150,416,l)
 );
 }
 );

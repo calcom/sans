@@ -32,7 +32,9 @@ STATIC_AXIS_VALUES = {
     # the source relabel — pinning 45 keeps the Display statics identical in appearance.
     "opsz":  {"display": 45, "text": 10, "micro": 8},
     "wght":  {"regular": 400, "medium": 500, "semibold": 600, "bold": 700},
-    "ytas":  {"base": 1440, "tall": 1600},
+    # YTAS is in thousandths of an em (OpenType registry), independent of UPM: 720 / 800.
+    # The source is UPM 2000, so the 80-unit axis travel is 160 font units (YTAS_UNITS_PER_AXIS_UNIT).
+    "ytas":  {"base": 720, "tall": 800},
     "shrp":  {"base": 0,   "sharp": 100},
     # The font's italic axis is `ital` (0–1), NOT a slnt degree axis. Roman=0, Italic=1.
     "ital":  {"roman": 0,  "italic": 1},
@@ -60,7 +62,7 @@ FLEX_STYLE_NAME  = "Regular"
 FLEXGEOM_FAMILY_NAME = "Cal Sans Flex Geom"   # --flex-geom test font: Flex's morphs on GEOM alone (hoi_geom)
 FLEXGEOM_TOL = 2.0     # units: greedy GEOM knots until every point is this close to the true-HOI path
 # (input opsz, output YTAS) calibration points for the avar2 axis mapping
-FLEX_OPSZ_TO_YTAS = [(16.0, 1440.0), (10.0, 1500.0), (8.0, 1600.0)]
+FLEX_OPSZ_TO_YTAS = [(16.0, 720.0), (10.0, 750.0), (8.0, 800.0)]
 
 
 # ── Expected source shape (pre-flight validation) ────────────────────────
@@ -92,14 +94,14 @@ SHIPPING_DEFAULTS = {"opsz": 14, "GEOM": 25}
 # cossui presents a narrower optical-size range than the full source: the opsz
 # axis max is RELABELED from 45 down to 32 (pure fvar metadata — see
 # release._relabel_opsz_max), so the display drawing the full build labels 45 is
-# the same drawing cossui labels 32. var-full / gf-api / var-flex keep 8–45.
+# the same drawing cossui labels 32. var-full / google-fonts / var-flex keep 8–45.
 COSSUI_OPSZ_MAX = 32
 
-# gf-api presents the same display drawing as opsz 8–48 rather than 8–45 (also a pure
+# google-fonts presents the same display drawing as opsz 8–48 rather than 8–45 (also a pure
 # relabel — release._relabel_opsz_max). var-full / var-flex keep the source's 8–45.
 GF_API_OPSZ_MAX = 48
 
-# gf-api-static: the static matrix renamed for GF, where optical size is a FAMILY suffix
+# google-fonts/static: the static matrix renamed for GF, where optical size is a FAMILY suffix
 # in points rather than the internal "Text"/"Micro" word — the SourceSerif4 convention
 # (SourceSerif4_48pt-Regular beside SourceSerif4-Regular). The largest tier is the
 # unsuffixed default, so "Cal Sans Text A11y Medium" becomes "Cal Sans A11y_10pt Medium".
@@ -114,21 +116,29 @@ GF_STATIC_OPSZ_SUFFIX = {"display": "", "text": "_10pt", "micro": "_8pt"}
 # Negative per the OpenType spec: a right-leaning face has a negative angle.
 ITALIC_ANGLE = -9.5
 
-# gf-api: per the Google Fonts fvar spec, a variable font's named instances must be
+# google-fonts: per the Google Fonts fvar spec, a variable font's named instances must be
 # Weight-only (Regular/Medium/SemiBold/Bold), each pinned at the shipping default of
 # every OTHER axis (GEOM=25, opsz=14 from SHIPPING_DEFAULTS; SHRP/YTAS/ital at their
 # fvar default). Default ON; set False to ship the full GEOM×opsz instance matrix.
 # Settled with Dave (google/fonts#9970): GEOM-named instances stay out of GF — the
-# UI/Text position ships as its own second family instead (gf-api-textui below).
+# UI/Text position ships as its own second family instead (google-fonts-text-ui below).
 GF_TRIM_INSTANCES = True
+# GEOM on google-fonts/variable (Emma, calcom/sans#58; Mark 2026-11-20): the axisregistry
+# entry's default is 0, so the GF VF's fvar default moves 25 → 0 and its STAT keeps only
+# "Default" @ 0. The named instances sit at GEOM 50, the v1 letterforms of the Cal Sans
+# currently on GF, and METADATA.pb serves the same to API requests without GEOM:
+#     registry_default_overrides { key: "GEOM" value: 50.0 }
+# var-full, var-flex and the statics keep SHIPPING_DEFAULTS (Flex's avar2 needs 25).
+GF_GEOM_AXIS_DEFAULT = 0
+GF_GEOM_INSTANCES    = 50
 GF_WEIGHT_INSTANCES = [(400, "Regular"), (500, "Medium"), (600, "SemiBold"), (700, "Bold")]
 
-# gf-api-textui: the second GF deliverable agreed in google/fonts#9970 — "Cal Sans
+# google-fonts-text-ui: the second GF deliverable agreed in google/fonts#9970 — "Cal Sans
 # Text UI", a small-optical-size variable font with ONE active axis (wght 400–700),
-# shipped Roman + Italic like gf-api. Every other axis is baked at the Text UI
-# position, except YTAS which is raised 1440→1520 for this family:
+# shipped Roman + Italic like google-fonts. Every other axis is baked at the Text UI
+# position, except YTAS which is raised 720→760 for this family:
 GF_TEXTUI_FAMILY = "Cal Sans Text UI"
-GF_TEXTUI_PINNED = {"opsz": 10, "GEOM": 25, "YTAS": 1520, "SHRP": 0}
+GF_TEXTUI_PINNED = {"opsz": 10, "GEOM": 25, "YTAS": 760, "SHRP": 0}
 # The curved l (l.rcltA11y) becomes the DEFAULT l for I/l differentiation — as a
 # glyph-identity change, not a feature: release.py retargets cmap at the curved
 # glyphs, renames them to the canonical names (l, lacute, …) on the final binary,
@@ -146,9 +156,10 @@ GF_TEXTUI_CURVED_L_GLYPHS = (
     "l", "lacute", "lcaron", "lslash",
     "uni013C", "uni013C.loclMAH", "uni1E37", "uni1E39", "uni1E3B",
 )
+
 GF_TEXTUI_ALT_SUFFIX = ".rcltA11y"
 
-# gf-api: axes to flag HIDDEN in fvar (parametric_axes_hidden). Only YTAS is a
+# google-fonts: axes to flag HIDDEN in fvar (parametric_axes_hidden). Only YTAS is a
 # parametric axis (its registry entry: "A parametric axis for varying the height of
 # lowercase ascenders") — GEOM (Geometric Form) and SHRP (Sharpness) are FEATURE axes
 # and stay user-visible. YTAS is also slaved to opsz via avar2 in the Flex build.
@@ -181,9 +192,10 @@ GF_USE_TYPO_METRICS = True          # fsSelection bit 7
 # families; only the win box differs, because only the win box describes outlines.
 #
 # Both extremes come from Bold and Bold Italic, and the two families differ for two
-# unrelated reasons. The ASCENT differs because YTAS is baked at 1520 in Text UI against
-# 1440 in the main family (2148 vs 2146 — two units; the axis moves accents far less than
-# it looks). The DESCENT differs because the families cover different design space, not
+# unrelated reasons. The ASCENT is 2148 in both: Text UI's tallest accent sits at YTAS
+# 760, and the main VF reaches the same height with Ǘ at opsz 8 / GEOM 0 / wght 700
+# (Emma's review; it was 2146 while the measurement only read the default instance,
+# which head.yMax describes). The DESCENT differs because the families cover different design space, not
 # because of any ascender: the main family spans the full GEOM and opsz ranges, while
 # Text UI has both baked, so its Bold Italic never reaches as deep (-644 vs -684).
 #
@@ -199,7 +211,7 @@ GF_USE_TYPO_METRICS = True          # fsSelection bit 7
 GF_METRICS_DEFAULT = {
     "typo_ascender": 2000, "typo_descender": -600, "typo_line_gap": 0,
     "hhea_ascent":   2000, "hhea_descent":   -600, "hhea_line_gap": 0,
-    "win_ascent":    2146, "win_descent":     684,
+    "win_ascent":    2148, "win_descent":     684,
 }
 GF_METRICS_BY_FAMILY = {
     GF_TEXTUI_FAMILY: {"win_ascent": 2148, "win_descent": 644},
@@ -243,6 +255,9 @@ GF_ENSURE_ITAL_STAT    = True
 # SHRP carries only its Default record — "Sharp" is not an expected name on that axis.
 GF_OPSZ_STAT_NAMES     = {8: "8pt", 10: "10pt", 14: "14pt", 48: "48pt"}
 GF_STAT_DROP_VALUES    = {"SHRP": [100]}
+# Variable fonts only: YTAS "Tall" @ 800 is not a registry name either (Emma, calcom/sans#58).
+# The Tall statics keep theirs, since it names the static's own position.
+GF_VF_STAT_DROP_VALUES = {"YTAS": [800]}
 
 # gf meta table. ScriptLangTags declaring what the font is designed and supported for.
 GF_META_DESIGN_LANGS   = ["Latn"]
@@ -255,7 +270,7 @@ GF_META_SUPPORT_LANGS  = ["Latn"]
 #   PUSHW[] 511 / SCANCTRL[] / PUSHB[] 4 / SCANTYPE[]
 SMART_DROPOUT_PREP = b"\xb8\x01\xff\x85\xb0\x04\x8d"
 
-# gf-api version string (name/version_format): GF requires the "Version X.YYY" prefix.
+# google-fonts version string (name/version_format): GF requires the "Version X.YYY" prefix.
 # Base version = head.fontRevision (the Glyphs Version field). A short git hash is
 # appended for traceability (#54), auto-pulled from the DISTRIBUTION repo — the one whose
 # git 'origin' is calcom/sans, NEVER calbuild.
@@ -268,11 +283,16 @@ GF_VERSION_SHA_ENV = "CALCOM_FONTS_SHA"   # CI override, wins if set
 GF_SHA_REPO_CANDIDATES = [".", "../sans"]
 GF_SHA_REMOTE_MATCH    = "calcom/sans"
 
-# gf-api-only name-table overrides — GF requires these, but the source's own values
+# google-fonts-only name-table overrides — GF requires these, but the source's own values
 # (Designer/Copyright = "Default" in Glyphs) ship on every OTHER build unchanged.
 GF_DESIGNER  = "Mark Davis (Wordmark)"                 # nameID 9  (name/mandatory_entries)
-GF_COPYRIGHT = ("Copyright 2026 The Cal Sans Project Authors "
+# The year is the family's FIRST publication (Cal Sans v1, 2021): Google Fonts keeps the
+# original year across updates (calcom/sans#58). GF cuts only; other builds keep the source's.
+GF_COPYRIGHT = ("Copyright 2021 The Cal Sans Project Authors "
                 "(https://github.com/calcom/sans)")   # nameID 0  (font_copyright pattern)
+GF_LICENSE = ("This Font Software is licensed under the SIL Open Font License, Version 1.1. "
+              "This license is available with a FAQ at: https://openfontlicense.org")  # nameID 13
+GF_LICENSE_URL = "https://openfontlicense.org"            # nameID 14 (license_url check)
 
 
 # ── STAT table + fvar instance names (build_stat_and_instance_names) ─────
@@ -305,8 +325,8 @@ STAT_AXES = [
         {"value": 700, "name": "Bold"},
     ]},
     {"tag": "YTAS", "name": "Ascender Height", "values": [
-        {"value": 1440, "name": "Default", "flags": STAT_ELIDABLE},
-        {"value": 1600, "name": "Tall"},
+        {"value": 720, "name": "Default", "flags": STAT_ELIDABLE},
+        {"value": 800, "name": "Tall"},
     ]},
     {"tag": "SHRP", "name": "Sharpness", "values": [
         {"value": 0,   "name": "Default", "flags": STAT_ELIDABLE},
@@ -364,8 +384,9 @@ YTAS_ACCENT_ASCEND_BASES = YTAS_ACCENT_ASCEND_BASES + YTAS_ACCENT_ASCEND_BASES_A
 # base (a c e o …) sits on an outline that does not move with YTAS at all, so the same 160u
 # floats it away — it takes half. One shared constant gave both 1:1, measurable in 1.999, 2.000
 # and 2.003 alike (GPOS top anchor: a 1030→1190 and b 1440→1600, both ratio 1.00).
-YTAS_ACCENT_ASCEND_DY          = 160  # ascender bases: 1:1 with the ascender extent
-YTAS_ACCENT_ASCEND_DY_XHEIGHT  = 80   # x-height bases: 2:1, half the axis travel
+YTAS_UNITS_PER_AXIS_UNIT       = 2    # font units per YTAS axis unit: UPM 2000 / 1000 (per-mille axis)
+YTAS_ACCENT_ASCEND_DY          = 160  # FONT UNITS. ascender bases: 1:1 with the ascender extent (YTAS 720→800 = 160u)
+YTAS_ACCENT_ASCEND_DY_XHEIGHT  = 80   # FONT UNITS. x-height bases: 2:1, half the axis travel
 ITALIC_SLANT_DEGREES = 9.5  # used to derive the italic horizontal compensation (dx = dy·tan(angle))
 
 

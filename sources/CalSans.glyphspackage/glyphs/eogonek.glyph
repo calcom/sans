@@ -14,7 +14,7 @@ pos = (752,44);
 ref = ogonekcomb;
 }
 );
-width = 1239;
+width = 1238;
 },
 {
 layerId = "0B84D982-BA46-4CB9-89EB-4BEFB54BBE92";
@@ -79,7 +79,7 @@ ref = ogonekcomb;
 scale = (1,1.1);
 }
 );
-width = 1118;
+width = 1119;
 },
 {
 background = {
@@ -131,7 +131,7 @@ ref = ogonekcomb;
 scale = (1,1.1);
 }
 );
-width = 1118;
+width = 1116;
 },
 {
 layerId = "FA9346B6-A16F-4CF3-996A-4A8FD0AD301D";

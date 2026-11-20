@@ -112,11 +112,11 @@ ref = tpartcrltGeo.comb;
 piece = {
 width = 371;
 };
-pos = (-10,0);
+pos = (10,0);
 ref = _part.stroke;
 }
 );
-width = 814;
+width = 834;
 },
 {
 background = {
@@ -207,11 +207,11 @@ ref = tpartcrltGeo.comb;
 piece = {
 width = 324;
 };
-pos = (-10,0);
+pos = (10,0);
 ref = _part.stroke;
 }
 );
-width = 720;
+width = 740;
 },
 {
 background = {
@@ -272,10 +272,11 @@ ref = tpartcrltGeo.comb;
 piece = {
 width = 327;
 };
+pos = (20,0);
 ref = _part.stroke;
 }
 );
-width = 674;
+width = 694;
 },
 {
 background = {
@@ -342,10 +343,11 @@ ref = tpartcrltGeo.comb;
 piece = {
 width = 280;
 };
+pos = (20,0);
 ref = _part.stroke;
 }
 );
-width = 580;
+width = 600;
 },
 {
 background = {
@@ -421,10 +423,11 @@ ref = tpartcrltGeo.comb;
 piece = {
 width = 327;
 };
+pos = (20,0);
 ref = _part.stroke;
 }
 );
-width = 674;
+width = 694;
 },
 {
 background = {
@@ -499,10 +502,11 @@ ref = tpartcrltGeo.comb;
 piece = {
 width = 280;
 };
+pos = (20,0);
 ref = _part.stroke;
 }
 );
-width = 580;
+width = 600;
 },
 {
 background = {
@@ -626,11 +630,11 @@ ref = tpartcrltGeo.comb;
 piece = {
 width = 371;
 };
-pos = (-10,0);
+pos = (10,0);
 ref = _part.stroke;
 }
 );
-width = 814;
+width = 834;
 },
 {
 background = {
@@ -715,11 +719,11 @@ ref = tpartcrltGeo.comb;
 piece = {
 width = 324;
 };
-pos = (-10,0);
+pos = (10,0);
 ref = _part.stroke;
 }
 );
-width = 720;
+width = 740;
 }
 );
 metricLeft = t;

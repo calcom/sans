@@ -226,6 +226,7 @@ def apply_stat_and_instance_names(font: TTFont) -> tuple[int, str]:
     for nid, value in [(1, typo_family), (4, full), (6, ps), (17, default_style)]:
         for rec in [r for r in name.names if r.nameID == nid]:
             name.setName(value, nid, rec.platformID, rec.platEncID, rec.langID)
+    set_unique_id(font)
 
     # Describe every fvar axis in the DesignAxisRecord, but emit no AxisValues for
     # HIDDEN axes (e.g. YTAS in the Flex build, slaved to opsz via avar2) so they
@@ -277,6 +278,79 @@ def build_stat_and_instance_names(ttf_path: str):
     font.save(ttf_path)
     print(f"   ✅ STAT rebuilt, {renamed} fvar instance names disambiguated, "
           f"default family → \"{full}\"")
+
+
+def fold_tracking_into_advances(font: TTFont, min_coverage: int = 500) -> int:
+    """Move the opsz micro-tracking out of kern and into the advance widths. Returns the units moved.
+
+    The source tracks small sizes with stepped kern variations (VARIATIONS prefix,
+    cond_micro_*: +10/+8/+5/+3 for opsz 8–10). In the full variable font that has to
+    stay a GPOS FeatureVariation, but in a font pinned inside a band (Micro and Text
+    statics, Text UI) the instancer bakes the band into an unconditional kern lookup:
+    tracking applied by GPOS, added to combining marks, and missing every glyph the
+    stored @All class didn't list (Emma's review). In a pinned font it is one constant,
+    so it belongs in hmtx: add it to every spacing glyph's advance, LSB unchanged so no
+    outline or anchor moves, marks (zero advance) skipped, and drop the lookup.
+
+    Works on a wght-only variable font too (Text UI): HVAR/gvar advance deltas are
+    relative, so a constant added to the default advance holds at every weight.
+    Recognised as a kern SinglePos that sets XAdvance only over a large coverage —
+    pair kerning is PairPos and is never touched. Call only after opsz is pinned."""
+    if "GPOS" not in font or "hmtx" not in font:
+        return 0
+    from fontTools import subset  # noqa: F401  (adds prune_lookups to GPOS)
+    gpos = font["GPOS"].table
+    if not gpos.FeatureList or not gpos.LookupList:
+        return 0
+    tracking = {}
+    for rec in gpos.FeatureList.FeatureRecord:
+        if rec.FeatureTag != "kern":
+            continue
+        for li in rec.Feature.LookupListIndex:
+            lk = gpos.LookupList.Lookup[li]
+            subs = [s.ExtSubTable if lk.LookupType == 9 else s for s in lk.SubTable]
+            if not subs or any(getattr(s, "LookupType", lk.LookupType) != 1 or s.Format != 1
+                               or s.ValueFormat != 0x0004 for s in subs):
+                continue
+            if sum(len(s.Coverage.glyphs) for s in subs) < min_coverage:
+                continue
+            tracking[li] = subs[0].Value.XAdvance
+    if not tracking:
+        return 0
+    if len(set(tracking.values())) != 1 or len(tracking) > 1:
+        raise ValueError(f"expected one tracking lookup, found {tracking}")
+    delta = next(iter(tracking.values()))
+    hmtx = font["hmtx"]
+    for g in font.getGlyphOrder():
+        adv, lsb = hmtx[g]
+        if adv > 0:
+            hmtx[g] = (adv + delta, lsb)
+    for rec in gpos.FeatureList.FeatureRecord:
+        rec.Feature.LookupListIndex = [i for i in rec.Feature.LookupListIndex if i not in tracking]
+        rec.Feature.LookupCount = len(rec.Feature.LookupListIndex)
+    font["GPOS"].prune_lookups()
+    font["hhea"].recalc(font)
+    return delta
+
+
+def set_unique_id(font: TTFont):
+    """nameID 3 = "<version>;<vendor>;<PostScript name>", unique per font (Emma's review).
+
+    The source carries a hand-typed uniqueID custom parameter that every compiled font,
+    static and subset inherited verbatim, so all ~640 shipped files had one ID 3 and it
+    went stale whenever the version moved without the field being retyped. Derive it
+    instead, and call this wherever nameID 6 is (re)written so the two cannot disagree."""
+    name = font["name"]
+    ps = name.getDebugName(6)
+    if not ps:
+        return
+    vendor = font["OS/2"].achVendID.strip() if "OS/2" in font else ""
+    uid = f"{font['head'].fontRevision:.3f};{vendor};{ps}"
+    for rec in [r for r in name.names if r.nameID == 3] or [None]:
+        if rec is None:
+            name.setName(uid, 3, 3, 1, 0x0409)
+        else:
+            name.setName(uid, 3, rec.platformID, rec.platEncID, rec.langID)
 
 
 def prune_unused_names(font: TTFont) -> int:

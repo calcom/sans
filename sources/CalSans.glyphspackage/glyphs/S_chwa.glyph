@@ -5,6 +5,16 @@ kernLeft = O;
 kernRight = O;
 layers = (
 {
+anchors = (
+{
+name = bottom;
+pos = (804,0);
+},
+{
+name = top;
+pos = (804,1440);
+}
+);
 hints = (
 {
 horizontal = 1;
@@ -65,6 +75,16 @@ nodes = (
 width = 1608;
 },
 {
+anchors = (
+{
+name = bottom;
+pos = (810,0);
+},
+{
+name = top;
+pos = (810,1440);
+}
+);
 hints = (
 {
 horizontal = 1;
@@ -123,7 +143,7 @@ nodes = (
 (285,348,o),
 (281,652,c),
 (213,606,l),
-(1361,604,l),
+(1361,606,l),
 (1361,760,l),
 (105,760,l),
 (49,424,o),
@@ -135,6 +155,16 @@ nodes = (
 width = 1619;
 },
 {
+anchors = (
+{
+name = bottom;
+pos = (777,0);
+},
+{
+name = top;
+pos = (777,1440);
+}
+);
 background = {
 shapes = (
 {
@@ -232,6 +262,16 @@ nodes = (
 width = 1554;
 },
 {
+anchors = (
+{
+name = bottom;
+pos = (778,0);
+},
+{
+name = top;
+pos = (778,1440);
+}
+);
 hints = (
 {
 horizontal = 1;
@@ -302,6 +342,16 @@ nodes = (
 width = 1555;
 },
 {
+anchors = (
+{
+name = bottom;
+pos = (688,0);
+},
+{
+name = top;
+pos = (929,1440);
+}
+);
 background = {
 hints = (
 {
@@ -452,6 +502,16 @@ nodes = (
 width = 1555;
 },
 {
+anchors = (
+{
+name = bottom;
+pos = (692,0);
+},
+{
+name = top;
+pos = (933,1440);
+}
+);
 background = {
 hints = (
 {
@@ -619,6 +679,16 @@ nodes = (
 width = 1557;
 },
 {
+anchors = (
+{
+name = bottom;
+pos = (715,0);
+},
+{
+name = top;
+pos = (956,1440);
+}
+);
 background = {
 hints = (
 {
@@ -737,6 +807,16 @@ nodes = (
 width = 1608;
 },
 {
+anchors = (
+{
+name = bottom;
+pos = (723,0);
+},
+{
+name = top;
+pos = (964,1440);
+}
+);
 background = {
 hints = (
 {
@@ -897,7 +977,7 @@ nodes = (
 (286,346,o),
 (308,654,c),
 (228,606,l),
-(1376,604,l),
+(1376,606,l),
 (1402,760,l),
 (138,760,l),
 (68,414,o),

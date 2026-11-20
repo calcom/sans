@@ -22,10 +22,44 @@ def _format_names(names, verbose):
 
 
 def patch_smart_components(font):
-    """Diagnostic only — smart component pole mappings are defined in the source.
-    Filling in missing axes causes duplicate variation model locations, so we leave them alone."""
+    """Make each smart component's master layer one of its own poles, so every glyphsLib
+    reads the same interpolation. Pole mappings themselves come from the source; missing
+    axes are not filled in (that causes duplicate variation model locations).
+
+    Where a master's plain layer has no pole setting but other layers already cover both
+    ends of every axis (_part.stroke: '272' and '900'), glyphsLib 6.13 interpolates between
+    those layers alone, as designed, while 6.16+ also adds the plain layer as an implicit
+    maximum, collides with the explicit maximum layer and fails (calcom/sans#58). The plain
+    layer is not part of that interpolation, so it takes the maximum layer's drawing and
+    setting and the duplicate layer is dropped. In memory only; the source is untouched.
+    Measured on f, t and their ligatures: identical output under 6.13 and 6.17."""
+    import copy
     smart_glyphs = [g for g in font.glyphs if g.smartComponentAxes]
-    print(f"   Found {len(smart_glyphs)} smart component glyph(s) — no patching applied")
+    fixed = []
+    for glyph in smart_glyphs:
+        axes = [ax.name for ax in glyph.smartComponentAxes]
+        for master in font.masters:
+            base = glyph.layers[master.id]
+            if base is None or base.smartComponentPoleMapping:
+                continue
+            poles = [l for l in glyph.layers
+                     if l.associatedMasterId == master.id and l.layerId != master.id
+                     and l.smartComponentPoleMapping]
+            if not all({p.smartComponentPoleMapping.get(a) for p in poles} >= {1, 2} for a in axes):
+                continue
+            top = next((p for p in poles
+                        if all(p.smartComponentPoleMapping.get(a) == 2 for a in axes)), None)
+            if top is None:
+                continue
+            base.shapes = [s.clone() for s in top.shapes]
+            if top.anchors:
+                base.anchors = [copy.copy(a) for a in top.anchors]
+            base.width = top.width
+            base.smartComponentPoleMapping = dict(top.smartComponentPoleMapping)
+            glyph.layers.remove(top)
+            fixed.append(f"{glyph.name}/{master.name}")
+    print(f"   Found {len(smart_glyphs)} smart component glyph(s); "
+          f"master layer made a pole in {len(fixed)} layer(s)")
 
 
 def prepare_for_fontmake(font, verbose=False):
@@ -327,7 +361,7 @@ def _is_target_stylistic_set(glyph_name):
     """The .ssNN alternates are component-references to .rclt forms; after fontmake
     flattens components they lose the YTAS variation they'd otherwise inherit, so
     they need their own brace (a plain clone — the ascend re-resolves through the
-    flattened .rclt component at YTAS=1600). Target sets, per design: ss01–04 and
+    flattened .rclt component at YTAS=800). Target sets, per design: ss01–04 and
     ss07 (all members), plus ss10/ss14 LOWERCASE only — those two sets also carry
     uppercase alternates, whose accents don't move."""
     suffixes = glyph_name.split(".")[1:]
@@ -357,7 +391,7 @@ def _is_top_mark(name):
 
 
 def inject_ytas_ascend_braces(font, verbose=False):
-    """Add a YTAS=1600 brace (intermediate) layer to every targeted glyph and, on
+    """Add a YTAS=800 brace (intermediate) layer to every targeted glyph and, on
     that brace, move the `top` anchor and any above-base mark components up by
     config.YTAS_ACCENT_ASCEND_DY (with a calculated italic dx = dy·tan(angle)).
 
@@ -370,7 +404,8 @@ def inject_ytas_ascend_braces(font, verbose=False):
     axes = [a.axisTag for a in font.axes]
     ytas_i, ital_i = axes.index("YTAS"), axes.index("ital")
     ytas_top = config.STATIC_AXIS_VALUES["ytas"]["tall"]
-    ytas_extent = ytas_top - config.STATIC_AXIS_VALUES["ytas"]["base"]
+    # Axis travel (per-mille) -> font units, for the report and as a check on the DY constants.
+    ytas_extent = (ytas_top - config.STATIC_AXIS_VALUES["ytas"]["base"]) * config.YTAS_UNITS_PER_AXIS_UNIT
     dy_asc = config.YTAS_ACCENT_ASCEND_DY                 # accents on ascenders: full travel
     dy_xht = config.YTAS_ACCENT_ASCEND_DY_XHEIGHT         # accents on x-height bases: half
     tan_ital = math.tan(math.radians(config.ITALIC_SLANT_DEGREES))
