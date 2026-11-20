@@ -1,7 +1,7 @@
-# glyphsLib 6.16 and later fail on the _part.stroke smart component in f (calcom/sans#58).
-# prepare.patch_smart_components works around it; this pin stays until a full build on a
-# newer glyphsLib has been compared against 6.13.1, which built every release so far.
-glyphsLib>=6.13.1,<6.16
+# glyphsLib 6.16 and later need prepare.patch_smart_components for the _part.stroke smart
+# component in f (calcom/sans#58). A full build on 6.17.2 matches 6.13.1 in every outline,
+# variation, width, and kern (2026-11-20); only name IDs 256+ are numbered differently.
+glyphsLib>=6.17.2
 fontTools
 fontmake
 tqdm

@@ -903,7 +903,7 @@ def _follow_one(font, geom_i, name, timeline, states):
         br = _add_brace_layer(g, g.layers[m.id], m, geom_i, k, [], w, [], [], [], anchors=an)
         for c, o in zip(br.components, off):
             t = list(c.transform)
-            c.transform = type(c.transform)(t[0], t[1], t[2], t[3], o[0], o[1])
+            c.transform = (t[0], t[1], t[2], t[3], o[0], o[1])   # a tuple suits glyphsLib 6.13 and 6.17
     return worst
 
 
