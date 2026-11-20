@@ -30,6 +30,8 @@ font-optical-sizing: auto;
 
 That's the whole integration. The font handles the rest.
 
+Using a bundler like Next.js? See [Using Cal Sans with the Next.js App Router](documentation/nextjs.md) for a `next/font/local` + Tailwind setup.
+
 ### Upgrading from v1
 
 v1 was a single style. To keep that look in v2:
